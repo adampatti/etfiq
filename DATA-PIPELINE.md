@@ -131,3 +131,5 @@ The three answers on the buffer desk are not all the same kind of number:
 ## Being found (2026-09-05)
 
 `pipeline/prerender.py` writes the static pages, sitemap, robots.txt and llms.txt; `pipeline/indexnow.py` pushes every sitemap URL to IndexNow (Bing, Yandex, Naver, Seznam) after each deploy, with the key served from the site root. Google takes no push: submit the sitemap in Search Console. Cash sources come from `pipeline/sources.py`: YieldMax, Global X, NEOS, Defiance, Kurv, REX and GraniteShares are parsed; Roundhill, Amplify and JPMorgan do not expose notices in static HTML and are not captured.
+
+Daily issuer books (2026-09-05, themes phase two, first step): ARK's six funds come from the issuer's daily CSV and First Trust's thematic funds from its holdings pages, refreshed on the weekly holdings run ahead of N-PORT; every other fund stays on its latest N-PORT filing. Cards say which date the book carries. Global X, iShares, Invesco and VanEck serve holdings only through JavaScript or bot-protected endpoints and are not captured daily.

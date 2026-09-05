@@ -169,6 +169,90 @@ def index_holdings(which):
     return out
 
 
+ARK_FILES = {'ARKK': 'ARK_INNOVATION_ETF_ARKK_HOLDINGS', 'ARKW': 'ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS', 'ARKG': 'ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS',
+             'ARKF': 'ARK_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS', 'ARKQ': 'ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS', 'ARKX': 'ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS'}
+
+
+def first_trust_daily(ticker):
+    """First Trust publishes each fund's holdings as an HTML table, refreshed daily."""
+    raw = get(f'https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker={ticker}', headers={'User-Agent': BROWSER}).decode('utf-8', errors='replace')
+    import html as htmlmod
+    rows, asof = [], None
+    m = re.search(r'as of\s+(\d{1,2}/\d{1,2}/\d{4})', raw, re.I)
+    if m:
+        asof = m.group(1)
+    for tb in re.findall(r'<table[^>]*>(.*?)</table>', raw, re.S):
+        trs = re.findall(r'<tr[^>]*>(.*?)</tr>', tb, re.S)
+        cells = [[htmlmod.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S)] for tr in trs]
+        if not cells or 'Weighting' not in cells[0]:
+            continue
+        hdr = cells[0]
+        iw, iname, iid, icusip = hdr.index('Weighting'), hdr.index('Security Name'), hdr.index('Identifier') if 'Identifier' in hdr else -1, hdr.index('CUSIP') if 'CUSIP' in hdr else -1
+        for c in cells[1:]:
+            if len(c) <= iw:
+                continue
+            try:
+                w = float(c[iw].replace('%', '').replace(',', ''))
+            except ValueError:
+                continue
+            if w <= 0 or not c[iname]:
+                continue
+            rows.append({'name': c[iname], 'cusip': (c[icusip] if icusip >= 0 else '').strip(), 'isin': '', 'ticker': (c[iid] if iid >= 0 else '').strip().upper(), 'weight': w, 'cat': 'EC', 'country': ''})
+        break
+    return rows, asof
+
+
+def issuer_daily(ticker, issuer=None):
+    """Daily holdings straight from the issuer where a stable file exists (ARK and First Trust today). Returns (info, holdings) or (None, [])."""
+    if ticker not in ARK_FILES and issuer != 'First Trust':
+        return None, []
+    p = CACHE / f'daily-{ticker}-{TODAY.isoformat()}.json'
+    if p.exists():
+        d = json.loads(p.read_text())
+        return d['info'], d['holdings']
+    rows, asof = [], None
+    try:
+        if issuer == 'First Trust' and ticker not in ARK_FILES:
+            rows, asof = first_trust_daily(ticker)
+            src = f'https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker={ticker}'
+        else:
+            raw = get(f'https://assets.ark-funds.com/fund-documents/funds-etf-csv/{urllib.parse.quote(ARK_FILES[ticker])}.csv', headers={'User-Agent': BROWSER}).decode('utf-8-sig', errors='replace')
+            src = 'https://ark-funds.com/'
+            rows, asof = ark_rows(raw)
+    except Exception as e:
+        print(f'  daily {ticker}: {str(e)[:80]}', file=sys.stderr)
+        return None, []
+    if len(rows) < 5:
+        return None, []
+    rows.sort(key=lambda h: -h['weight'])
+    try:
+        asof = datetime.datetime.strptime(asof, '%m/%d/%Y').date().isoformat()
+    except Exception:
+        asof = TODAY.isoformat()
+    info = {'seriesId': '', 'period': asof, 'netAssets': None, 'filed': asof, 'source': src, 'daily': True}
+    CACHE.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({'info': info, 'holdings': rows}))
+    return info, rows
+
+
+def ark_rows(raw):
+    rows, asof = [], None
+    for r in csv.DictReader(io.StringIO(raw)):
+        w = (r.get('weight (%)') or '').replace('%', '').strip()
+        name = (r.get('company') or '').strip()
+        if not name or not w:
+            continue
+        try:
+            w = float(w)
+        except ValueError:
+            continue
+        if w <= 0:
+            continue
+        asof = asof or r.get('date')
+        rows.append({'name': name, 'cusip': (r.get('cusip') or '').strip(), 'isin': '', 'ticker': (r.get('ticker') or '').strip().upper(), 'weight': w, 'cat': 'EC', 'country': ''})
+    return rows, asof
+
+
 def norm_name(n):
     n = re.sub(r'[^a-z0-9 ]', ' ', (n or '').lower())
     n = re.sub(r'\b(inc|corp|corporation|co|ltd|plc|sa|ag|nv|se|class [abc]|cl [abc]|common|stock|shares?|ordinary|adr|holdings?|group|the|reg|registered)\b', ' ', n)

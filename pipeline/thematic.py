@@ -48,7 +48,7 @@ def build():
     prev_by = {r['ticker']: r for r in prev.get('funds', [])}
     refresh = os.environ.get('HOLDINGS_REFRESH') == '1' or TODAY.weekday() == 5 or not prev_by
     print(f"  holdings: {'refreshing from EDGAR' if refresh else 'carried forward from the last run'}", file=sys.stderr)
-    HOLD_KEYS = ('holdingsAsOf', 'holdingsFiled', 'holdingsSource', 'holdingsCount', 'top10Weight', 'assets', 'top', 'vsSPY', 'vsQQQ', 'peers')
+    HOLD_KEYS = ('holdingsAsOf', 'holdingsFiled', 'holdingsSource', 'holdingsDaily', 'holdingsCount', 'top10Weight', 'assets', 'top', 'vsSPY', 'vsQQQ', 'peers')
     fees_path = ROOT / 'data' / 'fees.json'
     fees = json.loads(fees_path.read_text()) if fees_path.exists() else {}
     spy = H.index_holdings('SPY') if refresh else None
@@ -87,15 +87,21 @@ def build():
         dd, hi_date = drawdown(rows)
         rec.update({'asOf': end['date'], 'price': end['close'], 'inception': s['date'], 'daysSinceInception': itd['days'], 'windows': wins, 'drawdown': dd, 'highDate': hi_date})
         # holdings and overlap
-        info, h = H.fund_holdings(u.get('seriesId') or '', u['name']) if refresh else (None, [])
+        info, h = (None, [])
+        if refresh:
+            info, h = H.issuer_daily(u['ticker'], u.get('issuer'))  # the issuer's own daily file where one exists
+            if not h:
+                info, h = H.fund_holdings(u.get('seriesId') or '', u['name'])
         if not h and u['ticker'] in prev_by and prev_by[u['ticker']].get('vsSPY'):
             rec.update({k: prev_by[u['ticker']].get(k) for k in HOLD_KEYS})
             out.append(rec)
             continue
+        if h and info.get('netAssets') is None and u['ticker'] in prev_by:
+            info['netAssets'] = prev_by[u['ticker']].get('assets')
         if h:
             tot = sum(x['weight'] for x in h) or 1.0
             top = h[:10]
-            rec.update({'holdingsAsOf': info.get('period'), 'holdingsFiled': info.get('filed'), 'holdingsSource': info.get('source'), 'holdingsCount': len(h),
+            rec.update({'holdingsAsOf': info.get('period'), 'holdingsFiled': info.get('filed'), 'holdingsSource': info.get('source'), 'holdingsDaily': bool(info.get('daily')), 'holdingsCount': len(h),
                         'top10Weight': round(sum(x['weight'] for x in top) / tot * 100, 1), 'assets': info.get('netAssets'),
                         'top': [{'t': x['ticker'], 'n': x['name'][:48], 'w': round(x['weight'] / tot * 100, 2)} for x in top],
                         'vsSPY': H.overlap(h, spy['holdings']), 'vsQQQ': H.overlap(h, qqq['holdings'])})
