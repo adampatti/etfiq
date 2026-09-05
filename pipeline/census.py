@@ -896,7 +896,8 @@ def stage_embeds():
 
 def stage_docs():
     """The static explainer, standards and hub pages exist and carry what they claim."""
-    want = ['standards/index.html', 'learn/index.html', 'learn/buffer.html', 'learn/income.html', 'learn/themes.html', 'changed/index.html', 'issuers/index.html']
+    want = ['standards/index.html', 'learn/index.html', 'learn/buffer.html', 'learn/income.html', 'learn/themes.html', 'changed/index.html', 'issuers/index.html',
+            'data/index.html', 'privacy/index.html', 'terms/index.html', 'contact/index.html', '404.html', 'statistics/index.html', 'questions/index.html', 'core/index.html']
     n = 0
     for rel in want:
         p = ROOT / 'site' / rel
@@ -905,8 +906,9 @@ def stage_docs():
             continue
         n += 1
         body = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', re.sub(r'<style[^>]*>.*?</style>|<script[^>]*>.*?</script>', ' ', p.read_text(), flags=re.S))))
-        if len(body) < 900:
-            note('docs', rel, 'length', len(body), '>900', 'page looks empty')
+        floor = 500 if rel in ('404.html', 'questions/index.html', 'learn/index.html') else 900  # navigation pages are short by design
+        if len(body) < floor:
+            note('docs', rel, 'length', len(body), f'>{floor}', 'page looks empty')
         if 'standards' in rel and 'independent publisher' not in body:
             note('docs', rel, 'independence', None, None, 'the independence statement is missing')
         if rel.startswith('learn/') and rel != 'learn/index.html' and body.count('.') < 20:
@@ -936,6 +938,34 @@ def stage_docs():
         for t in set(re.findall(r'/funds/([A-Z0-9.]+)\.html', p.read_text())):
             if t not in themes:
                 note('docs', p.name, 'fund', t, None, 'listed on a theme hub but not on the themes desk')
+    # the statistics page repeats counts that must match the desk files
+    st = ROOT / 'site' / 'statistics' / 'index.html'
+    if st.exists():
+        body = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', st.read_text())))
+        income = load('site/data/income.json') or []
+        th = (load('site/data/thematic.json') or {}).get('funds', [])
+        for label, val in (('buffer funds', len(funds)), ('income funds', len(income)), ('thematic funds', len(th))):
+            if f' {val} ' not in body:
+                note('docs', 'statistics', label, val, None, 'count not printed on the statistics page')
+        capped = sum(1 for f in (load('site/data/funds.json') or []) if f.get('startCap') is not None and f.get('refReturn') is not None and f['refReturn'] >= f['startCap'])
+        if f' {capped} ' not in body:
+            note('docs', 'statistics', 'at their cap', capped, None, 'count not printed on the statistics page')
+        n += 1
+    # every core fund page carries its own figures
+    core = {r['ticker']: r for r in (load('site/data/core.json') or [])}
+    import random as _r
+    _r.seed(31)
+    for t in _r.sample(sorted(core), min(10, len(core))) if core else []:
+        p = ROOT / 'site' / 'funds' / f'{t}.html'
+        if not p.exists():
+            continue
+        n += 1
+        body = page_text(p)
+        r = core[t]
+        w = (r.get('windows') or {}).get('1Y') or {}
+        for label, val, d in (('1Y total', w.get('total'), 1), ('expense ratio', r.get('expenseRatio'), 2)):
+            if not shows(body, val, d):
+                note('docs', t, label, val, None, 'figure not on the core fund page')
     tally('docs', n)
 
 

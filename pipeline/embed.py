@@ -13,6 +13,9 @@ import datetime
 import html
 import json
 import pathlib
+import sys
+
+RASTER = None
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
@@ -24,6 +27,7 @@ FONT = "Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
 DESK_LABEL = {'buffer': 'buffer desk', 'income': 'income desk', 'themes': 'themes desk'}
 MONO = "'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace"
 W, H = 640, 208
+OG_W, OG_H = 1200, 630
 
 
 def load(p, default):
@@ -107,14 +111,14 @@ def band_svg(f, as_of):
     gain = 'uncapped' if cap is None else pct(f.get('remainingCapFund'), sign=False)
     left_txt = 'full floor' if is_floor else pct(round(sb - used, 2), sign=False)
     sub = f"Can still gain {gain} · fall before buffer {pct(f.get('downsideBeforeBuffer'), sign=False)} · protection left {left_txt}"
-    return shell(f['ticker'], f['name'], sub, s, as_of, 'buffer')
+    return shell(f['ticker'], f['name'], sub, s, as_of, 'buffer'), social_card(f['ticker'], f['name'], sub, s, as_of, 'buffer')
 
 
 def paybar_svg(r, as_of):
     pad, y, bh, gap = 20, 66, 15, 6
     w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD')
     if not w:
-        return None
+        return None, None
     vals = [w['cash'], w['price'], w['total'], w.get('bench') or 0, 0]
     lo, hi = min(vals) - 4, max(vals) + 6
     span = (hi - lo) or 1
@@ -136,14 +140,14 @@ def paybar_svg(r, as_of):
     side = 'ahead by' if (w.get('gap') or 0) > 0.5 else 'behind by' if (w.get('gap') or 0) < -0.5 else 'even with'
     g = f"{side} {abs(w['gap']):.1f} pts" if w.get('gap') is not None else 'no benchmark'
     sub = f"Paid {pct(w['cash'], sign=False)}, price {pct(w['price'])}, {g} vs {r['benchmark']} {win}"
-    return shell(r['ticker'], r['name'], sub, s, as_of, 'income')
+    return shell(r['ticker'], r['name'], sub, s, as_of, 'income'), social_card(r['ticker'], r['name'], sub, s, as_of, 'income')
 
 
 def diffbar_svg(r, as_of):
     pad, y, bh, gap = 20, 74, 16, 8
     v = r.get('vsSPY')
     if not v:
-        return None
+        return None, None
     full = W - 2 * pad
     ins = v['inIndex'] / 100 * full
     s = f'<rect x="{pad}" y="{y}" width="{full:.1f}" height="{bh}" rx="3" fill="{VIOLET_SOFT}"/>'
@@ -158,30 +162,70 @@ def diffbar_svg(r, as_of):
     w = (r.get('windows') or {}).get('1Y')
     perf = f", 1 year {pct(w['total'])}" if w else ''
     sub = f"{v['inIndex']:.0f}% index names, active share {v['activeShare']:.0f}%{perf}"
-    return shell(r['ticker'], r['name'], sub, s, as_of, 'themes')
+    return shell(r['ticker'], r['name'], sub, s, as_of, 'themes'), social_card(r['ticker'], r['name'], sub, s, as_of, 'themes')
+
+
+def social_card(ticker, name, sub, inner, as_of, desk):
+    """The same card at link-preview size, so a shared fund page shows its own numbers."""
+    scale = 1.6
+    body = f'<g transform="translate({(OG_W - W * scale) / 2:.1f} {(OG_H - H * scale) / 2 + 40:.1f}) scale({scale})">{inner}</g>'
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {OG_W} {OG_H}" width="{OG_W}" height="{OG_H}" role="img" aria-label="{esc(ticker)}: {esc(sub)}">
+<rect width="{OG_W}" height="{OG_H}" fill="#0F1419"/>
+<rect x="{(OG_W - W * scale) / 2:.1f}" y="{(OG_H - H * scale) / 2 + 40:.1f}" width="{W * scale:.1f}" height="{H * scale:.1f}" rx="16" fill="{SURFACE}"/>
+{body}
+{txt(OG_W / 2, 92, ticker, 54, "#F2F4F7", 800, anchor="middle", mono=True, ls=-1.5)}
+{txt(OG_W / 2, 122, name[:64], 19, "#8A93A0", 500, anchor="middle")}
+{txt(OG_W / 2, OG_H - 44, f"ETFIQ · {DESK_LABEL.get(desk, desk)} · data as of {fdate(as_of)} · etfiq.com", 18, "#8A93A0", 500, anchor="middle")}
+</svg>'''
+
+
+def raster(svg, path):
+    """A PNG of the social card, because link previews reject SVG. Needs cairosvg; without it the page falls back
+    to the site image, so a machine that cannot rasterise still builds a correct site."""
+    global RASTER
+    if RASTER is False:
+        return 0
+    try:
+        import cairosvg
+    except Exception:
+        RASTER = False
+        print('embed: no cairosvg, social PNGs skipped', file=sys.stderr)
+        return 0
+    try:
+        cairosvg.svg2png(bytestring=svg.encode(), write_to=str(path), output_width=OG_W, output_height=OG_H)
+        return 1
+    except Exception as e:
+        RASTER = False
+        print(f'embed: rasteriser failed, social PNGs skipped ({str(e)[:80]})', file=sys.stderr)
+        return 0
 
 
 def build():
     meta, imeta, tmeta = load('site/data/meta.json', {}), load('site/data/income_meta.json', {}), load('site/data/thematic_meta.json', {})
     today = datetime.date.today().isoformat()
     made = {}
+    png = 0
     for desk, path, as_of, fn in (('buffer', 'site/data/funds.json', meta.get('asOf', today), band_svg),
                                   ('income', 'site/data/income.json', imeta.get('asOf', today), paybar_svg),
                                   ('themes', 'site/data/thematic.json', tmeta.get('asOf', today), diffbar_svg)):
         data = load(path, [])
         rows = data['funds'] if isinstance(data, dict) else data
         d = OUT / desk
+        s_dir = OUT / 'social' / desk
         d.mkdir(parents=True, exist_ok=True)
-        for old in d.glob('*.svg'):
+        s_dir.mkdir(parents=True, exist_ok=True)
+        for old in list(d.glob('*.svg')) + list(s_dir.glob('*.svg')) + list(s_dir.glob('*.png')):
             old.unlink()
         n = 0
         for r in rows:
-            svg = fn(r, as_of)
+            svg, social = fn(r, as_of)
             if svg:
                 (d / f"{r['ticker']}.svg").write_text(svg)
+                (s_dir / f"{r['ticker']}.svg").write_text(social)
+                png += raster(social, s_dir / f"{r['ticker']}.png")
                 n += 1
         made[desk] = n
-    print(json.dumps({'embeds': made, 'total': sum(made.values())}, indent=1))
+    print(json.dumps({'embeds': made, 'total': sum(made.values()), 'socialPng': png}, indent=1))
     return made
 
 

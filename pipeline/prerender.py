@@ -302,7 +302,7 @@ def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wid
 <body>{R.rail(desk or '')}<main class="doc{' wide' if wide else ''}">
 {crumb_html([('ETFIQ', BASE + '/')] + (crumb or []) + [(short or (title if len(title) < 40 else title[:38] + '...'), url)])}
 {inner}
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a><a href="/learn/">Learn</a><a href="/data/">Open data</a><a href="/standards/">Standards</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav></footer></body></html>"""
+</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/core/">Core funds</a><a href="/research/">Research</a><a href="/questions/">Questions</a><a href="/learn/">Learn</a><a href="/statistics/">Statistics</a><a href="/data/">Open data</a><a href="/standards/">Standards</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav></footer></body></html>"""
 
 
 LEARN = {'buffer': ('Reading a buffer ETF: the vocabulary in plain words', 'What the band, the cap, the buffer, protection left and the outcome period mean on a defined outcome ETF, defined one at a time.'),
@@ -336,6 +336,241 @@ def standards_page():
     return doc_page('standards/', 'Standards, ownership and sources',
                     'Who publishes ETFIQ, what it publishes, what it never does, and where every figure on the site comes from.',
                     inner + '<h2>Read more</h2><nav class="rel"><a href="/learn/">Learn the vocabulary</a><a href="/research/">ETFIQ Research</a><a href="/llms.txt">llms.txt</a></nav>')
+
+
+# ---------------------------------------------------------------- question pages and the statistics page
+Q_TITLES = []
+
+
+def q_page(slug, question, desk, answer, detail, examples, as_of, related):
+    Q_TITLES.append((slug, question))
+    """One page per question people actually type, answered first in a sentence, then shown with live figures."""
+    url = f'{BASE}/questions/{slug}.html'
+    faq_html, faq_ld = faq_block([(question, answer)])
+    ex = ''
+    if examples:
+        ex = ('<h2>On the desk today</h2><div style="overflow-x:auto"><table class="hub"><thead><tr>'
+              + ''.join(f'<th>{h}</th>' for h in examples[0]) + '</tr></thead><tbody>'
+              + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in row) + '</tr>' for row in examples[1:])
+              + '</tbody></table></div>')
+    inner = (f'<p class="note">Answered from ETFIQ data as of {fdate(as_of)}.</p>'
+             f'<h1>{esc(question)}</h1>'
+             f'<p class="lede">{esc(answer)}</p>'
+             + ''.join(f'<p>{d}</p>' for d in detail)
+             + ex
+             + f'<h2>Read more</h2><nav class="rel">{related}</nav>'
+             + '<p class="note">ETFIQ is an independent publisher of exchange-traded fund data and makes no recommendations. '
+               'Every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
+    return slug, doc_page(f'questions/{slug}.html', question, answer[:300], inner, faq_ld,
+                          desk=desk, crumb=[('Questions', f'{BASE}/questions/')], short=question if len(question) < 42 else question[:40] + '...')
+
+
+def question_pages(funds, income, themes, core, as_b, as_i, as_t):
+    Q_TITLES.clear()
+    out = []
+    n_at_cap = sum(1 for f in funds if f.get('startCap') is not None and f.get('refReturn') is not None and f['refReturn'] >= f['startCap'])
+    idx = [r for r in income if (r.get('benchmarkKind') or '') != 'stock' and ((r.get('windows') or {}).get('1Y') or {}).get('gap') is not None]
+    ahead = sum(1 for r in idx if r['windows']['1Y']['gap'] > 0.5)
+    ins = sorted((r['vsSPY']['inIndex'] for r in themes if r.get('vsSPY')))
+    med_in = ins[len(ins) // 2] if ins else None
+    fees = sorted(r['expenseRatio'] for r in income if r.get('expenseRatio') is not None)
+    med_fee = fees[len(fees) // 2] if fees else None
+    roc = sorted(r['src']['latest']['roc'] for r in income if (r.get('src') or {}).get('latest', {}).get('roc') is not None) if any('src' in r for r in income) else []
+    top_cash = sorted((r for r in income if ((r.get('windows') or {}).get('1Y') or {}).get('cash') is not None), key=lambda r: -r['windows']['1Y']['cash'])[:8]
+    soon = sorted((f for f in funds if (f.get('daysRemaining') or 999) <= 45), key=lambda f: f.get('daysRemaining') or 999)[:8]
+    diff = sorted((r for r in themes if r.get('vsSPY')), key=lambda r: -r['vsSPY']['activeShare'])[:8]
+
+    out.append(q_page('what-is-a-buffer-etf', 'What is a buffer ETF?', 'buffer',
+        f'A buffer ETF, also called a defined outcome ETF, absorbs a stated range of an index\'s losses over a set period in exchange for a ceiling on the gain. ETFIQ tracks {len(funds)} of them, and on {fdate(as_b)}, {n_at_cap} had already reached that ceiling.',
+        ['The fund buys options on a reference index, usually the S&P 500 through SPY, that pay off in a shape decided on the first day of the period. A typical fund absorbs the first 9 or 15 percent of index losses and caps the gain somewhere above 10 percent. Both numbers are struck from option prices on day one, so the same fund carries a different cap each year.',
+         'Two things surprise buyers. The protection applies over the whole outcome period, not day to day, so a fund bought halfway through has different terms than the ones advertised on the first day. And once the index has risen past the cap, there is no more upside to collect however far it climbs; the fund is waiting for the reset.',
+         'ETFIQ places every fund on one band from its buffer floor to its cap, so funds from different issuers can be read the same way. <a href="/learn/buffer.html">The vocabulary is here</a>.'],
+        [['Ticker', 'Fund', 'Buffer', 'Can still gain', 'Fall before buffer', 'Period ends']] +
+        [[f'<a href="/funds/{f["ticker"]}.html" class="tk">{f["ticker"]}</a>', esc(f['name']), esc(f.get('bufferLabel', '')),
+          'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False), pct(f.get('downsideBeforeBuffer'), sign=False), fdate(f['periodEnd'])] for f in soon],
+        as_b, '<a href="/buffer/">Every buffer ETF</a><a href="/learn/buffer.html">The vocabulary</a><a href="/questions/how-does-a-buffer-etf-reset.html">How a buffer resets</a>'))
+
+    out.append(q_page('how-does-a-buffer-etf-reset', 'How does a buffer ETF reset?', 'buffer',
+        f'On the last day of its outcome period the options expire, and the next day the fund strikes a new cap from that day\'s option prices while the buffer starts again from zero. ETFIQ tracks {len(funds)} buffer ETFs, and {len(soon)} of the ones shown here reset within 45 days of {fdate(as_b)}.',
+        ['A fund carries its freshest cap in the days after it resets, and its least remaining room just before. That is why the same ticker can look generous in January and exhausted in November.',
+         'The buffer resets too. A fund whose index fell during the period, using part of the buffer, starts the next period with the whole buffer intact and a cap struck at the new level.',
+         'Because caps are set by the option market, they move with volatility. A calm market produces lower caps; a nervous one produces higher caps for the same buffer.'],
+        [['Ticker', 'Fund', 'Period ends', 'Days left', 'Buffer', 'State']] +
+        [[f'<a href="/funds/{f["ticker"]}.html" class="tk">{f["ticker"]}</a>', esc(f['name']), fdate(f['periodEnd']), str(f.get('daysRemaining')), esc(f.get('bufferLabel', '')), STATE_LABEL[buffer_state(f)]] for f in soon],
+        as_b, '<a href="/buffer/">Every buffer ETF</a><a href="/questions/what-is-a-buffer-etf.html">What a buffer ETF is</a><a href="/browse/">Browse by reset month</a>'))
+
+    out.append(q_page('what-is-return-of-capital', 'What is return of capital in an ETF distribution?', 'income',
+        'Return of capital is the part of a distribution that is not income or realised gains, so it comes back out of the fund\'s own assets and is not taxed as income in the year it is paid. It lowers the cost basis instead.'
+        + (f' Across the funds ETFIQ tracks, the median latest estimate is {roc[len(roc) // 2]:.0f}% of the distribution.' if roc else ''),
+        ['Issuers estimate the split on a Rule 19a-1 notice with each distribution, and the estimate is not final until the tax year closes. ETFIQ shows the issuer\'s own figure and never a computed one.',
+         'A high return of capital figure is not automatically a warning. A fund that writes options can generate cash that is characterised as return of capital even while the total return is healthy. What matters is whether the fund earned what it paid, which the price change beside the cash tells you.',
+         'That is why ETFIQ always shows return of capital next to the price change over the same period rather than on its own.'],
+        [['Ticker', 'Fund', 'Cash paid 1Y', 'Price 1Y', 'Total return 1Y', 'Return of capital, latest']] +
+        [[f'<a href="/funds/{r["ticker"]}.html" class="tk">{r["ticker"]}</a>', esc(r['name']),
+          pct(r['windows']['1Y']['cash'], sign=False), pct(r['windows']['1Y']['price']), pct(r['windows']['1Y']['total']),
+          pct(((r.get('src') or {}).get('latest') or {}).get('roc'), sign=False, d=0)] for r in top_cash],
+        as_i, '<a href="/income/">Every income ETF</a><a href="/learn/income.html">The vocabulary</a><a href="/questions/do-covered-call-etfs-lose-value.html">Do covered call ETFs lose value?</a>'))
+
+    out.append(q_page('do-covered-call-etfs-lose-value', 'Do covered call ETFs lose value?', 'income',
+        f'Many do lose price while paying cash, which is not the same as losing money. Over the year to {fdate(as_i)}, {ahead} of {len(idx)} index option-income ETFs finished ahead of the index they write options on once every distribution was counted and reinvested.',
+        ['A covered call fund sells away part of the upside, so in a rising market it usually trails the index. The cash it pays can exceed what it earns, and when it does the price falls to fund the difference.',
+         'The honest test is total return with distributions reinvested, measured against the index or stock the fund actually writes options on, which is what ETFIQ publishes for every fund over five windows.',
+         'A fund paying 40 percent a year while its price falls 30 percent has not necessarily hurt you, and a fund paying 8 percent while flat has not necessarily helped. The gap to the benchmark settles it.'],
+        [['Ticker', 'Fund', 'Cash paid 1Y', 'Price 1Y', 'Total return 1Y', 'vs benchmark']] +
+        [[f'<a href="/funds/{r["ticker"]}.html" class="tk">{r["ticker"]}</a>', esc(r['name']),
+          pct(r['windows']['1Y']['cash'], sign=False), pct(r['windows']['1Y']['price']), pct(r['windows']['1Y']['total']), pts(r['windows']['1Y'].get('gap'))] for r in top_cash],
+        as_i, '<a href="/income/">Every income ETF</a><a href="/questions/what-is-return-of-capital.html">What return of capital means</a><a href="/compare/">Head to head</a>'))
+
+    out.append(q_page('what-is-active-share', 'What is active share, and what does it tell you about an ETF?', 'themes',
+        f'Active share is the share of a fund that is not the index, by weight. A fund at 85% active share has 15% of its money in index names at index weights. Across the thematic ETFs ETFIQ tracks, the typical fund holds {med_in:.0f}% of its weight in stocks the S&P 500 already owns.' if med_in is not None else 'Active share is the share of a fund that is not the index, by weight.',
+        ['ETFIQ computes it from each fund\'s latest filed holdings against the S&P 500 book, matching securities on CUSIP, then ISIN, then ticker, then a normalised name. Overlap is the sum of the smaller weight of every security the two hold in common, and active share is one hundred minus that.',
+         'The number matters because a thematic fund is usually bought for the part that is different. If most of the fund is index names you already own, the theme is a smaller bet than the name suggests, and the fee is being paid on the whole fund rather than on the differing part.',
+         'ETFIQ also shows what that works out to: the fee divided by the share that differs, which is the price of the active decision.'],
+        [['Ticker', 'Fund', 'Theme', 'In the S&P 500', 'Active share', 'Fee', 'Fee for the differing part']] +
+        [[f'<a href="/funds/{r["ticker"]}.html" class="tk">{r["ticker"]}</a>', esc(r['name']), esc(r['themeName']),
+          pct(r['vsSPY']['inIndex'], sign=False), pct(r['vsSPY']['activeShare'], sign=False),
+          pct(r.get('expenseRatio'), sign=False, d=2), pct(r.get('activeFee'), sign=False, d=2)] for r in diff],
+        as_t, '<a href="/themes/">Every thematic ETF</a><a href="/learn/themes.html">The vocabulary</a><a href="/questions/are-thematic-etfs-worth-it.html">Are thematic ETFs different from the index?</a>'))
+
+    out.append(q_page('are-thematic-etfs-worth-it', 'How different is a thematic ETF from the index?', 'themes',
+        f'Less different than the name suggests, on average. By their latest holdings filings, the typical thematic ETF ETFIQ tracks carries {med_in:.0f}% of its weight in stocks the S&P 500 already holds.' if med_in is not None else 'ETFIQ measures every thematic ETF against the S&P 500 book by holdings.',
+        ['A theme is a story about the future; the holdings are what you own. The two can differ a great deal, because an index provider building a themed index still has to find liquid, investable companies, and the largest of those are usually already in the S&P 500.',
+         'ETFIQ measures the overlap for every fund and also between funds, so two funds in the same theme can be checked against each other. Some pairs share more than half their book at the same weights.',
+         'None of this says a theme is good or bad. It says how much of it you did not already own.'],
+        [['Ticker', 'Fund', 'Theme', 'In the S&P 500', 'Active share', 'Total return 1Y', 'vs S&P 500']] +
+        [[f'<a href="/funds/{r["ticker"]}.html" class="tk">{r["ticker"]}</a>', esc(r['name']), esc(r['themeName']),
+          pct(r['vsSPY']['inIndex'], sign=False), pct(r['vsSPY']['activeShare'], sign=False),
+          pct(((r.get('windows') or {}).get('1Y') or {}).get('total')), pts(((r.get('windows') or {}).get('1Y') or {}).get('gap'))] for r in diff],
+        as_t, '<a href="/themes/">Every thematic ETF</a><a href="/questions/what-is-active-share.html">What active share means</a><a href="/browse/">Browse by theme</a>'))
+
+    out.append(q_page('how-much-do-etfs-cost', 'How much do these ETFs cost?', 'income',
+        f'The median option-income ETF ETFIQ tracks charges {med_fee:.2f}% a year, taken from each fund\'s own prospectus.' if med_fee is not None else 'Fees come from each fund\'s prospectus.',
+        ['Fees on these funds sit well above a plain index fund, which charges three to twenty basis points. The question is what the extra buys, and ETFIQ shows that alongside: the cash a fund paid, whether it beat what it writes options on, and for thematic funds how much of the portfolio actually differs from the index.',
+         'ETFIQ reads every fee from the risk and return data filed as XBRL with the fund\'s prospectus rather than from a marketing page, so a fee here matches the fee in the document that governs the fund.'],
+        None, as_i, '<a href="/income/">Every income ETF</a><a href="/core/">Core index funds for comparison</a><a href="/data/">The underlying data</a>'))
+    return out
+
+
+def questions_index(qs, as_of):
+    links = ''.join(f'<a href="/questions/{slug}.html"><b>{esc(q)}</b></a>' for slug, q in qs)
+    inner = ('<h1>Questions</h1><p class="lede">The questions people ask about these funds, answered from the data on the desks and rebuilt every trading night.</p>'
+             f'<nav class="list">{links}</nav>'
+             '<p class="note">Every answer is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
+    return doc_page('questions/', 'Questions about buffer, income and thematic ETFs',
+                    'Plain answers to the questions people ask about defined outcome, option-income and thematic ETFs, from live data.', inner, short='Questions')
+
+
+def stats_page(funds, income, themes, core, as_b, as_i, as_t, extra):
+    url = f'{BASE}/statistics/'
+    lines = []
+    n_cap = sum(1 for f in funds if f.get('startCap') is not None and f.get('refReturn') is not None and f['refReturn'] >= f['startCap'])
+    idx = [r for r in income if (r.get('benchmarkKind') or '') != 'stock' and ((r.get('windows') or {}).get('1Y') or {}).get('gap') is not None]
+    ahead = sum(1 for r in idx if r['windows']['1Y']['gap'] > 0.5)
+    gaps = sorted(r['windows']['1Y']['gap'] for r in idx)
+    cash = sorted(r['windows']['1Y']['cash'] for r in idx)
+    ins = sorted(r['vsSPY']['inIndex'] for r in themes if r.get('vsSPY'))
+    med = lambda xs: xs[len(xs) // 2] if xs else None
+    lines.append((f'Buffer ETFs covered, {fdate(as_b)}', str(len(funds)), f'{len(set(f["issuer"] for f in funds))} issuers'))
+    lines.append(('Buffer ETFs at their cap', str(n_cap), f'{n_cap / len(funds) * 100:.0f}% of the desk' if funds else ''))
+    lines.append(('Buffer ETFs resetting within 45 days', str(sum(1 for f in funds if (f.get('daysRemaining') or 999) <= 45)), 'a new cap is struck the next day'))
+    lines.append((f'Option-income ETFs covered, {fdate(as_i)}', str(len(income)), f'{len(set(r["issuer"] for r in income))} issuers'))
+    lines.append(('Index income ETFs ahead of their benchmark over one year', f'{ahead} of {len(idx)}', 'total return with distributions reinvested'))
+    lines.append(('Median gap to the benchmark, index income ETFs', pts(med(gaps)), 'one year'))
+    lines.append(('Median cash paid, index income ETFs', pct(med(cash), sign=False), 'one year, as a percent of the starting price'))
+    lines.append((f'Thematic ETFs covered, {fdate(as_t)}', str(len(themes)), '27 themes'))
+    lines.append(('Weight of the typical thematic ETF already in the S&P 500', pct(med(ins), sign=False), 'by its latest holdings filing'))
+    lines.append(('Core index, bond and commodity funds covered', str(len(core)), 'the funds the desks measure against'))
+    rows = ''.join(f'<tr><th>{esc(a)}</th><td class="num"><b>{esc(b)}</b></td><td class="muted">{esc(c)}</td></tr>' for a, b, c in lines)
+    ld = [{'@type': 'Dataset', 'name': 'ETFIQ statistics', 'description': 'Category-level statistics on buffer, option-income and thematic ETFs, recomputed every trading night.',
+           'url': url, 'dateModified': max(as_b, as_i, as_t), 'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE},
+           'license': f'{BASE}/data/', 'isAccessibleForFree': True, 'creditText': 'ETFIQ (etfiq.com)'}]
+    inner = (f'<p class="note">Recomputed every trading night. Figures as of {fdate(max(as_b, as_i, as_t))}.</p>'
+             '<h1>ETF statistics</h1><p class="lede">Category-level figures for defined outcome, option-income and thematic ETFs, counted from the funds ETFIQ covers. '
+             'Free to cite with attribution and the date.</p>'
+             f'<div style="overflow-x:auto"><table class="hub"><tbody>{rows}</tbody></table></div>'
+             f'<h2>What changed today</h2><p>{extra}</p>'
+             '<h2>Using these figures</h2><p>Name ETFIQ as the source and state the date, for example: ETFIQ, data as of '
+             f'{fdate(max(as_b, as_i, as_t))}, etfiq.com. The underlying files are at <a href="/data/">Open data</a>, and the method is on <a href="/standards/">Standards</a>. '
+             'Counts are of the funds ETFIQ covers, which is buffer, option-income and thematic ETFs plus the core funds the desks measure against, not the whole ETF market.</p>'
+             '<nav class="rel"><a href="/data/">Open data</a><a href="/research/">ETFIQ Research</a><a href="/changed/">What changed today</a><a href="/questions/">Questions</a></nav>')
+    return doc_page('statistics/', 'ETF statistics: buffer, option-income and thematic funds',
+                    'How many buffer ETFs sit at their cap, how many income ETFs beat their benchmark, how much of the typical thematic ETF is already the index. Recomputed nightly.',
+                    inner, ld, wide=True, short='Statistics')
+
+
+# ---------------------------------------------------------------- core index funds
+def core_words(r, as_of):
+    on = fdate(as_of)
+    t = r['ticker']
+    s = [f"{t} is a {r['kindLabel'].lower()} tracking {r['note']}."]
+    w = (r.get('windows') or {}).get('1Y')
+    if w:
+        s.append(f"Over the year to {on} it returned {pct(w['total'])} with distributions reinvested, against {pct(w.get('bench'))} for the S&P 500 and {pct(w.get('benchQ'))} for the Nasdaq-100.")
+    if r.get('expenseRatio') is not None:
+        s.append(f"The prospectus expense ratio is {pct(r['expenseRatio'], sign=False, d=2)} a year.")
+    v = r.get('vsSPY')
+    if v:
+        s.append(f"By its holdings filed for {fdate(r.get('holdingsAsOf'))}, {v['inIndex']:.0f}% of the fund by weight is stocks the S&P 500 also holds, across {r.get('holdingsCount')} positions, with the top ten at {pct(r.get('top10Weight'), sign=False)}.")
+    if r.get('drawdown') is not None and r['drawdown'] < -3:
+        s.append(f"It sat {pct(-r['drawdown'], sign=False)} below its high of {fdate(r.get('highDate'))} on {on}.")
+    return ' '.join(s)
+
+
+def core_faqs(r, as_of):
+    on = fdate(as_of)
+    t = r['ticker']
+    out = []
+    w = (r.get('windows') or {}).get('1Y')
+    if w:
+        out.append((f'How has {t} performed?', f"Over the year to {on}, {t} returned {pct(w['total'])} with distributions reinvested, against {pct(w.get('bench'))} for the S&P 500. Over three years the figure is {pct(((r.get('windows') or {}).get('3Y') or {}).get('total'))}."))
+    if r.get('expenseRatio') is not None:
+        out.append((f'What does {t} cost?', f"The prospectus expense ratio is {pct(r['expenseRatio'], sign=False, d=2)} a year."))
+    v = r.get('vsSPY')
+    if v and r.get('holdingsCount'):
+        out.append((f'What does {t} hold?', f"{r['holdingsCount']} positions as filed for {fdate(r.get('holdingsAsOf'))}, with the top ten at {pct(r.get('top10Weight'), sign=False)} of the fund. {v['inIndex']:.0f}% of its weight is in stocks the S&P 500 also holds."))
+    if r.get('drawdown') is not None:
+        out.append((f'How far is {t} below its high?', f"{pct(-r['drawdown'], sign=False)} below its high of {fdate(r.get('highDate'))}, measured on the reinvested series to {on}."))
+    return out
+
+
+def core_page(r, as_of, neighbours):
+    t = r['ticker']
+    url = f'{BASE}/funds/{t}.html'
+    title = f"{t}: {r['name']}"
+    w = (r.get('windows') or {}).get('1Y') or {}
+    desc = (f"{t} ({r['note']}) to {fdate(as_of)}: one-year total return {pct(w.get('total'))} against {pct(w.get('bench'))} for the S&P 500, "
+            f"expense ratio {pct(r.get('expenseRatio'), sign=False, d=2)}.")
+    rows = [('What it tracks', r['note']), ('Fund type', r['kindLabel']), ('Expense ratio (prospectus XBRL)', pct(r.get('expenseRatio'), sign=False, d=2)),
+            ('Price', 'n/a' if r.get('price') is None else f"${r['price']:.2f}"), ('Listed since', fdate(r.get('inception')))]
+    for k, lab in (('3M', '3 months'), ('6M', '6 months'), ('1Y', '1 year'), ('3Y', '3 years'), ('ITD', 'since listing')):
+        x = (r.get('windows') or {}).get(k)
+        if x:
+            rows.append((f'{lab}: total return / S&P 500 / gap / Nasdaq-100 gap (ETFIQ)',
+                         f"{pct(x['total'])} / {pct(x.get('bench'))} / {pts(x.get('gap'))} / {pts(x.get('gapQ'))}"))
+    rows.append(('Below its high (ETFIQ)', pct(r.get('drawdown'))))
+    if r.get('holdingsCount'):
+        rows += [('Holdings', str(r['holdingsCount'])), ('Top ten weight', pct(r.get('top10Weight'), sign=False)),
+                 ('Holdings as of (SEC filing)', fdate(r.get('holdingsAsOf')))]
+        if r.get('top'):
+            rows.append(('Top holdings', ', '.join(f"{h['n']} {h['w']:.1f}%" for h in r['top'][:10])))
+    if r.get('vsSPY'):
+        rows += [('Already in the S&P 500, by weight (ETFIQ)', pct(r['vsSPY']['inIndex'], sign=False)),
+                 ('Active share vs the S&P 500 (ETFIQ)', pct(r['vsSPY']['activeShare'], sign=False))]
+    if r.get('vsQQQ'):
+        rows.append(('Already in the Nasdaq-100, by weight (ETFIQ)', pct(r['vsQQQ']['inIndex'], sign=False)))
+    ld = [{'@type': 'FinancialProduct', 'name': r['name'], 'alternateName': t, 'identifier': t,
+           'category': 'Exchange-traded fund, core index fund', 'url': url},
+          {'@type': 'Dataset', 'name': f'ETFIQ record for {t}', 'description': desc, 'dateModified': as_of,
+           'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'license': f'{BASE}/standards/', 'isAccessibleForFree': True, 'url': url}]
+    faq_html, faq_ld = faq_block(core_faqs(r, as_of))
+    inner = (f'<p class="note">Data as of {fdate(as_of)}. Returns from exchange end-of-day prices with distributions reinvested; holdings from the fund\'s latest SEC filing.</p>'
+             f'<h1><span class="tk">{esc(t)}</span> · {esc(r["name"])}</h1><p class="lede">{esc(r["kindLabel"])} · {esc(r["note"])}</p>'
+             f'<p>{esc(core_words(r, as_of))}</p>'
+             f'<table class="kv"><tbody>{"".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in rows)}</tbody></table>'
+             f'{faq_html}{neighbours}'
+             '<p class="note">ETFIQ covers buffer, option-income and thematic ETFs. This fund is here because the desks measure against it and portfolios hold it. '
+             'ETFIQ is an independent publisher and makes no recommendations. <a href="/standards/">Standards and sources</a></p>')
+    return doc_page(f'funds/{t}.html', title, desc, inner, ld + faq_ld, crumb=[('Core funds', f'{BASE}/core/')], short=t)
 
 
 # ---------------------------------------------------------------- 404, privacy, contact, terms
@@ -451,8 +686,10 @@ def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None
 # ---------------------------------------------------------------- head to head pages
 # The funds people actually search for, one list per desk: the widely held names on the buffer and income desks,
 # and the largest thematic funds by net assets. Every pair of them gets its own page.
-BUFFER_TOP = ['PJAN', 'PAPR', 'PJUL', 'POCT', 'BJAN', 'BAPR', 'BJUL', 'BOCT', 'UJAN', 'UAPR', 'UJUL', 'UOCT', 'DJAN', 'DAPR', 'DJUL', 'DOCT', 'FJAN', 'FJUL', 'PSEP', 'PNOV']
-INCOME_TOP = ['JEPI', 'JEPQ', 'SPYI', 'QQQI', 'QYLD', 'XYLD', 'RYLD', 'DIVO', 'GPIX', 'GPIQ', 'TSLY', 'NVDY', 'MSTY', 'CONY', 'ULTY', 'YMAX', 'FEPI', 'XDTE', 'QDTE', 'AIPI']
+BUFFER_TOP = ['PJAN', 'PAPR', 'PJUL', 'POCT', 'BJAN', 'BAPR', 'BJUL', 'BOCT', 'UJAN', 'UAPR', 'UJUL', 'UOCT', 'DJAN', 'DAPR', 'DJUL', 'DOCT', 'FJAN', 'FAPR', 'FJUL', 'FOCT',
+               'PSEP', 'PNOV', 'BSEP', 'GJAN', 'PFEB', 'PMAR', 'PMAY', 'PJUN', 'PAUG', 'PDEC']
+INCOME_TOP = ['JEPI', 'JEPQ', 'SPYI', 'QQQI', 'QYLD', 'XYLD', 'RYLD', 'DIVO', 'GPIX', 'GPIQ', 'TSLY', 'NVDY', 'MSTY', 'CONY', 'ULTY', 'YMAX', 'FEPI', 'XDTE', 'QDTE', 'AIPI',
+               'BALI', 'ISPY', 'SVOL', 'JEPY', 'AMZY', 'APLY', 'GOOY', 'MSFO', 'OARK', 'SDTY']
 PAIRS_BY_TICKER = {}
 DESK_HUBS = {}
 
@@ -679,6 +916,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
         va, vb = a.get('vsSPY') or {}, b.get('vsSPY') or {}
         desc = (f'{ta} and {tb} side by side on {fdate(as_of)}: {pct(va.get("inIndex"), sign=False)} against {pct(vb.get("inIndex"), sign=False)} already in the S&P 500'
                 + (f', {overlap}% of the two books in common.' if overlap is not None else '.'))
+    cmp_og = f'{BASE}/embed/social/{desk}/{ta}.png' if (SITE / 'embed' / 'social' / desk / f'{ta}.png').exists() else f'{BASE}/og.png'
     faqs = cmp_faqs(desk, a, b, extra, overlap, as_of)
     faq_html, faq_ld = faq_block(faqs)
     ld = {'@context': 'https://schema.org', '@graph': faq_ld + [
@@ -693,7 +931,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
           ''.join(f'<a href="/compare/{desk}/{pair_slug(tb, o)}.html">{esc(tb)} vs {esc(o)}</a>' for o in others[4:8])
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
-<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{cmp_og}"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
 <body>{R.rail(desk)}<main>
 {crumb_html([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), ('Head to head', f'{BASE}/compare/'), (f'{ta} vs {tb}', url)])}
@@ -738,6 +976,7 @@ def crumbs(items):
 
 def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method, faqs=None, related=''):
     url = f"{BASE}/funds/{ticker}.html"
+    og = f'{BASE}/embed/social/{desk}/{ticker}.png' if (SITE / 'embed' / 'social' / desk / f'{ticker}.png').exists() else f'{BASE}/og.png'
     faq_html, faq_ld = faq_block(faqs or [])
     ld = {'@context': 'https://schema.org', '@graph': faq_ld + [crumbs([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (ticker, url)])] + [
         {'@type': 'FinancialProduct', 'name': name, 'alternateName': ticker, 'identifier': ticker, 'provider': {'@type': 'Organization', 'name': issuer}, 'category': f'Exchange-traded fund, {DESK_NAME[desk].lower()}', 'url': url},
@@ -746,7 +985,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
     trs = ''.join(f'<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>' for k, v in rows)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
-<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{og}"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
 <body>{R.rail(desk)}<main>
 {crumb_html([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (ticker, url)])}
@@ -827,7 +1066,7 @@ def build():
     by = {'buffer': {f['ticker']: f for f in funds}, 'income': {r['ticker']: r for r in income}, 'themes': {r['ticker']: r for r in themes}}
     top = {'buffer': [t for t in BUFFER_TOP if t in by['buffer']],
            'income': [t for t in INCOME_TOP if t in by['income']],
-           'themes': [r['ticker'] for r in sorted(themes, key=lambda r: -(r.get('assets') or 0)) if r.get('vsSPY')][:20]}
+           'themes': [r['ticker'] for r in sorted(themes, key=lambda r: -(r.get('assets') or 0)) if r.get('vsSPY')][:30]}
     # the hub links each desk index page carries, worked out before any page is written
     MONS = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'}
     theme_keys = sorted({(r['theme'], r['themeName']) for r in themes})
@@ -859,6 +1098,31 @@ def build():
         if (out / f"{r['ticker']}.html").exists():
             continue  # a ticker on two desks keeps its first page
         (out / f"{r['ticker']}.html").write_text(theme_page(r, as_t)); urls.append((f"{BASE}/funds/{r['ticker']}.html", as_t))
+    core = load('site/data/core.json', [])
+    as_c = load('site/data/core_meta.json', {}).get('asOf', max(as_b, as_i, as_t))
+    core_rows, core_written = [], []
+    for r in core:
+        t = r['ticker']
+        if (out / f'{t}.html').exists():
+            continue  # a fund already on a desk keeps its desk page
+        nb = ('<h2>Funds near this one</h2><nav class="rel">'
+              + ''.join(f'<a href="/funds/{o}.html">{o}</a>' for o in [x['ticker'] for x in core if x['ticker'] != t and x['kind'] == r['kind']][:6])
+              + '<a href="/core/">Every core fund</a><a href="/portfolio/">Portfolio desk</a></nav>')
+        (out / f'{t}.html').write_text(core_page(r, as_c, nb))
+        urls.append((f'{BASE}/funds/{t}.html', as_c))
+        core_written.append(t)
+        w = (r.get('windows') or {}).get('1Y') or {}
+        core_rows.append([f'<a href="/funds/{t}.html" class="tk">{t}</a>', esc(r['name']), esc(r['kindLabel']), esc(r['note']),
+                          pct(w.get('total')), pts(w.get('gap')), pct(r.get('expenseRatio'), sign=False, d=2),
+                          str(r.get('holdingsCount') or '')])
+    if core_rows:
+        (SITE / 'core').mkdir(exist_ok=True)
+        (SITE / 'core' / 'index.html').write_text(hub_page(
+            'core/', 'Core index funds: the funds the desks measure against',
+            f'{len(core_rows)} index, bond, commodity and digital asset funds with returns against the S&P 500 and the Nasdaq-100, fees and filed holdings.',
+            f'{len(core_rows)} funds, on the same fields and the same windows as the three desks. They are here because the desks measure against them and portfolios hold them.',
+            core_rows, ['Ticker', 'Fund', 'Type', 'Tracks', 'Total return 1Y', 'vs S&P 500', 'Fee', 'Holdings'], as_c, core_written, short='Core funds'))
+        urls.append((f'{BASE}/core/', as_c))
     link = lambda t: f'<a href="/funds/{t}.html" class="tk">{t}</a>'
     w1y = lambda r: (r.get('windows') or {}).get('1Y') or {}
     b_rows = [[link(f['ticker']), esc(f['name']), esc(f['issuer']), f['refAsset'], esc(f.get('bufferLabel', '')), fdate(f['periodEnd']), 'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False), pct(f.get('downsideBeforeBuffer'), sign=False), STATE_LABEL[buffer_state(f)]] for f in funds]
@@ -980,6 +1244,23 @@ def build():
                                                                          crumb=[('Browse', f'{BASE}/#/browse/month'), ('Buffer desk', f'{BASE}/buffer/')], desk='buffer', short=f'{MON[mm]} resets'))
         urls.append((f'{BASE}/buffer/{MON[mm].lower()}.html', as_b))
         hubs += 1
+    # question pages and the statistics page
+    (SITE / 'questions').mkdir(exist_ok=True)
+    for old_q in (SITE / 'questions').glob('*.html'):
+        old_q.unlink()
+    qs = question_pages(funds, income, themes, core, as_b, as_i, as_t)
+    qmeta = []
+    for slug, html_ in qs:
+        (SITE / 'questions' / f'{slug}.html').write_text(html_)
+        urls.append((f'{BASE}/questions/{slug}.html', max(as_b, as_i, as_t)))
+        qmeta.append(slug)
+    ins_lines = load('site/data/insights.json', {'lines': []}).get('lines') or []
+    (SITE / 'questions' / 'index.html').write_text(questions_index([(sl, ti) for sl, ti in Q_TITLES], max(as_b, as_i, as_t)))
+    urls.append((f'{BASE}/questions/', max(as_b, as_i, as_t)))
+    (SITE / 'statistics').mkdir(exist_ok=True)
+    (SITE / 'statistics' / 'index.html').write_text(stats_page(funds, income, themes, core, as_b, as_i, as_t,
+                                                               ' '.join(esc(l['text']) for l in ins_lines[:4]) or 'Rebuilt nightly.'))
+    urls.append((f'{BASE}/statistics/', max(as_b, as_i, as_t)))
     # the open data page
     _books = load('site/data/books/index.json', {'books': {}}).get('books', {})
     counts_line = f'{len(funds)} buffer ETFs, {len(income)} option-income ETFs and {len(themes)} thematic ETFs, with filed holdings books for {sum(1 for v in _books.values() if v.get("n"))} funds.'
@@ -1055,6 +1336,10 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
 - [Head to head comparisons]({BASE}/compare/): every pair of the most widely held funds on each desk, in one table with the desk's own fields
 - [Portfolio desk]({BASE}/portfolio/): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
+- [Questions]({BASE}/questions/): plain answers to what a buffer ETF is, what return of capital means, whether covered call ETFs lose value, what active share measures, each worked through with live figures
+- [ETF statistics]({BASE}/statistics/): category-level counts recomputed nightly, free to cite with attribution and the date
+- [Core index funds]({BASE}/core/): the plain index, bond and commodity funds the desks measure against, on the same fields
+- [Research archive]({BASE}/research/): each night's pieces kept at a dated address
 - [Open data]({BASE}/data/): every figure as JSON at a stable address, free to use with attribution, rebuilt nightly. Files: funds.json, income.json, thematic.json, payouts.json, sources.json, insights.json, books/index.json
 - [Standards, ownership and sources]({BASE}/standards/): who publishes this, what it never does, and where every figure comes from
 - [Learn the vocabulary]({BASE}/learn/): three plain-words glossaries, one per desk, defining every term used here

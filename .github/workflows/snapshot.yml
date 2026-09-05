@@ -24,7 +24,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Rasteriser for the social cards
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2
       - run: pip install -r pipeline/requirements.txt
+      - name: Core index funds
+        id: core
+        if: ${{ env.TIINGO_TOKEN != '' }}
+        continue-on-error: true
+        run: python pipeline/core.py
       - name: Buffer desk from issuer pages
         id: snapshot
         continue-on-error: true
@@ -86,7 +93,7 @@ jobs:
         run: |
           git config user.name "etfiq-snapshot"
           git config user.email "snapshot@etfiq.com"
-          DATA="data/snapshots data/income_universe.json data/fees.json data/research data/census site/data site/research site/portfolio site/compare site/embed site/learn site/standards site/issuers site/changed site/privacy site/terms site/contact site/404.html site/about site/blog site/services site/hello-world site/funds site/buffer site/income site/themes site/sitemap.xml site/robots.txt site/llms.txt pipeline/cache/innovator_pages.json"
+          DATA="data/snapshots data/income_universe.json data/fees.json data/research data/census site/data site/research site/portfolio site/compare site/embed site/learn site/standards site/issuers site/changed site/privacy site/terms site/contact site/questions site/statistics site/core site/404.html site/about site/blog site/services site/hello-world site/funds site/buffer site/income site/themes site/sitemap.xml site/robots.txt site/llms.txt pipeline/cache/innovator_pages.json"
           git add $DATA site/index.html
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           tar cf /tmp/snapshot-data.tar $DATA
