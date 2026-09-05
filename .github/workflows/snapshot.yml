@@ -1,7 +1,8 @@
 name: Daily snapshot
 on:
   schedule:
-    - cron: '40 22 * * 1-5'   # 6:40pm New York during daylight time, after issuer pages update
+    - cron: '30 23 * * 1-5'   # 7:30pm New York in daylight time: issuer pages and Tiingo end-of-day are in
+    - cron: '30 3 * * 2-6'    # 11:30pm New York: second pass so a late feed still lands before the morning
   workflow_dispatch:
 permissions:
   contents: write
@@ -10,24 +11,35 @@ permissions:
 concurrency:
   group: pages
   cancel-in-progress: false
+env:
+  TIINGO_TOKEN: ${{ secrets.TIINGO_TOKEN }}
+  ETFIQ_CONTACT: ${{ secrets.ETFIQ_CONTACT }}
 jobs:
   snapshot:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install -r pipeline/requirements.txt
-      - run: python pipeline/snapshot.py
-        env:
-          ETFIQ_CONTACT: ${{ secrets.ETFIQ_CONTACT }}
-      - name: Income desk (runs when the Tiingo token is set)
+      - name: Buffer desk from issuer pages
+        id: snapshot
+        continue-on-error: true
+        run: python pipeline/snapshot.py
+      - name: Income desk prices and returns
+        id: income
         if: ${{ env.TIINGO_TOKEN != '' }}
-        run: python pipeline/income.py && python pipeline/payouts.py
-        env:
-          TIINGO_TOKEN: ${{ secrets.TIINGO_TOKEN }}
-      - run: python pipeline/build_site.py
+        continue-on-error: true
+        run: python pipeline/income.py
+      - name: Payout calendar
+        id: payouts
+        if: ${{ env.TIINGO_TOKEN != '' }}
+        continue-on-error: true
+        run: python pipeline/payouts.py
+      - name: Build the page
+        run: python pipeline/build_site.py
       - name: Commit the snapshot
         run: |
           git config user.name "etfiq-snapshot"
@@ -41,3 +53,12 @@ jobs:
         with:
           path: site
       - uses: actions/deploy-pages@v4
+      - name: Report
+        if: always()
+        run: |
+          echo "buffer desk: ${{ steps.snapshot.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "income desk: ${{ steps.income.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "payout calendar: ${{ steps.payouts.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "buffer as of: $(python -c 'import json;print(json.load(open("site/data/meta.json")).get("asOf"))')" >> $GITHUB_STEP_SUMMARY
+          echo "income as of: $(python -c 'import json;print(json.load(open("site/data/income_meta.json")).get("asOf"))')" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.snapshot.outcome }}" = "failure" ] || [ "${{ steps.income.outcome }}" = "failure" ] || [ "${{ steps.payouts.outcome }}" = "failure" ]; then echo "a data step failed; the site deployed with the last good data for that desk"; exit 1; fi
