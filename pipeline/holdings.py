@@ -212,7 +212,7 @@ def vistashares_daily(ticker):
         cells = [[htmlmod.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S)] for tr in trs]
         for c in cells:
             if len(c) == 2 and c[0] in ('Expense Ratio', 'Net Assets', 'Inception Date'):
-                facts[c[0]] = c[1]
+                facts.setdefault(c[0], c[1])  # the facts table comes first; later tables repeat the label for other figures
         if cells and 'Weightings' in cells[0]:
             it = cells[0].index('Ticker'); iw = cells[0].index('Weightings')
             for c in cells[1:]:
