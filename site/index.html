@@ -738,8 +738,10 @@ function computeIncomeScale(){
   const pool = S.income.filter(r => S.ifilters.kind === 'all' ? true : S.ifilters.kind === 'stock' ? isStockFund(r) : !isStockFund(r));
   for (const r of pool) { const w = iw(r); if (!w) continue; vals.push(w.cash, w.price, w.total, w.bench == null ? 0 : w.bench, 0); }
   if (!vals.length) return;
-  const ok = vals.filter(v => v != null && isFinite(v));
-  const mn = Math.max(-80, Math.min(...ok) - 3), mx = Math.min(140, Math.max(...ok) + 3);
+  const ok = vals.filter(v => v != null && isFinite(v)).sort((a, b) => a - b);
+  // scale to the middle 92 percent so typical bars are readable; outliers pin to the edge of the bar
+  const lo = ok[Math.floor(ok.length * 0.04)], hi = ok[Math.min(ok.length - 1, Math.floor(ok.length * 0.96))];
+  const mn = Math.max(-80, Math.min(-15, lo - 3)), mx = Math.min(140, Math.max(15, hi + 3));
   S.iscale = [Math.floor(mn), Math.ceil(mx)];
 }
 function paybar(r, o){
