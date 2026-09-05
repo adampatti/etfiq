@@ -72,16 +72,17 @@ def buffer_state(f):
     return 'uncapped' if f.get('isUncapped') else 'open'
 
 
-def buffer_words(f):
+def buffer_words(f, as_of=None):
     ref = f['refAsset']
     state = buffer_state(f)
+    on = f' on {fdate(as_of)}' if as_of else ''
     s = []
     if state == 'capped':
-        s.append(f"{ref} has already risen past this fund's cap of {pct(f['startCap'])} for the period, so in index terms there is no more upside to collect. The fund's own price can still drift up to about {pct(f.get('remainingCapFund'), sign=False)} as the period runs out.")
+        s.append(f"{ref} had already risen past this fund's cap of {pct(f['startCap'])} for the period{on}, so in index terms there is no more upside to collect. The fund's own price can still drift up to about {pct(f.get('remainingCapFund'), sign=False)} as the period runs out.")
     elif f.get('isUncapped'):
         s.append(f"This fund has no cap. It takes a share of any further rise in {ref}.")
     elif f.get('remainingCapFund') is not None:
-        s.append(f"From here the fund can gain about {pct(f['remainingCapFund'], sign=False)} more before it reaches its cap.")
+        s.append(f"From its price{on}, the fund can gain about {pct(f['remainingCapFund'], sign=False)} more before it reaches its cap.")
     dbb = f.get('downsideBeforeBuffer') or 0
     fall_ref = max(0.0, (1 - (1 + f['bufferStart'] / 100) / (1 + f['refReturn'] / 100)) * 100)
     if dbb > 0:
@@ -91,12 +92,12 @@ def buffer_words(f):
     left = None if f.get('isFloor') else round(sb - used, 2)
     if left is not None:
         s.append(f"Protection left, in index points: {pct(left, sign=False)} of the {pct(sb, sign=False)} buffer still sits below today's {ref} level.")
-    s.append(f"{f['daysRemaining']} days remain. On {fdate(f['periodEnd'])} the period ends and a new cap is set.")
+    s.append(f"{f['daysRemaining']} days remained{on}. On {fdate(f['periodEnd'])} the period ends and a new cap is set.")
     return ' '.join(s), state, left, fall_ref
 
 
 def buffer_page(f, as_of):
-    words, state, left, fall_ref = buffer_words(f)
+    words, state, left, fall_ref = buffer_words(f, as_of)
     title = f"{f['ticker']} buffer ETF today: {f['name']}"
     desc = f"{f['ticker']} ({f['issuer']}) on {fdate(as_of)}: {STATE_LABEL[state]}. Can still gain {pct(f.get('remainingCapFund'), sign=False)}, fund can fall {pct(f.get('downsideBeforeBuffer'), sign=False)} before the buffer, {ref_line(f)}."
     rows = [
@@ -108,7 +109,7 @@ def buffer_page(f, as_of):
     ]
     return page(title, desc, f['ticker'], f['name'], f['issuer'], 'buffer', as_of, words, rows, f"{BASE}/#/buffer/check/{f['ticker']}",
                 'Issuer-published figures as of the date shown; ETFIQ calculations marked. Definitions on the learn page.',
-                faqs=buffer_faqs(f, state, left, fall_ref), related=embed_block('buffer', f['ticker'], f['name']) + related_links('buffer', f['ticker']))
+                faqs=buffer_faqs(f, state, left, fall_ref, as_of), related=embed_block('buffer', f['ticker'], f['name']) + related_links('buffer', f['ticker']) + neighbour_links('buffer', f['ticker']))
 
 
 def ref_line(f):
@@ -116,23 +117,24 @@ def ref_line(f):
 
 
 # ---------------------------------------------------------------- income desk
-def income_words(r, src):
+def income_words(r, src, as_of=None):
     w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD')
+    on = fdate(as_of) if as_of else None
     s = []
     if w:
-        label = 'the last 1 year' if w is (r.get('windows') or {}).get('1Y') else f"since launch on {fdate(r.get('inception'))}"
+        label = (f'the year to {on}' if on else 'the last 1 year') if w is (r.get('windows') or {}).get('1Y') else f"the period since launch on {fdate(r.get('inception'))}" + (f' to {on}' if on else '')
         s.append(f"Over {label}, {r['ticker']} paid {pct(w['cash'], sign=False)} of its starting value in cash distributions while its price {'fell ' + pct(-w['price'], sign=False) if w['price'] < 0 else 'rose ' + pct(w['price'], sign=False)}. With every distribution reinvested, the fund returned {pct(w['total'])}.")
         if w.get('bench') is not None:
             s.append(f"{r.get('benchmarkName') or r['benchmark']} returned {pct(w['bench'])} over the same days, so a holder was {'ahead' if w['gap'] > 0.5 else 'behind' if w['gap'] < -0.5 else 'about even'}{(' by ' + f"{abs(w['gap']):.1f} pts") if abs(w['gap']) > 0.5 else ''}.")
     if r.get('distributionRate') is not None:
-        s.append(f"At today's price the latest distribution annualises to {pct(r['distributionRate'], sign=False)}, paid {r.get('payoutFrequency') or 'periodically'}.")
+        s.append(f"At its price{' on ' + on if on else ''} the latest distribution annualises to {pct(r['distributionRate'], sign=False)}, paid {r.get('payoutFrequency') or 'periodically'}.")
     if src and src.get('latest') and src['latest'].get('roc') is not None:
         s.append(f"{src['issuer']} estimates that {src['latest']['roc']:.0f}% of the distribution paid {fdate(src['latest'].get('date') or src.get('asOf'))} was a return of capital (19a-1 notice, estimated, a tax characterisation rather than a measure of erosion).")
     return ' '.join(s), w
 
 
 def income_page(r, as_of, src):
-    words, w = income_words(r, src)
+    words, w = income_words(r, src, as_of)
     title = f"{r['ticker']} income ETF: am I ahead of {r['benchmark']}? {r['name']}"
     gap = pts(w['gap']) if w and w.get('gap') is not None else 'not available'
     desc = f"{r['ticker']} ({r['issuer']}) over 1 year to {fdate(as_of)}: paid {pct(w['cash'], sign=False) if w else 'n/a'} in cash, total return {pct(w['total']) if w else 'n/a'}, {gap} against {r['benchmark']}."
@@ -146,12 +148,13 @@ def income_page(r, as_of, src):
         rows.append((f"Return of capital, latest distribution ({src['issuer']} 19a-1 estimate)", pct(src['latest']['roc'], sign=False)))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'income', as_of, words, rows, f"{BASE}/#/income/check/{r['ticker']}",
                 'Every figure is an ETFIQ calculation from exchange prices and cash distributions (Tiingo end-of-day), total return with distributions reinvested. Return of capital is the issuer’s estimate.',
-                faqs=income_faqs(r, w, src), related=embed_block('income', r['ticker'], r['name']) + related_links('income', r['ticker']))
+                faqs=income_faqs(r, w, src, as_of), related=embed_block('income', r['ticker'], r['name']) + related_links('income', r['ticker']) + neighbour_links('income', r['ticker']))
 
 
 # ---------------------------------------------------------------- themes desk
-def theme_words(r):
+def theme_words(r, as_of=None):
     w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD')
+    on = fdate(as_of) if as_of else None
     s = []
     v = r.get('vsSPY')
     if v:
@@ -160,14 +163,14 @@ def theme_words(r):
     else:
         s.append(f"{r['ticker']} has no public holdings filing captured yet.")
     if w:
-        s.append(f"Over the last year the fund returned {pct(w['total'])} with distributions reinvested against {pct(w.get('bench'))} for the S&P 500, so a holder was {'ahead' if (w.get('gap') or 0) > 0.5 else 'behind' if (w.get('gap') or 0) < -0.5 else 'about even'}{(' by ' + f"{abs(w['gap']):.1f} pts") if w.get('gap') is not None and abs(w['gap']) > 0.5 else ''}.")
+        s.append((f"Over the year to {on}" if on else "Over the last year") + f" the fund returned {pct(w['total'])} with distributions reinvested against {pct(w.get('bench'))} for the S&P 500, so a holder was {'ahead' if (w.get('gap') or 0) > 0.5 else 'behind' if (w.get('gap') or 0) < -0.5 else 'about even'}{(' by ' + f"{abs(w['gap']):.1f} pts") if w.get('gap') is not None and abs(w['gap']) > 0.5 else ''}.")
     if r.get('drawdown') is not None and r['drawdown'] < -5:
         s.append(f"It sits {pct(-r['drawdown'], sign=False)} below its all-time high of {fdate(r.get('highDate'))}.")
     return ' '.join(s), w
 
 
 def theme_page(r, as_of):
-    words, w = theme_words(r)
+    words, w = theme_words(r, as_of)
     v, q = r.get('vsSPY'), r.get('vsQQQ')
     title = f"{r['ticker']} thematic ETF: what did I actually buy? {r['name']}"
     desc = f"{r['ticker']} ({r['issuer']}, {r['themeName']}): {v['inIndex']:.0f}% already in the S&P 500, active share {v['activeShare']:.0f}%, top ten {r['top10Weight']:.0f}%." if v else f"{r['ticker']} ({r['issuer']}, {r['themeName']}): returns against the S&P 500 and Nasdaq-100 as of {fdate(as_of)}."
@@ -190,44 +193,47 @@ def theme_page(r, as_of):
         rows.append(('Closest funds by holdings overlap', ', '.join(f"{p['t']} {p['o']}%" for p in r['peers'])))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'themes', as_of, words, rows, f"{BASE}/#/themes/check/{r['ticker']}",
                 'Holdings from the fund’s latest public SEC N-PORT filing; overlap and active share computed by ETFIQ against the IVV and QQQM books; returns from Tiingo end-of-day prices with distributions reinvested.',
-                faqs=theme_faqs(r, w), related=embed_block('themes', r['ticker'], r['name']) + related_links('themes', r['ticker']))
+                faqs=theme_faqs(r, w, as_of), related=embed_block('themes', r['ticker'], r['name']) + related_links('themes', r['ticker']) + neighbour_links('themes', r['ticker']))
 
 
-def buffer_faqs(f, state, left, fall_ref):
+def buffer_faqs(f, state, left, fall_ref, as_of=None):
     t, ref = f['ticker'], f['refAsset']
+    on = fdate(as_of) if as_of else None
+    dt = f' on {on}' if on else ''
     out = []
     if f.get('isUncapped'):
         out.append((f'Does {t} have a cap?', f'No. {t} takes a share of any further rise in {ref}, so there is no ceiling on the upside this period.'))
     elif state == 'capped':
-        out.append((f'How much can {t} still gain?', f'Nothing more in index terms. {ref} has already passed the cap of {pct(f["startCap"])} for this period, which runs from {fdate(f["periodStart"])} to {fdate(f["periodEnd"])}.'))
+        out.append((f'How much can {t} still gain?', f'Nothing more in index terms{dt}. {ref} has already passed the cap of {pct(f["startCap"])} for this period, which runs from {fdate(f["periodStart"])} to {fdate(f["periodEnd"])}.'))
     elif f.get('remainingCapFund') is not None:
-        out.append((f'How much can {t} still gain?', f'About {pct(f["remainingCapFund"], sign=False)} from today\'s price before it reaches its cap, by the issuer\'s published figure. The cap for the period was set at {pct(f.get("startCap"))}.'))
+        out.append((f'How much can {t} still gain?', f'About {pct(f["remainingCapFund"], sign=False)} from its price{dt}, before it reaches its cap, by the issuer\'s published figure. The cap for the period was set at {pct(f.get("startCap"))}.'))
     dbb = f.get('downsideBeforeBuffer') or 0
     out.append((f'How far can {t} fall before the buffer helps?',
-                f'{pct(dbb, sign=False)} in fund-price terms, by the issuer\'s figure. In index terms {ref} can fall {pct(fall_ref, sign=False)} from today\'s level before the buffer begins. Losses until that point are the holder\'s.'))
+                f'{pct(dbb, sign=False)} in fund-price terms{dt}, by the issuer\'s figure. In index terms {ref} can fall {pct(fall_ref, sign=False)} from that level before the buffer begins. Losses until that point are the holder\'s.'))
     sb = f.get('startBuffer') or (f['bufferStart'] - f['bufferEnd'])
     if left is not None:
-        out.append((f'How much of the {t} buffer is left?', f'{pct(left, sign=False)} of the {pct(sb, sign=False)} buffer still sits below today\'s {ref} level. That is an ETFIQ calculation in index points, on one definition for every issuer.'))
-    out.append((f'When does {t} reset?', f'The outcome period ends on {fdate(f["periodEnd"])}, {f.get("daysRemaining")} days from this data. A new cap is set the next day and the buffer starts again.'))
+        out.append((f'How much of the {t} buffer is left?', f'{pct(left, sign=False)} of the {pct(sb, sign=False)} buffer sat below the {ref} level{dt}. That is an ETFIQ calculation in index points, on one definition for every issuer.'))
+    out.append((f'When does {t} reset?', f'The outcome period ends on {fdate(f["periodEnd"])}, {f.get("daysRemaining")} days from the data{dt}. A new cap is set the next day and the buffer starts again.'))
     if f.get('expenseRatio') is not None:
         out.append((f'What does {t} cost?', f'The prospectus expense ratio is {pct(f["expenseRatio"], sign=False, d=2)} a year.'))
     return out
 
 
-def income_faqs(r, w, src):
+def income_faqs(r, w, src, as_of=None):
     t = r['ticker']
+    on = fdate(as_of) if as_of else None
     out = []
     if w:
-        label = 'the last year' if w is (r.get('windows') or {}).get('1Y') else f'since it launched on {fdate(r.get("inception"))}'
+        label = (f'the year to {on}' if on else 'the last year') if w is (r.get('windows') or {}).get('1Y') else (f'the period from its launch on {fdate(r.get("inception"))}' + (f' to {on}' if on else ''))
         out.append((f'How much has {t} paid over the last year?',
                     f'Over {label}, {t} paid {pct(w["cash"], sign=False)} of its starting price in cash distributions, while the price {"fell " + pct(-w["price"], sign=False) if w["price"] < 0 else "rose " + pct(w["price"], sign=False)}.'))
         if w.get('gap') is not None:
             side = 'ahead of' if w['gap'] > 0.5 else 'behind' if w['gap'] < -0.5 else 'about even with'
             out.append((f'Is {t} ahead of {r["benchmark"]}?',
-                        f'With every distribution reinvested, {t} returned {pct(w["total"])} against {pct(w["bench"])} for {r.get("benchmarkName") or r["benchmark"]}, so a holder was {side} it by {abs(w["gap"]):.1f} points.'))
+                        f'Over {label}, with every distribution reinvested, {t} returned {pct(w["total"])} against {pct(w["bench"])} for {r.get("benchmarkName") or r["benchmark"]}, so a holder was {side} it by {abs(w["gap"]):.1f} points.'))
     if r.get('distributionRate') is not None:
         out.append((f'How often does {t} pay, and how much?',
-                    f'{t} pays {r.get("payoutFrequency") or "on no established schedule"}. The latest distribution annualises to {pct(r["distributionRate"], sign=False)} at today\'s price, which is not a promise; the next one can differ.'))
+                    f'{t} pays {r.get("payoutFrequency") or "on no established schedule"}. The latest distribution annualises to {pct(r["distributionRate"], sign=False)} at its price{" on " + on if on else ""}, which is not a promise; the next one can differ.'))
     if src and src.get('latest') and src['latest'].get('roc') is not None:
         out.append((f'Is the {t} distribution return of capital?',
                     f'{src["issuer"]} estimates {src["latest"]["roc"]:.0f}% of the distribution paid {fdate(src["latest"].get("date") or src.get("asOf"))} was return of capital. That is a tax characterisation from the fund\'s own 19a-1 notice, not a measure of erosion.'))
@@ -236,18 +242,19 @@ def income_faqs(r, w, src):
     return out
 
 
-def theme_faqs(r, w):
+def theme_faqs(r, w, as_of=None):
     t, v = r['ticker'], r.get('vsSPY')
+    on = fdate(as_of) if as_of else None
     out = []
     if v:
         out.append((f'How much of {t} is already in the S&P 500?',
-                    f'{v["inIndex"]:.0f}% of {t} by weight is stocks the S&P 500 already holds. Its active share against the index is {v["activeShare"]:.0f}%, so that share is the part doing something different.'))
+                    f'By its holdings filed for {fdate(r.get("holdingsAsOf"))}, {v["inIndex"]:.0f}% of {t} by weight is stocks the S&P 500 already holds. Its active share against the index is {v["activeShare"]:.0f}%, so that share is the part doing something different.'))
         out.append((f'What does {t} hold?',
                     f'{r["holdingsCount"]} positions as filed for {fdate(r.get("holdingsAsOf"))}, with the top ten at {r["top10Weight"]:.0f}% of the fund. The largest are ' + ', '.join(f'{h["n"]} at {h["w"]:.1f}%' for h in (r.get('top') or [])[:3]) + '.'))
     if w and w.get('gap') is not None:
         side = 'ahead of' if w['gap'] > 0.5 else 'behind' if w['gap'] < -0.5 else 'about even with'
         out.append((f'Has {t} beaten the S&P 500?',
-                    f'Over the last year {t} returned {pct(w["total"])} with distributions reinvested, against {pct(w["bench"])} for the S&P 500, so it finished {side} the index by {abs(w["gap"]):.1f} points.'))
+                    f'Over the year to {on} {t} returned {pct(w["total"])} with distributions reinvested, against {pct(w["bench"])} for the S&P 500, so it finished {side} the index by {abs(w["gap"]):.1f} points.'))
     if r.get('expenseRatio') is not None:
         fee = f'The prospectus expense ratio is {pct(r["expenseRatio"], sign=False, d=2)} a year.'
         if r.get('activeFee') is not None:
@@ -295,7 +302,7 @@ def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wid
 <body>{R.rail(desk or '')}<main class="doc{' wide' if wide else ''}">
 {crumb_html([('ETFIQ', BASE + '/')] + (crumb or []) + [(short or (title if len(title) < 40 else title[:38] + '...'), url)])}
 {inner}
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a><a href="/learn/">Learn</a><a href="/standards/">Standards</a></nav></footer></body></html>"""
+</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a><a href="/learn/">Learn</a><a href="/data/">Open data</a><a href="/standards/">Standards</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav></footer></body></html>"""
 
 
 LEARN = {'buffer': ('Reading a buffer ETF: the vocabulary in plain words', 'What the band, the cap, the buffer, protection left and the outcome period mean on a defined outcome ETF, defined one at a time.'),
@@ -329,6 +336,104 @@ def standards_page():
     return doc_page('standards/', 'Standards, ownership and sources',
                     'Who publishes ETFIQ, what it publishes, what it never does, and where every figure on the site comes from.',
                     inner + '<h2>Read more</h2><nav class="rel"><a href="/learn/">Learn the vocabulary</a><a href="/research/">ETFIQ Research</a><a href="/llms.txt">llms.txt</a></nav>')
+
+
+# ---------------------------------------------------------------- 404, privacy, contact, terms
+CONTACT_EMAIL = 'data@etfiq.com'
+
+
+def not_found_page():
+    body = ('<h1>That page is not here</h1>'
+            '<p class="lede">The address may have changed, or the fund may not be on a desk. Everything ETFIQ publishes is one of these.</p>'
+            '<nav class="rel"><a href="/">Home</a><a href="/buffer/">Buffer ETFs</a><a href="/income/">Income ETFs</a><a href="/themes/">Thematic ETFs</a>'
+            '<a href="/portfolio/">Portfolio desk</a><a href="/issuers/">Every issuer</a><a href="/compare/">Head to head</a><a href="/research/">Research</a>'
+            '<a href="/learn/">Vocabulary</a><a href="/data/">Open data</a><a href="/standards/">Standards</a></nav>'
+            '<h2>Looking for a fund?</h2><p>Fund pages sit at <code>/funds/TICKER.html</code>, for example <a href="/funds/JEPI.html">/funds/JEPI.html</a>. '
+            'The <a href="' + BASE + '/#/">search box on the home page</a> takes any ticker on any desk.</p>')
+    return doc_page('404.html', 'Page not found', 'That address is not on ETFIQ. Every desk, fund page and dataset is listed here.', body, short='Not found')
+
+
+def privacy_page():
+    body = ('<p class="note">Last updated ' + fdate(TODAY) + '.</p>'
+            '<h1>Privacy</h1><p class="lede">ETFIQ is free to read and asks for nothing to use it. This page says what is collected when you do give something, and what is not.</p>'
+            '<h2>Reading the site</h2><p>No account, no sign-in and no tracking pixel. ETFIQ runs no advertising network and no third-party analytics or advertising script. '
+            'The site is served as static files; the host records ordinary web server information such as the address requested and the time, which ETFIQ does not use to build a profile of you.</p>'
+            '<h2>What stays on your device</h2><p>The funds you follow, saved portfolios, your chosen window and theme are kept in your own browser storage. They are never sent to ETFIQ and are not visible to anyone else. '
+            'Clearing your browser data removes them.</p>'
+            '<h2>If you ask for alerts or the weekly note</h2><p>The email address and the tickers you enter are used to send what you asked for, and nothing else. '
+            'They are not sold, rented or shared for anyone else\'s marketing. Every message carries an unsubscribe link, and asking to be removed removes the address.</p>'
+            '<h2>Data about funds</h2><p>Everything ETFIQ publishes is about funds, not about people: issuer disclosures, filings with the SEC and exchange prices. See <a href="/standards/">Standards</a> for the sources and <a href="/data/">Open data</a> for the files.</p>'
+            '<h2>Children</h2><p>ETFIQ is not directed at children and does not knowingly collect information from anyone under 13.</p>'
+            '<h2>Changes and questions</h2><p>Material changes will be noted here with the date. Questions, corrections or a request to be removed: <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.</p>'
+            '<nav class="rel"><a href="/standards/">Standards and sources</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></nav>')
+    return doc_page('privacy/', 'Privacy', 'What ETFIQ collects, which is almost nothing: no account, no tracking pixel, no third-party analytics, and email used only for what you asked for.', body, short='Privacy')
+
+
+def terms_page():
+    body = ('<p class="note">Last updated ' + fdate(TODAY) + '.</p>'
+            '<h1>Terms of use</h1><p class="lede">Plain terms for a site that publishes data and sells nothing.</p>'
+            '<h2>Not advice</h2><p>ETFIQ is an independent publisher of data about exchange-traded funds. It is not an investment adviser, broker-dealer or fund issuer, '
+            'and nothing here is investment advice, an offer, a solicitation or a recommendation to buy or sell anything. Every figure is stated arithmetic on published data. '
+            'Decisions about your money are yours, and a fund prospectus is the governing document for any fund.</p>'
+            '<h2>Accuracy</h2><p>Figures come from issuer disclosures, filings with the SEC and exchange prices, and each carries the date it was published. '
+            'ETFIQ recomputes every published number nightly from the raw sources and corrects errors on the page where they appeared, with the date. '
+            'Data can still be wrong, late or incomplete, and it is provided as it is, without warranty.</p>'
+            '<h2>Using the data</h2><p>The files at <a href="/data/">Open data</a> and the graphics at <code>/embed/</code> are free to use, including commercially, '
+            'with attribution to ETFIQ and a link. Please do not present ETFIQ figures as your own, and do not remove the credit from an embedded graphic.</p>'
+            '<h2>Trademarks</h2><p>Fund and index names belong to their owners and appear here to identify the funds being described. '
+            'ETFIQ is not affiliated with, endorsed by or sponsored by any issuer or index provider.</p>'
+            '<h2>Questions</h2><p><a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a></p>'
+            '<nav class="rel"><a href="/standards/">Standards and sources</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav>')
+    return doc_page('terms/', 'Terms of use', 'ETFIQ publishes data and makes no recommendations. How the figures are produced, corrected, and how the open data may be reused.', body, short='Terms')
+
+
+def contact_page():
+    body = ('<h1>Contact ETFIQ</h1><p class="lede">One address, read by a person.</p>'
+            '<p><a class="cta" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a></p>'
+            '<h2>Corrections</h2><p>If a figure looks wrong, send the ticker, the page and what you expected. Errors are corrected on the page where they appeared, with the date. '
+            'Every number is recomputed nightly from the raw sources, so a correction to the method fixes every page at once.</p>'
+            '<h2>Issuers</h2><p>ETFIQ publishes the same fields for every fund in a category, from every issuer, and does not accept payment for placement, for a ranking position or for the omission of a fund. '
+            'If a figure ETFIQ takes from your disclosure is stale or misread, write and it will be checked against the source.</p>'
+            '<h2>Journalists and researchers</h2><p>The underlying files are public at <a href="/data/">Open data</a>, free to use with attribution. '
+            'For a figure that is not in them, or the method behind one, write and ask.</p>'
+            '<nav class="rel"><a href="/standards/">Standards and sources</a><a href="/data/">Open data</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>')
+    return doc_page('contact/', 'Contact', 'How to reach ETFIQ for corrections, data questions and press.', body, short='Contact')
+
+
+# ---------------------------------------------------------------- the open data page
+DATA_FILES = [
+    ('funds.json', 'Buffer desk', "Every defined outcome ETF with its published terms and current figures: reference index, buffer, cap, outcome period, index and fund return, remaining cap and downside before the buffer as the issuer publishes them, plus the ETFIQ fields (protection left in index points, buffer used, state)."),
+    ('income.json', 'Income desk', "Every option-income ETF with price, cash distributions and total return over 3 months, 6 months, 1 year, 3 years and since launch, each against the index or stock it writes options on, with payout frequency, annualised payout rate, trailing twelve month cash and the prospectus expense ratio."),
+    ('thematic.json', 'Themes desk', "Every thematic ETF with its holdings summary, weight already in the S&P 500 and the Nasdaq-100, active share, top ten weight, returns against both indexes, drawdown, fee and active expense ratio, plus a fund-to-fund overlap matrix."),
+    ('payouts.json', 'Payout calendar', "Declared, scheduled and estimated distributions per fund, with ex and pay dates, the cadence and the ex-to-pay lag."),
+    ('sources.json', 'Return of capital', "Issuers' own Rule 19a-1 estimates of what each distribution was made of, with the notice it came from."),
+    ('insights.json', 'What changed', "The computed lines published each trading night, one per finding, with the desk and a link."),
+    ('books/index.json', 'Look-through books', "An index of the filed holdings book held for each fund, with its as-of date and whether the fund is synthetic. Individual books sit at /data/books/TICKER.json."),
+]
+
+
+def data_page(as_of, counts):
+    url = f'{BASE}/data/'
+    title = 'ETFIQ open data'
+    desc = 'Every figure ETFIQ publishes, as JSON, free to use with attribution. Rebuilt every trading night from issuer pages, SEC filings and exchange prices.'
+    rows = ''.join(f'<tr><th><a href="/data/{fn}"><code>{fn}</code></a></th><td>{esc(lab)}</td><td>{esc(d)}</td></tr>' for fn, lab, d in DATA_FILES)
+    ld = [
+        {'@type': 'Dataset', 'name': 'ETFIQ exchange-traded fund data', 'description': desc, 'url': url, 'dateModified': as_of,
+         'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'publisher': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE},
+         'license': url, 'isAccessibleForFree': True, 'creditText': 'ETFIQ (etfiq.com)', 'temporalCoverage': as_of,
+         'keywords': ['exchange-traded funds', 'buffer ETFs', 'defined outcome', 'option income', 'covered call', 'thematic ETFs', 'holdings', 'active share'],
+         'distribution': [{'@type': 'DataDownload', 'name': lab, 'description': d, 'encodingFormat': 'application/json', 'contentUrl': f'{BASE}/data/{fn}'} for fn, lab, d in DATA_FILES]}]
+    parts = [
+        f'<p class="note">Rebuilt every trading night. Current files as of {fdate(as_of)}.</p>',
+        '<h1>Open data</h1><p class="lede">Every figure on this site is published as JSON at a stable address. Free to use, including commercially, with attribution to ETFIQ and a link to the page or file you used.</p>',
+        f'<h2>How to cite</h2><p>Name ETFIQ as the source, state the as-of date carried in the file, and link to etfiq.com. For example: ETFIQ, buffer desk, data as of {fdate(as_of)}, etfiq.com.</p>',
+        f'<h2>The files</h2><div style="overflow-x:auto"><table class="hub"><thead><tr><th>File</th><th>Desk</th><th>What it holds</th></tr></thead><tbody>{rows}</tbody></table></div>',
+        f'<h2>What is in them today</h2><p>{esc(counts)}</p>',
+        '<h2>Method</h2><p>Terms come from issuer product pages and prospectus supplements filed with the SEC. Prices and distributions come from exchange end-of-day data. Holdings come from Form N-PORT and, where an issuer publishes one, its daily file. Fees come from the prospectus risk and return data filed as XBRL. Every figure ETFIQ computes rather than quotes is marked on the page and described on <a href="/standards/">Standards</a>. Each published number is recomputed from the raw sources every night by separate code, and anything that does not reproduce is listed before the site is published.</p>',
+        '<h2>Fair use</h2><p>The files are served from a static host with no rate limit and no key. Please cache rather than fetch repeatedly; they change once a night.</p>',
+        '<nav class="rel"><a href="/llms.txt">llms.txt</a><a href="/standards/">Standards and sources</a><a href="/research/">ETFIQ Research</a></nav>',
+    ]
+    return doc_page('data/', title, desc, ''.join(parts), ld, wide=True, short='Open data')
 
 
 # ---------------------------------------------------------------- hub pages: issuer, theme, reset month
@@ -375,6 +480,74 @@ def embed_block(desk, ticker, name):
             f'<p>The {EMBED_LABEL[desk]} for {esc(ticker)}, redrawn every trading night. Free to use with the credit link; paste these two lines into any page or newsletter.</p>'
             f'<p><img src="/embed/{desk}/{ticker}.svg" alt="{esc(ticker)} {EMBED_LABEL[desk]}, ETFIQ" width="640" loading="lazy" style="max-width:100%;height:auto;border-radius:10px"></p>'
             f'<pre class="embed"><code>{esc(snippet)}</code></pre>')
+
+
+NEIGHBOURS = {}   # (desk, ticker) -> list of (label, href), the paths off every fund page
+
+
+def issuer_slug(name):
+    return re.sub(r'[^a-z0-9]+', '-', (name or '').lower()).strip('-')
+
+
+def build_neighbours(funds, income, themes, has_hub=None):
+    """Every fund page gets somewhere to go: its issuer, its group on the desk, and its closest funds.
+    Without this most pages are dead ends, which costs both readers and crawl depth."""
+    MON = {'01': 'january', '02': 'february', '03': 'march', '04': 'april', '05': 'may', '06': 'june',
+           '07': 'july', '08': 'august', '09': 'september', '10': 'october', '11': 'november', '12': 'december'}
+    has_hub = has_hub if has_hub is not None else set()
+    by_issuer = {}
+    for desk, rs in (('buffer', funds), ('income', income), ('themes', themes)):
+        for r in rs:
+            by_issuer.setdefault(r['issuer'], []).append((desk, r['ticker']))
+    def issuer_link(name):
+        return [(f'All {name} funds', f'/issuers/{issuer_slug(name)}.html')] if issuer_slug(name) in has_hub else []
+    fam, refs, bench, theme_of = {}, {}, {}, {}
+    for f in funds:
+        fam.setdefault(f.get('family') or f['name'], []).append(f['ticker'])
+        refs.setdefault(f['refAsset'], []).append(f['ticker'])
+    for r in income:
+        bench.setdefault(r['benchmark'], []).append(r['ticker'])
+    for r in themes:
+        theme_of.setdefault(r['theme'], []).append(r['ticker'])
+    def near(pool, t, k=5):
+        i = pool.index(t) if t in pool else 0
+        others = [x for x in pool if x != t]
+        return others[max(0, i - k):i + k][:6]
+    for f in funds:
+        t, links = f['ticker'], []
+        links += issuer_link(f['issuer'])
+        mm = f['periodEnd'][5:7]
+        if mm in MON:
+            links.append((f"Buffer ETFs resetting in {MON[mm].title()}", f"/buffer/{MON[mm]}.html"))
+        links += [(x, f'/funds/{x}.html') for x in near(sorted(fam.get(f.get('family') or f['name'], [])), t)]
+        links += [(x, f'/funds/{x}.html') for x in near(sorted(refs.get(f['refAsset'], [])), t, 3)][:4]
+        NEIGHBOURS[('buffer', t)] = links
+    for r in income:
+        t, links = r['ticker'], []
+        links += issuer_link(r['issuer'])
+        links.append((f"Every income ETF on {r['benchmark']}", f"/income/"))
+        links += [(x, f'/funds/{x}.html') for x in near(sorted(bench.get(r['benchmark'], [])), t, 6)]
+        NEIGHBOURS[('income', t)] = links
+    for r in themes:
+        t, links = r['ticker'], []
+        links += issuer_link(r['issuer'])
+        links.append((f"All {r['themeName'].lower()} ETFs", f"/themes/{r['theme']}.html"))
+        links += [(p['t'], f"/funds/{p['t']}.html") for p in (r.get('peers') or [])[:5]]
+        if len(links) < 5:
+            links += [(x, f'/funds/{x}.html') for x in near(sorted(theme_of.get(r['theme'], [])), t)]
+        NEIGHBOURS[('themes', t)] = links
+
+
+def neighbour_links(desk, ticker):
+    ls = NEIGHBOURS.get((desk, ticker)) or []
+    seen, out = set(), []
+    for label, href in ls:
+        if href in seen:
+            continue
+        seen.add(href)
+        out.append(f'<a href="{href}">{esc(label)}</a>')
+    out.append(f'<a href="/{desk}/">Every fund on the {DESK_NAME[desk].lower()}</a>')
+    return f'<h2>Funds near this one</h2><nav class="rel">{"".join(out[:12])}</nav>'
 
 
 def related_links(desk, ticker):
@@ -445,8 +618,10 @@ def cmp_rows(desk, a, b, extra):
     return labels, one(a), one(b)
 
 
-def cmp_faqs(desk, a, b, extra, overlap):
+def cmp_faqs(desk, a, b, extra, overlap, as_of=None):
     ta, tb = a['ticker'], b['ticker']
+    on = fdate(as_of) if as_of else None
+    dt = f' to {on}' if on else ''
     out = []
     if desk == 'income':
         wa, _ = w1(a)
@@ -454,22 +629,22 @@ def cmp_faqs(desk, a, b, extra, overlap):
         if wa and wb:
             more = ta if wa['cash'] >= wb['cash'] else tb
             out.append((f'Which paid more, {ta} or {tb}?',
-                        f'Over the last year {ta} paid {pct(wa["cash"], sign=False)} of its starting price in cash and {tb} paid {pct(wb["cash"], sign=False)}, so {more} paid more. Cash paid is not the same as money made: the price change matters too.'))
+                        f'Over the year{dt}, {ta} paid {pct(wa["cash"], sign=False)} of its starting price in cash and {tb} paid {pct(wb["cash"], sign=False)}, so {more} paid more. Cash paid is not the same as money made: the price change matters too.'))
             best = ta if (wa.get('total') or -999) >= (wb.get('total') or -999) else tb
             out.append((f'Which returned more once distributions are counted, {ta} or {tb}?',
-                        f'With every distribution reinvested, {ta} returned {pct(wa["total"])} and {tb} returned {pct(wb["total"])} over the last year, so {best} returned more.'))
+                        f'With every distribution reinvested, {ta} returned {pct(wa["total"])} and {tb} returned {pct(wb["total"])} over the year{dt}, so {best} returned more.'))
     if desk == 'buffer':
         if a.get('remainingCapFund') is not None and b.get('remainingCapFund') is not None:
             more = ta if a['remainingCapFund'] >= b['remainingCapFund'] else tb
             out.append((f'Which has more room to gain, {ta} or {tb}?',
-                        f'From today\'s price {ta} can gain about {pct(a["remainingCapFund"], sign=False)} before its cap and {tb} about {pct(b["remainingCapFund"], sign=False)}, so {more} has more room left this period.'))
+                        f'From their prices{" on " + on if on else ""}, {ta} can gain about {pct(a["remainingCapFund"], sign=False)} before its cap and {tb} about {pct(b["remainingCapFund"], sign=False)}, so {more} has more room left this period.'))
         out.append((f'Which resets first, {ta} or {tb}?',
                     f'{ta} ends its outcome period on {fdate(a["periodEnd"])} and {tb} on {fdate(b["periodEnd"])}. A new cap is set the day after each.'))
     if desk == 'themes':
         if overlap is not None:
             word = 'close to holding one of them twice' if overlap >= 50 else 'a meaningful overlap' if overlap >= 20 else 'mostly different names'
             out.append((f'Do {ta} and {tb} hold the same stocks?',
-                        f'{overlap}% of their books are the same securities at the same weight, which is {word}. Overlap is the sum of the smaller weight of every security they share.'))
+                        f'By their latest filings, {overlap}% of their books are the same securities at the same weight, which is {word}. Overlap is the sum of the smaller weight of every security they share.'))
         va, vb = a.get('vsSPY') or {}, b.get('vsSPY') or {}
         if va.get('inIndex') is not None and vb.get('inIndex') is not None:
             diff = ta if va['activeShare'] >= vb['activeShare'] else tb
@@ -504,7 +679,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
         va, vb = a.get('vsSPY') or {}, b.get('vsSPY') or {}
         desc = (f'{ta} and {tb} side by side on {fdate(as_of)}: {pct(va.get("inIndex"), sign=False)} against {pct(vb.get("inIndex"), sign=False)} already in the S&P 500'
                 + (f', {overlap}% of the two books in common.' if overlap is not None else '.'))
-    faqs = cmp_faqs(desk, a, b, extra, overlap)
+    faqs = cmp_faqs(desk, a, b, extra, overlap, as_of)
     faq_html, faq_ld = faq_block(faqs)
     ld = {'@context': 'https://schema.org', '@graph': faq_ld + [
         crumbs([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (f'{ta} vs {tb}', url)]),
@@ -531,7 +706,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 <h2>{esc(tb)} in plain words</h2><p>{esc(words_b)}</p>
 {faq_html}
 {'<h2>Other comparisons</h2><nav class="rel">' + rel + '</nav>' if rel else ''}
-<p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; every figure here is stated arithmetic on published data. <a href="{BASE}/#/standards">Standards and sources</a></p>
+<p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; every figure here is stated arithmetic on published data. <a href="{BASE}/standards/">Standards and sources</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
 
 
@@ -566,7 +741,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
     faq_html, faq_ld = faq_block(faqs or [])
     ld = {'@context': 'https://schema.org', '@graph': faq_ld + [crumbs([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (ticker, url)])] + [
         {'@type': 'FinancialProduct', 'name': name, 'alternateName': ticker, 'identifier': ticker, 'provider': {'@type': 'Organization', 'name': issuer}, 'category': f'Exchange-traded fund, {DESK_NAME[desk].lower()}', 'url': url},
-        {'@type': 'Dataset', 'name': f'ETFIQ {DESK_NAME[desk].lower()} record for {ticker}', 'description': desc, 'dateModified': as_of, 'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'license': 'https://etfiq.com/#/standards', 'isAccessibleForFree': True, 'url': url},
+        {'@type': 'Dataset', 'name': f'ETFIQ {DESK_NAME[desk].lower()} record for {ticker}', 'description': desc, 'dateModified': as_of, 'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'license': f'{BASE}/standards/', 'isAccessibleForFree': True, 'url': url},
         {'@type': 'WebPage', 'name': title, 'description': desc, 'url': url, 'dateModified': as_of, 'isPartOf': {'@type': 'WebSite', 'name': 'ETFIQ', 'url': BASE}}]}
     trs = ''.join(f'<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>' for k, v in rows)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -582,7 +757,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <table class="kv"><tbody>{trs}</tbody></table>
 {faq_html}
 {related}
-<p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
+<p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/llms.txt">llms.txt</a></nav></footer></body></html>"""
 
 
@@ -607,7 +782,7 @@ def index_page(desk, rows, as_of, intro, hub_nav=''):
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
 {hub_nav}
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
-<p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a></p>
+<p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
 
 
@@ -638,7 +813,7 @@ def portfolio_page(as_of, books):
 <h2>Five views</h2><table class="kv"><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
 <h2>Try an example</h2><p>{' · '.join(f'<a href="{BASE}/#/portfolio/own/{sp}">{esc(l)}</a>' for sp, l in examples)}</p>
 <h2>How positions are written</h2><p>Tickers with a weight (PJAN:20), a share count (JEPI:150S) or a dollar amount (JEPI:$25000), separated by commas. Any fund on the buffer, income or themes desk, plus the core index funds. The link carries the positions, so a portfolio can be shared or bookmarked; named portfolios can be kept on the device.</p>
-<p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/#/standards">Standards</a></p>
+<p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/standards/">Standards</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">Research</a></nav></footer></body></html>"""
 
 
@@ -660,6 +835,13 @@ def build():
     DESK_HUBS['themes'] = ('<h2>Browse by theme</h2><nav class="rel">' + ''.join(f'<a href="/themes/{k}.html">{esc(n)}</a>' for k, n in theme_keys) + '<a href="/issuers/">By issuer</a></nav>')
     DESK_HUBS['buffer'] = ('<h2>Browse by reset month</h2><nav class="rel">' + ''.join(f'<a href="/buffer/{MONS[m].lower()}.html">{MONS[m]}</a>' for m in month_keys if m in MONS) + '<a href="/issuers/">By issuer</a></nav>')
     DESK_HUBS['income'] = '<h2>Browse</h2><nav class="rel"><a href="/issuers/">Every issuer</a><a href="/compare/">Head to head</a><a href="/learn/income.html">The vocabulary</a></nav>'
+    _by_issuer = {}
+    for _d, _rs in (('buffer', funds), ('income', income), ('themes', themes)):
+        for _r in _rs:
+            _by_issuer.setdefault(_r['issuer'], 0)
+            _by_issuer[_r['issuer']] += 1
+    HUB_SLUGS = {issuer_slug(k) for k, v in _by_issuer.items() if v >= 2}
+    build_neighbours(funds, income, themes, HUB_SLUGS)
     PAIRS_BY_TICKER.clear()
     for desk, ts in top.items():
         for t in ts:
@@ -697,7 +879,12 @@ def build():
     (SITE / 'standards').mkdir(exist_ok=True)
     (SITE / 'standards' / 'index.html').write_text(standards_page())
     urls.append((f'{BASE}/standards/', TODAY))
-    for old_path, target in (('about', '/standards/'), ('contact', '/standards/'), ('blog', '/research/'), ('services', '/'), ('hello-world', '/')):
+    (SITE / '404.html').write_text(not_found_page())
+    for slug, fn in (('privacy', privacy_page), ('terms', terms_page), ('contact', contact_page)):
+        (SITE / slug).mkdir(exist_ok=True)
+        (SITE / slug / 'index.html').write_text(fn())
+        urls.append((f'{BASE}/{slug}/', TODAY))
+    for old_path, target in (('about', '/standards/'), ('blog', '/research/'), ('services', '/'), ('hello-world', '/')):
         d = SITE / old_path
         d.mkdir(exist_ok=True)
         (d / 'index.html').write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>ETFIQ</title>'
@@ -793,6 +980,12 @@ def build():
                                                                          crumb=[('Browse', f'{BASE}/#/browse/month'), ('Buffer desk', f'{BASE}/buffer/')], desk='buffer', short=f'{MON[mm]} resets'))
         urls.append((f'{BASE}/buffer/{MON[mm].lower()}.html', as_b))
         hubs += 1
+    # the open data page
+    _books = load('site/data/books/index.json', {'books': {}}).get('books', {})
+    counts_line = f'{len(funds)} buffer ETFs, {len(income)} option-income ETFs and {len(themes)} thematic ETFs, with filed holdings books for {sum(1 for v in _books.values() if v.get("n"))} funds.'
+    (SITE / 'data').mkdir(exist_ok=True)
+    (SITE / 'data' / 'index.html').write_text(data_page(max(as_b, as_i, as_t), counts_line))
+    urls.append((f'{BASE}/data/', max(as_b, as_i, as_t)))
     # what changed today
     ins = load('site/data/insights.json', {'lines': [], 'asOf': max(as_b, as_i, as_t)})
     lines = ins.get('lines') or []
@@ -812,7 +1005,7 @@ def build():
         (SITE / 'changed' / 'index.html').write_text(doc_page('changed/', f'What changed in buffer, income and thematic ETFs, {fdate(ins.get("asOf"))}',
                                                               f'Counted from the published data on {fdate(ins.get("asOf"))}: caps reached, buffers working, funds ahead of their benchmark, themes against the index.', inner, ld))
         urls.append((f'{BASE}/changed/', ins.get('asOf') or TODAY))
-    words = {'buffer': lambda f: buffer_words(f)[0], 'income': lambda r: income_words(r, sources.get(r['ticker']))[0], 'themes': lambda r: theme_words(r)[0]}
+    words = {'buffer': lambda f: buffer_words(f, as_b)[0], 'income': lambda r: income_words(r, sources.get(r['ticker']), as_i)[0], 'themes': lambda r: theme_words(r, as_t)[0]}
     matrix = load('site/data/thematic.json', {}).get('matrix')
     roc = {t: {'roc': (v.get('latest') or {}).get('roc')} for t, v in sources.items()}
     cmpdir = SITE / 'compare'
@@ -862,6 +1055,7 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
 - [Head to head comparisons]({BASE}/compare/): every pair of the most widely held funds on each desk, in one table with the desk's own fields
 - [Portfolio desk]({BASE}/portfolio/): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
+- [Open data]({BASE}/data/): every figure as JSON at a stable address, free to use with attribution, rebuilt nightly. Files: funds.json, income.json, thematic.json, payouts.json, sources.json, insights.json, books/index.json
 - [Standards, ownership and sources]({BASE}/standards/): who publishes this, what it never does, and where every figure comes from
 - [Learn the vocabulary]({BASE}/learn/): three plain-words glossaries, one per desk, defining every term used here
 - [What changed today]({BASE}/changed/): counted from the published data each trading night

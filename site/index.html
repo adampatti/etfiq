@@ -617,7 +617,6 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
       <a href="/research/" data-d="research">Research</a>
     </nav>
     <div class="right">
-      <div class="asof" id="asofWrap">Data as of <strong id="asof">SAMPLE</strong></div>
       <a class="txt" href="#/standards">Standards</a>
       <button class="btn ghost" id="theme" type="button" aria-label="Switch theme">Theme: system</button>
       <a class="btn primary" href="#/alerts">Get alerts</a>
@@ -639,10 +638,14 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
   <a href="#/income/learn">Learn: income</a>
   <a href="#/themes/learn">Learn: themes</a>
   <a href="/research/">Research</a>
+  <a href="/data/">Open data</a>
   <a href="/buffer/">Fund pages: buffer</a>
   <a href="/income/">Fund pages: income</a>
   <a href="/themes/">Fund pages: themes</a>
   <a href="#/alerts">Alerts and the weekly note</a>
+  <a href="/privacy/">Privacy</a>
+  <a href="/terms/">Terms</a>
+  <a href="/contact/">Contact</a>
   <span id="footAsOf">Sample data</span>
 </footer>
 
@@ -2263,7 +2266,7 @@ function viewStandards(){
 }
 function viewAlerts(){
   const mineAll = [...S.mine.buffer, ...S.mine.income].join(', ');
-  return `<div class="doc"><h1>Alerts and the weekly note</h1><p class="lede">Follow funds and hear when something changes: a buffer fund reaching its cap or a reset coming up, an income fund falling behind its benchmark. Two separate choices, and neither depends on the other.</p>
+  return `<div class="doc"><h1>Alerts and the weekly note</h1><p class="lede">Follow funds and hear when something changes: a buffer fund reaching its cap or a reset coming up, an income fund falling behind its benchmark. Two separate choices, and neither depends on the other. Your address is used only for what you ask for; see <a href="/privacy/">Privacy</a>.</p>
   <form class="form" id="signup" novalidate>
     <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
     <div class="field"><label for="follow">Tickers to follow</label><input type="text" id="follow" name="follow" placeholder="BOCT, JEPI" value="${esc(mineAll)}" autocomplete="off"><div class="muted" style="font-size:12px;margin-top:4px">Optional. Buffer alerts: cap reached, buffer engaged or exhausted, thirty days before a reset. Income alerts: falling behind or pulling ahead of the benchmark, a cut in the distribution.</div></div>
@@ -2293,7 +2296,8 @@ function renderNav(){
   else if (docView) sn.innerHTML = S.view === 'home' ? '' : `<span class="deskname">ETFIQ</span><a href="#/buffer/check">Buffer desk</a><a href="#/income/check">Income desk</a><a href="#/themes/check">Themes desk</a>`;
   else { let last = null; sn.innerHTML = `<span class="deskname">${DESK_NAME[S.desk]}</span>` + SUBNAV[S.desk].map(([v, l, g]) => { const lab = g && g !== last ? `<span class="nlvl lv-${g}">${NLVL[g]}</span>` : ''; last = g; return lab + `<a href="#/${S.desk}/${v}" class="${S.view === v ? 'on' : ''}">${l}</a>`; }).join(''); }
   const live = S.desk === 'income' ? CONFIG.incomeAsOf : S.desk === 'themes' ? CONFIG.thematicAsOf : CONFIG.asOf;
-  const asof = $('#asof'), wrap = $('#asofWrap'), banner = $('#banner'), bt = $('#bannerText');
+  const banner = $('#banner'), bt = $('#bannerText');
+  const asof = { set textContent(v) {} }, wrap = { classList: { add() {}, remove() {} } };  // the header chip was removed; the banner carries the date
   if (S.view === 'home' || S.view === 'portfolio') {
     const d = [CONFIG.asOf, CONFIG.incomeAsOf, CONFIG.thematicAsOf].filter(Boolean); const latest = d.length ? d.sort().pop() : null;
     if (latest) { asof.textContent = latest; wrap.classList.add('live'); banner.classList.add('live'); const sd = staleDays(latest); banner.classList.toggle('stale', sd > 2); bt.innerHTML = sd > 2 ? `<b>Data last refreshed ${esc(latest)}</b>, ${sd} trading days ago.` : `<b>Live data</b> as of ${esc(latest)}.`; }
