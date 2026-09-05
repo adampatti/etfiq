@@ -103,3 +103,11 @@ Funds the SEC file lists with a ticker but Tiingo has no prices for (ARAB, HRVD,
 `.github/workflows/snapshot.yml` runs twice each trading night, 23:30 UTC and 03:30 UTC, and on demand from the Actions tab. Each data step runs on its own: a failure in one desk leaves that desk on its last good data while the others refresh, the page still builds and deploys, and the run is marked failed so GitHub emails the owner. The run summary lists each step's outcome and the as-of date of both desks. The page itself shows an amber banner when a desk's data is more than two trading days old, so a silent failure can never look fresh.
 
 The income universe (`data/income_universe.json`) is rebuilt by hand, not nightly: run `python3 pipeline/income_universe.py` after checking the SEC series file and Tiingo's supported-tickers list for new launches. Two lists in that script carry what the name rules cannot: `HAND_INCLUDE` for funds the SEC file names but the rules park for review, and `TIINGO_EXTRA` for funds that trade but have no ticker in the SEC file yet. Both were last reviewed on 2026-09-05.
+
+## Buffer desk field definitions (2026-09-05)
+
+The three answers on the buffer desk are not all the same kind of number:
+
+- **Can still gain** is the issuer's remaining cap, net of fees, from the fund's current price. All three issuers publish it the same way.
+- **Fall before buffer** is the issuer's "downside before buffer": how far the fund's price can fall before the buffer starts absorbing losses. It is in fund-price terms at every issuer, so the site words it as the fund, not the index. The index-terms equivalent, `fallBeforeBufferRef` = 1 − (1 + bufferStart) / (1 + refReturn), is an ETFIQ calculation shown on the fund card.
+- **Protection left** is an ETFIQ calculation in index points: the part of the buffer still below today's index level, `startBuffer − bufferUsed`. Issuers' own "remaining buffer" figures are not comparable with each other (AllianzIM counts the distance down to the buffer as well, FT Vest counts only the buffer, Innovator uses a third method), so each issuer's figure is shown on the fund card labelled as its own, and the column uses the ETFIQ definition for every fund.
