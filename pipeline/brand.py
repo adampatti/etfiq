@@ -67,9 +67,9 @@ def svg(vb_w, vb_h, body, w=None, h=None):
 
 def lockup(dark):
     ink, blue, mut = (WHITE, BLUE_DARK, MUTED_D) if dark else (INK, BLUE, MUTED_L)
-    wm, draw_wm = wordmark(22, ink, blue); tg, draw_tg = tagline(8.6, mut)
+    wm, draw_wm = wordmark(22, ink, blue); tg, draw_tg = tagline(8.0, mut)
     x0 = 82
-    body = crest() + draw_wm(x0, 30.5) + draw_tg(x0, 50.5)
+    body = crest() + draw_wm(x0, 29) + draw_tg(x0, 52.5)
     W = x0 + max(wm['width'], tg['width']) + 2
     return svg(W, 64, body), W
 

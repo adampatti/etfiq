@@ -1,7 +1,7 @@
 """The site's top rail for static pages (research, fund pages): the same logo, desks, Research and alerts as the app."""
 BASE = 'https://etfiq.com'
 RAIL_CSS = ("header.rail{background:#0F1419;color:#F2F4F7;padding:0 20px;display:flex;align-items:center;gap:22px;height:60px;position:sticky;top:0;z-index:5}"
-            "header.rail .logo{display:flex;align-items:center;gap:11px;color:#F2F4F7;text-decoration:none}header.rail .crest{width:40px;height:40px;flex:none}header.rail .lk{display:flex;flex-direction:column;align-items:flex-start;gap:5px}header.rail .wmk{height:15px;width:auto;color:#F2F4F7;--iq:#5A87E5;display:block}header.rail .tgl{height:9px;width:auto;color:#8A93A0;display:block}"
+            "header.rail .logo{display:flex;align-items:center;gap:11px;color:#F2F4F7;text-decoration:none}header.rail .crest{width:40px;height:40px;flex:none}header.rail .lk{display:flex;flex-direction:column;align-items:flex-start;gap:10px}header.rail .wmk{height:15px;width:auto;color:#F2F4F7;--iq:#5A87E5;display:block;overflow:visible}header.rail .tgl{height:8px;width:auto;color:#8A93A0;display:block}"
             "header.rail nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:6px}header.rail nav::-webkit-scrollbar{display:none}"
             "header.rail nav a{color:#B8C0CC;text-decoration:none;font-weight:500;font-size:14px;padding:19px 12px 17px;border-bottom:2px solid transparent;white-space:nowrap}"
             "header.rail nav a:hover{color:#fff}header.rail nav a.on{color:#fff;border-bottom-color:#5A87E5}"
