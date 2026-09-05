@@ -30,7 +30,7 @@ def run(fam, axes, text, size, tracking_em=0.0):
     """Glyph paths for a text run at cap height `size` (px): list of (d, x_offset_px, color_slot) plus total ink bounds."""
     f = font(fam, axes); gs = f.getGlyphSet(); cmap = f.getBestCmap(); cap = f['OS/2'].sCapHeight; upm = f['head'].unitsPerEm
     s = size / cap
-    x = 0.0; items = []; minx, maxx = None, None
+    x = 0.0; items = []; minx, maxx, miny, maxy = None, None, None, None
     for ch in text:
         gname = cmap[ord(ch)]; g = gs[gname]
         pen = SVGPathPen(gs); g.draw(TransformPen(pen, (1, 0, 0, -1, 0, 0)))
@@ -38,9 +38,11 @@ def run(fam, axes, text, size, tracking_em=0.0):
         if bp.bounds:
             bx0, by0, bx1, by1 = bp.bounds
             minx = x + bx0 * s if minx is None else min(minx, x + bx0 * s); maxx = x + bx1 * s if maxx is None else max(maxx, x + bx1 * s)
+            miny = by0 * s if miny is None else min(miny, by0 * s); maxy = by1 * s if maxy is None else max(maxy, by1 * s)
         items.append((ch, pen.getCommands(), x))
         x += g.width * s + tracking_em * upm * s
-    return {'items': items, 'scale': s, 'width': maxx - (minx or 0), 'minx': minx or 0, 'maxx': maxx or 0}
+    # ink above the baseline (maxy, the Q overshoots the cap line) and below it (miny, the Q tail), so a viewBox can hold the whole mark
+    return {'items': items, 'scale': s, 'width': maxx - (minx or 0), 'minx': minx or 0, 'maxx': maxx or 0, 'over': (maxy or 0), 'under': -(miny or 0)}
 
 def paths(r, x0, baseline, color_of):
     return ''.join(f'<path fill="{color_of(ch, i)}" transform="translate({x0 + xo - r["minx"]:.3f} {baseline:.3f}) scale({r["scale"]:.6f})" d="{d}"/>' for i, (ch, d, xo) in enumerate(r['items']) if d)
@@ -81,8 +83,12 @@ lkd, _ = lockup(True); out['logo-dark.svg'] = lkd
 for name, body in out.items():
     (SITE / name).write_text(body)
 # header pieces for index.html and rail.py: the wordmark and tagline as standalone SVGs sized by cap height
+# the inline wordmark: a viewBox tight to the ink, so the Q tail is never clipped by the box it sits in
 wm, draw_wm = wordmark(686, 'currentColor', 'var(--iq, #5A87E5)')
-wb = draw_wm(0, 686); (SP / 'wordmark-inline.svg').write_text(svg(wm['width'], 686, wb))
+top, bottom = 686 - wm['over'], 686 + wm['under']
+wb = draw_wm(0, 686)
+(SP / 'wordmark-inline.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 {top:.2f} {wm["width"]:.2f} {bottom - top:.2f}">{wb}</svg>')
+INK_RATIO = (bottom - top) / 686
 tg, draw_tg = tagline(710, 'currentColor'); (SP / 'tagline-inline.svg').write_text(svg(tg['width'], 710, draw_tg(0, 710)))
 tg2, draw_tg2 = tagline(710, 'currentColor', 'ETF DATA, IN PLAIN WORDS'); (SP / 'tagline-short-inline.svg').write_text(svg(tg2['width'], 710, draw_tg2(0, 710)))  # the header carries the short line
-print(json.dumps({'lockupWidth': round(W, 1), 'wordmarkAspect': round(wm['width'] / 686, 4), 'taglineAspect': round(tg['width'] / 710, 4), 'sizes': {k: len(v) for k, v in out.items()}}, indent=1))
+print(json.dumps({'lockupWidth': round(W, 1), 'inkRatio': round(INK_RATIO, 4), 'capToBox': round(1 / INK_RATIO, 4), 'wordmarkAspect': round(wm['width'] / 686, 4), 'taglineAspect': round(tg['width'] / 710, 4), 'sizes': {k: len(v) for k, v in out.items()}}, indent=1))
