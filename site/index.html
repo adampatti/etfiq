@@ -294,6 +294,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .cmpt{width:100%;table-layout:fixed}.cmpt th{vertical-align:top}.cmpt thead th{text-align:left;padding:12px 14px}.cmpt thead th:first-child{width:186px}.cmpt td{white-space:normal;overflow-wrap:anywhere}.cmpt tr.gr td svg{display:block;width:100%;height:auto}@media (max-width:700px){.cmpt{table-layout:auto}.cmpt thead th{min-width:150px}}.cmpt thead th .fn{font:400 12px/1.35 var(--font);color:var(--muted);margin-top:6px;max-width:220px;text-transform:none;letter-spacing:0;white-space:normal}.cmpt tbody th{text-align:left;font:500 13px/1.3 var(--font);text-transform:none;letter-spacing:0;color:var(--ink-2);white-space:nowrap;padding:10px 14px}
 .cmpt td.num{text-align:left;font-variant-numeric:tabular-nums;padding:10px 14px}.cmpt tr.key th{font-weight:600;color:var(--ink)}.cmpt td.key{background:var(--accent-soft);font-weight:600}.cmpt tr.words td{font-size:13px;line-height:1.45;color:var(--ink-2);max-width:280px}.cmpt tr.gr td{padding:12px 14px}
 dl.qa{margin:0}dl.qa dt{font-weight:600;font-size:13.5px;margin:14px 0 5px;color:var(--ink)}dl.qa dt:first-child{margin-top:0}dl.qa dd{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.cq.slim{max-width:420px;margin:0 auto 14px}.cq.slim input{width:100%}
 .cmp-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:6px}.cmp-pairs .pair{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:6px}.cmp-pairs .v{font:600 28px/1 var(--font-display);letter-spacing:-.02em;color:var(--themes-ink)}.cmp-pairs .muted{font-size:12.5px;line-height:1.4}
 footer .wm .wmk{height:14.5px;width:auto;color:var(--ink);--iq:var(--accent);display:block}
 .doc table.srcs th{text-align:left;font-weight:600;vertical-align:top;white-space:normal}.doc table.srcs tbody th{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}.doc table.srcs td{vertical-align:top}.doc table.srcs{width:100%}
@@ -705,6 +706,7 @@ const S = {
   filters: { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' },
   ifilters: { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind: store.get('etfiq.kind', 'index') },
   sort: { k:'daysRemaining', dir:'asc' }, isort: { k:'gap', dir:'desc' },
+  bsort: { issuer:{k:'name', dir:'asc'}, theme:{k:'name', dir:'asc'}, month:{k:'order', dir:'asc'}, bench:{k:'n', dir:'desc'} }, bq: '',
   grouped: true, collapsed: new Set(), compact: store.get('etfiq.compact', false), cols: store.get('etfiq.cols', 'key'),
   window: store.get('etfiq.window', '1Y'),
   ladder: [], entrySort: 'reset',
@@ -2068,40 +2070,67 @@ function browseCounts(){
   S.income.forEach(r => { if (!r.benchmark) return; const c = bench.get(r.benchmark) || { name:r.benchmarkName || r.benchmark, n:0, ahead:0, withW:0 }; c.n++; const w = iwx(r); if (w && w.gap != null) { c.withW++; if (w.gap > 0.5) c.ahead++; } bench.set(r.benchmark, c); });
   return { iss, themes, months, bench };
 }
+function bth(tab, k, label, num){
+  const st = S.bsort[tab] || {};
+  const on = st.k === k;
+  return `<th class="${num ? 'num ' : ''}${on ? 'sorted' : ''}" data-bsort="${k}"${num ? ' data-bnum="1"' : ''} style="cursor:pointer" title="Sort by ${esc(label)}"><span class="lab">${label}</span>${on ? `<span class="dir">${st.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`;
+}
+function bsorted(tab, rows){
+  const st = S.bsort[tab] || { k:'name', dir:'asc' };
+  const d = st.dir === 'asc' ? 1 : -1;
+  return rows.slice().sort((a, b) => {
+    const x = a[st.k], y = b[st.k];
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    if (typeof x === 'string') return x.localeCompare(y) * d;
+    return (x < y ? -1 : x > y ? 1 : 0) * d;
+  });
+}
 function viewBrowse(){
   const tab = S.browseTab || 'issuer';
   const C = browseCounts();
+  const q = (S.bq || '').toLowerCase();
+  const find = `<form class="cq slim" id="browseForm" autocomplete="off" onsubmit="return false"><input id="browseQ" type="search" placeholder="${tab === 'issuer' ? 'Find an issuer, for example Innovator' : tab === 'theme' ? 'Find a theme, for example robotics' : tab === 'bench' ? 'Find a benchmark, for example QQQ' : 'Find a month'}" value="${esc(S.bq || '')}" aria-label="Find"></form>`;
   const tabs = [['issuer', 'By issuer'], ['theme', 'By theme'], ['month', 'By reset month'], ['bench', 'By benchmark']];
   const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Every issuer, theme, reset month and benchmark</h1><p>Pick any of these and the desk opens filtered to it, with the same fields and the same sorting. Counts are of the funds ETFIQ covers today.</p></div>
 `;
   let body = '';
   if (tab === 'issuer') {
-    const rows = Array.from(C.iss.entries()).map(([name, c]) => ({ name, c, total: c.buffer + c.income + c.themes })).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
-    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Issuer</th><th class="num">Funds</th><th>Buffer</th><th>Income</th><th>Themes</th><th>Every fund on one page</th></tr></thead><tbody>
+    let rows = Array.from(C.iss.entries()).map(([name, c]) => ({ name, c, total: c.buffer + c.income + c.themes, buffer: c.buffer, income: c.income, themes: c.themes }));
+    if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
+    rows = bsorted('issuer', rows);
+    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('issuer', 'name', 'Issuer')}${bth('issuer', 'total', 'Funds', true)}${bth('issuer', 'buffer', 'Buffer', true)}${bth('issuer', 'income', 'Income', true)}${bth('issuer', 'themes', 'Themes', true)}<th>Every fund on one page</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.total}</td>
         <td>${r.c.buffer ? `<a href="#/buffer/desk/issuer/${encodeURIComponent(r.name)}">${r.c.buffer} buffer</a>` : '<span class="muted">·</span>'}</td>
         <td>${r.c.income ? `<a href="#/income/desk/issuer/${encodeURIComponent(r.name)}">${r.c.income} income</a>` : '<span class="muted">·</span>'}</td>
         <td>${r.c.themes ? `<a href="#/themes/desk/issuer/${encodeURIComponent(r.name)}">${r.c.themes} thematic</a>` : '<span class="muted">·</span>'}</td>
         <td><a href="/issuers/${esc(r.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))}.html">${esc(r.name)} page ›</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">${rows.length} issuers. The issuer page is a printable list of every fund from that issuer across the desks.</p>`;
+    </tbody></table></div></div><p class="hint">${rows.length} issuers${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. The issuer page is a printable list of every fund from that issuer across the desks.</p>`;
   } else if (tab === 'theme') {
-    const rows = Array.from(C.themes.entries()).map(([k, c]) => ({ k, ...c, med: c.ins.length ? c.ins.slice().sort((a, b) => a - b)[Math.floor(c.ins.length / 2)] : null })).sort((a, b) => b.n - a.n);
-    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Theme</th><th class="num">Funds</th><th class="num">Typical fund already in the S&P 500</th><th>Open</th></tr></thead><tbody>
+    let rows = Array.from(C.themes.entries()).map(([k, c]) => ({ k, ...c, med: c.ins.length ? c.ins.slice().sort((a, b) => a - b)[Math.floor(c.ins.length / 2)] : null }));
+    if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
+    rows = bsorted('theme', rows);
+    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('theme', 'name', 'Theme')}${bth('theme', 'n', 'Funds', true)}${bth('theme', 'med', 'Typical fund already in the S&P 500', true)}<th>Open</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.n}</td><td class="num">${r.med == null ? '·' : fmtPct(r.med, {sign:false, d:0})}</td>
         <td><a href="#/themes/desk/theme/${esc(r.k)}">Open on the desk</a> · <a href="/themes/${esc(r.k)}.html">theme page ›</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">${rows.length} themes. ETFIQ assigns one theme per fund from its name and holdings; the taxonomy is editorial and <a href="#/standards">Standards</a> says so.</p>`;
+    </tbody></table></div></div><p class="hint">${rows.length} themes${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. ETFIQ assigns one theme per fund from its name and holdings; the taxonomy is editorial and <a href="#/standards">Standards</a> says so.</p>`;
   } else if (tab === 'month') {
-    const rows = Object.keys(MONTH_NAME).map(k => ({ k, ...(C.months.get(k) || { n:0, soon:0 }) })).filter(r => r.n);
-    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Outcome period ends in</th><th class="num">Buffer ETFs</th><th class="num">Resetting within 45 days</th><th>Open</th></tr></thead><tbody>
+    let rows = Object.keys(MONTH_NAME).map(k => ({ k, order: +k, name: MONTH_NAME[k], ...(C.months.get(k) || { n:0, soon:0 }) })).filter(r => r.n);
+    if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
+    rows = bsorted('month', rows);
+    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('month', 'order', 'Outcome period ends in')}${bth('month', 'n', 'Buffer ETFs', true)}${bth('month', 'soon', 'Resetting within 45 days', true)}<th>Open</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${MONTH_NAME[r.k]}</b></td><td class="num">${r.n}</td><td class="num">${r.soon || '·'}</td>
         <td><a href="#/buffer/desk/month/${r.k}">Open on the desk</a> · <a href="/buffer/${MONTH_NAME[r.k].toLowerCase()}.html">${MONTH_NAME[r.k]} page ›</a></td></tr>`).join('')}
     </tbody></table></div></div><p class="hint">A buffer ETF is at its freshest cap in the days after it resets, and has the least room left just before. <a href="#/buffer/entry">Buying today</a> groups the whole desk that way.</p>`;
   } else {
-    const rows = Array.from(C.bench.entries()).map(([k, c]) => ({ k, ...c })).sort((a, b) => b.n - a.n);
-    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Benchmark</th><th>What it is</th><th class="num">Income ETFs</th><th class="num">Ahead of it over ${WIN_LABEL[S.window]}</th><th>Open</th></tr></thead><tbody>
+    let rows = Array.from(C.bench.entries()).map(([k, c]) => ({ k, ...c }));
+    if (q) rows = rows.filter(r => r.k.toLowerCase().includes(q) || (r.name || '').toLowerCase().includes(q));
+    rows = bsorted('bench', rows);
+    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('bench', 'k', 'Benchmark')}${bth('bench', 'name', 'What it is')}${bth('bench', 'n', 'Income ETFs', true)}${bth('bench', 'ahead', 'Ahead of it over ' + WIN_LABEL[S.window], true)}<th>Open</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><span class="tk">${esc(r.k)}</span></td><td>${esc(r.name)}</td><td class="num">${r.n}</td><td class="num">${r.withW ? `${r.ahead} of ${r.withW}` : '·'}</td>
         <td><a href="#/income/desk/bench/${encodeURIComponent(r.k)}">Open on the desk</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks across ${S.income.length} funds.</p>`;
+    </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks${q ? ' matching ' + esc(S.bq) : ''} across ${S.income.length} funds. Click any heading to sort.</p>`;
   }
   return `<div class="check">${head}${body}
     <p class="ind">Counts are of the funds ETFIQ covers, from published data. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
@@ -2310,7 +2339,7 @@ function route(){
   const parts = h.split('/');
   if (parts[0] === 'portfolio') { S.desk = 'portfolio'; S.view = 'portfolio'; S.ptab = ['own', 'protect', 'cash', 'move', 'compare'].includes(parts[1]) ? parts[1] : (parts[1] && parts[1] !== 'p' ? 'own' : (S.ptab || 'own')); const spec = parts[1] === 'p' ? parts[2] : (['own', 'protect', 'cash', 'move', 'compare'].includes(parts[1]) ? parts[2] : parts[1]); if (spec) S.positions = parsePositions(decodeURIComponent(spec)); if (S.panel) closePanel(false); render(); loadBooksFor(S.positions.map(x => x.t)); return; }
   if (!parts[0] || parts[0] === 'home') { S.view = 'home'; S.homeMiss = parts[1] ? decodeURIComponent(parts[1]).toUpperCase() : null; if (S.panel) closePanel(false); render(); return; }
-  if (parts[0] === 'browse') { S.view = 'browse'; S.desk = 'browse'; S.browseTab = ['issuer', 'theme', 'month', 'bench'].includes(parts[1]) ? parts[1] : 'issuer'; if (S.panel) closePanel(false); render(); return; }
+  if (parts[0] === 'browse') { S.view = 'browse'; S.desk = 'browse'; if (S.browseTab !== (parts[1] || 'issuer')) S.bq = ''; S.browseTab = ['issuer', 'theme', 'month', 'bench'].includes(parts[1]) ? parts[1] : 'issuer'; if (S.panel) closePanel(false); render(); return; }
   if (parts[0] === 'standards' || parts[0] === 'alerts') { S.view = parts[0]; if (S.panel) closePanel(false); render(); return; }
   const desk = parts[0] === 'income' ? 'income' : parts[0] === 'themes' ? 'themes' : 'buffer';
   if (desk !== S.desk) { S.desk = desk; S.collapsed = new Set(); }
@@ -2340,6 +2369,13 @@ function applyTheme(t){ if (t === 'system') document.documentElement.removeAttri
 /* ====================== events ====================== */
 function tickersIn(v){ return Array.from(new Set(String(v || '').toUpperCase().split(/\s+VS\.?\s+|[\s,;+\/]+/).map(x => x.replace(/[^A-Z0-9.]/g, '')).filter(Boolean))); }
 function wire(){
+  document.addEventListener('input', e => {
+    if (e.target.id !== 'browseQ') return;
+    S.bq = e.target.value;
+    render();
+    const q = $('#browseQ');
+    if (q) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
+  });
   document.addEventListener('click', e => {
     const t = e.target;
     const trow = t.closest('.tm tr.row[data-theme]'); if (trow) { S.tfilters.theme = new Set([trow.dataset.theme]); location.hash = '#/themes/desk'; return; }
@@ -2347,6 +2383,8 @@ function wire(){
     const row = t.closest('tr.row, .ev'); if (row && !t.closest('button,a')) { if (row.dataset.i) openPanel('income', row.dataset.i); else if (row.dataset.k === 'themes') openPanel('themes', row.dataset.t); else openPanel('buffer', row.dataset.t); return; }
     const mn = t.closest('[data-mine]'); if (mn) { S.ifilters.state = mn.dataset.mine === 'mine' ? 'mine' : ''; render(); return; }
     const grp = t.closest('tr.grp'); if (grp && !t.closest('button,a')) { const k = grp.dataset.s; if (S.collapsed.has(k)) S.collapsed.delete(k); else S.collapsed.add(k); render(); return; }
+    const bth_ = t.closest('th[data-bsort]'); if (bth_) { const tab = S.browseTab || 'issuer', k = bth_.dataset.bsort, cur = S.bsort[tab] || {}, num = bth_.dataset.bnum === '1';
+      S.bsort[tab] = { k, dir: cur.k !== k ? (num ? 'desc' : 'asc') : (cur.dir === 'asc' ? 'desc' : 'asc') }; render(); return; }
     const th = t.closest('th[data-sort]'); if (th) { const k = th.dataset.sort; if (S.sort.k === k) S.sort.dir = S.sort.dir === 'asc' ? 'desc' : 'asc'; else { S.sort.k = k; S.sort.dir = 'asc'; } render(); return; }
     const tth = t.closest('th[data-tsort]'); if (tth) { const k = tth.dataset.tsort; if (S.tsort.k === k) S.tsort.dir = S.tsort.dir === 'asc' ? 'desc' : 'asc'; else { S.tsort.k = k; S.tsort.dir = ['ticker', 'name', 'themeName', 'issuer', 'inception'].includes(k) ? 'asc' : 'desc'; } render(); return; }
     const ith = t.closest('th[data-isort]'); if (ith) { const k = ith.dataset.isort; if (S.isort.k === k) S.isort.dir = S.isort.dir === 'asc' ? 'desc' : 'asc'; else { S.isort.k = k; S.isort.dir = (k === 'ticker' || k === 'name') ? 'asc' : 'desc'; } render(); return; }

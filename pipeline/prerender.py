@@ -281,7 +281,7 @@ def terms_of(html_):
     return [(re.sub(r'<[^>]+>', '', a).strip(), re.sub(r'<[^>]+>', '', b).strip()) for a, b in re.findall(r'<dt>(.*?)</dt><dd>(.*?)</dd>', html_, re.S)]
 
 
-def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None):
+def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wide=False):
     url = f'{BASE}/{slug}'
     ld = {'@context': 'https://schema.org', '@graph': (ld_extra or []) + [
         crumbs([('ETFIQ', BASE + '/')] + (crumb or []) + [(title, url)]),
@@ -292,7 +292,7 @@ def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None):
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}.doc dl dt{{font-weight:600;margin:18px 0 6px}}.doc dl dd{{margin:0;color:#3B434F}}.doc h2{{margin-top:28px}}.doc .lede{{font-size:17px;color:#3B434F}}</style></head>
-<body>{R.rail(desk or '')}<main class="doc">
+<body>{R.rail(desk or '')}<main class="doc{' wide' if wide else ''}">
 {inner}
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a><a href="/learn/">Learn</a><a href="/standards/">Standards</a></nav></footer></body></html>"""
 
@@ -337,9 +337,9 @@ def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None
            'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': t, 'url': f'{BASE}/funds/{t}.html'} for i, t in enumerate(item_names[:100])]}]
     trs = ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows)
     inner = (f'<p class="note">Data as of {fdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>{extra}'
-             f'<div style="overflow-x:auto"><table><thead><tr>{"".join(f"<th>{h}</th>" for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>'
+             f'<div style="overflow-x:auto"><table class="hub"><thead><tr>{"".join(f"<th>{h}</th>" for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>'
              '<p class="note">ETFIQ is an independent publisher and makes no recommendations; every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
-    return doc_page(slug, title, desc, inner, ld, desk=desk, crumb=crumb)
+    return doc_page(slug, title, desc, inner, ld, desk=desk, crumb=crumb, wide=True)
 
 
 # ---------------------------------------------------------------- head to head pages
@@ -525,7 +525,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 <h1>{esc(ta)} vs {esc(tb)}</h1><p class="lede">{esc(a['name'])} and {esc(b['name'])}, side by side on the {DESK_NAME[desk].lower()}.</p>
 {ov}
 <a class="cta" href="{BASE}/#/{desk}/compare/{ta},{tb}">Open the live comparison on ETFIQ</a>
-<table><thead>{head}</thead><tbody>{body}</tbody></table>
+<table class="cmp"><thead>{head}</thead><tbody>{body}</tbody></table>
 <h2>{esc(ta)} in plain words</h2><p>{esc(words_a)}</p>
 <h2>{esc(tb)} in plain words</h2><p>{esc(words_b)}</p>
 {faq_html}
@@ -536,7 +536,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{width:44%;color:#3D4756;font-weight:500}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def faq_block(faqs):
@@ -569,7 +569,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <h1><span class="tk">{esc(ticker)}</span> · {esc(name)}</h1><p class="lede">{esc(issuer)} · {DESK_NAME[desk]}</p>
 <a class="cta" href="{app_url}">Open the live card on ETFIQ</a>
 <p>{esc(words)}</p>
-<table><tbody>{trs}</tbody></table>
+<table class="kv"><tbody>{trs}</tbody></table>
 {faq_html}
 {related}
 <p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
@@ -624,7 +624,7 @@ def portfolio_page(as_of, books):
 <p class="note">Books as of {fdate(as_of)}: {books} funds with filed holdings, from every income and themes desk fund and the core index funds.</p>
 <h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
 <a class="cta" href="{BASE}/#/portfolio">Open the Portfolio desk on ETFIQ</a>
-<h2>Five views</h2><table><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
+<h2>Five views</h2><table class="kv"><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
 <h2>Try an example</h2><p>{' · '.join(f'<a href="{BASE}/#/portfolio/own/{sp}">{esc(l)}</a>' for sp, l in examples)}</p>
 <h2>How positions are written</h2><p>Tickers with a weight (PJAN:20), a share count (JEPI:150S) or a dollar amount (JEPI:$25000), separated by commas. Any fund on the buffer, income or themes desk, plus the core index funds. The link carries the positions, so a portfolio can be shared or bookmarked; named portfolios can be kept on the device.</p>
 <p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/#/standards">Standards</a></p>
@@ -713,15 +713,15 @@ def build():
                 names.append(r['ticker'])
                 if desk == 'buffer':
                     detail = f"{esc(r.get('bufferLabel', ''))} on {esc(r['refAsset'])}, period ends {fdate(r['periodEnd'])}"
-                    figure = 'uncapped' if r.get('isUncapped') else pct(r.get('remainingCapFund'), sign=False) + ' left to the cap'
+                    figure = 'uncapped' if r.get('isUncapped') else (pct(r['remainingCapFund'], sign=False) + ' left to the cap' if r.get('remainingCapFund') is not None else 'no figure published')
                 elif desk == 'income':
                     w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
                     detail = f"{esc(r.get('strategy', ''))}, vs {esc(r['benchmark'])}"
-                    figure = f"paid {pct(w.get('cash'), sign=False)}, total {pct(w.get('total'))}"
+                    figure = f"paid {pct(w['cash'], sign=False)}, total {pct(w['total'])}" if w.get('cash') is not None else 'no return figures yet'
                 else:
                     v = r.get('vsSPY') or {}
                     detail = esc(r['themeName'])
-                    figure = f"{pct(v.get('inIndex'), sign=False)} already in the S&P 500"
+                    figure = f"{pct(v['inIndex'], sign=False)} already in the S&P 500" if v.get('inIndex') is not None else 'no holdings filing yet'
                 rows.append([f'<a href="/funds/{r["ticker"]}.html" class="tk">{esc(r["ticker"])}</a>', esc(r['name']), DESK_NAME[desk].split()[0], detail, figure])
         title = f'{issuer} ETFs on ETFIQ: every fund, one page'
         counts = ', '.join(f'{len(v)} {k}' for k, v in desks.items() if v)
