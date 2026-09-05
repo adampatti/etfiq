@@ -1,0 +1,33 @@
+name: Research narratives
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+env:
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+jobs:
+  narrative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt
+      - name: Draft the narratives with Claude and check them against the tables
+        run: python pipeline/draft.py && python pipeline/research.py
+      - name: No em dashes anywhere on the site
+        run: |
+          if grep -rl $'\xe2\x80\x94' site --include='*.html' --include='*.txt' --include='*.json' --include='*.xml'; then echo "em dash found"; exit 1; fi
+      - name: Commit the narratives
+        run: |
+          git config user.name "etfiq-bot"
+          git config user.email "bot@etfiq.com"
+          git add data/research site/research
+          git diff --cached --quiet && echo "no narrative change" && exit 0
+          git commit -m "Research narratives $(date -u +%F)"
+          for i in 1 2 3; do git push && break; git pull --rebase origin main || exit 1; done
