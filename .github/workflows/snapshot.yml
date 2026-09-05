@@ -22,12 +22,17 @@ jobs:
       - run: python pipeline/snapshot.py
         env:
           ETFIQ_CONTACT: ${{ secrets.ETFIQ_CONTACT }}
+      - name: Income desk (runs when the Tiingo token is set)
+        if: ${{ env.TIINGO_TOKEN != '' }}
+        run: python pipeline/income.py
+        env:
+          TIINGO_TOKEN: ${{ secrets.TIINGO_TOKEN }}
       - run: python pipeline/build_site.py
       - name: Commit the snapshot
         run: |
           git config user.name "etfiq-snapshot"
           git config user.email "snapshot@etfiq.com"
-          git add data/snapshots site/data site/index.html pipeline/cache/innovator_pages.json
+          git add data/snapshots data/income_universe.json site/data site/index.html pipeline/cache/innovator_pages.json
           git diff --cached --quiet || git commit -m "Snapshot $(date -u +%F)"
           git push
       # A push made with GITHUB_TOKEN does not trigger other workflows, so deploy from here as well.
