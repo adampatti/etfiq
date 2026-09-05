@@ -47,6 +47,12 @@ for r in thematic.get('funds', []):
 fill('etfiq-thematic', thematic)
 fill('etfiq-sources', load('site/data/sources.json', {}))
 fill('etfiq-insights', load('site/data/insights.json', {'lines': [], 'stats': {}}))
+research = []
+for rp in sorted((ROOT / 'data' / 'research').glob('*.json')):
+    pc = json.loads(rp.read_text())
+    research.append({'slug': pc['slug'], 'desk': pc['desk'], 'title': pc['title'], 'asOf': pc.get('asOf'), 'summary': (pc.get('summary') or [''])[0],
+                     'narrative': rp.with_suffix('.narrative.html').exists()})
+fill('etfiq-research', research)
 meta = load('site/data/meta.json', {})
 imeta = load('site/data/income_meta.json', {})
 tmeta = load('site/data/thematic_meta.json', {})

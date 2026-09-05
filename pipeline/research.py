@@ -170,7 +170,7 @@ def esc(s):
 def piece_page(pc, narrative):
     url = f"{BASE}/research/{pc['slug']}.html"
     tables = ''.join(f"<h2>{esc(t['title'])}</h2><div class=\"wrap\"><table><thead><tr>{''.join(f'<th>{esc(c)}</th>' for c in t['columns'])}</tr></thead><tbody>{''.join('<tr>' + ''.join(f'<td>{esc(c)}</td>' for c in r) + '</tr>' for r in t['rows'])}</tbody></table></div>" for t in pc['tables'])
-    narr = f"<div class=\"narr\"><div class=\"lab\">Narrative drafted by Claude from the tables on this page and checked against them line by line</div>{narrative}</div>" if narrative else ''
+    narr = f"<div class=\"narr\"><div class=\"lab\">ETFIQ Narrative</div>{narrative}</div>" if narrative else ''
     ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': pc['title'], 'datePublished': pc['asOf'], 'dateModified': pc['asOf'], 'author': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'publisher': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'url': url, 'description': pc['summary'][0]}
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(pc['title'])} | ETFIQ Research</title><meta name="description" content="{esc(pc['summary'][0])}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">

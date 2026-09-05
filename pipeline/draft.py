@@ -5,7 +5,7 @@ passes is published.
 For each piece in data/research/<slug>.json, the tables and summary are sent to Claude with ETFIQ's rules. The reply
 is accepted only if every number in it appears in the tables or the summary, it uses none of the words the site bans,
 and it contains no recommendation language. An accepted draft is written to data/research/<slug>.narrative.html and
-placed on the research page by research.py, labelled as drafted by Claude and checked against the tables.
+placed on the research page by research.py under the label ETFIQ Narrative.
 
 Needs ANTHROPIC_API_KEY. Skips quietly without it. Redrafts when the tables changed since the last accepted draft
 (a hash of the tables is kept next to the narrative), so the words follow the numbers.
