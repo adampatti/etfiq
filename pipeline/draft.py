@@ -17,10 +17,11 @@ import os
 import pathlib
 import re
 import sys
+import urllib.error
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-MODEL = os.environ.get('ETFIQ_DRAFT_MODEL', 'claude-sonnet-5')
+MODELS = [m.strip() for m in os.environ.get('ETFIQ_DRAFT_MODEL', 'claude-sonnet-5,claude-sonnet-4-5,claude-sonnet-4-5-20250929,claude-3-7-sonnet-latest').split(',') if m.strip()]
 BANNED = re.compile(r'\b(best|top pick|buy|sell|recommend\w*|favou?rite|winner|should (?:own|hold|avoid)|must-have)\b', re.I)
 
 SYSTEM = """You write for ETFIQ, an independent publisher of exchange-traded fund data. Rules that cannot be broken:
@@ -37,12 +38,34 @@ def numbers(text):
     return set(re.findall(r'\d+(?:\.\d+)?', text.replace(',', '')))
 
 
+class ApiError(Exception):
+    pass
+
+
 def call(payload):
     req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(payload).encode(), headers={
         'content-type': 'application/json', 'x-api-key': os.environ['ANTHROPIC_API_KEY'], 'anthropic-version': '2023-06-01', 'user-agent': 'ETFIQ data pipeline'})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        d = json.loads(r.read().decode('utf-8'))
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            d = json.loads(r.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        body = e.read().decode('utf-8', errors='replace')[:300]
+        raise ApiError(f'HTTP {e.code}: {body}') from None
     return ''.join(b.get('text', '') for b in d.get('content', []) if b.get('type') == 'text').strip()
+
+
+def pick_model():
+    """The first model id in MODELS the key can use, found with a one-token request; None when none answers."""
+    for m in MODELS:
+        try:
+            call({'model': m, 'max_tokens': 5, 'messages': [{'role': 'user', 'content': 'Reply with the word ready.'}]})
+            print(f'draft: using model {m}', file=sys.stderr)
+            return m
+        except ApiError as e:
+            print(f'draft: model {m} unavailable ({str(e)[:160]})', file=sys.stderr)
+        except Exception as e:
+            print(f'draft: model {m} error ({str(e)[:120]})', file=sys.stderr)
+    return None
 
 
 def check(text, piece):
@@ -56,7 +79,7 @@ def check(text, piece):
         return f'banned word: {m.group(0)}'
     if len(text.split()) < 150 or len(text.split()) > 700:
         return f'length {len(text.split())} words'
-    if '—' in text:
+    if '\u2014' in text:  # an em dash, written as an escape so this file carries none
         return 'em dash'
     return None
 
@@ -64,6 +87,10 @@ def check(text, piece):
 def build():
     if not os.environ.get('ANTHROPIC_API_KEY'):
         print('draft: no ANTHROPIC_API_KEY; skipping narratives', file=sys.stderr)
+        return
+    model = pick_model()
+    if not model:
+        print('draft: no usable model; narratives kept as they are', file=sys.stderr)
         return
     for pj in sorted((ROOT / 'data' / 'research').glob('*.json')):
         piece = json.loads(pj.read_text())
@@ -76,9 +103,9 @@ def build():
         text, err = '', 'no attempt'
         for attempt in range(3):
             try:
-                text = call({'model': MODEL, 'max_tokens': 1400, 'temperature': 0.3, 'system': SYSTEM, 'messages': [{'role': 'user', 'content': user + (f"\n\nYour previous draft was rejected: {err}. Use only figures from the tables and summary." if attempt else '')}]})
+                text = call({'model': model, 'max_tokens': 1400, 'temperature': 0.3, 'system': SYSTEM, 'messages': [{'role': 'user', 'content': user + (f"\n\nYour previous draft was rejected: {err}. Use only figures from the tables and summary." if attempt else '')}]})
             except Exception as e:
-                err = f'api error {str(e)[:100]}'
+                err = f'api error {str(e)[:200]}'
                 print(f"  {piece['slug']}: {err}", file=sys.stderr)
                 continue
             err = check(text, piece)

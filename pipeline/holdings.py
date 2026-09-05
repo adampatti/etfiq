@@ -58,30 +58,49 @@ def sec_get(url, params=None):
             raise
 
 
-def latest_nport(series_id, name=None):
-    """URL of the latest NPORT-P primary document for an SEC series id (or, failing that, an exact fund name), or None."""
-    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', name or '')[:60]
-    p = CACHE / f'nport-index-{key}-{TODAY.isoformat()}.json'
+def clean_name(name):
+    """A fund name as EDGAR prints it: no (R), TM or registered marks, single spaces."""
+    return re.sub(r'\s+', ' ', re.sub(r'\((?:R|TM|SM)\)|[\u00ae\u2122\u2120]', ' ', name or '')).strip()
+
+
+def same_name(a, b):
+    key = lambda x: re.sub(r'[^a-z0-9]+', '', clean_name(x).lower())
+    return bool(a and b) and key(a) == key(b)
+
+
+def nport_candidates(series_id, name=None, limit=6):
+    """The latest NPORT-P filings that EDGAR full-text search returns for an SEC series id (or, failing that, an exact
+    fund name), newest period first. A name search can surface another fund's filing that merely lists the name
+    as a holding, so callers check the filing's own series id or series name before trusting it."""
+    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', clean_name(name))[:60]
+    p = CACHE / f'nport-cands-{key}-{TODAY.isoformat()}.json'
     if p.exists():
-        return json.loads(p.read_text())
-    out = None
+        return [c for c in json.loads(p.read_text()) if c['url'].lower().endswith('.xml')]
+    out = []
     try:
-        d = json.loads(sec_get('https://efts.sec.gov/LATEST/search-index', {'q': f'"{series_id or name}"', 'forms': 'NPORT-P', 'dateRange': 'custom',
+        d = json.loads(sec_get('https://efts.sec.gov/LATEST/search-index', {'q': f'"{series_id or clean_name(name)}"', 'forms': 'NPORT-P', 'dateRange': 'custom',
                                                                                 'startdt': (TODAY - datetime.timedelta(days=400)).isoformat(), 'enddt': TODAY.isoformat()}))
         hits = d.get('hits', {}).get('hits', [])
         hits.sort(key=lambda h: h['_source'].get('period_ending') or h['_source'].get('file_date') or '', reverse=True)
-        for h in hits:
+        for h in hits[:limit]:
             src = h['_source']
             acc, fn = h['_id'].split(':')
+            if not fn.lower().endswith('.xml'):
+                continue  # the primary document is XML; exhibits and renderings are not
             c = str(int(src['ciks'][0]))
-            out = {'url': f"https://www.sec.gov/Archives/edgar/data/{c}/{acc.replace('-', '')}/{fn}", 'filed': src.get('file_date'), 'period': src.get('period_ending')}
-            break
+            out.append({'url': f"https://www.sec.gov/Archives/edgar/data/{c}/{acc.replace('-', '')}/{fn}", 'filed': src.get('file_date'), 'period': src.get('period_ending')})
     except Exception as e:
-        print(f'  nport search {series_id}: {str(e)[:80]}', file=sys.stderr)
-        return None
+        print(f'  nport search {series_id or name}: {str(e)[:80]}', file=sys.stderr)
+        return []
     CACHE.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out))
     return out
+
+
+def latest_nport(series_id, name=None):
+    """URL record of the latest NPORT-P filing for a series id (or exact name), or None. Kept for callers that want one."""
+    c = nport_candidates(series_id, name)
+    return c[0] if c else None
 
 
 def parse_nport(xml_text):
@@ -128,27 +147,32 @@ def parse_nport(xml_text):
 
 
 def fund_holdings(series_id, name=None):
-    """Latest N-PORT holdings for a series id (or an exact fund name when the SEC file has no id), cached per day."""
-    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', name or '')[:60]
+    """Latest N-PORT holdings for a series id (or an exact fund name when the SEC file has no id), cached per day.
+    A candidate filing is used only if its own series id matches (or, on a name search, its series name matches),
+    so a fund-of-funds filing that merely holds the fund is never mistaken for the fund."""
+    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', clean_name(name))[:60]
     p = CACHE / f'nport-{key}-{TODAY.isoformat()}.json'
     if p.exists():
         d = json.loads(p.read_text())
         return d.get('info'), d.get('holdings', [])
-    idx = latest_nport(series_id, name)
-    info, holdings = None, []
-    if idx and idx.get('url'):
+    for idx in nport_candidates(series_id, name):
         try:
             info, holdings = parse_nport(sec_get(idx['url']))
-            info['filed'] = idx.get('filed')
-            info['source'] = idx['url']
         except Exception as e:
-            print(f'  nport fetch {series_id}: {str(e)[:80]}', file=sys.stderr)
-            return None, []
-    if not holdings:
-        return info, holdings  # never cache an empty answer; the next run retries
-    CACHE.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps({'info': info, 'holdings': holdings}))
-    return info, holdings
+            print(f'  nport fetch {series_id or name}: {str(e)[:80]}', file=sys.stderr)
+            continue
+        if series_id and info.get('seriesId') != series_id:
+            continue
+        if not series_id and not same_name(info.get('seriesName'), name):
+            continue
+        if not holdings:
+            return info, holdings  # never cache an empty answer; the next run retries
+        info['filed'] = idx.get('filed')
+        info['source'] = idx['url']
+        CACHE.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps({'info': info, 'holdings': holdings}))
+        return info, holdings
+    return None, []
 
 
 def index_holdings(which):

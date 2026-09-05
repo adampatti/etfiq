@@ -351,9 +351,14 @@ def build(year=None):
         req = urllib.request.Request(url, headers={'User-Agent': f'ETFIQ-research/0.1 {CONTACT}'})
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_bytes(urllib.request.urlopen(req, timeout=180).read())
-    rd = csv.DictReader(io.StringIO(cache.read_text(encoding='utf-8-sig')))
+    rows = list(csv.DictReader(io.StringIO(cache.read_text(encoding='utf-8-sig'))))
+    sid_of = {}  # ticker -> SEC series id, for the hand-listed funds too
+    for x in rows:
+        tk = (x.get('Class Ticker') or '').strip().upper()
+        if tk and (x.get('Series ID') or '').strip():
+            sid_of.setdefault(tk, x['Series ID'].strip())
     seen, out = set(), []
-    for x in rd:
+    for x in rows:
         name = (x.get('Series Name') or '').strip()
         tk = (x.get('Class Ticker') or '').strip().upper()
         entity = x.get('Entity Name') or ''
@@ -367,7 +372,7 @@ def build(year=None):
             continue
         seen.add(tk)
         bt, bn, bk = benchmark_of(name)
-        rec = {'ticker': tk, 'name': name, 'issuer': issuer_of(name, entity), 'entity': entity, 'cik': str(int(x['CIK Number'])),
+        rec = {'ticker': tk, 'name': name, 'issuer': issuer_of(name, entity), 'entity': entity, 'cik': str(int(x['CIK Number'])), 'seriesId': (x.get('Series ID') or '').strip(),
                'strategy': strategy_of(name), 'benchmark': bt, 'benchmarkName': bn, 'benchmarkKind': bk,
                'include': False, 'why': ''}
         if UNAMBIGUOUS.search(name):
@@ -382,13 +387,13 @@ def build(year=None):
         out.append(rec)
     for f in FORCE:
         if f['ticker'] not in seen:
-            out.append(dict(f))
+            out.append(dict(f, seriesId=f.get('seriesId') or sid_of.get(f['ticker'], '')))
             seen.add(f['ticker'])
     for tk, name in TIINGO_EXTRA:
         if tk in seen:
             continue
         bt, bn, bk = benchmark_of(name)
-        rec = {'ticker': tk, 'name': name, 'issuer': issuer_of(name, ''), 'entity': '', 'cik': '', 'strategy': strategy_of(name), 'benchmark': bt, 'benchmarkName': bn, 'benchmarkKind': bk,
+        rec = {'ticker': tk, 'name': name, 'issuer': issuer_of(name, ''), 'entity': '', 'cik': '', 'seriesId': sid_of.get(tk, ''), 'strategy': strategy_of(name), 'benchmark': bt, 'benchmarkName': bn, 'benchmarkKind': bk,
                'include': True, 'why': 'listed per Tiingo, absent from the SEC series file, confirmed by hand'}
         rec.update(OVERRIDES.get(tk, {}))
         out.append(rec)

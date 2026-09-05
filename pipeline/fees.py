@@ -36,8 +36,17 @@ def submissions(cik):
     if p.exists():
         return json.loads(p.read_text())
     d = json.loads(H.sec_get(f'https://data.sec.gov/submissions/CIK{int(cik):010d}.json'))
-    f = d.get('filings', {}).get('recent', {})
-    out = [{'form': f['form'][i], 'date': f['filingDate'][i], 'acc': f['accessionNumber'][i], 'doc': f['primaryDocument'][i]} for i in range(len(f.get('form', []))) if f['form'][i] == '485BPOS']
+    pages = [d.get('filings', {}).get('recent', {})]
+    cutoff = (TODAY - datetime.timedelta(days=LOOKBACK_DAYS)).isoformat()
+    for extra in d.get('filings', {}).get('files', []):  # a busy trust's older filings sit in further pages
+        if (extra.get('filingTo') or '') >= cutoff:
+            try:
+                pages.append(json.loads(H.sec_get('https://data.sec.gov/submissions/' + extra['name'])))
+            except Exception as e:
+                print(f'  submissions page {extra.get("name")}: {str(e)[:80]}', file=sys.stderr)
+    out = []
+    for f in pages:
+        out += [{'form': f['form'][i], 'date': f['filingDate'][i], 'acc': f['accessionNumber'][i], 'doc': f['primaryDocument'][i]} for i in range(len(f.get('form', []))) if f['form'][i] == '485BPOS']
     CACHE.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out))
     return out
@@ -100,6 +109,8 @@ def build():
         p = ROOT / fn
         if p.exists():
             wanted |= {r['ticker'] for r in json.loads(p.read_text()) if r.get('include')}
+    import books as B  # the core index funds the Portfolio desk accepts
+    wanted |= set(B.CORE)
     ciks = sorted({by_ticker[t]['cik'] for t in wanted if t in by_ticker})
     print(f'  {len(wanted)} tickers, {len(ciks)} trusts', file=sys.stderr)
     cutoff = (TODAY - datetime.timedelta(days=LOOKBACK_DAYS)).isoformat()

@@ -285,6 +285,7 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [Themes desk, every fund]({BASE}/themes/): {len(themes)} funds
 - Fund pages: {BASE}/funds/TICKER.html, for example {BASE}/funds/PJAN.html, {BASE}/funds/JEPI.html, {BASE}/funds/ARKK.html
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
+- [Portfolio desk]({BASE}/#/portfolio): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
 - [Standards and ownership]({BASE}/#/standards)
 - [Live application]({BASE}/)
 
