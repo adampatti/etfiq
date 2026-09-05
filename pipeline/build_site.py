@@ -12,7 +12,8 @@ Blocks filled (each a <script type="application/json"> with an id):
 CONFIG.asOf comes from site/data/meta.json, CONFIG.incomeAsOf from site/data/income_meta.json.
 Idempotent; run after every snapshot. The page also works from data/*.json when the blocks are absent.
 """
-import json, re, pathlib, sys
+import json
+import os, re, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 html_path = ROOT / 'site' / 'index.html'
@@ -36,15 +37,16 @@ universe = [u for u in load('data/income_universe.json', []) if u.get('include')
 payouts = load('site/data/payouts.json', [])
 for p in payouts:
     p.pop('history', None)
-fill('etfiq-data', funds)
-fill('etfiq-payouts', payouts)
-fill('etfiq-income', income)
-fill('etfiq-income-universe', universe)
+INLINE_LARGE = os.environ.get('ETFIQ_INLINE') == '1'  # the desks fetch their data; set to inline it for a file-only copy
+fill('etfiq-data', funds if INLINE_LARGE else [])
+fill('etfiq-payouts', payouts if INLINE_LARGE else [])
+fill('etfiq-income', income if INLINE_LARGE else [])
+fill('etfiq-income-universe', universe if INLINE_LARGE else [])
 thematic = load('site/data/thematic.json', {'funds': [], 'matrix': None})
 for r in thematic.get('funds', []):
     for k in ('entity', 'cik', 'why', 'holdingsFiled'):
         r.pop(k, None)
-fill('etfiq-thematic', thematic)
+fill('etfiq-thematic', thematic if INLINE_LARGE else {'funds': [], 'matrix': None})
 fill('etfiq-sources', load('site/data/sources.json', {}))
 fill('etfiq-insights', load('site/data/insights.json', {'lines': [], 'stats': {}}))
 research = []

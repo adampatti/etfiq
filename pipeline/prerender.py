@@ -21,6 +21,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import rail as R  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+FEES = {}
 SITE = ROOT / 'site'
 BASE = 'https://etfiq.com'
 TODAY = datetime.date.today().isoformat()
@@ -109,7 +110,10 @@ def buffer_page(f, as_of):
     ]
     return page(title, desc, f['ticker'], f['name'], f['issuer'], 'buffer', as_of, words, rows, f"{BASE}/#/buffer/check/{f['ticker']}",
                 'Issuer-published figures as of the date shown; ETFIQ calculations marked. Definitions on the learn page.',
-                faqs=buffer_faqs(f, state, left, fall_ref, as_of), related=embed_block('buffer', f['ticker'], f['name']) + related_links('buffer', f['ticker']) + neighbour_links('buffer', f['ticker']))
+                faqs=buffer_faqs(f, state, left, fall_ref, as_of), related=embed_block('buffer', f['ticker'], f['name']) + related_links('buffer', f['ticker']) + neighbour_links('buffer', f['ticker']),
+                sources=sources_block([(f"{f['issuer']} page for {f['ticker']}", (f.get('source') or {}).get('fundPage')),
+                                       (f"{f['issuer']} product table", (f.get('source') or {}).get('issuerPage')),
+                                       ('Prospectus filings on SEC EDGAR', f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company={f['issuer'].split()[0]}&type=485BPOS&dateb=&owner=include&count=40")]))
 
 
 def ref_line(f):
@@ -148,7 +152,11 @@ def income_page(r, as_of, src):
         rows.append((f"Return of capital, latest distribution ({src['issuer']} 19a-1 estimate)", pct(src['latest']['roc'], sign=False)))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'income', as_of, words, rows, f"{BASE}/#/income/check/{r['ticker']}",
                 'Every figure is an ETFIQ calculation from exchange prices and cash distributions (Tiingo end-of-day), total return with distributions reinvested. Return of capital is the issuer’s estimate.',
-                faqs=income_faqs(r, w, src, as_of), related=embed_block('income', r['ticker'], r['name']) + related_links('income', r['ticker']) + neighbour_links('income', r['ticker']))
+                faqs=income_faqs(r, w, src, as_of), related=embed_block('income', r['ticker'], r['name']) + related_links('income', r['ticker']) + neighbour_links('income', r['ticker']),
+                sources=sources_block([(f"{(src or {}).get('issuer', r['issuer'])} 19a-1 distribution notice", (src or {}).get('url')),
+                                       ('Prospectus filing with the expense ratio (SEC)', (FEES.get(r['ticker']) or {}).get('source')),
+                                       ('Fund filings on SEC EDGAR', f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={r.get('cik')}&type=485&dateb=&owner=include&count=40" if r.get('cik') else None),
+                                       (f"{r['issuer']} website", ISSUER_SITE.get(r['issuer']))]))
 
 
 # ---------------------------------------------------------------- themes desk
@@ -193,7 +201,10 @@ def theme_page(r, as_of):
         rows.append(('Closest funds by holdings overlap', ', '.join(f"{p['t']} {p['o']}%" for p in r['peers'])))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'themes', as_of, words, rows, f"{BASE}/#/themes/check/{r['ticker']}",
                 'Holdings from the fund’s latest public SEC N-PORT filing; overlap and active share computed by ETFIQ against the IVV and QQQM books; returns from Tiingo end-of-day prices with distributions reinvested.',
-                faqs=theme_faqs(r, w, as_of), related=embed_block('themes', r['ticker'], r['name']) + related_links('themes', r['ticker']) + neighbour_links('themes', r['ticker']))
+                faqs=theme_faqs(r, w, as_of), related=embed_block('themes', r['ticker'], r['name']) + related_links('themes', r['ticker']) + neighbour_links('themes', r['ticker']),
+                sources=sources_block([('Holdings filing (SEC Form N-PORT)', r.get('holdingsSource')),
+                                       ('Prospectus filing with the expense ratio (SEC)', r.get('feeSource')),
+                                       (f"{r['issuer']} website", ISSUER_SITE.get(r['issuer']))]))
 
 
 def buffer_faqs(f, state, left, fall_ref, as_of=None):
@@ -336,6 +347,80 @@ def standards_page():
     return doc_page('standards/', 'Standards, ownership and sources',
                     'Who publishes ETFIQ, what it publishes, what it never does, and where every figure on the site comes from.',
                     inner + '<h2>Read more</h2><nav class="rel"><a href="/learn/">Learn the vocabulary</a><a href="/research/">ETFIQ Research</a><a href="/llms.txt">llms.txt</a></nav>')
+
+
+# ---------------------------------------------------------------- comparisons across desks and among core funds
+CORE_TOP = ['VOO', 'SPY', 'QQQ', 'VTI', 'SCHD', 'IVV', 'QQQM', 'VUG', 'VTV', 'VYM', 'VIG', 'IWM', 'IJH', 'IJR',
+            'RSP', 'XLK', 'VGT', 'AGG', 'BND', 'GLD']
+KIND_WORD = {'buffer': 'buffer', 'income': 'option-income', 'themes': 'thematic', 'core': 'index'}
+
+
+def x_cmp_page(a, b, ka, kb, as_of, matrix, words_a, words_b, related_pairs):
+    """A head to head between two funds that are not on the same desk, or between two core funds."""
+    ta, tb = a['ticker'], b['ticker']
+    url = f'{BASE}/compare/any/{pair_slug(ta, tb)}.html'
+    overlap = pair_overlap(ta, tb, matrix) if (ka == 'themes' and kb == 'themes') else None
+    title = f'{ta} vs {tb}: how they differ'
+    labels, ra, rb = any_rows(a, b, ka, kb, {})
+    wa = (a.get('windows') or {}).get('1Y') or {}
+    wb = (b.get('windows') or {}).get('1Y') or {}
+    desc = (f'{ta} and {tb} side by side to {fdate(as_of)}: one-year total return {pct(wa.get("total"))} against {pct(wb.get("total"))}, '
+            f'expense ratio {pct(a.get("expenseRatio"), sign=False, d=2)} against {pct(b.get("expenseRatio"), sign=False, d=2)}.')
+    faqs = []
+    if wa.get('total') is not None and wb.get('total') is not None:
+        best = ta if wa['total'] >= wb['total'] else tb
+        faqs.append((f'Which returned more over the last year, {ta} or {tb}?',
+                     f'In the year to {fdate(as_of)}, with distributions reinvested, {ta} returned {pct(wa["total"])} and {tb} returned {pct(wb["total"])}, so {best} returned more. '
+                     'One year is one year; the longer windows are in the table.'))
+    fa, fb = a.get('expenseRatio'), b.get('expenseRatio')
+    if fa is not None and fb is not None:
+        faqs.append((f'Which is cheaper, {ta} or {tb}?',
+                     f'{ta} charges {pct(fa, sign=False, d=2)} a year and {tb} charges {pct(fb, sign=False, d=2)}, so {ta if fa <= fb else tb} is cheaper. Fees come from each fund\'s prospectus.'))
+    va, vb = (a.get('vsSPY') or {}), (b.get('vsSPY') or {})
+    if va.get('inIndex') is not None and vb.get('inIndex') is not None:
+        faqs.append((f'How much do {ta} and {tb} overlap with the S&P 500?',
+                     f'By their latest filed holdings, {va["inIndex"]:.0f}% of {ta} and {vb["inIndex"]:.0f}% of {tb} by weight is stocks the S&P 500 already holds.'
+                     + (f' Between the two funds, {overlap}% of their books are the same securities at the same weight.' if overlap is not None else '')))
+    if ka != kb:
+        faqs.append((f'Are {ta} and {tb} the same kind of fund?',
+                     f'No. {ta} is {"an" if KIND_WORD[ka][0] in "aeiou" else "a"} {KIND_WORD[ka]} ETF and {tb} is {"an" if KIND_WORD[kb][0] in "aeiou" else "a"} {KIND_WORD[kb]} ETF, '
+                     'so they are built for different jobs. The table compares what both publish: return, cost and what each actually holds.'))
+    faq_html, faq_ld = faq_block(faqs)
+    ld = faq_ld + [
+        crumbs([('ETFIQ', BASE + '/'), ('Head to head', f'{BASE}/compare/'), (f'{ta} vs {tb}', url)]),
+        {'@type': 'WebPage', 'name': title, 'description': desc, 'url': url, 'dateModified': as_of, 'isPartOf': {'@type': 'WebSite', 'name': 'ETFIQ', 'url': BASE}},
+        {'@type': 'Dataset', 'name': f'ETFIQ comparison of {ta} and {tb}', 'description': desc, 'dateModified': as_of,
+         'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'license': f'{BASE}/standards/', 'isAccessibleForFree': True, 'url': url}]
+    head = (f'<tr><th></th><th><a href="/funds/{ta}.html">{esc(ta)}</a><div class="sub">{esc(a["name"])}</div></th>'
+            f'<th><a href="/funds/{tb}.html">{esc(tb)}</a><div class="sub">{esc(b["name"])}</div></th></tr>')
+    body = ''.join(f'<tr><th>{esc(l)}</th><td>{esc(x)}</td><td>{esc(y)}</td></tr>' for l, x, y in zip(labels, ra, rb))
+    rel = ''.join(f'<a href="/compare/any/{pair_slug(x, y)}.html">{esc(x)} vs {esc(y)}</a>' for x, y in related_pairs[:8])
+    inner = (f'<p class="note">Data as of {fdate(as_of)}. Both funds on the fields they both publish, from the same sources.</p>'
+             f'<h1>{esc(ta)} vs {esc(tb)}</h1><p class="lede">{esc(a["name"])} and {esc(b["name"])}.</p>'
+             + (f'<p class="lede">{overlap}% of the two portfolios are the same securities at the same weight.</p>' if overlap is not None else '')
+             + f'<table class="cmp"><thead>{head}</thead><tbody>{body}</tbody></table>'
+             + f'<h2>{esc(ta)} in plain words</h2><p>{esc(words_a)}</p>'
+             + f'<h2>{esc(tb)} in plain words</h2><p>{esc(words_b)}</p>'
+             + faq_html
+             + (f'<h2>Other comparisons</h2><nav class="rel">{rel}</nav>' if rel else '')
+             + '<p class="note">A comparison is not a recommendation. ETFIQ publishes the same fields for every fund and suggests no allocation. '
+               '<a href="/standards/">Standards and sources</a></p>')
+    return doc_page(f'compare/any/{pair_slug(ta, tb)}.html', title, desc, inner, ld, wide=True, short=f'{ta} vs {tb}')
+
+
+def compare_index(pairs_by_desk, as_of):
+    secs = ''
+    for label, items in pairs_by_desk:
+        if not items:
+            continue
+        secs += f'<h2>{esc(label)}</h2><nav class="rel">' + ''.join(f'<a href="{u}">{esc(t)}</a>' for t, u in items[:120]) + '</nav>'
+    inner = ('<h1>Head to head</h1><p class="lede">Any two funds on the fields they both publish: what each returned, what it costs, and what it actually holds. '
+             'Comparisons run within a desk and across desks, and among the plain index funds people already own.</p>'
+             + secs
+             + '<p class="note">A comparison is not a recommendation. <a href="/standards/">Standards and sources</a></p>')
+    return doc_page('compare/', 'Head to head: compare any two ETFs on what they publish',
+                    'Buffer, option-income, thematic and core index ETFs compared two at a time on return, cost, holdings and overlap with the S&P 500.',
+                    inner, wide=True, short='Head to head')
 
 
 # ---------------------------------------------------------------- question pages and the statistics page
@@ -567,8 +652,11 @@ def core_page(r, as_of, neighbours):
              f'<h1><span class="tk">{esc(t)}</span> · {esc(r["name"])}</h1><p class="lede">{esc(r["kindLabel"])} · {esc(r["note"])}</p>'
              f'<p>{esc(core_words(r, as_of))}</p>'
              f'<table class="kv"><tbody>{"".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in rows)}</tbody></table>'
-             f'{faq_html}{neighbours}'
-             '<p class="note">ETFIQ covers buffer, option-income and thematic ETFs. This fund is here because the desks measure against it and portfolios hold it. '
+             f'{faq_html}'
+             + sources_block([('Holdings filing (SEC Form N-PORT)', r.get('holdingsSource')),
+                              ('Prospectus filing with the expense ratio (SEC)', (FEES.get(r['ticker']) or {}).get('source'))])
+             + neighbours
+             + '<p class="note">ETFIQ covers buffer, option-income and thematic ETFs. This fund is here because the desks measure against it and portfolios hold it. '
              'ETFIQ is an independent publisher and makes no recommendations. <a href="/standards/">Standards and sources</a></p>')
     return doc_page(f'funds/{t}.html', title, desc, inner, ld + faq_ld, crumb=[('Core funds', f'{BASE}/core/')], short=t)
 
@@ -816,6 +904,29 @@ def pair_overlap(a, b, matrix):
         return None
 
 
+def any_rows(a, b, ka, kb, extra):
+    """Fields both funds have, for a pair that crosses desks: what each is, what it returned, what it costs,
+    and how much of it is the index."""
+    def one(r, kind):
+        w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+        what = {'buffer': lambda: f"Defined outcome, {r.get('bufferLabel', '')} on {r.get('refAsset')}",
+                'income': lambda: f"{r.get('strategy', 'option income')}, vs {r.get('benchmark')}",
+                'themes': lambda: r.get('themeName', 'thematic'),
+                'core': lambda: r.get('note', 'index fund')}[kind]()
+        v = r.get('vsSPY') or {}
+        cash = (r.get('windows') or {}).get('1Y', {}).get('cash') if kind == 'income' else None
+        return [{'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk', 'core': 'Core fund'}[kind],
+                r.get('issuer', 'n/a'), what,
+                pct(w.get('total')), pct(w.get('bench')), pts(w.get('gap')),
+                pct(cash, sign=False) if cash is not None else 'not an income fund',
+                pct(r.get('expenseRatio'), sign=False, d=2),
+                pct(v.get('inIndex'), sign=False) if v else 'no filed book',
+                str(r.get('holdingsCount') or 'n/a')]
+    labels = ['Where it sits', 'Issuer', 'What it is', 'Total return, 1 year', 'S&P 500 over the same days', 'Gap to the S&P 500',
+              'Cash paid, 1 year', 'Expense ratio', 'Already in the S&P 500', 'Holdings']
+    return labels, one(a, ka), one(b, kb)
+
+
 def cmp_rows(desk, a, b, extra):
     """Field rows for a head to head page: the desk's own fields, the same values its cards carry."""
     if desk == 'buffer':
@@ -950,7 +1061,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}nav.rel.out a::after{content:' \\2197';color:#5A6472}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def faq_block(faqs):
@@ -960,6 +1071,37 @@ def faq_block(faqs):
     html_ = '<h2>Questions people ask</h2><dl class="faq">' + ''.join(f'<dt>{esc(q)}</dt><dd>{esc(a)}</dd>' for q, a in faqs) + '</dl>'
     ld = [{'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]}]
     return html_, ld
+
+
+ISSUER_SITE = {
+    'Innovator': 'https://www.innovatoretfs.com/', 'First Trust': 'https://www.ftportfolios.com/', 'YieldMax': 'https://www.yieldmaxetfs.com/',
+    'AllianzIM': 'https://www.allianzim.com/', 'Global X': 'https://www.globalxetfs.com/', 'GraniteShares': 'https://graniteshares.com/',
+    'iShares': 'https://www.ishares.com/', 'Amplify': 'https://amplifyetfs.com/', 'Defiance': 'https://www.defianceetfs.com/',
+    'Invesco': 'https://www.invesco.com/', 'State Street': 'https://www.ssga.com/', 'REX': 'https://www.rexshares.com/',
+    'Roundhill': 'https://www.roundhillinvestments.com/', 'NEOS': 'https://neosfunds.com/', 'VanEck': 'https://www.vaneck.com/',
+    'Kurv': 'https://kurvinvest.com/', 'ProShares': 'https://www.proshares.com/', 'VistaShares': 'https://vistashares.com/',
+    'WisdomTree': 'https://www.wisdomtree.com/', 'Fidelity': 'https://www.fidelity.com/etfs/overview',
+    'KraneShares': 'https://kraneshares.com/', 'Bitwise': 'https://bitwiseinvestments.com/', 'ARK': 'https://ark-funds.com/',
+    'Direxion': 'https://www.direxion.com/', 'Grayscale': 'https://www.grayscale.com/', 'JPMorgan': 'https://am.jpmorgan.com/us/en/asset-management/adv/products/etf/',
+    'Vanguard': 'https://investor.vanguard.com/investment-products/etfs', 'Schwab': 'https://www.schwabassetmanagement.com/',
+    'Franklin': 'https://www.franklintempleton.com/', 'Sprott': 'https://sprottetfs.com/', 'Xtrackers': 'https://etf.dws.com/',
+    'TrueShares': 'https://www.true-shares.com/', 'Calamos': 'https://www.calamos.com/', 'Nationwide': 'https://etf.nationwidefinancial.com/',
+    'Tuttle': 'https://www.tuttlecap.com/', 'Aptus': 'https://aptusetfs.com/', 'Westwood': 'https://westwoodgroup.com/',
+    'PGIM': 'https://www.pgim.com/', 'Janus': 'https://www.janushenderson.com/', 'Simplify': 'https://www.simplify.us/',
+    'Goldman Sachs': 'https://www.gsam.com/', 'BlackRock': 'https://www.blackrock.com/', 'Pacer': 'https://www.paceretfs.com/',
+    'SoFi': 'https://www.sofi.com/invest/', 'Tema': 'https://www.temaetfs.com/', 'Themes': 'https://themesetfs.com/',
+    'Nicholas': 'https://nicholasetfs.com/', 'TappAlpha': 'https://www.tappalpha.com/', 'Tortoise': 'https://tortoiseecofin.com/',
+}
+
+
+def sources_block(items):
+    """Links to the documents a figure came from. An independent publisher should send the reader to the primary
+    source, and a page that does is easier for a reader, a journalist or a model to verify."""
+    links = [f'<a href="{u}" rel="noopener" target="_blank">{esc(lab)}</a>' for lab, u in items if u]
+    if not links:
+        return ''
+    return ('<h2>Where these figures came from</h2><nav class="rel out">' + ''.join(links) + '</nav>'
+            '<p class="note">ETFIQ links to the documents behind every figure. It is not affiliated with any issuer, and a link is not an endorsement.</p>')
 
 
 def crumb_html(items):
@@ -974,7 +1116,7 @@ def crumbs(items):
     return {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': nm, 'item': u} for i, (nm, u) in enumerate(items)]}
 
 
-def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method, faqs=None, related=''):
+def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method, faqs=None, related='', sources=''):
     url = f"{BASE}/funds/{ticker}.html"
     og = f'{BASE}/embed/social/{desk}/{ticker}.png' if (SITE / 'embed' / 'social' / desk / f'{ticker}.png').exists() else f'{BASE}/og.png'
     faq_html, faq_ld = faq_block(faqs or [])
@@ -995,6 +1137,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <p>{esc(words)}</p>
 <table class="kv"><tbody>{trs}</tbody></table>
 {faq_html}
+{sources}
 {related}
 <p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/llms.txt">llms.txt</a></nav></footer></body></html>"""
@@ -1098,6 +1241,7 @@ def build():
         if (out / f"{r['ticker']}.html").exists():
             continue  # a ticker on two desks keeps its first page
         (out / f"{r['ticker']}.html").write_text(theme_page(r, as_t)); urls.append((f"{BASE}/funds/{r['ticker']}.html", as_t))
+    FEES.update(load('data/fees.json', {}))
     core = load('site/data/core.json', [])
     as_c = load('site/data/core_meta.json', {}).get('asOf', max(as_b, as_i, as_t))
     core_rows, core_written = [], []
@@ -1191,10 +1335,12 @@ def build():
         title = f'{issuer} {kind_words} ETFs'
         counts = ', '.join(f'{len(desks[k])} {words[k]}' for k in kinds)
         intro = f'{counts}, on the same fields as their desks. ETFIQ covers buffer, option-income and thematic ETFs; an issuer\'s other funds are not here.'
+        site_link = ISSUER_SITE.get(issuer)
+        extra_html = (f'<nav class="rel out"><a href="{site_link}" rel="noopener" target="_blank">{esc(issuer)} website</a></nav>' if site_link else '')
         desc = f'{issuer}: the {total} {kind_words} ETFs ETFIQ covers ({counts}), with current figures.'
         (SITE / 'issuers' / f'{slug}.html').write_text(hub_page(f'issuers/{slug}.html', title, desc, intro, rows,
                                                                ['Ticker', 'Fund', 'Desk', 'What it is', 'Where it stands'], max(as_b, as_i, as_t), names,
-                                                               crumb=[('Browse', f'{BASE}/#/browse'), ('Issuers', f'{BASE}/issuers/')], short=issuer))
+                                                               crumb=[('Browse', f'{BASE}/#/browse'), ('Issuers', f'{BASE}/issuers/')], short=issuer, extra=extra_html))
         urls.append((f'{BASE}/issuers/{slug}.html', max(as_b, as_i, as_t)))
         issuer_rows.append([f'<a href="/issuers/{slug}.html">{esc(issuer)}</a>', str(total), counts])
         hubs += 1
@@ -1306,6 +1452,56 @@ def build():
                 (d / f'{pair_slug(ta, tb)}.html').write_text(html_)
                 urls.append((cmp_url(desk, ta, tb), as_of))
                 npairs += 1
+    # comparisons across desks, and among the core funds people already own
+    core_by = {r['ticker']: r for r in core}
+    kinds = {}
+    for d, rs in (('buffer', funds), ('income', income), ('themes', themes)):
+        for r in rs:
+            kinds.setdefault(r['ticker'], (d, r))
+    for t, r in core_by.items():
+        kinds.setdefault(t, ('core', r))
+    core_top = [t for t in CORE_TOP if t in core_by]
+    x_pairs = []
+    for i, ta in enumerate(core_top):          # every pair of the funds people already hold
+        for tb in core_top[i + 1:]:
+            x_pairs.append((ta, tb))
+    CROSS = {'income': ['VOO', 'SPY', 'QQQ', 'SCHD', 'VTI'], 'themes': ['VOO', 'QQQ', 'VTI'], 'buffer': ['VOO', 'SPY']}
+    for desk, cores in CROSS.items():          # a desk fund against the plain fund it is an alternative to
+        for t in top[desk]:
+            for c in cores:
+                if c in core_by and t != c:
+                    x_pairs.append((t, c))
+    x_pairs = sorted({tuple(sorted(p)) for p in x_pairs})
+    xdir = SITE / 'compare' / 'any'
+    if xdir.exists():
+        for old_x in xdir.glob('*.html'):
+            old_x.unlink()
+    xdir.mkdir(parents=True, exist_ok=True)
+    x_by_ticker = {}
+    for ta, tb in x_pairs:
+        x_by_ticker.setdefault(ta, []).append(tb)
+        x_by_ticker.setdefault(tb, []).append(ta)
+    nx = 0
+    for ta, tb in x_pairs:
+        if ta not in kinds or tb not in kinds:
+            continue
+        ka, a = kinds[ta]
+        kb, b = kinds[tb]
+        wf = {'buffer': lambda r: buffer_words(r, as_b)[0], 'income': lambda r: income_words(r, sources.get(r['ticker']), as_i)[0],
+              'themes': lambda r: theme_words(r, as_t)[0], 'core': lambda r: core_words(r, as_c)}
+        rel = [tuple(sorted((ta, o))) for o in x_by_ticker.get(ta, [])[:4] if o != tb] + [tuple(sorted((tb, o))) for o in x_by_ticker.get(tb, [])[:4] if o != ta]
+        html_ = x_cmp_page(a, b, ka, kb, max(as_b, as_i, as_t), matrix, wf[ka](a), wf[kb](b), rel)
+        (xdir / f'{pair_slug(ta, tb)}.html').write_text(html_)
+        urls.append((f'{BASE}/compare/any/{pair_slug(ta, tb)}.html', max(as_b, as_i, as_t)))
+        nx += 1
+    (SITE / 'compare' / 'index.html').write_text(compare_index([
+        ('Index funds people already hold', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if kinds.get(a, ('', ))[0] == 'core' and kinds.get(b, ('', ))[0] == 'core']),
+        ('An income ETF against the plain fund', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'income' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
+        ('A thematic ETF against the index', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'themes' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
+        ('A buffer ETF against the index', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'buffer' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
+        ('On one desk', [(f'{d}: {t}', f'/compare/{d}/') for d in ('buffer', 'income', 'themes') for t in ['every pair of the thirty most held']][:3]),
+    ], max(as_b, as_i, as_t)))
+    urls.append((f'{BASE}/compare/', max(as_b, as_i, as_t)))
     bidx = load('site/data/books/index.json', {'asOf': max(as_b, as_i, as_t), 'books': {}})
     (SITE / 'portfolio').mkdir(exist_ok=True)
     (SITE / 'portfolio' / 'index.html').write_text(portfolio_page(bidx.get('asOf') or max(as_b, as_i, as_t), sum(1 for v in bidx.get('books', {}).values() if v.get('n'))))

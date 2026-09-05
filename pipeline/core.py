@@ -95,6 +95,7 @@ def build():
         if bp.exists():
             b = json.loads(bp.read_text())
             h = [{'name': x[0], 'ticker': x[1], 'cusip': x[2], 'weight': x[3]} for x in (b.get('h') or [])]
+            rec['holdingsSource'] = b.get('src')
             rec['holdingsAsOf'] = b.get('asOf')
             rec['holdingsCount'] = b.get('n')
             rec['top'] = [{'t': x['ticker'], 'n': x['name'][:48], 'w': round(x['weight'], 2)} for x in h[:10]]

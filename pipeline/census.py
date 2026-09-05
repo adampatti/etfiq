@@ -740,11 +740,46 @@ def stage_compare():
     n = 0
     for f in sorted(root.rglob('*.html')):
         desk = f.parent.name
+        if f.name == 'index.html':
+            continue  # the head to head index, not a pair
         pair = f.stem.split('-')
         if len(pair) != 2:
             note('compare', f.stem, 'name', f.stem, None, 'file name is not two tickers')
             continue
         a, b = pair
+        core = {r['ticker']: r for r in (load('site/data/core.json') or [])}
+        if desk == 'any':
+            # a pair that crosses desks, or two core funds: each side is checked against whichever file holds it
+            anyby = {}
+            for src in (funds, income, themes, core):
+                for k, v in src.items():
+                    anyby.setdefault(k, v)
+            if a not in anyby or b not in anyby:
+                note('compare', f.stem, 'fund', [a, b], None, 'not in any desk or core file')
+                continue
+            n += 1
+            body = page_text(f)
+            for t in (a, b):
+                r = anyby[t]
+                w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+                for label, val, d in (('1Y total', w.get('total'), 1), ('expense ratio', r.get('expenseRatio'), 2)):
+                    if not shows(body, val, d):
+                        note('compare', f.stem, f'{t} {label}', val, None, 'figure not printed on the page')
+            fa, fb = anyby[a].get('expenseRatio'), anyby[b].get('expenseRatio')
+            m = re.search(r'so ([A-Z0-9.]+) is cheaper', body)
+            if m and fa is not None and fb is not None:
+                want = a if fa <= fb else b
+                if m.group(1) != want:
+                    note('compare', f.stem, 'cheaper claim', m.group(1), want, f'{a} {fa}, {b} {fb}')
+            m = re.search(r'so ([A-Z0-9.]+) returned more', body)
+            if m:
+                wa = (anyby[a].get('windows') or {}).get('1Y') or {}
+                wb = (anyby[b].get('windows') or {}).get('1Y') or {}
+                if wa.get('total') is not None and wb.get('total') is not None:
+                    want = a if wa['total'] >= wb['total'] else b
+                    if m.group(1) != want:
+                        note('compare', f.stem, 'returned more claim', m.group(1), want, f"{a} {wa['total']}, {b} {wb['total']}")
+            continue
         by = {'buffer': funds, 'income': income, 'themes': themes}.get(desk) or {}
         if a not in by or b not in by:
             note('compare', f.stem, 'fund', [a, b], None, f'not on the {desk} desk')
@@ -811,7 +846,7 @@ def stage_compare():
     tally('compare', n)
     # every comparison page is in the sitemap
     sm = (ROOT / 'site' / 'sitemap.xml').read_text() if (ROOT / 'site' / 'sitemap.xml').exists() else ''
-    missing = [f'/compare/{p.parent.name}/{p.name}' for p in root.rglob('*.html') if f'/compare/{p.parent.name}/{p.name}' not in sm]
+    missing = [f'/compare/{p.parent.name}/{p.name}' for p in root.rglob('*.html') if p.name != 'index.html' and f'/compare/{p.parent.name}/{p.name}' not in sm]
     if missing:
         note('compare', 'sitemap', 'listed', len(missing), 0, f'pages not in the sitemap, for example {missing[0]}')
 
