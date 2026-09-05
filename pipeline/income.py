@@ -75,6 +75,20 @@ def prices(ticker, tok, start='2010-01-01'):
     return rows
 
 
+def trim_history(rows, max_gap_days=45):
+    """Keep only the current security's history. A gap of more than max_gap_days between trading days means the
+    ticker was reused or relisted (GLDN carried a dead 2016 stub; GATE carried a SPAC), so everything before the last
+    such gap is dropped. Prices below a cent are treated the same way."""
+    if not rows:
+        return rows
+    start = 0
+    for i in range(1, len(rows)):
+        a, b = datetime.date.fromisoformat(rows[i - 1]['date']), datetime.date.fromisoformat(rows[i]['date'])
+        if (b - a).days > max_gap_days or (rows[i - 1]['close'] or 0) < 0.01:
+            start = i
+    return rows[start:]
+
+
 def split_adjust(rows):
     """Add sclose (split-adjusted close) and sdiv (split-adjusted cash) so history is on today's share basis."""
     factor = 1.0
@@ -140,13 +154,13 @@ def build():
     universe = [r for r in json.loads((ROOT / 'data' / 'income_universe.json').read_text()) if r.get('include')]
     bench_cache, out, missing = {}, [], []
     for i, u in enumerate(universe):
-        rows = split_adjust(prices(u['ticker'], tok))
+        rows = split_adjust(trim_history(prices(u['ticker'], tok)))
         if len(rows) < 5:
             missing.append(u['ticker'])
             continue
         b = u['benchmark']
         if b not in bench_cache:
-            bench_cache[b] = split_adjust(prices(b, tok))
+            bench_cache[b] = split_adjust(trim_history(prices(b, tok)))
         brows = bench_cache[b]
         freq, divs = frequency(rows)
         last = divs[-1] if divs else None

@@ -331,6 +331,18 @@ def is_etf_ticker(t):
     return 1 <= len(t) <= 5 and t.isalpha() and t.isupper() and not (len(t) == 5 and t.endswith('X'))
 
 
+def sec_file(year=None):
+    """Path of the cached SEC series and class CSV for the year, downloading it when missing."""
+    year = year or datetime.date.today().year
+    cache = ROOT / 'pipeline' / 'cache' / f'sec-series-class-{year}.csv'
+    if not cache.exists():
+        url = f'https://www.sec.gov/files/investment/data/other/investment-company-series-class-information/investment-company-series-class-{year}.csv'
+        req = urllib.request.Request(url, headers={'User-Agent': f'ETFIQ-research/0.1 {CONTACT}'})
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_bytes(urllib.request.urlopen(req, timeout=180).read())
+    return cache
+
+
 def build(year=None):
     year = year or datetime.date.today().year
     cache = ROOT / 'pipeline' / 'cache' / f'sec-series-class-{year}.csv'

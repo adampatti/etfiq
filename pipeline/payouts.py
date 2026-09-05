@@ -130,7 +130,8 @@ def history(ticker):
         if not cands:
             return []
         p = cands[-1]
-    rows = json.loads(p.read_text())
+    import income
+    rows = income.trim_history(json.loads(p.read_text()))
     return [{'ex': r['date'], 'amount': r['divCash']} for r in rows if r.get('divCash')]
 
 
