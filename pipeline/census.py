@@ -1001,6 +1001,30 @@ def stage_docs():
         for label, val, d in (('1Y total', w.get('total'), 1), ('expense ratio', r.get('expenseRatio'), 2)):
             if not shows(body, val, d):
                 note('docs', t, label, val, None, 'figure not on the core fund page')
+    # every ranking is the stated field actually sorted, and says so
+    rdir = ROOT / 'site' / 'rankings'
+    if rdir.exists():
+        for f in sorted(rdir.glob('*.html')):
+            if f.name == 'index.html':
+                continue
+            n += 1
+            body = page_text(f)
+            if 'not a recommendation' not in body.lower():
+                note('docs', f.stem, 'disclaimer', None, None, 'a ranked list without the no-recommendation line')
+            if 'Ranked by' not in body:
+                note('docs', f.stem, 'measure', None, None, 'the ranking does not state its measure')
+            for word in (' best ', ' top pick', ' winner', ' worst '):
+                if word in body.lower():
+                    note('docs', f.stem, 'language', word.strip(), None, 'ranking language the site does not use')
+    # the feed points at pages that exist
+    fx = ROOT / 'site' / 'feed.xml'
+    if fx.exists():
+        n += 1
+        for u in re.findall(r'<link>(https://etfiq\.com/[^<]*)</link>', fx.read_text()):
+            rel = u.replace('https://etfiq.com/', '')
+            p2 = ROOT / 'site' / (rel + 'index.html' if rel.endswith('/') or rel == '' else rel)
+            if not p2.exists():
+                note('docs', 'feed', 'link', u, None, 'feed item points at a page that is not built')
     tally('docs', n)
 
 

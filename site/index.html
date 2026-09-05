@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ETFIQ · Buffer, income and thematic ETFs in plain words, and the whole portfolio looked through</title>
 <meta name="description" content="ETFIQ: where every buffer ETF stands between its buffer and its cap, and whether every option-income ETF is ahead of its benchmark. Every issuer, one comparable picture, in plain words.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/rss+xml" title="ETFIQ" href="/feed.xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"ETFIQ","url":"https://etfiq.com","logo":"https://etfiq.com/og.png","description":"Independent data on exchange-traded funds in plain words: buffer ETFs on one band, income ETFs against their benchmark, thematic ETFs by what they actually hold."},{"@type":"WebSite","name":"ETFIQ","url":"https://etfiq.com","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://etfiq.com/#/buffer/check/{search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
@@ -642,6 +642,8 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
   <a href="#/income/learn">Learn: income</a>
   <a href="#/themes/learn">Learn: themes</a>
   <a href="/research/">Research</a>
+  <a href="/feed.xml">Feed</a>
+  <a href="/rankings/">Rankings</a>
   <a href="/questions/">Questions</a>
   <a href="/statistics/">Statistics</a>
   <a href="/core/">Core funds</a>
@@ -2143,6 +2145,7 @@ function viewBrowse(){
     </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks${q ? ' matching ' + esc(S.bq) : ''} across ${S.income.length} funds. Click any heading to sort.</p>`;
   }
   return `<div class="check">${head}${body}
+    <a class="pdoor" href="/rankings/"><div class="lvl">Rankings</div><b>Every desk sorted by one published field</b><span>The funds paying the most cash, the buffers with the most room left, the thematic funds that are mostly the index already. The measure is in the title; nothing here is a view on a fund.</span></a>
     <p class="ind">Counts are of the funds ETFIQ covers. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
 }
 
