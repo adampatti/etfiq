@@ -246,7 +246,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .chg h3{font:600 11px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line-2)}
 .chg.buffer h3{color:var(--accent)}.chg.income h3{color:var(--protected)}.chg.themes h3{color:var(--themes-ink)}
 .changed{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:8px}
-.check .changed.one{max-width:980px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:8px 14px}
+.check .changed.one{max-width:980px;margin:16px auto 0;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:8px 14px}
 .changed li{padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 6px 6px 0;font-size:14px;line-height:1.45}
 .changed li.income{border-left-color:var(--protected)}.changed li.themes{border-left-color:var(--themes-ink)}
 .changed li a{color:var(--ink)}
@@ -1664,6 +1664,7 @@ function themesRug(){
 function themesPulse(){
   const pool = S.themes, withH = pool.filter(r => r.inSPY != null), withW = pool.filter(r => tw(r) && tw(r).gap != null);
   const high = withH.filter(r => r.inSPY >= 60).length, beat = withW.filter(r => tw(r).gap > 0.5).length, deep = pool.filter(r => r.drawdown != null && r.drawdown <= -30).length;
+  PULSE_SHOWN = [high, beat, deep];
   const tile = (cls, v, l, key, title) => `<button type="button" class="rt ${cls}" data-tile="themes:${key}" title="${esc(title)}"><span class="v">${v}</span><span class="l">${l}</span><span class="go">›</span></button>`;
   return `<div class="read slim">${tile('b', high, 'Mostly already in the S&P 500', 'inidx=high', 'Show funds with 60 percent or more of their weight in S&P 500 names')}${tile('t', beat, `Beat the S&P 500 over ${WIN_LABEL[S.window]}`, 'state=ahead', 'Show funds that beat the S&P 500 over the window')}${tile('c', deep, '30% or more below their high', 'dd=deep', 'Show funds sitting 30 percent or more below their all-time high')}</div>`;
 }
@@ -1781,14 +1782,17 @@ function themePanel(r){
 }
 
 /* ====================== pulse tiles: the desk in three numbers, each one a filter ====================== */
+let PULSE_SHOWN = [];
 function bufferPulse(){
   const atCap = S.funds.filter(f => f.state === 'capped').length, working = S.funds.filter(f => f.state === 'engaged' || f.state === 'exhausted').length, soon = S.funds.filter(f => f.daysRemaining <= 30).length;
   const tile = (cls, v, l, key, title) => `<button type="button" class="rt ${cls}" data-tile="buffer:${key}" title="${esc(title)}"><span class="v">${v}</span><span class="l">${l}</span><span class="go">›</span></button>`;
+  PULSE_SHOWN = [atCap, working, soon];
   return `<div class="read slim">${tile('a', atCap, 'At their cap', 'state=capped', 'Show only funds at their cap')}${tile('t', working, 'Buffers working', 'state=engaged', 'Show only funds whose buffer is absorbing losses')}${tile('b', soon, 'Reset within 30 days', 'days=30', 'Show only funds that reset within 30 days')}</div>`;
 }
 function incomePulse(){
   const pool = S.income.filter(imatches), withW = pool.filter(r => iwx(r) && iwx(r).gap != null);
   const aheadN = withW.filter(r => iwx(r).gap > 0.5).length, fell = withW.filter(r => iwx(r).price < 0).length, fat = withW.filter(r => iwx(r).cash >= 10).length;
+  PULSE_SHOWN = [aheadN, fell, fat];
   const tile = (cls, v, l, key, title) => `<button type="button" class="rt ${cls}" data-tile="income:${key}" title="${esc(title)}"><span class="v">${v}</span><span class="l">${l}</span><span class="go">›</span></button>`;
   return `<div class="read slim">${tile('t', fat, 'Paid 10% or more in cash', 'sort=cash', 'Sort by cash paid, largest first')}${tile('c', fell, 'Price fell', 'sort=price', 'Sort by price change, worst first')}${tile('b', aheadN, 'Ahead of their benchmark', 'state=ahead', 'Show only funds ahead of their benchmark')}</div>`;
 }
@@ -2257,18 +2261,21 @@ function viewCheck(){
     : `<div class="doors"><a href="#/themes/own"><div class="lvl">Quick</div><b>What do I really own?</b><span>Enter the thematic funds you hold and see how much they overlap and what they add up to.</span></a><a href="#/themes/desk"><div class="lvl deep">Full data</div><b>All ${S.themes.length} funds</b><span>Every theme, with the difference bar, concentration and returns against the plain index on every row.</span></a><a href="#/themes/themes"><div class="lvl deep">Full data</div><b>Theme map</b><span>${new Set(S.themes.map(r => r.themeName)).size} themes: funds, assets, spread of returns, and how much of each is already in the S&P 500.</span></a>${cmpDoor}</div>`;
   const pulse = desk === 'buffer' ? bufferPulse() : desk === 'income' ? incomePulse() : themesPulse();
   const pulseLabel = desk === 'buffer' ? 'The buffer desk today' : desk === 'income' ? 'The income desk over ' + WIN_LABEL[S.window] : 'The themes desk over ' + WIN_LABEL[S.window];
-  return `<div class="check"><div class="chero"><span class="eyebrow">${DESK_NAME[desk]} · quick look</span><h1>${h1}</h1><p>${sub}</p>
+  return `<div class="check"><div class="chero"><span class="eyebrow">${DESK_NAME[desk]}</span><h1>${h1}</h1><p>${sub}</p>
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${desk === 'buffer' ? 'Ticker, for example PJAN' : desk === 'income' ? 'Ticker, for example JEPI' : 'Ticker, for example ARKK'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}<span class="lbl" style="margin-left:8px">Two or more tickers open the comparison</span></div></div>
-    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
+    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk, PULSE_SHOWN)}${researchStrip(desk)}</div>`;
 }
 function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)}</div><div class="asf">Data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
 function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }
-function deskLines(desk){
-  const ls = ((S.insights && S.insights.lines) || []).filter(l => l.desk === desk);
+function deskLines(desk, shown){
+  // the pulse tiles already carry some of these counts; only the lines they do not cover are worth repeating
+  const seen = new Set((shown || []).map(String));
+  const ls = ((S.insights && S.insights.lines) || []).filter(l => l.desk === desk)
+    .filter(l => !seen.has((l.text.match(/\d[\d,]*/) || [''])[0].replace(/,/g, '')));
   if (!ls.length) return '';
-  return `<div class="sec tight"><span class="eyebrow">What changed on this desk, as of ${esc(S.insights.asOf || '')}</span></div><ul class="changed one">${ls.map(l => `<li class="${desk}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul>`;
+  return `<ul class="changed one">${ls.map(l => `<li class="${desk}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul>`;
 }
 
 /* ====================== explainer ====================== */
