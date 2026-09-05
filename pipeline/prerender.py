@@ -343,13 +343,14 @@ def learn_pages():
         terms = terms_of(inner)
         ld = [{'@type': 'DefinedTermSet', 'name': title, 'url': f'{BASE}/learn/{desk}.html',
                'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': t, 'description': d[:900]} for t, d in terms]}] if terms else []
-        nav = '<h2>The other desks</h2><nav class="rel">' + ''.join(
+        nav = '<h2>Where to next</h2><nav class="rel">' + ''.join(
             f'<a href="/learn/{k}.html">{LEARN[k][0].split(":")[0]}</a>' for k in LEARN if k != desk) + f'<a href="/{desk}/">All {DESK_NAME[desk].split()[0].lower()} ETFs</a></nav>'
         body = inner + nav + f'<p class="note">Definitions as ETFIQ uses them on the {DESK_NAME[desk].lower()}. Every figure on the site is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>'
         out.append((f'learn/{desk}.html', doc_page(f'learn/{desk}.html', title, desc, body, ld, desk=desk, crumb=[('Learn', f'{BASE}/learn/')])))
     idx = ('<h1>Vocabulary</h1><p class="lede">Three glossaries, one per desk, in the order the words appear on a fund card.</p>'
            + '<nav class="rel">' + ''.join(f'<a href="/learn/{k}.html">{esc(v[0].split(":")[0])}</a>' for k, v in LEARN.items()) + '</nav>'
-           + ''.join(f'<h2><a href="/learn/{k}.html">{esc(v[0])}</a></h2><p>{esc(v[1])}</p>' for k, v in LEARN.items()))
+           + ''.join(f'<h2><a href="/learn/{k}.html">{esc(v[0])}</a></h2><p>{esc(v[1])}</p>' for k, v in LEARN.items())
+           + '<h2>Where to next</h2><nav class="rel"><a href="/questions/">Questions</a><a href="/rankings/">Rankings</a><a href="/research/">ETFIQ Research</a><a href="/standards/">Standards and sources</a></nav>')
     out.append(('learn/index.html', doc_page('learn/', 'Learn: how to read a buffer, income or thematic ETF', 'Three plain-words glossaries, one per desk, defining every term ETFIQ uses.', idx)))
     return out
 
@@ -360,7 +361,7 @@ def standards_page():
     inner = inner.replace('<a href="#/standards">Standards</a>', '<a href="/standards/">Standards</a>')
     return doc_page('standards/', 'Standards, ownership and sources',
                     'Who publishes ETFIQ, what it publishes, what it never does, and where every figure on the site comes from.',
-                    inner + '<h2>Read more</h2><nav class="rel"><a href="/learn/">Learn the vocabulary</a><a href="/research/">ETFIQ Research</a><a href="/llms.txt">llms.txt</a></nav>')
+                    inner + '<h2>Where to next</h2><nav class="rel"><a href="/learn/">Learn the vocabulary</a><a href="/research/">ETFIQ Research</a><a href="/llms.txt">llms.txt</a></nav>')
 
 
 def feed_xml(items, as_of):
@@ -403,7 +404,7 @@ def rank_page(slug, title, measure, window, method, desk, columns, rows, as_of, 
               f'<thead><tr><th>#</th>{"".join(f"<th>{h}</th>" for h in columns)}</tr></thead><tbody>{trs}</tbody></table></div>'
               f'<h2>Method</h2><p>{esc(method)} The ranking is the published field sorted, nothing else: no scoring, no weighting and no view on any fund. '
               f'Every fund ETFIQ covers in this category is eligible, including funds that have closed, because leaving them out would flatter the category.</p>'
-              f'<h2>See the whole desk</h2><nav class="rel">{related}</nav>'
+              f'<h2>Where to next</h2><nav class="rel">{related}</nav>'
               '<p class="note">A ranking is not a recommendation and no order on this site is an opinion. ETFIQ is an independent publisher, not an adviser. '
               '<a href="/standards/">Standards and sources</a></p>'
               + cite_line(f'{title}, ranked by {measure}', as_of, url))
@@ -582,6 +583,7 @@ def rankings_index(items, as_of):
              '<p class="lede">Each list is one published field, sorted. The measure is in the title, the method is on the page, and nothing here is a view on any fund. '
              'For any other cut of the same data, the desks sort on every column.</p>'
              + secs
+             + '<h2>Where to next</h2><nav class="rel"><a href="/statistics/">ETF statistics</a><a href="/compare/">Head to head</a><a href="/questions/">Questions</a><a href="/research/">ETFIQ Research</a></nav>'
              + '<p class="note">A ranking is not a recommendation. ETFIQ publishes the same fields for every fund in a category and suggests no allocation. '
                '<a href="/standards/">Standards and sources</a></p>')
     return doc_page('rankings/', 'Rankings: ETFs sorted by one published field',
@@ -698,7 +700,7 @@ def q_page(slug, question, desk, answer, detail, examples, as_of, related):
              f'<p class="lede">{esc(answer)}</p>'
              + ''.join(f'<p>{d}</p>' for d in detail)
              + ex
-             + f'<h2>Read more</h2><nav class="rel">{related}</nav>'
+             + f'<h2>Where to next</h2><nav class="rel">{related}</nav>'
              + '<p class="note">ETFIQ is an independent publisher of exchange-traded fund data and makes no recommendations. '
                'Every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>'
              + cite_line(question, as_of, url))
@@ -808,6 +810,7 @@ def questions_index(qs, as_of):
                     f'<span>{esc(Q_BLURB.get(slug, "Answered from ETFIQ data, rebuilt every trading night."))}</span></a>' for slug, q in qs)
     inner = ('<h1>Questions</h1><p class="lede">The questions people ask about these funds, answered from the data on the desks and rebuilt every trading night.</p>'
              f'<nav class="list">{links}</nav>'
+             '<h2>Where to next</h2><nav class="rel"><a href="/learn/">The vocabulary</a><a href="/rankings/">Rankings</a><a href="/compare/">Head to head</a><a href="/statistics/">ETF statistics</a></nav>'
              '<p class="note">Every answer is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
     return doc_page('questions/', 'Questions about buffer, income and thematic ETFs',
                     'Plain answers to the questions people ask about defined outcome, option-income and thematic ETFs, from live data.', inner, short='Questions')
@@ -845,7 +848,7 @@ def stats_page(funds, income, themes, core, as_b, as_i, as_t, extra):
              '<h2>Using these figures</h2><p>Name ETFIQ as the source and state the date, for example: ETFIQ, data as of '
              f'{fdate(max(as_b, as_i, as_t))}, etfiq.com. The underlying files are at <a href="/data/">Open data</a>, and the method is on <a href="/standards/">Standards</a>. '
              'Counts are of the funds ETFIQ covers, which is buffer, option-income and thematic ETFs plus the core funds the desks measure against, not the whole ETF market.</p>'
-             '<nav class="rel"><a href="/data/">Open data</a><a href="/research/">ETFIQ Research</a><a href="/changed/">What changed today</a><a href="/questions/">Questions</a></nav>'
+             '<h2>Where to next</h2><nav class="rel"><a href="/rankings/">Rankings</a><a href="/changed/">What changed today</a><a href="/research/">ETFIQ Research</a><a href="/data/">Open data</a><a href="/questions/">Questions</a></nav>'
              + cite_line('ETF statistics', max(as_b, as_i, as_t), url))
     return doc_page('statistics/', 'ETF statistics: buffer, option-income and thematic funds',
                     'How many buffer ETFs sit at their cap, how many income ETFs beat their benchmark, how much of the typical thematic ETF is already the index. Recomputed nightly.',
@@ -1024,7 +1027,7 @@ def data_page(as_of, counts):
         f'<h2>What is in them today</h2><p>{esc(counts)}</p>',
         '<h2>Method</h2><p>Terms come from issuer product pages and prospectus supplements filed with the SEC. Prices and distributions come from exchange end-of-day data. Holdings come from Form N-PORT and, where an issuer publishes one, its daily file. Fees come from the prospectus risk and return data filed as XBRL. Every figure ETFIQ computes rather than quotes is marked on the page and described on <a href="/standards/">Standards</a>. Each published number is recomputed from the raw sources every night by separate code, and anything that does not reproduce is listed before the site is published.</p>',
         '<h2>Fair use</h2><p>The files are served from a static host with no rate limit and no key. Please cache rather than fetch repeatedly; they change once a night.</p>',
-        '<nav class="rel"><a href="/llms.txt">llms.txt</a><a href="/standards/">Standards and sources</a><a href="/research/">ETFIQ Research</a></nav>',
+        '<h2>Where to next</h2><nav class="rel"><a href="/statistics/">ETF statistics</a><a href="/research/">ETFIQ Research</a><a href="/standards/">Standards and sources</a><a href="/llms.txt">llms.txt</a></nav>',
     ]
     return doc_page('data/', title, desc, ''.join(parts), ld, wide=True, short='Open data')
 
@@ -1480,6 +1483,7 @@ def portfolio_page(as_of, books):
 <a class="cta" href="{BASE}/#/portfolio">Open the Portfolio desk on ETFIQ</a>
 <h2>Five views</h2><table class="kv"><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
 <h2>Try an example</h2><p>{' · '.join(f'<a href="{BASE}/#/portfolio/own/{sp}">{esc(l)}</a>' for sp, l in examples)}</p>
+<h2>Where to next</h2><nav class="rel"><a href="{BASE}/#/portfolio">Open the Portfolio desk</a><a href="/core/">Core index funds</a><a href="/compare/">Head to head</a><a href="/rankings/">Rankings</a></nav>
 <h2>How positions are written</h2><p>Tickers with a weight (PJAN:20), a share count (JEPI:150S) or a dollar amount (JEPI:$25000), separated by commas. Any fund on the buffer, income or themes desk, plus the core index funds. The link carries the positions, so a portfolio can be shared or bookmarked; named portfolios can be kept on the device.</p>
 <p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/standards/">Standards</a></p>
 </main>{R.footer()}</body></html>"""
@@ -1736,7 +1740,7 @@ def build():
         inner = (f'<p class="note">Computed from the desks\' own files on {fdate(ins.get("asOf"))}. Rebuilt every trading night.</p>'
                  f'<h1>What changed, {fdate(ins.get("asOf"))}</h1>'
                  '<p class="lede">Every line is counted from the published data that morning. None is a view on any fund.</p>'
-                 + secs + '<h2>Go deeper</h2><nav class="rel"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">ETFIQ Research</a></nav>')
+                 + secs + '<h2>Where to next</h2><nav class="rel"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">ETFIQ Research</a></nav>')
         (SITE / 'changed').mkdir(exist_ok=True)
         (SITE / 'changed' / 'index.html').write_text(doc_page('changed/', f'What changed in buffer, income and thematic ETFs, {fdate(ins.get("asOf"))}',
                                                               f'Counted from the published data on {fdate(ins.get("asOf"))}: caps reached, buffers working, funds ahead of their benchmark, themes against the index.', inner, ld))

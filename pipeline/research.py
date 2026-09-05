@@ -207,6 +207,7 @@ def index_page(pieces, archive=None):
 <div class="eyebrow">ETFIQ Research</div><h1>What the data shows, one piece per desk</h1><p class="dek">Findings computed from the desks' own files, rebuilt every trading night, with the method and the data file for every table. Never a fund pick.</p>
 <nav class="list">{items}</nav>
 {arch}
+<h2>Where to next</h2><nav class="rel"><a href="/rankings/">Rankings</a><a href="/statistics/">ETF statistics</a><a href="/questions/">Questions</a><a href="/data/">Open data</a></nav>
 <p class="note">ETFIQ is an independent publisher, not an issuer, broker or adviser. <a href="/standards/">Standards and sources</a></p></main>{R.footer()}</body></html>"""
 
 
