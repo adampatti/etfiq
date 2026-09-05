@@ -281,6 +281,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .panel.inline .plain{font-size:17px;line-height:1.5}
 .panel.inline .acts{padding:14px 24px 10px}
 .check .miss{max-width:600px;margin:18px auto 0;padding:14px 16px;border:1px solid var(--line-2);border-left:4px solid var(--ceiling);border-radius:0 6px 6px 0;background:var(--surface);font-size:15px}
+.rgrid.ways .rp b{margin-bottom:5px}
 .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px;max-width:1080px;margin:0 auto}
 .rp{display:block;padding:16px 18px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(18,22,28,.05)}
 .rp:hover{border-color:var(--accent);text-decoration:none}
@@ -299,6 +300,13 @@ dl.qa{margin:0}dl.qa dt{font-weight:600;font-size:13.5px;margin:14px 0 5px;color
 .boot span{width:14px;height:14px;border-radius:50%;border:2px solid var(--line-2);border-top-color:var(--accent);animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.boot span{animation:none}}
+footer .fdir{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:20px 26px;max-width:1180px;margin:0 auto;padding:6px 0 22px;text-align:left}
+footer .fcol h3{font:600 11px/1 var(--font-display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+footer .fcol a{display:block;font-size:13px;line-height:1.95;color:var(--ink-2)}
+footer .fcol a:hover{color:var(--accent)}
+footer .fabout{max-width:1180px;margin:0 auto;padding:0 0 14px;color:var(--ink-2);font-size:13px;line-height:1.6;text-align:left}
+footer .fbase{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;max-width:1180px;margin:0 auto;padding:16px 0 0;border-top:1px solid var(--line)}
+footer .fbase .fnote{color:var(--muted);font-size:12px}
 .directory{max-width:1180px;margin:34px auto 0;padding:26px 20px 6px;border-top:1px solid var(--line)}
 .directory h2{font:600 13px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
 .directory p{max-width:760px;color:var(--ink-2);font-size:14px;line-height:1.6;margin:0 0 20px}
@@ -641,62 +649,45 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
 </div>
 
 <main id="view"></main>
-
-<section class="directory" id="siteDirectory">
-  <h2>ETFIQ, in one place</h2>
-  <p id="dirLede">Independent data on 245 defined outcome (buffer) ETFs, 338 option-income ETFs and 289 thematic ETFs, plus the core index funds the desks measure against. Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices. Every figure carries its date and its source, and ETFIQ makes no recommendations.</p>
-  <div class="dircols">
-    <div><h3>The desks</h3><ul>
-      <li><a href="/buffer/">Every buffer ETF</a></li>
-      <li><a href="/income/">Every option-income ETF</a></li>
-      <li><a href="/themes/">Every thematic ETF</a></li>
-      <li><a href="/core/">Core index funds</a></li>
-      <li><a href="/portfolio/">Portfolio desk</a></li>
-    </ul></div>
-    <div><h3>Find a fund</h3><ul>
-      <li><a href="/issuers/">By issuer</a></li>
-      <li><a href="/compare/">Head to head</a></li>
-      <li><a href="/rankings/">Rankings</a></li>
-      <li><a href="/changed/">What changed today</a></li>
-      <li><a href="/statistics/">ETF statistics</a></li>
-    </ul></div>
-    <div><h3>Understand it</h3><ul>
-      <li><a href="/learn/">Vocabulary</a></li>
-      <li><a href="/questions/">Questions</a></li>
-      <li><a href="/research/">ETFIQ Research</a></li>
-      <li><a href="/data/">Open data</a></li>
-      <li><a href="/standards/">Standards and sources</a></li>
-    </ul></div>
-    <div><h3>Widely held funds</h3><ul id="dirFunds">
-      <li><a href="/funds/JEPI.html">JEPI</a>, <a href="/funds/JEPQ.html">JEPQ</a>, <a href="/funds/SPYI.html">SPYI</a>, <a href="/funds/QYLD.html">QYLD</a></li>
-      <li><a href="/funds/VOO.html">VOO</a>, <a href="/funds/SPY.html">SPY</a>, <a href="/funds/QQQ.html">QQQ</a>, <a href="/funds/SCHD.html">SCHD</a></li>
-      <li><a href="/funds/PJAN.html">PJAN</a>, <a href="/funds/BJUL.html">BJUL</a>, <a href="/funds/DSEP.html">DSEP</a>, <a href="/funds/UOCT.html">UOCT</a></li>
-      <li><a href="/funds/ARKK.html">ARKK</a>, <a href="/funds/SMH.html">SMH</a>, <a href="/funds/BOTZ.html">BOTZ</a>, <a href="/funds/AIQ.html">AIQ</a></li>
-    </ul></div>
-  </div>
-</section>
-
 <footer>
-  <span class="wm"><svg class="wmk foot" role="img" aria-label="ETFIQ" viewBox="0 -13.09 3832.17 829.63"><path fill="currentColor" transform="translate(-76.543 686.000) scale(1.000000)" d="M76.54345703125 0.0V-687.0869140625H644.15087890625V-546.740234375H255.998046875V-417.9560546875H594.71630859375V-281.41357421875H255.998046875V-140.3466796875H650.6943359375V0.0Z"/><path fill="currentColor" transform="translate(822.457 686.000) scale(1.000000)" d="M246.71728515625 0.0V-540.3056640625H23.9130859375V-687.0869140625H648.88916015625V-540.3056640625H426.171875V0.0Z"/><path fill="currentColor" transform="translate(1697.457 686.000) scale(1.000000)" d="M74.9130859375 0.0V-687.0869140625H602.15087890625V-546.740234375H254.36767578125V-398.6083984375H560.1728515625V-262.06591796875H254.36767578125V0.0Z"/><path fill="var(--iq, #5A87E5)" transform="translate(2538.457 686.000) scale(1.000000)" d="M74.9130859375 0.0V-687.0869140625H254.36767578125V0.0Z"/><path fill="var(--iq, #5A87E5)" transform="translate(3067.457 686.000) scale(1.000000)" d="M523.8701171875 130.54345703125 413.67431640625 9.36962890625Q407.84814453125 10.36962890625 400.978515625 10.641357421875Q394.10888671875 10.9130859375 387.7392578125 10.9130859375Q281.28271484375 10.9130859375 204.36962890625 -29.21728515625Q127.45654296875 -69.34765625 86.228271484375 -148.619384765625Q45.0 -227.89111328125 45.0 -343.54345703125Q45.0 -462.9130859375 87.858642578125 -541.684814453125Q130.71728515625 -620.45654296875 211.4345703125 -659.771728515625Q292.15185546875 -699.0869140625 404.58642578125 -699.0869140625Q518.02099609375 -699.0869140625 598.510009765625 -659.771728515625Q678.9990234375 -620.45654296875 721.857666015625 -541.684814453125Q764.71630859375 -462.9130859375 764.71630859375 -343.54345703125Q764.71630859375 -221.97802734375 719.574951171875 -142.293212890625Q674.43359375 -62.6083984375 591.06396484375 -23.4345703125L746.23779296875 130.54345703125ZM404.58642578125 -127.89013671875Q447.89111328125 -127.89013671875 480.86962890625 -140.988037109375Q513.84814453125 -154.0859375 536.228759765625 -178.966552734375Q558.609375 -203.84716796875 569.89208984375 -239.73876953125Q581.1748046875 -275.63037109375 581.1748046875 -320.67431640625V-365.49951171875Q581.1748046875 -411.0 569.89208984375 -447.119873046875Q558.609375 -483.23974609375 536.228759765625 -508.120361328125Q513.84814453125 -533.0009765625 480.86962890625 -546.098876953125Q447.89111328125 -559.19677734375 404.58642578125 -559.19677734375Q361.28173828125 -559.19677734375 328.30322265625 -546.098876953125Q295.32470703125 -533.0009765625 273.2158203125 -508.120361328125Q251.10693359375 -483.23974609375 240.052490234375 -447.119873046875Q228.998046875 -411.0 228.998046875 -365.49951171875V-320.67431640625Q228.998046875 -275.63037109375 240.052490234375 -239.73876953125Q251.10693359375 -203.84716796875 273.2158203125 -178.966552734375Q295.32470703125 -154.0859375 328.30322265625 -140.988037109375Q361.28173828125 -127.89013671875 404.58642578125 -127.89013671875Z"/></svg></span>
-  <a href="#/standards">Standards</a>
-  <a href="#/buffer/learn">Learn: buffers</a>
-  <a href="#/income/learn">Learn: income</a>
-  <a href="#/themes/learn">Learn: themes</a>
-  <a href="/research/">Research</a>
-  <a href="/feed.xml">Feed</a>
-  <a href="/rankings/">Rankings</a>
-  <a href="/questions/">Questions</a>
-  <a href="/statistics/">Statistics</a>
-  <a href="/core/">Core funds</a>
-  <a href="/data/">Open data</a>
-  <a href="/buffer/">Fund pages: buffer</a>
-  <a href="/income/">Fund pages: income</a>
-  <a href="/themes/">Fund pages: themes</a>
-  <a href="#/alerts">Alerts and the weekly note</a>
-  <a href="/privacy/">Privacy</a>
-  <a href="/terms/">Terms</a>
-  <a href="/contact/">Contact</a>
-  <span id="footAsOf">Buffer data 2026-09-04 · income prices 2026-09-04 · themes prices 2026-09-04</span>
+  <div class="fdir">
+    <div class="fcol"><h3>Desks</h3>
+      <a href="#/buffer/check">Buffer ETFs</a>
+      <a href="#/income/check">Income ETFs</a>
+      <a href="#/themes/check">Thematic ETFs</a>
+      <a href="#/portfolio">Portfolio desk</a>
+      <a href="/core/">Core index funds</a>
+    </div>
+    <div class="fcol"><h3>Find</h3>
+      <a href="#/browse">Browse by issuer or theme</a>
+      <a href="/compare/">Head to head</a>
+      <a href="/rankings/">Rankings</a>
+      <a href="/issuers/">Every issuer</a>
+      <a href="/changed/">What changed today</a>
+    </div>
+    <div class="fcol"><h3>Understand</h3>
+      <a href="#/buffer/learn">Buffer vocabulary</a>
+      <a href="#/income/learn">Income vocabulary</a>
+      <a href="#/themes/learn">Themes vocabulary</a>
+      <a href="/questions/">Questions</a>
+      <a href="/research/">ETFIQ Research</a>
+    </div>
+    <div class="fcol"><h3>Data and method</h3>
+      <a href="/data/">Open data</a>
+      <a href="/statistics/">ETF statistics</a>
+      <a href="#/standards">Standards and sources</a>
+      <a href="/feed.xml">Feed</a>
+      <a href="#/alerts">Alerts and the weekly note</a>
+    </div>
+    <div class="fcol"><h3>ETFIQ</h3>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/funds/JEPI.html">Fund pages</a>
+    </div>
+  </div>
+  <p class="fabout" id="dirLede">Independent data on 245 defined outcome (buffer) ETFs, 338 option-income ETFs and 289 thematic ETFs, plus the core index funds the desks measure against. Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices.</p>
+  <div class="fbase"><span class="wm">ETFIQ</span><span id="footAsOf">Buffer data 2026-09-04 · income prices 2026-09-04 · themes prices 2026-09-04</span><span class="fnote">Independent publisher. Not an issuer, broker or adviser. No recommendations.</span></div>
 </footer>
 
 <div class="backdrop" id="backdrop"></div>
@@ -2146,7 +2137,18 @@ function viewBrowse(){
   const q = (S.bq || '').toLowerCase();
   const find = `<form class="cq slim" id="browseForm" autocomplete="off" onsubmit="return false"><input id="browseQ" type="search" placeholder="${tab === 'issuer' ? 'Find an issuer, for example Innovator' : tab === 'theme' ? 'Find a theme, for example robotics' : tab === 'bench' ? 'Find a benchmark, for example QQQ' : 'Find a month'}" value="${esc(S.bq || '')}" aria-label="Find"></form>`;
   const tabs = [['issuer', 'By issuer'], ['theme', 'By theme'], ['month', 'By reset month'], ['bench', 'By benchmark']];
-  const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Every issuer, theme, reset month and benchmark</h1><p>Pick one and the desk opens filtered to it. Counts are of the funds ETFIQ covers today.</p></div>
+  const ways = [
+    ['/rankings/', 'Rankings', 'Each desk sorted by one published field: most cash paid, most room to the cap, mostly the index already.'],
+    ['/compare/', 'Head to head', 'Any two funds on the fields they both publish, within a desk or across them.'],
+    ['/questions/', 'Questions', 'What a buffer ETF is, what return of capital means, whether covered call funds lose value.'],
+    ['/research/', 'Research', 'One computed piece per desk, rebuilt every trading night, with the tables and the method.'],
+    ['/statistics/', 'Statistics', 'Category-level counts, free to cite with the date.'],
+    ['/data/', 'Open data', 'Every figure as JSON at a stable address, free to use with attribution.']
+  ];
+  const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Find any fund, and everything ETFIQ publishes about it</h1><p>The desks hold the live data. Everything here is a way into them.</p></div>
+    <div class="sec tight"><span class="eyebrow">Ways in</span></div>
+    <div class="rgrid ways">${ways.map(([u, t, d]) => `<a class="rp" href="${u}"><b>${t}</b><span>${d}</span></a>`).join('')}</div>
+    <div class="sec tight"><span class="eyebrow">Or pick a group and open the desk filtered to it</span></div>
 `;
   let body = '';
   if (tab === 'issuer') {
@@ -2186,7 +2188,6 @@ function viewBrowse(){
     </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks${q ? ' matching ' + esc(S.bq) : ''} across ${S.income.length} funds. Click any heading to sort.</p>`;
   }
   return `<div class="check">${head}${body}
-    <a class="pdoor" href="/rankings/"><div class="lvl">Rankings</div><b>Every desk sorted by one published field</b><span>The funds paying the most cash, the buffers with the most room left, the thematic funds that are mostly the index already. The measure is in the title; nothing here is a view on a fund.</span></a>
     <p class="ind">Counts are of the funds ETFIQ covers. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
 }
 
@@ -2216,7 +2217,6 @@ function viewHome(){
       ${tile('income', 'Am I ahead of the benchmark?', vis.income, idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat their benchmark over ${WIN_LABEL[S.window]}` : '', fi ? `${esc(fi.ticker)} on the payout bar` : '', 'Check an income ETF')}
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
-    <a class="pdoor" href="#/browse"><div class="lvl">Browse</div><b>Every issuer, theme, reset month and benchmark</b><span>An issuer's range, a theme's funds, or the month a buffer resets. The desk opens filtered to your choice.</span></a>
     <a class="pdoor" href="#/portfolio"><div class="lvl">Portfolio desk</div><b>What does my whole portfolio actually own, protect and pay?</b><span>Enter your ETFs. One page: what it really holds, how much is protected, the cash by month, and what happens if the market moves.</span></a>
     ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><div class="chgrid">${['buffer', 'income', 'themes'].map(d => { const ls = lines.filter(l => l.desk === d); return ls.length ? `<div class="chg ${d}"><h3>${DESK_NAME[d]}</h3><ul class="changed">${ls.map(l => `<li class="${d}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div>` : ''}
     ${researchStrip(null)}
@@ -2249,18 +2249,19 @@ function viewCheck(){
   }
   else if (elsewhere) result = `<div class="miss"><b>${esc(t)}</b> is on the ${DESK_NAME[elsewhere].toLowerCase()}. <a href="#/${elsewhere}/check/${esc(t)}">Check it there</a>.</div>`;
   else if (t) result = `<div class="miss"><b>${esc(t)}</b> is not on this desk. ETFIQ covers ${desk === 'buffer' ? `${S.funds.length} buffer ETFs from ${new Set(S.funds.map(f => f.issuer)).size} issuers` : desk === 'income' ? `${S.income.length} option-income ETFs` : `${S.themes.length} thematic ETFs across ${new Set(S.themes.map(r => r.themeName)).size} themes`}. <a href="#/${desk}/desk">See the full list</a>.</div>`;
+  const cmpDoor = `<a href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds</b><span>${desk === 'buffer' ? 'Every field in one table, the bands on one scale.' : desk === 'income' ? 'Cash, price, total return and the gap to the benchmark, on one scale.' : 'What each holds, how much is already the index, and how much the two overlap.'}</span></a>`;
   const doors = desk === 'buffer'
-    ? `<div class="doors"><a href="#/buffer/entry"><div class="lvl">Quick</div><b>I am buying today</b><span>Every fund grouped by how much it protects, freshest caps first.</span></a><a href="#/buffer/desk"><div class="lvl deep">Full data</div><b>All ${S.funds.length} funds</b><span>Every issuer on one band, with filters, sorting and plain words on every row.</span></a><a href="#/buffer/ladder"><div class="lvl deep">Full data</div><b>Ladder builder</b><span>Spread resets across the year and see the blended cap and buffer.</span></a></div>`
+    ? `<div class="doors"><a href="#/buffer/entry"><div class="lvl">Quick</div><b>I am buying today</b><span>Every fund grouped by how much it protects, freshest caps first.</span></a><a href="#/buffer/desk"><div class="lvl deep">Full data</div><b>All ${S.funds.length} funds</b><span>Every issuer on one band, with filters, sorting and plain words on every row.</span></a><a href="#/buffer/ladder"><div class="lvl deep">Full data</div><b>Ladder builder</b><span>Spread resets across the year and see the blended cap and buffer.</span></a>${cmpDoor}</div>`
     : desk === 'income'
-    ? `<div class="doors"><a href="#/income/calendar"><div class="lvl">Quick</div><b>Payout calendar</b><span>What pays, when, and how much, for the next 45 days.</span></a><a href="#/income/desk"><div class="lvl deep">Full data</div><b>All ${S.income.length} funds</b><span>Index income and single-stock funds, with the payout bar on every row.</span></a><a href="#/income/ahead"><div class="lvl deep">Full data</div><b>Am I ahead? All funds ranked</b><span>Every fund against its benchmark over ${WIN_LABEL[S.window]}, largest gap first.</span></a></div>`
-    : `<div class="doors"><a href="#/themes/own"><div class="lvl">Quick</div><b>What do I really own?</b><span>Enter the thematic funds you hold and see how much they overlap and what they add up to.</span></a><a href="#/themes/desk"><div class="lvl deep">Full data</div><b>All ${S.themes.length} funds</b><span>Every theme, with the difference bar, concentration and returns against the plain index on every row.</span></a><a href="#/themes/themes"><div class="lvl deep">Full data</div><b>Theme map</b><span>${new Set(S.themes.map(r => r.themeName)).size} themes: funds, assets, spread of returns, and how much of each is already in the S&P 500.</span></a></div>`;
+    ? `<div class="doors"><a href="#/income/calendar"><div class="lvl">Quick</div><b>Payout calendar</b><span>What pays, when, and how much, for the next 45 days.</span></a><a href="#/income/desk"><div class="lvl deep">Full data</div><b>All ${S.income.length} funds</b><span>Index income and single-stock funds, with the payout bar on every row.</span></a><a href="#/income/ahead"><div class="lvl deep">Full data</div><b>Am I ahead? All funds ranked</b><span>Every fund against its benchmark over ${WIN_LABEL[S.window]}, largest gap first.</span></a>${cmpDoor}</div>`
+    : `<div class="doors"><a href="#/themes/own"><div class="lvl">Quick</div><b>What do I really own?</b><span>Enter the thematic funds you hold and see how much they overlap and what they add up to.</span></a><a href="#/themes/desk"><div class="lvl deep">Full data</div><b>All ${S.themes.length} funds</b><span>Every theme, with the difference bar, concentration and returns against the plain index on every row.</span></a><a href="#/themes/themes"><div class="lvl deep">Full data</div><b>Theme map</b><span>${new Set(S.themes.map(r => r.themeName)).size} themes: funds, assets, spread of returns, and how much of each is already in the S&P 500.</span></a>${cmpDoor}</div>`;
   const pulse = desk === 'buffer' ? bufferPulse() : desk === 'income' ? incomePulse() : themesPulse();
   const pulseLabel = desk === 'buffer' ? 'The buffer desk today' : desk === 'income' ? 'The income desk over ' + WIN_LABEL[S.window] : 'The themes desk over ' + WIN_LABEL[S.window];
   return `<div class="check"><div class="chero"><span class="eyebrow">${DESK_NAME[desk]} · quick look</span><h1>${h1}</h1><p>${sub}</p>
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${desk === 'buffer' ? 'Ticker, for example PJAN' : desk === 'income' ? 'Ticker, for example JEPI' : 'Ticker, for example ARKK'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}<span class="lbl" style="margin-left:8px">Two or more tickers open the comparison</span></div></div>
-    ${result}${doors}<a class="pdoor" href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds head to head</b><span>${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN: every field in one table, the bands on one scale.' : desk === 'income' ? 'OMAH vs JEPI: cash, price, total return and the gap to the benchmark, on one scale.' : 'AIS vs AIQ: what each holds, how much is already the index, and how much the two overlap.'}</span></a><div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
+    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
 }
 function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)}</div><div class="asf">Data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
 function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }

@@ -56,9 +56,9 @@ for rp in sorted((ROOT / 'data' / 'research').glob('*.json')):
                      'narrative': rp.with_suffix('.narrative.html').exists()})
 fill('etfiq-research', research)
 lede = ('Independent data on {nb} defined outcome (buffer) ETFs, {ni} option-income ETFs and {nt} thematic ETFs, plus the core index funds the desks measure against. '
-        'Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices. Every figure carries its date and its source, and ETFIQ makes no recommendations.')
-html, k = re.subn(r'<p id="dirLede">.*?</p>',
-                  '<p id="dirLede">' + lede.format(nb=len(funds), ni=len(income), nt=len(thematic.get('funds', []))) + '</p>', html, count=1, flags=re.S)
+        'Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices.')
+html, k = re.subn(r'<p class="fabout" id="dirLede">.*?</p>',
+                  '<p class="fabout" id="dirLede">' + lede.format(nb=len(funds), ni=len(income), nt=len(thematic.get('funds', []))) + '</p>', html, count=1, flags=re.S)
 if k != 1:
     sys.exit('site directory lede not found')
 meta = load('site/data/meta.json', {})

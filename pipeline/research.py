@@ -167,7 +167,7 @@ def themes_piece(themes, matrix, as_of):
 
 
 # ---------------------------------------------------------------- pages
-STYLE = R.RAIL_CSS + """nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.55 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:920px;margin:0 auto;padding:28px 20px 60px}.eyebrow{font:600 11px/1 Geist,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5B6675}h1{font-size:32px;letter-spacing:-.025em;margin:8px 0 6px;line-height:1.15}.dek{font-size:17px;color:#3D4756;margin:0 0 20px}.sum p{font-size:16px;margin:0 0 10px}.narr{border-left:4px solid #2457E6;background:#fff;padding:14px 18px;border-radius:0 8px 8px 0;margin:18px 0}.narr .lab{font:600 11px/1 Geist,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5B6675;margin-bottom:8px}h2{font-size:17px;margin:28px 0 8px;letter-spacing:-.01em}table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;border:1px solid #DCE1E8;border-radius:6px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #E6EAF0;vertical-align:top}th{font:600 10.5px/1 Geist,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5B6675;background:#F7F9FB}td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}.note{color:#5B6675;font-size:13px;margin-top:22px}.cta{display:inline-block;margin:10px 0 0;padding:9px 14px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}nav.list a{display:block;padding:14px 16px;border:1px solid #DCE1E8;border-radius:8px;background:#fff;margin:10px 0;color:#0F1419;text-decoration:none}nav.list b{display:block;font-size:17px}nav.list span{color:#5B6675;font-size:13px}.wrap{overflow-x:auto}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + R.FOOTER_CSS + """nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.55 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:920px;margin:0 auto;padding:28px 20px 60px}.eyebrow{font:600 11px/1 Geist,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5B6675}h1{font-size:32px;letter-spacing:-.025em;margin:8px 0 6px;line-height:1.15}.dek{font-size:17px;color:#3D4756;margin:0 0 20px}.sum p{font-size:16px;margin:0 0 10px}.narr{border-left:4px solid #2457E6;background:#fff;padding:14px 18px;border-radius:0 8px 8px 0;margin:18px 0}.narr .lab{font:600 11px/1 Geist,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5B6675;margin-bottom:8px}h2{font-size:17px;margin:28px 0 8px;letter-spacing:-.01em}table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;border:1px solid #DCE1E8;border-radius:6px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #E6EAF0;vertical-align:top}th{font:600 10.5px/1 Geist,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5B6675;background:#F7F9FB}td:not(:first-child),th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}.note{color:#5B6675;font-size:13px;margin-top:22px}.cta{display:inline-block;margin:10px 0 0;padding:9px 14px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}nav.list a{display:block;padding:14px 16px;border:1px solid #DCE1E8;border-radius:8px;background:#fff;margin:10px 0;color:#0F1419;text-decoration:none}nav.list b{display:block;font-size:17px}nav.list span{color:#5B6675;font-size:13px}.wrap{overflow-x:auto}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def esc(s):
@@ -190,7 +190,7 @@ def piece_page(pc, narrative, dated=None):
 <a class="cta" href="{pc['app']}">Open the live desk</a>
 {narr}{tables}
 <p class="note"><b>Method.</b> {esc(pc['method'])} Data file: <a href="{pc['data']}">{pc['data']}</a>. Rebuilt every trading night. ETFIQ is an independent publisher and makes no recommendations. <a href="{BASE}/#/standards">Standards</a></p>
-</main><footer><a href="/research/">All research</a> · <a href="/buffer/">Buffer desk pages</a> · <a href="/income/">Income desk pages</a> · <a href="/themes/">Themes desk pages</a></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 def index_page(pieces, archive=None):
@@ -207,7 +207,7 @@ def index_page(pieces, archive=None):
 <div class="eyebrow">ETFIQ Research</div><h1>What the data shows, one piece per desk</h1><p class="dek">Findings computed from the desks' own files, rebuilt every trading night, with the method and the data file for every table. Never a fund pick.</p>
 <nav class="list">{items}</nav>
 {arch}
-<p class="note">ETFIQ is an independent publisher, not an issuer, broker or adviser. <a href="{BASE}/#/standards">Standards and ownership</a></p></main></body></html>"""
+<p class="note">ETFIQ is an independent publisher, not an issuer, broker or adviser. <a href="/standards/">Standards and sources</a></p></main>{R.footer()}</body></html>"""
 
 
 def archive_index(out):
@@ -238,7 +238,7 @@ def day_page(day, items):
 <p class="dek">The pieces as they stood on {fdate(day)}. Figures are frozen at that date; the live pieces are on <a href="/research/">the research page</a>.</p>
 <nav class="list">{links}</nav>
 <p class="note">ETFIQ is an independent publisher and makes no recommendations. <a href="{BASE}/standards/">Standards and sources</a></p>
-</main></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 def build():

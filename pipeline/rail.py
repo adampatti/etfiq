@@ -17,3 +17,30 @@ def rail(active=''):
              ('portfolio', f'{BASE}/#/portfolio', 'Portfolio', ' desk'), ('browse', f'{BASE}/#/browse', 'Browse', ''), ('research', '/research/', 'Research', '')]
     nav = ''.join(f'<a href="{h}"{" class=\"on\"" if k == active else ""}>{a}{f"<span class=\"long\">&nbsp;{b.strip()}</span>" if b else ""}</a>' for k, h, a, b in items)
     return f'<header class="rail"><a class="logo" href="{BASE}/" aria-label="ETFIQ home">{MARK}<span class="lk">{WORDMARK}{TAGLINE}</span></a><nav>{nav}</nav><a class="alerts" href="{BASE}/#/alerts">Get alerts</a></header>'
+
+
+FOOTER_CSS = ("footer.site{background:#0F1419;color:#B8C0CC;margin-top:44px;padding:30px 20px 22px}"
+              "footer.site .fdir{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:20px 26px;max-width:1120px;margin:0 auto}"
+              "footer.site h3{font:600 11px/1 Geist,system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#8A93A0;margin:0 0 10px}"
+              "footer.site a{display:block;font-size:13px;line-height:1.95;color:#B8C0CC;text-decoration:none}footer.site a:hover{color:#fff}"
+              "footer.site .fabout{max-width:1120px;margin:22px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;line-height:1.6;color:#8A93A0}"
+              "footer.site .fabout b{color:#F2F4F7}")
+
+FOOTER_COLS = [
+    ('Desks', [('Buffer ETFs', '/buffer/'), ('Income ETFs', '/income/'), ('Thematic ETFs', '/themes/'),
+               ('Portfolio desk', '/portfolio/'), ('Core index funds', '/core/')]),
+    ('Find', [('Browse by issuer or theme', f'{BASE}/#/browse'), ('Head to head', '/compare/'), ('Rankings', '/rankings/'),
+              ('Every issuer', '/issuers/'), ('What changed today', '/changed/')]),
+    ('Understand', [('Buffer vocabulary', '/learn/buffer.html'), ('Income vocabulary', '/learn/income.html'),
+                    ('Themes vocabulary', '/learn/themes.html'), ('Questions', '/questions/'), ('ETFIQ Research', '/research/')]),
+    ('Data and method', [('Open data', '/data/'), ('ETF statistics', '/statistics/'), ('Standards and sources', '/standards/'),
+                         ('Feed', '/feed.xml'), ('Alerts and the weekly note', f'{BASE}/#/alerts')]),
+    ('ETFIQ', [('Contact', '/contact/'), ('Privacy', '/privacy/'), ('Terms', '/terms/'), ('Open the live desks', f'{BASE}/')]),
+]
+
+
+def footer():
+    cols = ''.join('<div><h3>' + h + '</h3>' + ''.join(f'<a href="{u}">{t}</a>' for t, u in items) + '</div>' for h, items in FOOTER_COLS)
+    return ('<footer class="site"><div class="fdir">' + cols + '</div>'
+            '<p class="fabout"><b>ETFIQ</b> is an independent publisher of data about exchange-traded funds. It is not a fund issuer, broker-dealer or investment adviser, '
+            'and it makes no recommendations. Every figure carries its date and its source.</p></footer>')

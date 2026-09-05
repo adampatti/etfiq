@@ -327,7 +327,7 @@ def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wid
 <body>{R.rail(desk or '')}<main class="doc{' wide' if wide else ''}">
 {crumb_html([('ETFIQ', BASE + '/')] + (crumb or []) + [(short or (title if len(title) < 40 else title[:38] + '...'), url)])}
 {inner}
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/core/">Core funds</a><a href="/rankings/">Rankings</a><a href="/research/">Research</a><a href="/questions/">Questions</a><a href="/learn/">Learn</a><a href="/statistics/">Statistics</a><a href="/data/">Open data</a><a href="/standards/">Standards</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 LEARN = {'buffer': ('Reading a buffer ETF: the vocabulary in plain words', 'What the band, the cap, the buffer, protection left and the outcome period mean on a defined outcome ETF, defined one at a time.'),
@@ -1302,12 +1302,12 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 {'<h2>Other comparisons</h2><nav class="rel">' + rel + '</nav>' if rel else ''}
 {cite_line(ta + ' against ' + tb, as_of, url)}
 <p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; every figure here is stated arithmetic on published data. <a href="{BASE}/standards/">Standards and sources</a></p>
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}nav.rel.out a::after{content:' \\2197';color:#5A6472}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + R.FOOTER_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}nav.rel.out a::after{content:' \\2197';color:#5A6472}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def faq_block(faqs):
@@ -1394,7 +1394,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 {related}
 {cite_line(ticker + ' on the ' + DESK_NAME[desk].lower(), as_of, url)}
 <p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/llms.txt">llms.txt</a></nav></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 def index_page(desk, rows, as_of, intro, hub_nav=''):
@@ -1419,7 +1419,7 @@ def index_page(desk, rows, as_of, intro, hub_nav=''):
 {hub_nav}
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
 <p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a></p>
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 def portfolio_page(as_of, books):
@@ -1450,7 +1450,7 @@ def portfolio_page(as_of, books):
 <h2>Try an example</h2><p>{' · '.join(f'<a href="{BASE}/#/portfolio/own/{sp}">{esc(l)}</a>' for sp, l in examples)}</p>
 <h2>How positions are written</h2><p>Tickers with a weight (PJAN:20), a share count (JEPI:150S) or a dollar amount (JEPI:$25000), separated by commas. Any fund on the buffer, income or themes desk, plus the core index funds. The link carries the positions, so a portfolio can be shared or bookmarked; named portfolios can be kept on the device.</p>
 <p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/standards/">Standards</a></p>
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">Research</a></nav></footer></body></html>"""
+</main>{R.footer()}</body></html>"""
 
 
 def build():
