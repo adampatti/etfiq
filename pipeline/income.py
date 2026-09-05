@@ -142,7 +142,7 @@ def frequency(rows):
     divs = [r for r in rows if r['divCash'] > 0]
     if len(divs) < 3:
         return None, divs
-    gaps = [(datetime.date.fromisoformat(b['date']) - datetime.date.fromisoformat(a['date'])).days for a, b in zip(divs[-7:-1], divs[-6:])]
+    gaps = [(datetime.date.fromisoformat(b['date']) - datetime.date.fromisoformat(a['date'])).days for a, b in list(zip(divs[:-1], divs[1:]))[-6:]]  # the last six gaps
     g = sorted(gaps)[len(gaps) // 2]
     return ('weekly' if g <= 9 else 'monthly' if g <= 45 else 'quarterly' if g <= 120 else 'annual'), divs
 
