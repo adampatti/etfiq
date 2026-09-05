@@ -113,6 +113,25 @@ main{padding:12px 16px 24px}
 .vhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin:4px 0 10px}
 .vhead h1{font-size:22px;font-weight:600}
 .vhead p{margin:0;color:var(--muted);font-size:13px;max-width:82ch}
+.intro{margin:-12px -16px 14px;padding:22px 16px 18px;border-bottom:1px solid var(--line);background:var(--tint)}
+.intro.buffer{--tint:var(--accent-soft)}.intro.income{--tint:var(--protected-soft)}
+.intro h1{font-size:26px;font-weight:700;letter-spacing:-.01em}
+.intro .lede{margin:4px 0 0;color:var(--ink-2);font-size:14px;max-width:80ch}
+.intro .head{margin:12px 0 0;font:600 18px/1.35 var(--font-display);color:var(--ink);max-width:70ch}
+.intro .head b{background:var(--surface);padding:1px 8px;border-radius:3px;font-family:var(--font-mono);font-weight:600;border-bottom:3px solid var(--accent)}
+.intro.income .head b{border-bottom-color:var(--protected)}
+.read{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+.read .rt{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--line-2);border-radius:4px;padding:12px 14px}
+.read .rt.t{border-top-color:var(--protected)}.read .rt.a{border-top-color:var(--ceiling)}.read .rt.c{border-top-color:var(--unprotected)}.read .rt.b{border-top-color:var(--accent)}
+.read .v{font:600 28px/1.1 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.read .l{font:600 13px/1.3 var(--font-display);color:var(--ink);margin-top:4px}
+.read .s{font-size:12px;color:var(--muted);margin-top:2px}
+.sec{display:flex;align-items:center;gap:10px;margin:16px 0 8px}
+.sec .eyebrow{color:var(--ink-2)}
+.sec::after{content:"";flex:1;height:1px;background:var(--line-2)}
+.callout{padding:12px 14px;border-left:4px solid var(--ceiling);background:var(--surface);border-radius:0 4px 4px 0;margin:0 0 12px;font-size:14px;color:var(--ink)}
+.callout b{font-weight:600}
+@media (max-width:700px){.read{grid-template-columns:1fr 1fr}.intro{margin:-10px -10px 12px;padding:16px 10px 14px}}
 .strips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
 @media (max-width:1000px){.strips{grid-template-columns:1fr}}
 .strip{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
@@ -802,8 +821,12 @@ function viewBufferDesk(){
   } else body += rows.map(rowHtml).join('');
   const nSeries = new Set(all.map(f => f.seriesKey)).size;
   const nh = newHereStrip('buffer');
-  return `<div class="vhead"><h1>All buffer ETFs</h1><p>Every defined outcome ETF from every issuer, and where each one stands today between its buffer and its cap. Open any row for the fund in plain words.</p></div>
+  const atCap = S.funds.filter(f => f.state === 'capped').length, working = S.funds.filter(f => f.state === 'engaged' || f.state === 'exhausted').length, soon = S.funds.filter(f => f.daysRemaining <= 30).length;
+  return `<div class="intro buffer"><h1>Buffer ETFs</h1><p class="lede">Every defined outcome ETF from every issuer, and where each one stands today between its buffer and its cap. Open any row for the fund in plain words.</p><p class="head">Today, <b>${atCap} of ${S.funds.length}</b> buffer ETFs have already hit their cap. A buyer today gets what is left, not the starting figures.</p></div>
+    <div class="read"><div class="rt a"><div class="v">${atCap}</div><div class="l">At their cap</div><div class="s">No more upside this period in index terms</div></div><div class="rt t"><div class="v">${working}</div><div class="l">Buffers working</div><div class="s">The index is inside the protected range</div></div><div class="rt b"><div class="v">${soon}</div><div class="l">Reset within 30 days</div><div class="s">A new cap is set when the period ends</div></div></div>
+    <div class="sec"><span class="eyebrow">Start here</span></div>
     <div class="strips">${mineStrip('buffer', S.byT)}${nh || questionsStrip('buffer')}</div>${nh ? questionsStrip('buffer') : ''}
+    <div class="sec"><span class="eyebrow">Every fund</span></div>
     ${bufferControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk main"><thead>${headRow(COLS, S.sort)}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
     <template id="countText"><b>${all.length}</b> of ${S.funds.length} funds · ${nSeries} series</template>`;
 }
@@ -823,8 +846,10 @@ function viewBufferEntry(){
   }
   if (!rows.length) body = `<tr><td colspan="12"><div class="empty">No funds match these filters.</div></td></tr>`;
   const ctl = bufferControls().replace('<span class="spacer"></span>', `<select class="sel" id="entrySort" aria-label="Sort within buffer level">${Object.entries(labels).map(([k, l]) => `<option value="${k}"${k === S.entrySort ? ' selected' : ''}>${l}</option>`).join('')}</select><span class="spacer"></span>`).replace(/<div class="seg"[\s\S]*?<\/div>/, '');
-  return `<div class="vhead"><h1>Buying today</h1><p>For cash going in now. Funds are grouped by how much they protect, and within each group sorted by <b>${labels[S.entrySort].toLowerCase()}</b>. A fund bought today gets what is left of its cap and buffer, not the starting figures. The order is the stated sort and nothing more.</p></div>
-    ${questionsStrip('buffer')}${ctl}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk entry"><thead>${head}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
+  const fresh = S.funds.filter(f => f.daysElapsed <= 45).length;
+  return `<div class="intro buffer"><h1>Buying today</h1><p class="lede">For cash going in now. Funds are grouped by how much they protect and, within each group, sorted by <b>${labels[S.entrySort].toLowerCase()}</b>. The order is the stated sort and nothing more.</p><p class="head"><b>${fresh}</b> funds reset within the last 45 days and still carry most of their starting cap.</p></div>
+    <div class="callout"><b>Bought today, you get what is left.</b> The cap and the buffer were set on the first day of the period. Everything the index has done since then is already spent or already banked, so read the three columns, not the starting cap.</div>
+    ${questionsStrip('buffer')}<div class="sec"><span class="eyebrow">Every fund, by buffer level</span></div>${ctl}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk entry"><thead>${head}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
     <template id="countText"><b>${rows.length}</b> of ${S.funds.length} funds · ${order.length} buffer levels</template>`;
 }
 function ladderFunds(){ return S.ladder.map(t => S.byT.get(t)).filter(Boolean).sort((a, b) => a.periodEnd < b.periodEnd ? -1 : 1); }
@@ -846,7 +871,7 @@ function viewLadder(){
   const tile = (l, v, s) => `<div class="tile"><div class="l">${l}</div><div class="v">${v}</div>${s ? `<div class="s">${s}</div>` : ''}</div>`;
   const first = rungs[0];
   const title = rungs.length ? (new Set(rungs.map(f => f.seriesKey)).size === 1 ? `${first.issuer} ${first.family}, ${first.refAsset}, buffer ${first.bufferLabel}` : 'Mixed ladder') : 'Ladder';
-  return `<div class="vhead"><h1>Ladder builder</h1><p>Hold rungs across reset months so the cap and buffer refresh a little at a time instead of all at once. Pick a series or assemble your own; the blends are equal-weight arithmetic on the rungs shown, an ETFIQ calculation.</p></div>
+  return `<div class="intro buffer"><h1>Ladder builder</h1><p class="lede">Hold rungs across reset months so the cap and buffer refresh a little at a time instead of all at once. Pick a series or assemble your own; the blends are equal-weight arithmetic on the rungs shown, an ETFIQ calculation.</p></div>
   <div class="lad"><div class="card"><div class="ch"><h2>Rungs</h2></div><div class="cb">${sel}</div></div>
   <div class="card"><div class="ch"><h2>${esc(title)}</h2><span class="muted" style="margin-left:auto;font:12px var(--font-mono)">${rungs.length} rungs · ${gaps} of 12 months without a reset</span></div>
     <div class="tiles">${tile('Blended start cap', blend.cap == null ? '·' : fmtPct(blend.cap), capped.length < rungs.length ? `${rungs.length - capped.length} uncapped excluded` : 'equal weight')}${tile('Blended buffer', blend.buf == null ? '·' : fmtPct(blend.buf, {sign:false}), 'points of protection')}${tile('Can still gain, blended', blend.rem == null ? '·' : fmtPct(blend.rem, {sign:false}), 'from current prices')}${tile('Fall before buffer, blended', blend.dbb == null ? '·' : fmtPct(blend.dbb, {sign:false}), 'until protection engages')}${tile('Protection left, blended', blend.rb == null ? '·' : fmtPct(blend.rb, {sign:false}), 'floor rungs excluded')}${tile('Blended expense', blend.exp == null ? '·' : fmtPct(blend.exp, {sign:false, d:2}), 'annual')}</div>
@@ -979,8 +1004,12 @@ function viewIncomeDesk(){
     }
   } else body += rows.map(irowHtml).join('');
   const nh = newHereStrip('income');
-  return `<div class="vhead"><h1>All income ETFs</h1><p>Every option-income ETF, and whether a holder came out ahead of the index or stock the fund writes options on, once cash is counted and reinvested. Open any row for the fund in plain words.</p></div>
+  const withW = S.income.filter(r => iw(r) && iw(r).gap != null), aheadN = withW.filter(r => iw(r).gap > 0.5).length, fell = withW.filter(r => iw(r).price < 0).length, fat = withW.filter(r => iw(r).cash >= 10).length;
+  return `<div class="intro income"><h1>Income ETFs</h1><p class="lede">Every option-income ETF, and whether a holder came out ahead of the index or stock the fund writes options on, once cash is counted and reinvested. Open any row for the fund in plain words.</p><p class="head">Over the last ${WIN_LABEL[S.window]}, <b>${aheadN} of ${withW.length}</b> income ETFs finished ahead of their benchmark. Cash paid is not the same as money made.</p></div>
+    <div class="read"><div class="rt t"><div class="v">${fat}</div><div class="l">Paid 10% or more in cash</div><div class="s">Over ${WIN_LABEL[S.window]}, as a share of starting value</div></div><div class="rt c"><div class="v">${fell}</div><div class="l">Price fell</div><div class="s">Principal shrank while distributions were paid</div></div><div class="rt b"><div class="v">${aheadN}</div><div class="l">Ahead of their benchmark</div><div class="s">Total return with cash reinvested, minus the index</div></div></div>
+    <div class="sec"><span class="eyebrow">Start here</span></div>
     <div class="strips">${mineStrip('income', S.byI)}${nh || questionsStrip('income')}</div>${nh ? questionsStrip('income') : ''}
+    <div class="sec"><span class="eyebrow">Every fund</span></div>
     ${incomeControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk income"><thead>${iheadRow()}</thead><tbody>${body}</tbody></table></div>${legendIncome()}</div>
     <template id="countText"><b>${all.length}</b> of ${S.income.length} funds · ${new Set(all.map(r => r.groupKey)).size} benchmarks</template>`;
 }
@@ -989,8 +1018,9 @@ function viewIncomeAhead(){
   const rows = S.income.filter(imatches).filter(r => iw(r) && iw(r).gap != null).sort((a, b) => iw(b).gap - iw(a).gap);
   const ahead = rows.filter(r => iw(r).gap > 0.5).length;
   const ctl = incomeControls().replace(/<div class="seg"[\s\S]*?<\/div>/, '');
-  return `<div class="vhead"><h1>Am I ahead?</h1><p>Every fund with a full ${WIN_LABEL[S.window]} of prices, sorted by total return minus its benchmark's total return. <b>${ahead} of ${rows.length}</b> were ahead over this window. This is arithmetic on exchange prices and cash distributions, not a recommendation.</p></div>
-    ${questionsStrip('income')}${ctl}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk income"><thead>${iheadRow()}</thead><tbody>${rows.map(irowHtml).join('') || '<tr><td colspan="15"><div class="empty">No funds match these filters over this window.</div></td></tr>'}</tbody></table></div>${legendIncome()}</div>
+  return `<div class="intro income"><h1>Am I ahead?</h1><p class="lede">Every fund with a full ${WIN_LABEL[S.window]} of prices, sorted by total return minus its benchmark's total return. This is arithmetic on exchange prices and cash distributions, not a recommendation.</p><p class="head"><b>${ahead} of ${rows.length}</b> were ahead of their benchmark over this window.</p></div>
+    <div class="callout" style="border-left-color:var(--protected)"><b>Ahead means you ended with more than the index would have given you</b>, counting every cash payment as reinvested. Behind means the payout came out of your own principal faster than the index grew.</div>
+    ${questionsStrip('income')}<div class="sec"><span class="eyebrow">Every fund, largest gap first</span></div>${ctl}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk income"><thead>${iheadRow()}</thead><tbody>${rows.map(irowHtml).join('') || '<tr><td colspan="15"><div class="empty">No funds match these filters over this window.</div></td></tr>'}</tbody></table></div>${legendIncome()}</div>
     <template id="countText"><b>${rows.length}</b> funds with a full ${WIN_LABEL[S.window]}</template>`;
 }
 function viewIncomeLearn(){
