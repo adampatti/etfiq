@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2026"
+  xmlns:fnd="http://xbrl.sec.gov/fnd/2026"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2026"
+  xmlns:pt="http://www.ProShares.com/20260531"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="pt-20260531.xsd" xlink:type="simple"/>
+    <context id="D_31May2026_31May2026">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_C000275988">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">pt:C000275988Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_LeverageRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:LeverageRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_HoldingPeriodRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:HoldingPeriodRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_CorrelationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:CorrelationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_DerivativesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:DerivativesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_CounterpartyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:CounterpartyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_EquityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:EquityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_MoneyMarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:MoneyMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_ConcentrationFocusRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:ConcentrationFocusRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_SemiconductorRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SemiconductorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_SoftwareRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SoftwareRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_IndexPerformanceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:IndexPerformanceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_IntradayPriceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:IntradayPriceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_MarketPriceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:MarketPriceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_EarlyCloseLateCloseTradingHaltRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:EarlyCloseLateCloseTradingHaltRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000105248_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000105248Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_31May2026_31May2026" id="apid_1">2026-05-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_31May2026_31May2026" id="apid_2">0001174610</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_31May2026_31May2026" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_31May2026_31May2026" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_31May2026_31May2026"
+      id="apid_86ab39d4-b6db-4d3d-9a93-75b948b37e95">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_31May2026_31May2026"
+      id="apid_08289f59-1af7-42f8-b6c2-4af59a672a80">ProShares Trust</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_31May2026_31May2026"
+      id="apid_d5355e11-7415-4072-a2d5-d52c78d9d61d">2026-07-16</oef:ProspectusDate>
+    <oef:ObjectiveHeading
+      contextRef="S000105248"
+      id="a8ac2e14-11cb-436e-b565-73ab8cbd3d57">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000105248"
+      id="x_4f4a800a-60e1-431f-8e5c-06516a258ce3">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;ProShares Ultra QQQ Equal Weight (the &#x201c;Fund&#x201d;) seeks daily investment results, before fees and expenses, that correspond to two times (2x) of the daily performance of the Nasdaq-100 &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Equal Weighted Index (the &#x201c;Index&#x201d;).&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:RiskReturnHeading
+      contextRef="S000105248"
+      id="x_31c76434-385c-4232-96d3-95e4129186b2">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Important Information About the Fund&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;If the Fund is successful in meeting its investment objective, it should gain approximately two times as much as the Index when the Index rises on a given day. Conversely, it should lose approximately two times as much as the Index when the Index falls on a given day. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;The Fund does not seek to achieve two &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;times (2x) the daily performance of theIndex (the &#x201c;Daily Target&#x201d;)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt; for any period other than a day.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;While the Fund has a daily investment objective, you may hold Fund shares for longer than one day if you believe doing so is consistent with your goals and risk tolerance. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;If you hold &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;fund shares for any period other than a day, it is important &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;for you to understand that over your holding period:  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Your return may be higher or lower than the Daily Target, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and this difference may be significant.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Factors that contribute to returns that are worse than the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Daily Target include smaller Index gains or losses and higher Index volatility, as well as longer holding periods when these factors apply.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Factors that contribute to returns that are better than the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Daily Target include larger Index gains or losses and lower Index volatility, as well as longer holding periods when these factors apply.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;The more extreme these factors are, and the more they &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;occur together, the more your return will tend to deviate from the Daily Target.&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ExpenseHeading
+      contextRef="S000105248"
+      id="x_7d866a37-212c-4e13-938e-5decc4a9fdb1">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000105248"
+      id="x_1f3d4a6f-759d-45f0-ba42-10f50dfa259e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The table below describes the fees and expenses that you may pay if you buy, hold, and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You may pay &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;tables and examples below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000105248"
+      id="x_7c99dfd8-28d8-4247-94de-95dbd877c459">&lt;span style="font-family:Arial;font-size:9pt;font-weight:bold;margin-left:0.0pt;"&gt;Annual Fund Operating Expenses&lt;/span&gt;&lt;span style="font-family:Arial;font-size:9pt;margin-left:0.0pt;"&gt;(expenses that you pay each year as a percentage &lt;/span&gt;&lt;span style="font-family:Arial;font-size:9pt;margin-left:0.0pt;"&gt;of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000105248_C000275988"
+      decimals="4"
+      id="x_8f3533a5-4ebf-4374-bbf0-46ed3dc421a7"
+      unitRef="pure">0.0075</oef:ManagementFeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000105248_C000275988"
+      decimals="4"
+      id="aaf542cb-b951-4634-a432-e61edd256c2b"
+      unitRef="pure">0.0037</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000105248_C000275988"
+      decimals="4"
+      id="e129d70f-1ed4-4204-954f-dd86ec35bd19"
+      unitRef="pure">0.0112</oef:ExpensesOverAssets>
+    <oef:FeeWaiverOrReimbursementOverAssets
+      contextRef="S000105248_C000275988"
+      decimals="4"
+      id="x_43df759c-6667-40d7-ba12-74ce448b5020"
+      unitRef="pure">-0.0017</oef:FeeWaiverOrReimbursementOverAssets>
+    <oef:NetExpensesOverAssets
+      contextRef="S000105248_C000275988"
+      decimals="4"
+      id="c834d267-ab34-4cc1-b621-235ce074e487"
+      unitRef="pure">0.0095</oef:NetExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000105248"
+      id="x_7944d168-48ec-4ee9-9dd5-f0981f91576d">&lt;span style="font-family:Arial;font-size:8pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; are estimated.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination
+      contextRef="S000105248"
+      id="x_3f4135c3-2290-4e9d-88c6-8f6b239ecb0a">&lt;span style="font-family:Arial;font-size:8pt;font-style:italic;"&gt;September 30, 2027&lt;/span&gt;</oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination>
+    <oef:ExpenseExampleHeading
+      contextRef="S000105248"
+      id="x_5ebe4c12-6b62-4ef4-9ed4-14711c91d5af">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Example: &lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000105248"
+      id="f5a1589b-9aab-497b-8833-85d7fe17b0d9">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;This example is intended to help you compare the cost &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;of investing in the Fund with the cost of investing in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;other funds.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The example assumes that you invest $10,000 in the Fund for the time periods indicated and then redeem or hold all of your shares at the end of each period. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the same, except that the fee waiver/expense reimbursement is assumed only to pertain to the first year. Although your actual costs may be higher or lower, based on these assumptions your approximate costs &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000105248_C000275988"
+      decimals="INF"
+      id="x_5d1368ae-68ad-496e-9b1e-0a240457c753"
+      unitRef="USD">97</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000105248_C000275988"
+      decimals="INF"
+      id="x_32a26460-fc2f-4d78-a63d-6e0cfb2b8226"
+      unitRef="USD">339</oef:ExpenseExampleYear03>
+    <oef:ExpenseExampleClosingTextBlock
+      contextRef="S000105248"
+      id="d1c41faf-f531-40a1-b256-bfc9f2e0c614">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund pays transaction and financing costs associated with the purchase and sale of securities and derivatives. These costs are not reflected in the table or the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;example above.&lt;/span&gt;</oef:ExpenseExampleClosingTextBlock>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000105248"
+      id="ae5e193a-961d-4029-968b-292a391615eb">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000105248"
+      id="x_956d9673-5871-4742-984e-816a24747f0b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when the Fund&#x2019;s shares are held in a taxable account. These costs, which are not reflected in Annual Fund Operating Expenses or in the example above, affect the Fund&#x2019;s performance. Because the Fund is newly organized, portfolio turnover information is &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;not yet available.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000105248"
+      id="x_7c084c55-1120-4390-8f02-6cd4b7fdc7e6">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Principal Investment Strategies&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000105248"
+      id="a9c449b2-3212-4ea2-9cf5-ddeeb82a4f4e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund invests in financial instruments that ProShare Advisors believes, in combination, should produce daily returns &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;consistent with the Daily Target.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Index is designed to measure the performance of companies listed in the Nasdaq-100 Index on an equal weight basis. The Nasdaq-100 Index is designed to measure the performance of 100 of the largest non-financial companies listed on the Nasdaq Global Select Market or the Nasdaq Global Market (which include both U.S. and non-U.S. companies). &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index&#x2019;s &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;composition and the assigned weights are reevaluated every December, with additional weight adjustments occurring in March, June, and September. The Index is constructed and maintained by Nasdaq Inc. More information about the Index &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;is published under the Bloomberg ticker symbol &#x201c;NDXE&#x201d;.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund will invest principally in the financial instruments &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;listed below.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Equity Securities&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Common stock issued by public companies.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Derivatives&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Financial instruments whose value is derived from the value of an underlying asset or rate, such as stocks, bonds, exchange-traded funds, interest rates or indexes. The Fund invests in derivatives (e.g. swap on the Index) in order to gain leveraged exposure to the Index. These derivatives principally include:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Swap Agreements&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Contracts entered into primarily with major global financial institutions for a specified period ranging from a day to more than one year. In a standard swap transaction, two parties agree to exchange or &#x201c;swap&#x201d; payments based on the change in value of an underlying asset or benchmark. For example, two parties may agree to exchange the return (or differentials in rates of returns) earned or realized on a particular investment or instrument.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Futures Contracts&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Standardized contracts that obligate the parties to buy or sell an asset at a predetermined price and date in the future.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market Instruments&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund expects that any cash balances maintained in connection with its use of derivatives will typically be held in high quality, short-term money market instruments, for example:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market ETF&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; An exchange-traded money market fund managed by ProShare Advisors that holds U.S. Treasury bills, notes, or bonds.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;U.S. Treasury Bills&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; U.S. government securities that have initial maturities of one year or less, and are supported by the full faith and credit of the U.S. government.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Repurchase Agreements&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Contracts in which a seller of securities, usually U.S. government securities or other money market instruments, agrees to buy the securities back at a specified time and price.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;ProShare Advisors uses a mathematical approach to investing in which it determines the type, quantity and mix of investment positions that it believes, in combination, the Fund should hold to produce daily returns consistent with the Daily Target. For these purposes a day is measured from the time of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;one net asset value (&#x201c;NAV&#x201d;) calculation to the next.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund seeks to remain fully invested at all times in financial instruments that, in combination, provide leveraged exposure consistent with the investment objective, without regard to market conditions, trends or direction. However, the Fund may invest in or gain exposure to only a representative sample of the securities in the Index or to securities not contained in the Index or in financial instruments, with the intent of obtaining leveraged exposure consistent with the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;investment objective.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund seeks to rebalance its portfolio each day so that its exposure to the Index is consistent with the Daily Target. The Index&#x2019;s movements during the day will affect whether the Fund&#x2019;s portfolio needs to be rebalanced. For example, if the Index has risen on a given day, net assets of the Fund should rise (assuming there were no Creation Unit redemptions). As a result, the Fund&#x2019;s exposure will need to be increased. Conversely, if the Index has fallen on a given day, net assets of the Fund should fall (assuming there were no Creation Units issued). As a result, the Fund&#x2019;s exposure will need to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;be decreased.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Please see &#x201c;Investment Objectives, Principal Investment Strategies and Related Risks&#x201d; in the Fund&#x2019;s Prospectus for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;additional details.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <fnd:NmRule35d1TermDfnSmryTextBlock
+      contextRef="S000105248"
+      id="x_789668a2-da63-4202-b80b-ccf9877bac41">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Index is designed to measure the performance of companies listed in the Nasdaq-100 Index on an equal weight basis. The Nasdaq-100 Index is designed to measure the performance of 100 of the largest non-financial companies listed on the Nasdaq Global Select Market or the Nasdaq Global Market (which include both U.S. and non-U.S. companies). &lt;/span&gt;</fnd:NmRule35d1TermDfnSmryTextBlock>
+    <fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock
+      contextRef="S000105248"
+      id="ff1eb162-6253-4658-ab25-a20e29fa233c">&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Under normal circumstances, the Fund will obtain leveraged exposure to at least 80% of its total assets in components of the Index &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;as described above or in instruments with similar economic characteristics.&lt;/span&gt;</fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock>
+    <fnd:NmRule35d1TermSlctnCritSmryTextBlock
+      contextRef="S000105248"
+      id="x_1d73a4b4-2268-4deb-9fcc-9ae4d4b67efc">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund seeks to remain fully invested at all times in financial instruments that, in combination, provide leveraged exposure consistent with the investment objective, without regard to market conditions, trends or direction. However, the Fund may invest in or gain exposure to only a representative sample of the securities in the Index or to securities not contained in the Index or in financial instruments, with the intent of obtaining leveraged exposure consistent with the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;investment objective.&lt;/span&gt;</fnd:NmRule35d1TermSlctnCritSmryTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248"
+      id="x_9e5596ff-cbc4-4a60-bd20-7980091f42c9">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Principal Risks&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9pt;font-weight:bold;"&gt;Estimated Fund Returns&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;Index Performance&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;One Year Volatility Rate&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;One&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;Year&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;Index&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;Two times&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;(2x) the&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;One Year&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;Index&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;10%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;25%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;50%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;75%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;"&gt;100%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-60%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-120%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-84.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-85.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-87.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-90.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-94.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-50%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-100%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-75.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-76.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-80.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-85.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-90.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-40%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-80%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-64.4%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-66.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-72.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-79.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-86.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-30%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-60%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-51.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-54.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-61.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-72.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-82.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-20%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-40%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-36.6%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-39.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-50.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-63.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-76.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;-10%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;-20%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-19.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-23.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-36.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-53.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-70.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-1.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;-6.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-22.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-43.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-63.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;10%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;20%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;19.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;13.7%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-5.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-31.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-55.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;20%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;40%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;42.6%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;35.3%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;12.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-18.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-47.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;30%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;60%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;67.3%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;58.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;31.6%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-3.7%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-37.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;40%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;80%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;94.0%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;84.1%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;52.6%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;11.7%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-27.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;50%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;100%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;122.8%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;111.4%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;75.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;28.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-17.2%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:20.66pt;"&gt;60%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:25.11pt;"&gt;120%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;153.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:29.12pt;"&gt;140.5%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;99.4%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;45.9%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;width:27.34pt;"&gt;-5.8%&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Swap Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Like all derivatives,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;the use of swaps may expose the Fund to greater counterparty risk and correlation risk. The terms of a swap agreement between the Fund and a counterparty may permit the counterparty to immediately close out the transaction with the Fund, including intraday (for example, if the Index has a dramatic intraday move that causes a material decline in the Fund&#x2019;s net assets).&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Such terminations may be more likely when the underlying asset is highly concentrated like the Index. If an agreement is terminated, the Fund may be unable to enter into another swap agreement or invest in other derivatives to achieve its investment objective.  To the extent the Fund invests in swaps that use an ETF as the reference asset, the Fund will be subject to the risks of that ETF including the risk that the ETF may not meet its investment objective. In addition, the Fund may be subject to greater correlation risk since the performance of the ETF may not correlate to the performance of the&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Index.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Futures Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Futures prices are affected by many factors,  including market conditions, regulatory requirements,  margin and collateral requirements, position limits,  accountability levels, liquidity,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;and the availability of counterparties.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;These factors may increase the cost of obtaining futures exposure,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;reduce the correlation between futures prices and the performance of the underlying asset, and limit the Fund&#x2019;s ability to maintain its desired exposure. If the Fund is unable to obtain sufficient exposure to futures contracts, it may not achieve its investment objective and its returns may be lower than expected. In addition,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;differences between the performance of the underlying asset and its futures contracts, transaction costs,  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;futures rolling costs,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; and periods of contango or backwardation&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; may cause the Fund to underperform the underlying asset,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;experience larger losses or smaller gains than a &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;direct investment, and deviate from its intended investment results.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Disruptions in the futures market, limits &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;imposed by exchanges, regulators, or futures commission merchants, may further impair the Fund&#x2019;s ability &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;to achieve &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.0pt;"&gt;its &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;objective and could result in significant&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;losses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_RiskLoseMoneyMember"
+      id="x_50882748-a987-49ca-872c-969921b72510">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_LeverageRiskMember"
+      id="d4bd4a72-ef1d-4bc1-b685-f4f195890fbf">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Leverage Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund uses leverage and will lose more money when the value of the Index falls than a similar fund that does not use leverage. The use of leverage increases the risk of a total loss of your investment. If the Index approaches a 50% loss at any point in the day, you could lose your entire investment. As a result, an investment in the Fund may not be suitable for all investors. The use of leverage increases the volatility of your returns. The cost of obtaining this leverage will lower your returns.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_HoldingPeriodRiskMember"
+      id="x_202dc15b-ab81-4f72-a5ca-c658ef51f410">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Holding Period Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The performance of the Fund for periods longer than a single day will likely differ from the Daily Target. This difference may be significant. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;If you are considering holding fund shares for longer than a day, it&#x2019;s important that you understand the impact of the return and  volatility (how much the value of the Index moves up and down from day-to-day) of the Index on your holding period return.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; The volatility of the Index has a negative impact on Fund returns. During periods of higher volatility, the volatility of the Index may affect the Fund&#x2019;s returns as much as or more than the return of the Index.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The following table illustrates the impact of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;the volatility &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;and &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of the Index on Fund returns for a hypothetical &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;one-year period. However, these effects will impact your return for any holding period other than a day. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;The longer &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.00%;"&gt;you hold shares of the Fund, the more magnified these effects will be. As a result, you should consider monitoring your investments in the Fund in light of your individual&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt; investment goals and risk tolerance.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;In the table areas shaded darker represent those scenarios where the Fund can be expected to return less than the Daily Target. As the table shows, your return will tend to be worse than the Daily Target when there are smaller &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;gains or &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;losses and higher &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;volatility in the Index. Your return will &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;tend to be better than the Daily Target when there are larger &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;gains or losses and lower volatility in the Index. You &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;may lose money when the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of the Index is flat (i.e., &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;close to zero) and you may lose money when the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Index rises.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The table uses hypothetical annualized &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;volatility and returns of the Index to illustrate the impact of these two &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;factors on Fund performance over a one-year period. It does not represent actual returns. Each row corresponds to the level of a hypothetical &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of the Index for a one-year &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;period. Each column corresponds to a level of hypothetical annualized &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;volatility of the Index. For example, the Fund &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;may mistakenly be expected to achieve a -40% return on a yearly basis if the annual &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of the Index were -20%. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;However, as the table shows, with a one-year &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Index of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;-20% and an annualized volatility of the Index of 50%, the Fund could be expected to return -50.2%.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-style:italic;"&gt;Assumes: (a) no dividends paid with respect to securities included in the Index; (b) no Fund expenses; and (c) borrowing/lending rates (to obtain leveraged exposure) of zero percent. If these were included the Fund&#x2019;s performance would be different from that shown.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;annualized historical volatility rate for the Index for &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;five-year period ended May 31, 2026 was 20.47%. The highest May to May volatility rate for the Index during the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;five-year period &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;ended May 31, 2026 was 25.56% (May 31, &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;2023). The &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;annualized total return performance of the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Index &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;for the five-year period ended May 31, 2026 was &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;9.27&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;%. The historical volatility and performance of the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Index &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;do not predict future volatility and performance of the&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Index. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;For more information, including additional graphs and charts demonstrating the effects of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;the volatility and return of the Index on the long-term performance of the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Fund, see &#x201c;Understanding the Risks and Long-Term Performance of a &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;2x Daily Objective Fund&#x201d; in the Fund&#x2019;s Prospectus.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_CorrelationRiskMember"
+      id="x_69dd725f-a851-4fdd-8465-33ace0d30381">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Correlation Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; A number of factors may affect the Fund&#x2019;s ability to achieve a high degree of leveraged correlation with the Index. Fees, expenses, transaction costs, financing costs associated with the use of derivatives, among other factors, will adversely impact the Fund&#x2019;s ability to meet its Daily Target. In addition, the Fund may not have leveraged exposure to all of the instruments in the Index, its weighting of those instruments may be different from that of the Index, and it may invest in instruments not included in the Index. Moreover, if for any reason the Fund is unable to rebalance all or a portion of its investments, the Fund may have exposure to the Index that is significantly greater or less than the Daily Target. Any of these factors may prevent the Fund from achieving exposure consistent with the Daily Target.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_DerivativesRiskMember"
+      id="c650b09e-1897-4095-9eea-43c8eb5cc547">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Derivatives Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Investing in derivatives to obtain leveraged exposure may be considered aggressive and may expose the Fund to greater risks including counterparty risk and correlation risk. The Fund may lose money if its derivatives do not perform as expected and may even lose money if they do perform as expected. Any costs associated with using derivatives will reduce the Fund&#x2019;s return.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_CounterpartyRiskMember"
+      id="cda98bec-bb80-47eb-8150-f387115546c2">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Counterparty Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund may lose money if a counterparty does not meet its contractual obligations.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_EquityRiskMember"
+      id="x_848c65b2-cddc-4471-b50d-1e19dc845733">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Equity and Market Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Equity markets are volatile, and the value of equity securities and other instruments correlated with equity markets may fluctuate dramatically from day to day. Equity markets are subject to corporate, political, regulatory, market, social, geopolitical and economic developments, including changes in interest and currency rates, inflation (or expectations for inflation), deflation (or expectations for deflation), global demand for particular products or resources, market instability, debt crises, embargoes, tariffs, sanctions and other trade barriers, regulatory or governmental trade or market control programs, recessions, supply chain disruptions, labor disturbances, environmental or man-made disasters, war, terrorism, public health emergencies (such as the spread of infectious diseases, pandemics and epidemics), social unrest and other unforeseeable events.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_MoneyMarketRiskMember"
+      id="x_1bf649b1-2521-4a9b-9a5e-d89fce24f565">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market Instruments Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Adverse economic, political or market events affecting issuers of money market instruments, defaults by counterparties or changes in government regulations may have a negative impact on the performance of the Fund.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund&#x2019;s investments in money &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;market instruments through an affiliated ETF are subject to the additional risk that the ETF&#x2019;s share price may fluctuate, including deviating from its net asset value during illiquid markets or during periods of high redemption activity.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_ConcentrationFocusRiskMember"
+      id="x_2a0bb7ad-80da-4f12-853b-3e5073e28a15">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Industry Concentration Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Index may have a significant portion of its value in issuers in an industry or group of industries. The Fund will allocate its investments to approximately the same extent as the Index. As a result, the Fund may be subject to greater market fluctuations than a fund that is more broadly invested across industries. As of May 31, 2026, the Index had a significant portion of its value in issuers in the semiconductors &amp;amp; semiconductor equipment and software &amp;amp; services industry groups.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_SemiconductorRiskMember"
+      id="x_330a22fe-e913-4f79-adc4-e7bf61ef67db">&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Semiconductors and Semiconductor Equipment Industry Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Companies in this sector may experience: intense competition, wide fluctuations in securities prices due to risks of rapid obsolescence of products, significant research costs, and limited product lines, markets, financial resources or personnel. Companies in this sector may also be affected by risks that affect the broader technology sector.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_SoftwareRiskMember"
+      id="x_769d4e9f-2b0c-4739-8bf9-13104c9596e4">&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Software and Services Industry Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Companies in this industry may experience: competitive pressures, such as aggressive pricing, technological developments, cyclical market patterns, changing domestic demand, the ability to attract and retain skilled employees, and dependence on intellectual property rights and potential loss or impairment of those rights.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_RiskNondiversifiedStatusMember"
+      id="fd5c9295-876e-4c93-af9a-74415545a5e4">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Non-Diversification Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund has the ability to invest a relatively high percentage of its assets in the securities of a small number of issuers or in financial instruments with a single counterparty or a few counterparties. This may increase the Fund&#x2019;s volatility and increase the risk that the Fund&#x2019;s performance will decline based on the performance of a single issuer or the credit of a single counterparty.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_IndexPerformanceRiskMember"
+      id="x_8e3d2d8e-5724-4af8-baf6-69e68e0c8d8c">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Index Performance Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The Index used by the Fund may underperform other asset classes and may underperform other similar indices. The Index is maintained by a third party provider unaffiliated with the Fund or ProShare Advisors. There can be no guarantee that the methodology underlying the Index or the daily calculation of the Index will be free from error.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_IntradayPriceRiskMember"
+      id="x_150bfe6d-7673-4756-8bc2-2be49cac2e02">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Intraday Price Performance Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The intraday performance of Fund shares traded in the secondary market generally will be different from the performance of the Fund when measured from one NAV calculation-time to the next. When shares are bought intraday, the performance of the Fund&#x2019;s shares relative to the Index until the Fund&#x2019;s next NAV calculation time will generally be higher or lower than the Daily Target.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_MarketPriceRiskMember"
+      id="x_79862e23-1df2-461a-909e-52246a2958ce">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Market Price Variance Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Investors buy and sell Fund shares in the secondary market at market prices. Market prices may be different from the NAV per share of the Fund (i.e., the secondary market price may trade at a price greater than NAV (a premium) or less than NAV (a discount)). The market price of the Fund&#x2019;s shares will fluctuate in response to changes in the value of the Fund&#x2019;s holdings, supply and demand for shares and other market factors.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_EarlyCloseLateCloseTradingHaltRiskMember"
+      id="d58aa1c9-6835-4a9d-ab65-86b0aca4ccc2">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Early Close/Late Close/Trading Halt Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; An exchange or market may close early, close late or issue trading halts on specific securities or financial instruments. In these circumstances, the Fund may be unable to rebalance its portfolio, may be unable to accurately price its investments and/or may incur substantial trading losses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000105248_NewFundRiskMember"
+      id="x_4ce36258-2811-4b3a-8b28-26ca9b26b60f">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;New Fund Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund has a limited operating history  and started operations with a small asset base. There can be no assurance that the Fund will be successful or grow to or maintain a viable size, that an active trading market for the Fund&#x2019;s shares will develop or be maintained, or that the Fund&#x2019;s shares&#x2019; listing will continue unchanged.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000105248"
+      id="f9118abb-0c52-4ba2-84ab-bb576f04bb19">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Investment Results&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000105248"
+      id="x_8a85fcb1-2c10-421d-87c6-6020ebb14c84">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Performance history will be available for the Fund after it has been in operation for a full calendar year. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;After the Fund has a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;full calendar year of performance information, performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;information will be shown on an annual basis.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000105248"
+      id="af9a6e81-0dea-4269-abde-d8eb8548f06e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;After the Fund has a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;full calendar year of performance information, performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;information will be shown on an annual basis.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#aaf542cb-b951-4634-a432-e61edd256c2b"
+          xlink:label="aaf542cb-b951-4634-a432-e61edd256c2b"
+          xlink:type="locator"/>
+        <link:footnote id="x_0000ye_8af7b057-c67e-44c9-a8e5-85fe9b1e8921" xlink:label="x_0000ye_8af7b057-c67e-44c9-a8e5-85fe9b1e8921" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">&#x201c;Other Expenses&#x201d; are estimated.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="aaf542cb-b951-4634-a432-e61edd256c2b"
+          xlink:to="x_0000ye_8af7b057-c67e-44c9-a8e5-85fe9b1e8921"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#x_43df759c-6667-40d7-ba12-74ce448b5020"
+          xlink:label="x_43df759c-6667-40d7-ba12-74ce448b5020"
+          xlink:type="locator"/>
+        <link:footnote id="x_0000yl_8af7b057-c67e-44c9-a8e5-85fe9b1e8921" xlink:label="x_0000yl_8af7b057-c67e-44c9-a8e5-85fe9b1e8921" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">ProShare Advisors LLC (&#x201c;ProShare Advisors&#x201d;) has agreed to waive fees and to reimburse expenses to the extent Total Annual Fund Operating Expenses Before Fee Waivers and Expense Reimburse</xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">ments, as a percentage of average daily net assets, exceed </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">0.95%  </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">through </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">September 30, 2027</xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">. Amounts waived or reimbursed in a </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">particular contractual period may be recouped by ProShare Advisors within five years subject to certain limitations</xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">. This agreement may </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">not be terminated before that date without the approval of the Fund&#x2019;s </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">Board.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_43df759c-6667-40d7-ba12-74ce448b5020"
+          xlink:to="x_0000yl_8af7b057-c67e-44c9-a8e5-85fe9b1e8921"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

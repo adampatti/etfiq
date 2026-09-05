@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:ssga="http://www.ssgafunds.com/20250929"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ssga-20250929.xsd" xlink:type="simple"/>
+    <context id="D_29Sep2025_29Sep2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_C000264222">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000264222Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_RiskNotInsuredMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_DebtSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:DebtSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_USTreasuryObligationsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:USTreasuryObligationsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_IncomeRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:IncomeRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_IndexingStrategyIndexTrackingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:IndexingStrategyIndexTrackingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <context id="S000095498_ValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000095498Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:ValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-29</startDate>
+            <endDate>2025-09-29</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <oef:ProspectusDate
+      contextRef="D_29Sep2025_29Sep2025"
+      id="apid_a69ee4e8-3134-4c7e-b10c-67cd104a1f55">2025-09-30</oef:ProspectusDate>
+    <dei:DocumentPeriodEndDate contextRef="D_29Sep2025_29Sep2025" id="apid_1">2025-09-29</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_29Sep2025_29Sep2025" id="apid_2">0001064642</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_29Sep2025_29Sep2025" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_29Sep2025_29Sep2025" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_29Sep2025_29Sep2025"
+      id="apid_420f7a95-d05a-4c93-8b32-c4cee3aa8315">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_29Sep2025_29Sep2025"
+      id="apid_053522b4-8f24-4b05-a8cc-726da5873ec3">SPDR&#160;SERIES TRUST</dei:EntityRegistrantName>
+    <oef:RiskReturnHeading
+      contextRef="S000095498"
+      id="x_38ea6f8c-ebbc-48b6-9698-c429e01a22e2">&lt;span style="color:#000000;font-family:Arial;font-size:12pt;text-transform:uppercase;"&gt;Fund Summary&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt;State Street&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:11.5pt;font-weight:bold;position:relative;top:-5pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt; SPDR&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:11.5pt;font-weight:bold;position:relative;top:-5pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt; Portfolio Ultra Short T-Bill ETF&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000095498"
+      id="x_2ad23b7a-bc5c-4a65-9bd8-3d745e9be0e1">&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;font-weight:bold;margin-left:10.5pt;text-transform:uppercase;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000095498"
+      id="x_995db64c-2ea1-4488-8e9a-188cf40480c4">&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;The State Street SPDR Portfolio Ultra Short T-Bill ETF (the &#x201c;Fund&#x201d;) seeks to provide investment results that, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;before fees and expenses, correspond generally to the price and yield performance of an index that tracks &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;the 1&#x2013;12 month sector of the United States Treasury Bill market.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000095498"
+      id="c1e9961b-17d7-41d9-8d8f-31f2ee0577c7">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000095498"
+      id="dc0c89ec-aa8b-4c09-8eb2-7379d28f25e2">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The table below describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund (&#x201c;Fund Shares&#x201d;). &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and Example below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000095498"
+      id="x_6e4ff14e-a7bc-41ea-94e6-fabef8ad413f">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Annual Fund Operating Expenses &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;"&gt;(expenses that you pay each year as a percentage of the value of your investment):&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000095498_C000264222"
+      decimals="4"
+      id="f11acfa6-1a80-4d76-bf31-cf7d8d5dcca8"
+      unitRef="pure">0.0005</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000095498_C000264222"
+      decimals="4"
+      id="f4170d0e-30a2-4c0d-9ba5-496160f563a9"
+      unitRef="pure">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000095498_C000264222"
+      decimals="4"
+      id="aced0c78-8d85-4d9e-9fe7-2ca4ec9cbf45"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000095498_C000264222"
+      decimals="4"
+      id="x_55c2668d-8c07-485c-b654-884255033295"
+      unitRef="pure">0.0005</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000095498"
+      id="x_4be902e2-8a29-4e44-9d34-5bbcedd868ad">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;"&gt;&#x201c;Other expenses&#x201d; are based on estimated amounts for the current fiscal year.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="S000095498"
+      id="b3cecec8-dcaf-453d-a510-9785a3c22ffe">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Example:&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000095498"
+      id="x_8b892e48-2990-46e0-bace-4a326cb7cb69">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;This Example is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds. The Example assumes that you invest $10,000 in the Fund for the time periods indicated, and then sell or hold all of your Fund Shares at the end of those periods. The Example also assumes that your investment has a 5% return each year and that the Fund's operating expenses remain the same. Although your actual costs may be higher or lower, based on these assumptions your costs would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000095498_C000264222"
+      decimals="INF"
+      id="e84badc6-9a17-4be3-a37f-3e1a319234d9"
+      unitRef="USD">5</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000095498_C000264222"
+      decimals="INF"
+      id="x_309ca599-bff7-4ab6-835b-54f9cac8db5e"
+      unitRef="USD">16</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000095498"
+      id="ed8e59bb-261b-45e2-8d8a-f19a593f12f5">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Portfolio Turnover:&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000095498"
+      id="a90bbc34-4d4a-48ef-b5d9-78fb961b1c6d">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund Shares are held in a taxable account. These costs, which are not reflected in Annual Fund Operating Expenses or in the Example, affect the Fund's performance.&#160;The Fund had not commenced operations as of the date of this Prospectus and, as a result, does not yet have a portfolio turnover rate.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000095498"
+      id="b472ee94-2a12-455f-970c-db70626aa953">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;The Fund's Principal Investment Strategy&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000095498"
+      id="x_63300fad-92d1-4a67-983a-8df71555ac56">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;In seeking to track the performance of the ICE BofA U.S. Treasury Bill Index&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;(the &#x201c;Index&#x201d;), the Fund employs a sampling strategy, which means that the Fund is not required to purchase all of the securities represented in the Index. Instead, the Fund may purchase a subset of the securities in the Index in an effort to hold a portfolio of securities with generally the same risk and return characteristics of the Index. The quantity of holdings in the Fund will be based on a number of factors, including asset size of the Fund. Based on its analysis of these factors, SSGA Funds Management, Inc. (&#x201c;SSGA FM&#x201d; or the &#x201c;Adviser&#x201d;), the investment adviser to the Fund, either may invest the Fund's assets in a subset of securities in the Index or may invest the Fund's assets in substantially all of the securities represented in the Index in approximately the same proportions as the Index, as determined by the Adviser to be in the best interest of the Fund in pursuing its objective.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Under normal circumstances, the Fund will invest at least 80%, of its net assets (plus the amount of borrowings for investment purposes) in the securities comprising the index&#160;it seeks to track. Prior to any change in this 80% investment policy, the Fund will provide shareholders with 60 days' notice. In addition,&#160;in seeking to track the Index, the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Fund may invest in debt securities that are not included in the Index. The Fund may also invest in cash and cash equivalents or money market instruments (including money market funds advised by the Adviser) for cash management purposes. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index is designed to measure the performance of public obligations of the U.S. Treasury issued in the US market that have a remaining maturity of greater than or equal to one month and less than 12 months. In addition, qualifying securities must be U.S. dollar denominated and have a minimum amount outstanding of $1 billion. Securities issued or marketed primarily to retail investors are excluded from the Index. The Index is market capitalization weighted.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index is rebalanced on the last calendar day of the month, based on data available up to and including the third business day before the last business day of the month. New issues each month must settle on or before the following calendar month end in order to qualify for inclusion for the coming month. As of August 31, 2025, there were approximately 41 securities in the Index.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index is sponsored by ICE Data Indices, LLC&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;(the &#x201c;Index Provider&#x201d;), which is not affiliated with the Fund or the Adviser. The Index Provider determines the composition of the Index, relative weightings of the securities in the Index and publishes information regarding the market value of the Index. &lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_RiskLoseMoneyMember"
+      id="d9204292-9cd4-4536-8f1a-a7050b13aba4">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;As with all investments, there are certain risks of investing in the Fund. Fund Shares will change in value, and you could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_RiskNotInsuredMember"
+      id="x_16f854d8-122d-4350-86f3-88292fcae797">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; An investment in the Fund is not insured or guaranteed by the Federal &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Deposit Insurance Corporation or any other government agency.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_MarketRiskMember"
+      id="x_28116584-7ea5-4e74-a584-640dad2a5037">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Market Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund's investments are subject to changes in general economic conditions, general market fluctuations and the risks inherent in investment in securities markets. Investment markets can be volatile and prices of investments can change substantially due to various factors including, but not limited to, economic growth or recession, changes in interest rates, inflation, changes in the actual or perceived creditworthiness of issuers, and general market liquidity. The Fund is subject to the risk that geopolitical events will disrupt securities markets and adversely affect global economies and markets. Local, regional or global events such as war, military conflicts, acts of terrorism, trade policy changes or disputes, the threat or actual imposition of tariffs, natural disasters, the spread of infectious illness or other public health issues, or other events could have a significant impact on the Fund and its investments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_DebtSecuritiesRiskMember"
+      id="a6d4450a-803b-45fc-a477-051830fd6261">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Debt Securities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The values of debt securities may increase or decrease as a result of the following: market fluctuations, changes in interest rates, actual or perceived inability or unwillingness of issuers, guarantors or liquidity providers to make scheduled principal or interest payments, or illiquidity in debt securities markets. To the extent that interest rates rise, certain underlying obligations may be paid off substantially slower than originally anticipated and the value of those securities may fall sharply. A rising interest rate environment may cause the value of the Fund's fixed income securities to decrease, an adverse impact on the liquidity of the Fund's fixed income securities, and increased volatility of the fixed income markets. During periods when interest rates are at low levels, the Fund's yield can be low, and the Fund may have a negative yield (i.e., it may lose money on an operating basis). To the extent that interest rates fall, certain underlying obligations may be paid off substantially faster than originally anticipated. If the principal on a debt obligation is prepaid before expected, the prepayments of principal may have to be reinvested in obligations paying interest at lower rates. During periods of falling interest rates, the income received by the Fund may decline. Changes in interest rates will likely have a greater effect on the values of debt securities of longer durations. Returns on investments in debt securities could trail the returns on other investment options, including investments in equity securities. &lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_USTreasuryObligationsRiskMember"
+      id="d1414799-4170-4b91-9d51-65806972ce55">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;U.S. Treasury Obligations Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; U.S. Treasury obligations may differ from other fixed income securities in their interest rates, maturities, times of issuance and other characteristics. Similar to other issuers, changes to the financial condition or credit rating of the U.S. government may cause the value of the Fund's U.S. Treasury obligations to decline.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember"
+      id="f8a64df9-4a58-4031-b96d-8da7e433e4be">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Fluctuation of Net Asset Value, Share Premiums and Discounts Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; As with all exchange-traded funds, Fund Shares may be bought and sold in the secondary market at market prices. The trading prices of Fund Shares in the secondary market may differ from the Fund's daily net asset value (&#x201c;NAV&#x201d;) per share and there may be times when the market price of the shares is more than the NAV per share (premium) or less than the NAV per share (discount). This risk is heightened in times of market volatility or periods of steep market declines.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_IncomeRiskMember"
+      id="eca33d15-d655-427f-b716-e73218219489">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Income Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund's income may decline due to falling interest rates or other factors. Issuers of securities held by the Fund may call or redeem the securities during periods of falling interest rates, and the Fund would likely be required to reinvest in securities paying lower interest rates. If an obligation held by the Fund is prepaid, the Fund may have to reinvest the prepayment in other obligations paying income at lower rates. &lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_IndexingStrategyIndexTrackingRiskMember"
+      id="fe6ee50c-9d43-4ed9-ace2-9eced9799274">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Indexing Strategy/Index Tracking Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund is managed with an indexing investment strategy, attempting to track the performance of an unmanaged index of securities, regardless of the current or projected performance of the Index or of the actual securities comprising the Index. This differs from an actively-managed fund, which typically seeks to outperform a benchmark index. As a result, the Fund's performance may be less favorable than that of a portfolio managed using an active investment strategy. The structure and composition of the Index will affect the performance, volatility, and risk of the Index and, consequently, the performance, volatility, and risk of the Fund. Errors in index data, index computations or the construction of the Index in accordance with its methodology may occur from time to time and may not be identified and corrected by the Index Provider for a period of time or at all, which may have an adverse impact on the Fund and its shareholders.&#160;To the extent circumstances evolve in between reconstitutions, the Index may include, and the Fund may therefore hold for a period of time, securities of companies that do not align with the Index's objective and/or criteria.&#160;When there are changes made to the component securities of the Index and the Fund in turn makes similar changes to its portfolio, any transaction costs and market exposure arising from such portfolio changes will be borne directly by the Fund and its shareholders. The Fund may recognize gains as a result of rebalancing or reconstituting its securities holdings to reflect changes in the securities included in the Index. The Fund also may be required to distribute any such gains to its shareholders to avoid adverse federal income tax consequences. While the Adviser seeks to track the performance of the Index (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;, achieve a high degree of correlation with the Index), the Fund's return may not match the return of the Index. The Fund incurs a number of operating expenses not applicable to the Index, and may incur costs in buying and selling securities. In addition, the Fund may not be fully invested at times, generally as a result of cash flows into or out of the Fund or reserves of cash held by the Fund to meet redemptions. The Adviser may attempt to track&#160;the Index return by investing in fewer than all of the securities in the Index, or in some securities not included in the Index, potentially increasing the risk of divergence between the Fund's return and that of the Index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_NewFundRiskMember"
+      id="x_45ac0c09-98a0-4d84-9c25-97568f5ba0d0">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;New Fund Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund is new and there is no assurance that the Fund will grow quickly. When the Fund's size is small, the Fund may experience low trading volume, which could lead to wider bid/ask spreads. In addition, the Fund may face the risk of being delisted if the Fund does not meet certain conditions of the listing exchange. Any resulting liquidation of the Fund could cause elevated transaction costs for the Fund and negative tax consequences for its shareholders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000095498_ValuationRiskMember"
+      id="x_8209eda5-b814-4543-b8ae-67d5215202ac">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Valuation Risk: &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Certain portfolio holdings may be valued on the basis of factors other than market quotations. This may occur more often in times of market turmoil or reduced liquidity. There are multiple methods that can be used to value a portfolio holding when market quotations are not readily available. The value established for any portfolio holding at a point in time might differ from what would be produced using a different methodology or if it had been priced using market quotations. Portfolio holdings that are valued using techniques other than market quotations, including &#x201c;fair valued&#x201d; securities, may be subject to greater fluctuation in their valuations from one day to the next than if market quotations were used. In addition, there is no assurance that the Fund could sell or close out a portfolio position for the value established for it at any time, and it is possible that the Fund would incur a loss because a portfolio position is sold or closed out at a discount to the valuation established by the Fund at that time.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000095498"
+      id="ed73b56b-cd42-41ef-88ae-99b34398ca0a">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;Fund Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000095498"
+      id="x_76ffa0e4-a6d3-484e-8a71-a80f324dfb1f">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Fund had not commenced operations as of the date of this Prospectus.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Once the Fund has completed a full &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;calendar year of operations, a bar chart and table will be included that will provide some indication of the risks of investing in the Fund by showing the variability of the Fund's returns based on net assets and comparing the Fund's performance to an index. When available, updated performance information may be obtained by calling &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;1-866-787-2257&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; or visiting the Fund's website: &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;www.statestreet.com/im&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000095498"
+      id="x_0e911119-9515-43cc-a359-800d7665e2a0">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Fund had not commenced operations as of the date of this Prospectus.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="S000095498"
+      id="x_1c4030dd-bdc2-4b42-ba47-b56def8868a5">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;1-866-787-2257&lt;/span&gt;</oef:PerformanceAvailabilityPhone>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000095498"
+      id="x_2e9b1c72-5bdc-42f6-b3b8-a603b96f1808">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;www.statestreet.com/im&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#aced0c78-8d85-4d9e-9fe7-2ca4ec9cbf45"
+          xlink:label="aced0c78-8d85-4d9e-9fe7-2ca4ec9cbf45"
+          xlink:type="locator"/>
+        <link:footnote id="x_00017c_09e955c5-30e4-4891-b80a-2179bbe795b6" xlink:label="x_00017c_09e955c5-30e4-4891-b80a-2179bbe795b6" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Arial;font-size:8pt;">&#x201c;Other expenses&#x201d; are based on estimated amounts for the current fiscal year.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="aced0c78-8d85-4d9e-9fe7-2ca4ec9cbf45"
+          xlink:to="x_00017c_09e955c5-30e4-4891-b80a-2179bbe795b6"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

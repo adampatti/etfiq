@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2026"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2026"
+  xmlns:pt="http://www.ProShares.com/20260531"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2026"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="pt-20260531.xsd" xlink:type="simple"/>
+    <context id="D_31May2026_31May2026">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_C000277027">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">pt:C000277027Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_SingleSecurityInvestingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SingleSecurityInvestingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_HoldingPeriodRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:HoldingPeriodRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_CorrelationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:CorrelationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_DerivativesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:DerivativesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_SwapRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SwapRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_CounterpartyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:CounterpartyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_LiquidityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:LiquidityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_EquityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:EquityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_ForeignEMMarketsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:ForeignEMMarketsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_MoneyMarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:MoneyMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_ConcentrationFocusRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:ConcentrationFocusRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_SemiconductorRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SemiconductorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_GeographicConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:GeographicConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_SouthKoreanInvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:SouthKoreanInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_NonDiversificationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:NonDiversificationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_IntradayPriceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:IntradayPriceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_MarketPriceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:MarketPriceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_EarlyCloseLateCloseTradingHaltRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:EarlyCloseLateCloseTradingHaltRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_TaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:TaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <context id="S000106191_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001174610</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">pt:S000106191Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">pt:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-05-31</startDate>
+            <endDate>2026-05-31</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_31May2026_31May2026" id="apid_1">2026-05-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_31May2026_31May2026" id="apid_2">0001174610</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_31May2026_31May2026" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_31May2026_31May2026" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_31May2026_31May2026"
+      id="apid_99baedac-cd6f-4d2b-82db-f03d2a8345f3">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_31May2026_31May2026"
+      id="apid_be7a9044-01a9-400c-9792-d7a1b6c3b81b">ProShares Trust</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_31May2026_31May2026"
+      id="apid_6e5f53df-e69a-46db-8279-adc65af42de6">2026-07-05</oef:ProspectusDate>
+    <oef:ObjectiveHeading
+      contextRef="S000106191"
+      id="x_413b19ce-90bd-4565-94a4-11533844f8c5">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000106191"
+      id="x_5b3bec1c-fd1a-453e-97c2-14f234844c52">&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;ProShares Ultra SK hynix (the &#x201c;Fund&#x201d;) seeks daily investment results, before fees and expenses, that correspond to two times (2x) the daily performance of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;the American Depositary Receipt&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;(&#x201c;ADR&#x201d;) of SK hynix Inc. (NASDAQ:&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY).&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:RiskReturnHeading
+      contextRef="S000106191"
+      id="x_13c57878-d699-4856-804d-11e5d53b89dd">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Important Information About the Fund&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;If the Fund is successful in meeting its investment objective, it should gain approximately two times as much as &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;when SKHY&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; rises on a given day. Conversely, it should lose &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;approximately two times as much as &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY when SKHY falls &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;on a given day. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;The Fund does not seek to achieve two times &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;(2x) the daily performance of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;SKHY (the &#x201c;Daily Target&#x201d;) for any period other than a day.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;While the Fund has a daily investment objective, you may hold Fund shares for longer than one day if you believe doing so is consistent with your goals and risk tolerance. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;If you hold &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;fund shares for any period other than a day, it is important &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;for you to understand that over your holding period:  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Your return may be higher or lower than the Daily Target, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and this difference may be significant.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Factors that contribute to returns that are worse than the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Daily Target include smaller SKHY gains or losses and higher SKHY volatility, as well as longer holding periods when these factors apply.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;Factors that contribute to returns that are better than the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Daily Target include larger SKHY gains or losses and lower SKHY volatility, as well as longer holding periods when these factors apply.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:6pt;"&gt;The more extreme these factors are, and the more they &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;occur together, the more your return will tend to deviate from the Daily Target.&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ExpenseHeading
+      contextRef="S000106191"
+      id="d7ebc33b-b1b0-4060-a77c-bb8fad78abae">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000106191"
+      id="x_4274a56f-cc5d-4ac8-b3b7-3f306dadd895">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The table below describes the fees and expenses that you may pay if you buy, hold, and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You may pay &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0%;"&gt;other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;tables and examples below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000106191"
+      id="a89fc5fc-b7b9-496e-a60d-e54f2bbe80ca">&lt;span style="font-family:Arial;font-size:9pt;font-weight:bold;margin-left:0.0pt;"&gt;Annual Fund Operating Expenses&lt;/span&gt;&lt;span style="font-family:Arial;font-size:9pt;margin-left:0.0pt;"&gt;(expenses that you pay each year as a percentage &lt;/span&gt;&lt;span style="font-family:Arial;font-size:9pt;margin-left:0.0pt;"&gt;of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000106191_C000277027"
+      decimals="4"
+      id="a0c2c435-7d4d-4e82-bd2a-c536932f0125"
+      unitRef="pure">0.0075</oef:ManagementFeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000106191_C000277027"
+      decimals="4"
+      id="x_2cc0ec35-85d8-4f38-9c53-8cabe0bb797a"
+      unitRef="pure">0.0029</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000106191_C000277027"
+      decimals="4"
+      id="x_65dbd0a6-0292-43cc-868f-f3e9e45fbf0e"
+      unitRef="pure">0.0104</oef:ExpensesOverAssets>
+    <oef:FeeWaiverOrReimbursementOverAssets
+      contextRef="S000106191_C000277027"
+      decimals="4"
+      id="x_8852e681-ef5c-4f13-a3d0-24a886918c29"
+      unitRef="pure">-0.0009</oef:FeeWaiverOrReimbursementOverAssets>
+    <oef:NetExpensesOverAssets
+      contextRef="S000106191_C000277027"
+      decimals="4"
+      id="x_777c5cbf-048b-4a3b-9d26-d6d43bb4086e"
+      unitRef="pure">0.0095</oef:NetExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000106191"
+      id="f9870b92-216d-45cd-9ba5-aacf8bc031af">&lt;span style="font-family:Arial;font-size:8pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; are estimated.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination
+      contextRef="S000106191"
+      id="x_4bd306ab-6615-442c-829c-dc2459f84bfa">&lt;span style="font-family:Arial;font-size:8pt;font-style:italic;"&gt;September 30, 2027&lt;/span&gt;</oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination>
+    <oef:ExpenseExampleHeading
+      contextRef="S000106191"
+      id="x_9522491d-e769-4153-8d30-1f765f162087">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Example: &lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000106191"
+      id="ae26e45c-e5dd-4461-89a0-df96c9466043">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;This example is intended to help you compare the cost &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;of investing in the Fund with the cost of investing in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;other funds.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The example assumes that you invest $10,000 in the Fund for the time periods indicated and then redeem or hold all of your shares at the end of each period. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the same, except that the fee waiver/expense reimbursement is assumed only to pertain to the first year. Although your actual costs may be higher or lower, based on these assumptions your approximate costs &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000106191_C000277027"
+      decimals="INF"
+      id="e98c8e85-de0c-438b-8f74-194c973392e4"
+      unitRef="USD">97</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000106191_C000277027"
+      decimals="INF"
+      id="x_4c615661-a531-43fd-bc65-27552397a714"
+      unitRef="USD">323</oef:ExpenseExampleYear03>
+    <oef:ExpenseExampleClosingTextBlock
+      contextRef="S000106191"
+      id="x_467ab5ce-0f98-4174-ae22-e113a28b65ea">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund pays transaction and financing costs associated with the purchase and sale of securities and derivatives. These costs are not reflected in the table or the example above but are expected to be significant and to have a significant &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;negative impact on the performance of the Fund.&lt;/span&gt;</oef:ExpenseExampleClosingTextBlock>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000106191"
+      id="f3416f62-60b5-4f1c-b73d-c37f90a170c6">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000106191"
+      id="x_21403d0e-e2ed-48cd-8257-6511a0f9b3c6">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when the Fund&#x2019;s shares are held in a taxable account. These costs, which are not reflected in Annual Fund Operating Expenses or in the example above, affect the Fund&#x2019;s performance. Because the Fund is newly organized, portfolio turnover information is &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;not yet available.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000106191"
+      id="x_556ac53f-a9e9-4fbc-b689-362a68ab168c">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Principal Investment Strategies&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000106191"
+      id="x_827ac9e1-8dd4-4db2-a6a2-1675aca122c0">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund invests in financial instruments that ProShare Advisors believes, in combination, should produce daily returns &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;consistent with the Daily Target.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;SK hynix Inc.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;is a memory semiconductor company that &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;engages in the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;design, manufacture and sale of advanced memory semiconductors, including dynamic random access &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;memory (&#x201c;DRAM&#x201d;)&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;which includes high-bandwidth memory &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;(&#x201c;HBM&#x201d;),&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; and Not-AND (&#x201c;NAND&#x201d;)&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;flash memory. SK hynix &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Inc.&#x2019;s memory products are used in electronic devices, including graphics cards, personal computers (&#x201c;PCs&#x201d;), data center servers, mobile devices such as smartphones and tablets, and other consumer electronics products. SK hynix Inc.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; also operates&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt; a foundry&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; business through its wholly owned&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;subsidiaries.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;This prospectus relates only to the Fund shares offered hereby and is not a prospectus for &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SK hynix Inc., its common stock or &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;any &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;other of its securities. The Fund, ProShares Trust and &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;ProShare Advisor are not affiliated with SK&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; hynix Inc. or&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;As of the date of this prospectus, the American Depositary Shares of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SK hynix Inc. are not yet listed on a U.S. national &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;securities exchange, and SK hynix Inc.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; is not yet subject to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;the reporting requirements of the U.S.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; Securities Exchange &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Act of 1934, as amended (the &#x201c;Exchange Act&#x201d;). SK hynix Inc.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;&#x2019;s common shares are currently listed and traded on the Korea &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Exchange (&#x201c;KRX&#x201d;) under the identification code 000660&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;.  Securities traded on foreign exchanges may be subject to different&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt; reporting standards&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;, regulatory oversight, settlement &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;practices,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; and investor protections than securities traded in &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;the&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; U.S. Information regarding SK hynix Inc. may be obtained &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;from &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;publicly available sources, including but not limited to, &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;the company&#x2019;s website, filings with the Financial Supervisory Service of South Korea,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; press releases, newspaper articles and other publicly disseminated documents.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund has derived all disclosures contained in this prospectus regarding SK hynix Inc. from the publicly available documents described above. Neither the Fund, the Trust, the Adviser nor any affiliate has participated in the preparation of such documents. Neither the Fund, the Trust, the Adviser nor any affiliate makes any representation that such publicly available documents or any other publicly available information&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; regarding SK hynix Inc. is accurate or&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;complete. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The American Depositary Shares of SK hynix Inc. have been registered under the U.S. Securities Act of 1933, as amended (the &#x201c;Securities Act&#x201d;) pursuant to a registration statement on Form F-1 filed with the Securities and Exchange Commission (SEC File No. 333-296987). Upon listing on a U.S. national securities exchange, SK hynix Inc. will also become subject to the reporting requirements of the Exchange Act and will be required to file periodic reports and other information with the Securities and Exchange Commission. Information provided to or filed with the Securities and Exchange Commission about SK hynix Inc. can be located through the Securities and Exchange Commission&#x2019;s website at www.sec.gov. SKHY is expected to commence its initial U.S. listing on the Nasdaq &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Global Select Market on or about July 10, 2026.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Under normal circumstances, the Fund will invest at least 80% of the Fund&#x2019;s assets in, or provide exposure to, financial instruments that ProShare Advisors believes, in combination, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;should produce daily returns consistent with the Daily Target.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund will invest principally in the financial instruments &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;listed below.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Depositary Receipts&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;&#x2014; The Fund may invest in depositary receipts,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;which principally&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;include:&lt;/span&gt;&lt;span style="font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;American Depositary Receipts (ADRs),&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; which represent the right to receive securities of foreign issuers deposited in a bank or trust company and are an alternative to pur&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;chasing the underlying securities in their national markets&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00pt;"&gt; and currencies.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Derivatives&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Financial instruments whose value is derived from the value of an underlying asset or rate, such as stocks, bonds, exchange-traded funds, interest rates or indexes. The Fund invests in derivatives (e.g. swap on SK hynix or, when available, SK hynix ADRs) in order to gain leveraged exposure to SKHY. These derivatives principally include:&lt;/span&gt;&lt;span style="font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Swap Agreements&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Contracts entered into primarily with major global financial institutions for a specified period ranging from a day to more than one year. In a standard &#x201c;swap&#x201d; transaction, two parties agree to exchange the return (or differentials in rates of return) earned or realized on particular predetermined investments or instruments. The gross return to be exchanged or &#x201c;swapped&#x201d; between the parties is calculated with respect to a &#x201c;notional amount,&#x201d; e.g., the return on or change in value of a particular dollar amount invested in&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market Instruments&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund expects that any cash balances maintained in connection with its use of derivatives will typically be held in high quality, short-term money market instruments, for example:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;U.S. Treasury Bills&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; U.S. government securities that have initial maturities of one year or less, and are supported by the full faith and credit of the U.S. government.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Repurchase Agreements&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Contracts in which a seller of securities, usually U.S. government securities or other money market instruments, agrees to buy the securities back at a specified time and price.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market ETF&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; An exchange-traded money market fund managed by ProShare Advisors that holds U.S. Treasury bills, notes, or bonds.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;ProShare Advisors uses a mathematical approach to investing in which it determines the type, quantity and mix of investment positions that it believes, in combination, the Fund should hold to produce daily returns consistent with the Daily Target. For these purposes a day is measured from the time of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;one net asset value (&#x201c;NAV&#x201d;) calculation to the next.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund generally seeks to remain fully invested at all times in financial instruments that, in combination, provide leveraged exposure consistent with the investment objective, without&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; regard to market conditions, trends or direction.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;The Fund seeks to rebalance its portfolio each day so that its exposure to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY is consistent with the Daily Target. SKHY&#x2019;s &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;movements during the day will affect whether the Fund&#x2019;s portfolio needs to be rebalanced. For example, if &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY has risen &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;on a given day, net assets of the Fund should rise (assuming there were no Creation Unit redemptions). As a result, the Fund&#x2019;s exposure will need to be increased. Conversely, if &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0%;"&gt;has fallen on a given day, net assets of the Fund should fall &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;(assuming there were no Creation Units issued). As a result, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;the Fund&#x2019;s exposure will need to be decreased.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Please see &#x201c;Investment Objectives, Principal Investment Strategies and Related Risks&#x201d; in the Fund&#x2019;s Prospectus for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;additional details.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191"
+      id="x_8ef9aff2-855e-4d4d-a711-625cba0a6a5f">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Principal Risks&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Newly listed ADRs are often subject to price volatility and &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;speculative trading&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; during and for a period of time after &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;the initial listing&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;. Trading prices of SKHY&#x2019;s ADRs may experience&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; significant volatility&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;. Such volatility may persist. In &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;light of this, you should carefully consider the significant negative impact of volatility on Fund returns&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;and the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;potential for significant losses on your investment in the Fund, when considering whether to hold shares of the Fund &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;for longer periods.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_RiskLoseMoneyMember"
+      id="x_3a70b458-ab17-49e5-8360-0167964b6619">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_SingleSecurityInvestingRiskMember"
+      id="bfdb5955-42df-4461-b721-8380d5afd92e">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;SKHY Investing Risk &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;&#x2013; The Fund&#x2019;s performance depends on the performance of SKHY. Investments in SKHY and consequently investments in the Fund involve a high degree of risk. The price of SKHY can be affected by a number of factors.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;For example,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SK hynix Inc. operates in the highly competitive&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;memory semiconductor industry, which is subject to cyclical fluctuations, including recurring periods&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;of oversupply,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;which may result in volatility in SK hynix Inc.&#x2019;s operating results. SK hynix Inc.&#x2019;s future long-term growth significantly depends on&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;its ability to increase production capacity, and its&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;revenue and profitability may decline if SK hynix Inc. is unable to obtain adequate supplies of raw materials, purified water, electricity and equipment in a timely manner and at reasonable prices. SK hynix Inc. is highly susceptible to potential manufacturing issues due to the complexity of memory semiconductor production, and its long-term profitability depends on its ability to respond to rapid technological changes in the manufacturing process in a timely&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;and cost-effective&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;manner. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;SK hynix Inc.&#x2019;s success depends on its ability to anticipate and respond to continually and rapidly evolving customer requirements and industry trends in the information and technology and consumer electronics industries. If demand exceeds available supply, SK hynix Inc. may be required to allocate its finite supply among, which could damage customer relationships and increase political, legal and regulatory scrutiny. A slowdown in demand from AI infrastructure investment, or any significant decrease in order levels from SK hynix Inc.&#x2019;s select group of key customers in the United States and China, could negatively affect its business.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;SK hynix Inc. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;is also subject to risks&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;from&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;anti-dumping &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;duties&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;safeguard duties,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;countervailing duties,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;quotas,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;tariffs,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;exchange rate fluctuations,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;unsuccessful investments &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;or acquisitions&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;, intellectual property disputes, product &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;defects,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;incompatibilities,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;or failures to meet customer &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;specifications,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;cybersecurity breaches,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;systems failures, interruptions, delays in&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;service,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;catastrophic events, and uncertainties associated with the use and evolution of AI. Sanctions against SK hynix Inc. or other memory semiconductor&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; producers for anti-competitive practices&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;, work stoppages&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; or other labor-&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;related issues,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;deterioration in economic&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; conditions in Korea,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;or escalations in tensions with &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;North Korea could adversely affect SK hynix Inc&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;.&#x2019;s operations,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;business or market value. As a foreign private issuer, &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;SK hynix &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Inc. is not subject to certain corporate governance&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; rules applicable to U&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;.S.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;listed companies. Any of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;these factors may materially and adversely impact the price of SK hynix &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Inc.,&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;increase the volatility of an investment&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; in SK hynix Inc.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; and have a negative impact on the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;performance of the Fund&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;. Any of these factors may materially&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; and adversely impact the price of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY, increase the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;volatility of an investment in &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY and have a negative impact on the performance of the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_HoldingPeriodRiskMember"
+      id="d020bb77-bdb5-4350-a53b-2637df52de2e">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Holding Period Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The performance of the Fund for periods longer than a single day will likely differ from the Daily Target. This difference may be significant. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;If you are considering holding fund shares for longer than a day, it&#x2019;s important that you understand the impact of the return and volatility (how much the value of SKHY moves up and down from day-to-day) of SKHY on your holding period return.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;The volatility of SKHY has a negative impact on Fund returns. During periods of higher volatility, the volatility&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;of SKHY may affect the Fund&#x2019;s returns as much as or more than the return of SKHY.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The following table illustrates the impact of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;the volatility &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;and &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;return of SKHY on Fund returns for a hypothetical one-year period. However, these&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;effects will impact your return &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;for any holding period other than a day. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;The longer you &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.00%;"&gt;hold shares of the Fund, the more magnified these effects will be. As a result, you should consider monitoring your investments in the Fund in light of your individual &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;font-weight:bold;"&gt;investment goals and risk tolerance.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;In the table areas shaded darker represent those scenarios where the Fund can be expected to return less than the Daily Target. As the table shows, your return will tend to be worse than the Daily Target when there are smaller &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;gains or &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;losses and higher volatility in &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY. Your return will tend &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;to be better than the Daily Target when there are larger &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;gains or losses and lower volatility in SKHY. You may lose &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;money when the return &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;of SKHY is flat (i.e., close to zero) and you may lose money when SKHY falls.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The table uses hypothetical &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;annualized&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;volatility and &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;returns&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;of SKHY&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;to illustrate the impact of these two factors&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; on Fund performance over a &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;one-year period. It does &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;not represent actual &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;returns. Each row corresponds to the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;level of a hypothetical return &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;of SKHY for a one-year period. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Each column corresponds to a level of hypothetical &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;annualized volatility of SKHY. For example, the Fund may mistakenly&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; be expected to achieve a -60% return &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;on&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;a&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;yearly basis &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;if the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;annual return of SKHY were -30%. However, as the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;table shows, with a &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;one-year return of SKHY of -30% and an  annualized&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;volatility of SKHY of 225%, the Fund could be expected to return -76.7%.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;The annualized historical volatility rate for SK hynix Inc. for the five-year period ended May 31, 2026 was 49.85%. The highest May to May volatility rate for SK hynix Inc. during the five-year period ended May 31, 2026 was 69.82% (May 31, 2026). The annualized total return performance of SK hynix Inc. for the five-year period ended May 31, 2026 &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;was 71.06%.  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Historical volatility&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;and performance of SK hynix Inc. are &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;not indications of what SK hynix&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; Inc.&#x2019;s volatility and performance&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; will be in the future. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;For more information, &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;including additional graphs and charts demonstrating the effects of SK hynix&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; Inc.&#x2019;s volatility and return on the long-term&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt; performance of the Fund, see &#x201c;Understanding the Risks and Long-Term Performance of a Daily Objective &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Fund&#x201d; in the Fund&#x2019;s Prospectus.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_CorrelationRiskMember"
+      id="x_144bcfb9-5b97-446c-84c2-c75468fb9685">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Correlation Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; A number of factors may affect the Fund&#x2019;s ability to achieve a high degree of leveraged correlation with the price of SKHY. Fees, expenses, transaction costs, financing costs associated with the use of derivatives, among other factors, will adversely impact the Fund&#x2019;s ability to meet its Daily Target. In particular, the high financing costs associated with the Fund&#x2019;s leveraged exposure to SKHY is expected to have a significant negative impact on the Fund&#x2019;s performance. In addition, if for any reason the Fund is unable to rebalance all or a portion of its investments, the Fund may have exposure to SKHY that is significantly greater or less than the Daily Target. Any of these factors may prevent the Fund from achieving exposure consistent with the Daily Target.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_DerivativesRiskMember"
+      id="b9cfebfb-b173-4ebd-9330-2fc84592fbf9">&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;If the Fund&#x2019;s ability to obtain exposure to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY consistent &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;with its investment objective is disrupted for any reason, including for example, limited liquidity in the secondary market, a disruption in the secondary market, or as a result of margin requirements or capacity limits imposed by the Fund&#x2019;s counterparties, the Fund may not be able to achieve its investment objective and may experience significant losses. In such circumstances, the Advisor intends to take such action as it believes appropriate and in the best interest of the Fund. &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;There is a heightened risk that the Fund &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;will be unable to obtain exposure to SKHY consistent with its investment objective immediately following the initial listing of U.S.-listed ADRs based on SKHY and for a period of time thereafter.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; Any disruption in the Fund&#x2019;s ability to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;obtain leveraged exposure to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY will cause the Fund&#x2019;s performance to deviate from its investment objective.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_SwapRiskMember"
+      id="a0383d52-70cc-4987-a36b-c25be90dc505">&lt;span style="font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Swap Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Like all derivatives, the use of swaps may expose the Fund to greater counterparty risk and correlation risk. The&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;terms of a swap agreement between the Fund and a counterparty may permit the counterparty to immediately close out the transaction with the Fund, including intraday (for example, if SKHY has a dramatic intraday move that causes a material decline in the Fund&#x2019;s net assets). Such terminations may be more likely when the underlying asset is highly concentrated like &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY. If an agreement is terminated, the Fund may be &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;unable to enter into another swap agreement or invest in other derivatives to achieve its investment&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; objective. The &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Fund may be unable to find counterparties willing to enter into swap agreements during periods of volatility in the price of SKHY or other market conditions that may exist immediately following the initial listing of U.S.-listed ADRs based on SKHY and for a period of time thereafter. When the Fund invests in swaps that use SKHY as the reference asset, the Fund will be subject to &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00pt;"&gt;the risks of&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_CounterpartyRiskMember"
+      id="x_71fa61f2-91ed-4de5-ab1f-d51f029fd122">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Counterparty Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund may lose money if a counterparty does not meet its contractual obligations.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; The &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Fund may have exposure to a single counterparty or a small number of counterparties which increases the risk that the Fund&#x2019;s performance will decline based on the credit of a single counterparty and that the Fund will be unable to obtain leveraged exposure consistent with its investment objective if one counterparty fails to meet its contractual obligations.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_LiquidityRiskMember"
+      id="x_260fd7ad-8fa0-4265-b19e-17a97c4319ea">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Liquidity Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The market for SKHY is still developing and may be subject to periods of illiquidity. During such times it may be difficult or impossible to buy or sell a position at the desired price. Market disruptions or volatility can also make it difficult to find a counterparty willing to transact at a reasonable price and sufficient size. Illiquid markets may cause losses, which could be significant. The large size of the positions which the Fund may acquire increases the risk of illiquidity, may make its positions more difficult to liquidate, and may increase the losses incurred while trying to do so. Such large positions also may impact the price of SKHY. During such periods of illiquidity, the Fund&#x2019;s shares could trade at a premium or discount to their net asset value and/or the bid-ask spread of the Fund&#x2019;s shares could widen. Under such circumstances, the Fund may be unable to rebalance its exposure properly which may result in significantly more or less exposure and losses to the Fund. In such an instance, the Fund may increase its transaction fee, change its investment objective, reduce its exposure or close.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_EquityRiskMember"
+      id="c591ea91-68dd-4c4d-aca6-630ac717e1a9">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Equity and Market Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Equity markets are volatile, and the value of equity securities like SKHY and other instruments correlated with SKHY may fluctuate dramatically from day to day. Equity markets are subject to corporate, political, regulatory, market and economic developments, as well as developments that impact specific economic sectors, industries or segments of the market.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_ForeignEMMarketsRiskMember"
+      id="a4490731-eaba-48eb-81e0-5681b95caf39">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Foreign Investment Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Exposure to securities of foreign issuers may provide the Fund with increased risk. Foreign investments may be more susceptible to political, social, economic and regional factors than may be the case with U.S. securities. In addition, markets for foreign investments are usually less liquid, more volatile and significantly smaller than markets for U.S. securities, which may affect, among other things, the Fund&#x2019;s ability to purchase or sell foreign investments at appropriate times and prices. Because of differences in settlement times and/or foreign market holidays, transactions in a foreign market may take place one or more days after the necessary exposure to these investments is determined.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_MoneyMarketRiskMember"
+      id="x_6169ba3e-69d0-447f-ab03-ece1f90227d8">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Money Market Instruments Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Adverse economic, political or market events affecting issuers of money market instruments, defaults by counterparties or changes in government regulations may have a negative impact on the performance of the Fund.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund&#x2019;s investments in money &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;market instruments through an affiliated ETF are subject to the additional risk that the ETF&#x2019;s share price may fluctuate, including deviating from its net asset value during illiquid markets or during periods of high redemption activity.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_ConcentrationFocusRiskMember"
+      id="x_6fbd01d4-0e9c-438b-ad08-484281099a1a">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Industry Concentration Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund&#x2019;s investment exposure is concentrated in the industry in which SKHY operates. As a result, the Fund may be subject to greater market fluctuations than a fund that is more broadly invested across issuers and industries. As of May 31, 2026, SKHY is included in &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;semiconductors &amp;amp; semiconductor equipment industry group.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_SemiconductorRiskMember"
+      id="x_6c969c4f-6751-4e1e-ae85-0a8f558faf3c">&lt;span style="font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Semiconductors and Semiconductor Equipment Industry Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Companies in this sector may experience: intense competition, wide fluctuations in securities prices due to risks of rapid obsolescence of products, significant research costs, and limited product lines, markets, financial resources or personnel. Companies in this sector may also be affected by risks that affect the broader technology sector.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_GeographicConcentrationRiskMember"
+      id="a1ae40db-6a8d-4b1a-9bc5-1c33b3610517">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Geographic Concentration Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; Because the Fund focuses its investments in one or more foreign countries, an investment in the Fund may be more volatile than a more geographically diversified fund. The performance of the Fund will be affected by the political, social and economic conditions in those foreign countries and subject to the related risks. As of May 31, 2026, SK hynix had a significant portion of its value in South Korea.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_SouthKoreanInvestmentRiskMember"
+      id="x_7350e748-1b09-45a1-9756-b3113869891f">&lt;span style="font-family:Arial;font-size:7pt;margin-left:-3.91%;"&gt;&#x25cb;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;South Korea Investments Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2013; Investments in securities of issuers in South Korea involve risks including certain legal, regulatory, political and economic risks, economic dependency on trade and economic conditions in other countries, and potential hostilities with North Korea.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_NonDiversificationRiskMember"
+      id="x_8a27d3be-6616-4e5d-80af-f76891b17247">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Non-Diversification Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund has the ability to invest its assets in the securities of a single issuer, (e.g., SKHY) and in financial instruments with a single counterparty or a few counterparties. A decline in the price of SKHY should be expected to result in a significant decline in the price of the Fund. This may increase the Fund&#x2019;s volatility and increase the risk that the Fund&#x2019;s performance will decline based on a single corporate, political, regulatory, market and economic event as compared to a more diversified portfolio of investments. In addition, the Fund&#x2019;s exposure to a single counterparty or a few counterparties may increase the risk that the Fund&#x2019;s performance will decline based on the credit of a single counterparty and that a material decline in the assets of the Fund will result in the termination of any swap agreements.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_IntradayPriceRiskMember"
+      id="x_77ab41dd-a8f4-49b3-884d-2c64bc8ed9a2">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Intraday Price Performance Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The intraday performance of shares of the Fund traded in the secondary market generally will be different from the performance of the Fund when measured from one NAV calculation-time to the next. When shares are bought intraday, the performance of the Fund&#x2019;s shares relative to SKHY until the Fund&#x2019;s next NAV calculation time will generally be greater than or less than the Fund&#x2019;s stated multiple times the performance of&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_MarketPriceRiskMember"
+      id="de4cdbd1-2c93-44db-bcce-eeb77c7b1dce">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Market Price Variance Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; Investors buy and sell Fund shares in the secondary market at market prices. Market prices may be different from the NAV per share of the Fund (i.e., the secondary market price may trade at a price greater than NAV (a premium) or less than NAV (a discount)). The market price of the Fund&#x2019;s shares will fluctuate in response to changes in the value of the Fund&#x2019;s holdings, supply and demand for shares and other market factors. There may be &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;times when the market price and the NAV of the Fund&#x2019;s shares vary significantly, such as during periods of volatility in the price of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY. Further, disruptions in the Fund&#x2019;s &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;to creation and redemption process, including during periods of significant volatility in the price of &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;SKHY, may result &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;in market prices of the Fund that differ significantly from NAV. In times of severe market disruption or during after-hours trading, the bid-ask spread often increases significantly.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;Shares may trade at a discount to the value of the &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;Fund&#x2019;s holdings, and the discount is likely to be greatest when the price of shares is falling fastest, which may be the time that you most want to sell your&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; shares.&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt;  &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;These risks &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;margin-left:0.00%;"&gt;may be heightened immediately the initial listing of U.S.-listed ADRs based on SKHY and for a period of time&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;line-height:12pt;"&gt; &lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt;thereafter.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_EarlyCloseLateCloseTradingHaltRiskMember"
+      id="fa721f88-d25c-4912-99e4-492395b3efb7">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Early Close/Late Close/Trading Halt Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; An exchange or market may close early, close late or issue trading halts on SKHY  shares. A halt in trading of SKHY is expected to result in a halt in the trading of the Fund&#x2019;s shares. In these circumstances, the Fund may be unable to rebalance its portfolio, may be unable to accurately price its investments and/or may incur substantial trading losses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_TaxRiskMember"
+      id="e8e11df5-36f3-40eb-ad94-737c4781161d">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;Tax Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; &#x2014; In order to qualify for the special tax treatment accorded a regulated investment company (&#x201c;RIC&#x201d;) and its shareholders, the Fund must derive at least 90% of its gross income for each taxable year from &#x201c;qualifying income,&#x201d; meet certain asset diversification tests at the end of each taxable quarter, and meet annual distribution requirements. The Fund&#x2019;s pursuit of its investment strategies will potentially be limited by the Fund&#x2019;s intention to qualify for such treatment and could adversely affect the Fund&#x2019;s ability to so qualify. The Fund may make certain investments, the treatment of which for these purposes is unclear. If, in any year, the Fund were to fail to qualify for the special tax treatment accorded a RIC and its shareholders, and were ineligible to or were not to cure such failure, the Fund would be taxed in the same manner as an ordinary corporation subject to U.S. federal income tax on all its income at the fund level. The resulting taxes could substantially reduce the Fund&#x2019;s net assets and the amount of income available for distribution. In addition, in order to requalify for taxation as a RIC, the Fund could be required to recognize unrealized gains, pay substantial taxes and interest, and make certain distributions. Please see the section entitled &#x201c;Taxation&#x201d; in the Statement of Additional Information for more information.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106191_NewFundRiskMember"
+      id="x_5ee3ff3a-5545-4664-8b7f-60cd59016f4c">&lt;span style="font-family:Arial;font-size:10pt;margin-left:-4.19%;"&gt;&#x25cf;&lt;/span&gt;&lt;span style="font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:6pt;"&gt;New Fund Risk&lt;/span&gt;&lt;span style="font-family:Arial;font-size:10pt;"&gt; &#x2014; The Fund has a limited operating history  and started operations with a small asset base. There can be no assurance that the Fund will be successful or grow to or maintain a viable size, that an active trading market for the Fund&#x2019;s shares will develop or be maintained, or that the Fund&#x2019;s shares&#x2019; listing will continue unchanged.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000106191"
+      id="fa22cad1-3bcd-46c7-bec4-e3c8ac6764b7">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:11pt;font-weight:bold;"&gt;Investment Results&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000106191"
+      id="x_0b8df273-804d-4f1e-8154-810dceb29e95">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;Performance history will be available for the Fund after it has been in operation for a full calendar year. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;After the Fund has a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;full calendar year of performance information, performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;information will be shown on an annual basis.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000106191"
+      id="x_10994052-f99c-4634-8371-b5a84d40488c">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;After the Fund has a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;margin-left:0%;"&gt;full calendar year of performance information, performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;information will be shown on an annual basis.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#x_2cc0ec35-85d8-4f38-9c53-8cabe0bb797a"
+          xlink:label="x_2cc0ec35-85d8-4f38-9c53-8cabe0bb797a"
+          xlink:type="locator"/>
+        <link:footnote id="x_0000yj_b046fa35-0a2a-4f4c-917f-fe41fe599a6d" xlink:label="x_0000yj_b046fa35-0a2a-4f4c-917f-fe41fe599a6d" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">&#x201c;Other Expenses&#x201d; are estimated.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_2cc0ec35-85d8-4f38-9c53-8cabe0bb797a"
+          xlink:to="x_0000yj_b046fa35-0a2a-4f4c-917f-fe41fe599a6d"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#x_8852e681-ef5c-4f13-a3d0-24a886918c29"
+          xlink:label="x_8852e681-ef5c-4f13-a3d0-24a886918c29"
+          xlink:type="locator"/>
+        <link:footnote id="x_0000yk_b046fa35-0a2a-4f4c-917f-fe41fe599a6d" xlink:label="x_0000yk_b046fa35-0a2a-4f4c-917f-fe41fe599a6d" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">ProShare Advisors LLC (&#x201c;ProShare Advisors&#x201d;) has agreed to waive </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">fees and to reimburse expenses to the extent Total Annual Fund Operating Expenses Before Fee Waivers and Expense Reimbursements, as a percentage of average daily net assets, exceed 0.95% through </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">September 30, 2027</xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">. Amounts waived or reimbursed in a </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;margin-left:0.00%;">particular contractual period may be recouped by ProShare Advisors within five years subject to certain limitations. This agreement may not be terminated before that date without the approval of the Fund&#x2019;s </xhtml:span><xhtml:span style="font-family:Arial;font-size:8pt;font-style:italic;">Board.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_8852e681-ef5c-4f13-a3d0-24a886918c29"
+          xlink:to="x_0000yk_b046fa35-0a2a-4f4c-917f-fe41fe599a6d"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

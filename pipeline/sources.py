@@ -23,6 +23,7 @@ import pathlib
 import re
 import sys
 import time
+import urllib.parse
 import urllib.request
 import zipfile
 
@@ -146,9 +147,10 @@ def globalx(ticker):
 
 
 def parse_notice_pdf(data, issuer, url):
-    t = pdf_text(data)
+    t = re.sub(r'[\u00b9\u00b2\u00b3\u2070-\u2079]', '', pdf_text(data))  # footnote superscripts
+    t = re.sub(r'(Income|Capital|Gains?)\d\b', r'\1', t)  # footnote digits glued to labels
     rows = sources_table(t)
-    m = re.search(r'(\d+(?:\.\d+)?)\s*%\s*of such (?:dividend|distribution) will be a\s*return of capital', t, re.I | re.S)
+    m = re.search(r'(\d+(?:\.\d+)?)\s*%\s*of such (?:dividend|distribution) will be a\s*return of capital', t, re.I | re.S) or re.search(r'estimates that\s*(\d+(?:\.\d+)?)\s*%\s*is (?:from|a) return of capital', t, re.I | re.S)
     roc = pct(m.group(1)) if m else (rows['roc'][0] if 'roc' in rows else None)
     if roc is None:
         m2 = re.search(r'return of capital[^%]{0,80}?(\d+(?:\.\d+)?)\s*%', t, re.I | re.S)
@@ -156,7 +158,7 @@ def parse_notice_pdf(data, issuer, url):
     if roc is None:
         return None
     amt = re.search(r'\$([\d.]+)\s*per share', t)
-    pay = re.search(r'payable on\s+([A-Za-z]+ \d+(?:st|nd|rd|th)?,? \d{4})', t)
+    pay = re.search(r'payable on\s+([A-Za-z]+ \d+(?:st|nd|rd|th)?,? \d{4})', t) or re.search(r'On ([A-Za-z]+ \d+, \d{4}), the Fund paid', t) or re.search(r'Payable Date:.*?(\d{1,2}/\d{1,2}/\d{4})', t, re.S)
     latest = {'date': usdate(pay.group(1)) if pay else None, 'amount': float(amt.group(1)) if amt else None, 'roc': roc,
               'income': rows['income'][0] if 'income' in rows else round(100 - roc, 2), 'gains': round((rows.get('stcg', (0, 0))[0] or 0) + (rows.get('ltcg', (0, 0))[0] or 0), 2) if ('stcg' in rows or 'ltcg' in rows) else None}
     ytd = {'roc': rows['roc'][1], 'income': rows.get('income', (0, 0))[1], 'gains': round((rows.get('stcg', (0, 0))[1] or 0) + (rows.get('ltcg', (0, 0))[1] or 0), 2)} if 'roc' in rows else None
@@ -215,7 +217,56 @@ def defiance(ticker):
     return cached(f'defiance-{ticker}', fn)
 
 
-PARSERS = {'YieldMax': yieldmax, 'Global X': globalx, 'NEOS': neos, 'Defiance': defiance}
+def kurv(ticker):
+    def fn():
+        s = get(f'https://kurvinvest.com/etf/{ticker.lower()}/').decode('utf-8', 'replace')
+        links = re.findall(r'href="(https://documents\.services\.kurvinvest\.com/19a1/[^"]*\.pdf)"', s)
+        if not links:
+            return None
+        def key(u):
+            m = re.search(r'(\d{1,2})\.(\d{1,2})\.(\d{2})\.pdf', u)
+            return f'20{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}' if m else ''
+        url = max(links, key=key)
+        return parse_notice_pdf(get(urllib.parse.quote(url, safe=':/')), 'Kurv', url)
+    return cached(f'kurv-{ticker}', fn)
+
+
+def rex(ticker):
+    def fn():
+        s = get(f'https://www.rexshares.com/{ticker.lower()}/').decode('utf-8', 'replace')
+        m = re.search(r'href="(https://www\.rexshares\.com/[^"]*19a-1-notice[^"]*\.pdf)"', s)
+        if not m:
+            return None
+        url = m.group(1)
+        t = re.sub(r'[\u00b9\u00b2\u00b3\u2070-\u2079]', '', pdf_text(get(url)))
+        t = re.sub(r'(Income|Capital|Gains?)\d\b', r'\1', t)
+        roc = re.search(r'Return of Capital\s*\$([\d.]+)\s*([\d.]+)%\s*\$([\d.]+)\s*([\d.]+)%', t)
+        inc = re.search(r'Net Investment\s*Income\s*\$([\d.]+)\s*([\d.]+)%\s*\$([\d.]+)\s*([\d.]+)%', t)
+        pay = re.search(r'(\d{1,2}/\d{1,2}/\d{4})\s+' + ticker.upper(), t)
+        tot = re.search(r'Total[^$]{0,60}\$([\d.]+)', t)
+        if not roc:
+            return None
+        date = usdate(pay.group(1)) if pay else None
+        return {'issuer': 'REX', 'asOf': date, 'latest': {'date': date, 'amount': float(tot.group(1)) if tot else None, 'roc': pct(roc.group(2)), 'income': pct(inc.group(2)) if inc else round(100 - pct(roc.group(2)), 2), 'gains': None},
+                'ytd': {'roc': pct(roc.group(4)), 'income': pct(inc.group(4)) if inc else None, 'gains': None}, 't12': None, 'url': url, 'method': '19a-1 notice, latest distribution and calendar year to date'}
+    return cached(f'rex-{ticker}', fn)
+
+
+def graniteshares(ticker):
+    def fn():
+        s = get(f'https://graniteshares.com/institutional/us/en-us/etfs/{ticker.lower()}/').decode('utf-8', 'replace')
+        links = re.findall(r'href="(/media/[^"]*19-a-notice[^"]*\.pdf)"', s)
+        if not links:
+            return None
+        def key(u):
+            m = re.search(r'(\d{2})(\d{2})(\d{4})\.pdf', u)
+            return f'{m.group(3)}-{m.group(1)}-{m.group(2)}' if m else '0'
+        url = 'https://graniteshares.com' + max(links, key=key)
+        return parse_notice_pdf(get(url), 'GraniteShares', url)
+    return cached(f'graniteshares-{ticker}', fn)
+
+
+PARSERS = {'YieldMax': yieldmax, 'Global X': globalx, 'NEOS': neos, 'Defiance': defiance, 'Kurv': kurv, 'REX': rex, 'GraniteShares': graniteshares}
 
 
 def build(only=None):

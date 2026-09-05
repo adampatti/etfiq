@@ -153,6 +153,8 @@ def build():
         sys.exit('No TIINGO_TOKEN. Set it in the environment or in pipeline/.env, then rerun.')
     universe = [r for r in json.loads((ROOT / 'data' / 'income_universe.json').read_text()) if r.get('include')]
     bench_cache, out, missing = {}, [], []
+    fees_path = ROOT / 'data' / 'fees.json'
+    fees = json.loads(fees_path.read_text()) if fees_path.exists() else {}
     for i, u in enumerate(universe):
         rows = split_adjust(trim_history(prices(u['ticker'], tok)))
         if len(rows) < 5:
@@ -178,6 +180,7 @@ def build():
             'windows': {k: window(rows, brows, d) for k, d in WINDOWS.items()},
             'distributions': [{'date': r['date'], 'amount': r['divCash']} for r in divs[-13:]],
             'benchAsOf': brows[-1]['date'] if brows else None,
+            'expenseRatio': (fees.get(u['ticker']) or {}).get('expenseRatio'),
         })
         # since inception window
         s = rows[0]

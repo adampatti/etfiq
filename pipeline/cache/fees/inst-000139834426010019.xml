@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:aetf="http://aetf/20260601"
+  xmlns:dei="http://xbrl.sec.gov/dei/2026"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2026"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2026"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="aetf-20260601.xsd" xlink:type="simple"/>
+    <context id="AsOf2026-06-01">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_InvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:InvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_NonCorrelationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:NonCorrelationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_LargeCapitalizationCompanyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:LargeCapitalizationCompanyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_us-gaap_GeographicConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:GeographicConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_IssuerSpecificRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:IssuerSpecificRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_custom_IndexManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">aetf:IndexManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012016-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2016-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-01-012017-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-01-01</startDate>
+            <endDate>2017-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2018-01-012018-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+            <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2019-01-012019-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-01-01</startDate>
+            <endDate>2019-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012020-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2020-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012021-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2021-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2022-01-012022-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-01-01</startDate>
+            <endDate>2022-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2023-01-012023-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-01-01</startDate>
+            <endDate>2023-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">aetf:C000077058Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2025-01-012025-12-31_custom_S000025771Member_custom_Index1Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index1Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012025-12-31_custom_S000025771Member_custom_Index1Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index1Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012025-12-31_custom_S000025771Member_custom_Index1Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index1Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2025-01-012025-12-31_custom_S000025771Member_custom_Index2Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index2Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012025-12-31_custom_S000025771Member_custom_Index2Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index2Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2016-01-012025-12-31_custom_S000025771Member_custom_Index2Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">aetf:Index2Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2016-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2026-06-012026-06-01_custom_S000025771Member_oef_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001414040</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">aetf:S000025771Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-06-01</startDate>
+            <endDate>2026-06-01</endDate>
+        </period>
+    </context>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <unit id="Ratio">
+        <measure>pure</measure>
+    </unit>
+    <dei:AmendmentFlag contextRef="AsOf2026-06-01" id="Fact000003">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="AsOf2026-06-01" id="Fact000004">485BPOS</dei:DocumentType>
+    <dei:DocumentPeriodEndDate contextRef="AsOf2026-06-01" id="Fact000005">2026-06-01</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="AsOf2026-06-01" id="Fact000006">0001414040</dei:EntityCentralIndexKey>
+    <dei:EntityInvCompanyType contextRef="AsOf2026-06-01" id="Fact000012">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName contextRef="AsOf2026-06-01" id="Fact000013">ALPS ETF TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate contextRef="AsOf2026-06-01" id="Fact000014">2026-06-01</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000015">Summary Section
+
+&#160;
+ALPS Equal Sector Weight ETF (THE &#x201c;FUND&#x201d;)
+</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000016">INVESTMENT OBJECTIVE</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000017">&lt;p id="xdx_A8E_eoef--ObjectivePrimaryTextBlock_z1w3tkXlTPNf" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The Fund seeks investment results that correspond (before fees and expenses) generally to the performance of the VettaFi Modelist Equal Weight Sector 500 Index (ticker symbol VFES500) (&#x201c;Underlying Index&#x201d;).
+&lt;/p&gt;
+</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000018">FEES AND EXPENSES OF THE FUND</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000019">&lt;p id="xdx_A8A_eoef--ExpenseNarrativeTextBlock_zjyVxixwSU6f" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;This table describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund (&#x201c;Shares&#x201d;). &lt;b&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and example below.
+&lt;/b&gt;&lt;/p&gt;
+</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000020">Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment):</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000022"
+      unitRef="Ratio">0.0019</oef:ManagementFeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000024"
+      unitRef="Ratio">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000026"
+      unitRef="Ratio">0.0019</oef:ExpensesOverAssets>
+    <oef:ExpenseExampleHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000028">Example</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000029">&lt;p id="xdx_A89_eoef--ExpenseExampleNarrativeTextBlock_zCTiDR2E4lVa" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The following example is intended to help you compare the cost of investing in the Fund with the costs of investing in other funds. The example assumes that you invest $10,000 in the Fund for the time periods indicated and then hold or redeem all of your Shares at the end of those periods. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the same each year.
+&lt;/p&gt;
+</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleByYearCaption
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000034">Although your actual costs may be higher or lower, based on these assumptions your costs would be:</oef:ExpenseExampleByYearCaption>
+    <oef:ExpenseExampleYear01
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="0"
+      id="Fact000030"
+      unitRef="USD">19</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="0"
+      id="Fact000031"
+      unitRef="USD">61</oef:ExpenseExampleYear03>
+    <oef:ExpenseExampleYear05
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="0"
+      id="Fact000032"
+      unitRef="USD">107</oef:ExpenseExampleYear05>
+    <oef:ExpenseExampleYear10
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="0"
+      id="Fact000033"
+      unitRef="USD">243</oef:ExpenseExampleYear10>
+    <oef:PortfolioTurnoverHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000035">PORTFOLIO TURNOVER</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000036">&lt;p id="xdx_A82_eoef--PortfolioTurnoverTextBlock_zkvxRYPhCfu6" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s performance. During the most recent fiscal year ended November 30, 2025, the Fund&#x2019;s portfolio turnover rate was &lt;span id="xdx_901_eoef--PortfolioTurnoverRate_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zqVQPUWcIzUc"&gt;10%&lt;/span&gt; of the average value of its portfolio.
+&lt;/p&gt;
+</oef:PortfolioTurnoverTextBlock>
+    <oef:PortfolioTurnoverRate
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      decimals="INF"
+      id="Fact000037"
+      unitRef="Ratio">0.10</oef:PortfolioTurnoverRate>
+    <oef:StrategyHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000038">PRINCIPAL INVESTMENT STRATEGIES</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000039">&lt;p id="xdx_A89_eoef--StrategyNarrativeTextBlock_zL1GGFRQkXSb" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The Fund will seek investment results that correspond (before fees and expenses) generally to the performance of the Underlying Index. The Fund employs a &#x201c;passive management&#x201d; &#x2013; or indexing &#x2013; investment approach designed to track the performance of the Underlying Index. The Underlying Index is designed to track the performance of U.S. large-capitalization equities by allocating equal weight across economic sectors, while maintaining float-adjusted market capitalization weighting within each sector. The Underlying Index seeks to reduce sector concentration risk relative to traditional capitalization-weighted benchmarks while preserving market representation within each sector. The Underlying Index is comprised of the constituents of the VettaFi U.S. Equity Large-Cap 500 Index, which represents the 500 largest US stocks, grouped into one of eleven Global Industry Classification Standard (&#x201c;GICS&#x201d;) economic sectors. The eleven GICS sectors are: (i) communication services; (ii) consumer discretionary; (iii) consumer staples; (iv) energy; (v) financials; (vi) health care; (vii) industrials; (viii) information technology; (ix) materials; (x) real estate; and (xi) utilities. Each sector is equally weighted, while constituents within each sector are weighted by float-adjusted market capitalization. The Underlying Index is constructed using a fixed eleven sector framework, with legacy sector classifications mapped into current sectors to ensure consistency through time. Any legacy or discontinued sector classifications are mapped into the most economically comparable current sector. Within each sector, the eligible stocks that are selected for inclusion in the Underlying Index&#x2019;s portfolio are weighted in proportion to their float adjusted market capitalization relative to other eligible stocks selected for inclusion from the same sector.
+&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: center"&gt;&#160;&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;Within each sector, the eligible stocks that are selected for inclusion in the Underlying Index&#x2019;s portfolio are weighted in proportion to their float adjusted market capitalization relative to other eligible stocks selected for inclusion from the same sector.
+&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: center"&gt;&#160;&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The
+Underlying Index is reconstituted and rebalanced quarterly. The Underlying Index&#x2019;s constituent membership, sector classification,
+and float-adjusted market capitalization are determined as of the last trading day of the month preceding each calendar quarter-end.
+If a sector has zero eligible constituents at a reconstitution date, that sector is excluded from the Underlying Index and the total
+Underlying Index weight is redistributed pro rata across the remaining eligible sectors.&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: center"&gt;&#160;&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The Fund will normally invest at least 80% of its net assets in securities that comprise the Underlying Index.
+&lt;/p&gt;
+</oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_oef_RiskLoseMoneyMember"
+      id="Fact000040">Investors should consider the following risk factors and special considerations associated with investing in the Fund, which may cause you to lose all or part of your money.</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_InvestmentRiskMember"
+      id="Fact000041">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt;&lt;span id="xdx_918_ecustom--InvestmentRiskMember_zPLutHKJ44G6"&gt;Investment Risk&lt;/span&gt;. &lt;/b&gt;An investment in the Fund is subject to investment risk, including the possible loss of the entire principal amount that you invest.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_MarketRiskMember"
+      id="Fact000043">&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_918_ecustom--MarketRiskMember_zzYuNITjZH7e"&gt;&lt;b&gt;Market
+Risk&lt;/b&gt;&lt;/span&gt;&lt;b&gt;.&lt;/b&gt; Economies and financial markets throughout the world are becoming increasingly interconnected, which increases
+the likelihood that events or conditions in one country or region will adversely impact markets or issuers in other countries or regions.
+The values of equity securities, such as common stocks and preferred stock, may decline due to general market conditions that are not
+specifically related to a particular company, such as real or perceived adverse economic, political and social conditions, inflation
+(or expectations for inflation), deflation (or expectations for deflation), changes in the general outlook for corporate earnings, global
+demand for particular products or resources, market instability, debt crises and downgrades, embargoes, tariffs, sanctions and other
+trade barriers, regulatory events, other governmental trade or market control programs and related geopolitical events, changes in interest
+or currency rates, recessions, supply chain disruptions, or adverse investor sentiment generally. Equity securities generally have greater
+price volatility than fixed-income securities. In addition, the value of the Fund&#x2019;s investments may be negatively affected by the
+occurrence of global events such as war, terrorism, environmental disasters, natural disasters or man-made events, country instability,
+and infectious disease epidemics or pandemics.&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_NonCorrelationRiskMember"
+      id="Fact000045">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt;&lt;span id="xdx_912_ecustom--NonCorrelationRiskMember_zVouAJ2rvX8d"&gt;Non-Correlation Risk&lt;/span&gt;.&lt;/b&gt; The Fund&#x2019;s return may not match the return of the Underlying Index for a number of reasons, including operating expenses incurred by the Fund not applicable to the Underlying Index, costs in buying and selling securities, asset valuation differences and differences between the Fund&#x2019;s portfolio and the Underlying Index resulting from legal restrictions, cash flows or operational inefficiencies.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_LargeCapitalizationCompanyRiskMember"
+      id="Fact000047">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt; &lt;span id="xdx_91E_ecustom--LargeCapitalizationCompanyRiskMember_zQMF3RIRliye"&gt;Large Capitalization Company Risk&lt;/span&gt;.&lt;/b&gt; The large capitalization companies in which the Fund invests may underperform other segments of the equity market or the equity market as a whole.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_us-gaap_GeographicConcentrationRiskMember"
+      id="Fact000049">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt;Geographic Concentration Risk.&lt;/b&gt; To the extent the Fund is significantly comprised of securities of issuers from a single country, such as the United States, the Fund would be more likely to be impacted by events or conditions affecting that country. For example, political and economic conditions and changes in regulatory, tax or economic policy in a country could significantly affect the market in that country and in surrounding or related countries and have a negative impact on the Fund&#x2019;s performance.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_IssuerSpecificRiskMember"
+      id="Fact000050">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt;&lt;span id="xdx_918_ecustom--IssuerSpecificRiskMember_z0DPptEtGIl"&gt;Issuer-Specific Risk&lt;/span&gt;.&lt;/b&gt; The value of an individual security or particular type of security can be more volatile than the market as a whole and can perform differently from the value of the market as a whole.
+&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: center"&gt;&#160;&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;Fluctuation of Net Asset Value. The net asset value (&#x201c;NAV&#x201d;) of the Fund&#x2019;s Shares will generally fluctuate with changes in the market value of the Fund&#x2019;s holdings. The market prices of the Shares will generally fluctuate in accordance with changes in NAV as well as the relative supply of and demand for the Shares on the NYSE Arca, Inc. (the &#x201c;NYSE Arca&#x201d;). ALPS Advisors, Inc. (&#x201c;Adviser&#x201d;) cannot predict whether the Shares will trade below, at or above their NAV. To the extent securities held by the Fund trade in a market that is closed when the exchange on which the Fund&#x2019;s shares trade is open, there may be deviations between the current price of a security and the last quoted price for the security in the closed foreign market. These deviations may in turn lead to wider bid-ask spreads or premiums/discounts for Fund shares with the result that investors may receive less than the underlying value of the Fund shares when they sell their Fund shares or pay more than the underlying value of the Fund shares when they purchase their Fund shares.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_IndexManagementRiskMember"
+      id="Fact000052">
+
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;b&gt;&lt;span id="xdx_91B_ecustom--IndexManagementRiskMember_zqdLprWwUxV5"&gt;Index Management Risk&lt;/span&gt;.&lt;/b&gt; Unlike many investment companies, the Fund is not &#x201c;actively&#x201d; managed. Therefore, it would not necessarily sell a security because the security&#x2019;s issuer was in financial trouble unless that security is removed from the Underlying Index.
+&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000054">FUND PERFORMANCE</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000055">&lt;p id="xdx_A83_eoef--PerformanceNarrativeTextBlock_z9QBrEsUA0tl" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;On June 1, 2026, the Fund changed its Underlying Index and certain of its principal investment strategies. Consequently, the Fund&#x2019;s total returns shown below for the periods prior to June 1, 2026 are not necessarily indicative of the performance of the Fund, as it is currently managed. &lt;span id="xdx_905_eoef--PerformanceInformationIllustratesVariabilityOfReturns_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zzjaYmiKaBS2"&gt;The following bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance from year to year and by showing how the Fund&#x2019;s average annual returns for certain time periods compare with the average annual returns of the Underlying Index and an index that represents a broad measure of market performance.&lt;/span&gt; Absent any applicable fee waivers and/or expense reimbursements, performance would have been lower. &lt;span id="xdx_900_eoef--PerformancePastDoesNotIndicateFuture_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zLSmnfOvN6sl"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt; Total return figures assume reinvestment of dividends and capital gains distributions and include the effect of the Fund&#x2019;s recurring expenses. Updated performance information is available online at &lt;span id="xdx_904_eoef--PerformanceAvailabilityWebSiteAddress_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zyq2yarWH1h5"&gt;www.alpsfunds.com&lt;/span&gt; or by calling &lt;span id="xdx_90F_eoef--PerformanceAvailabilityPhone_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zuCZwmdiWRn2"&gt;866.759.5679&lt;/span&gt;.
+&lt;/p&gt;
+</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000056">The following bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance from year to year and by showing how the Fund&#x2019;s average annual returns for certain time periods compare with the average annual returns of the Underlying Index and an index that represents a broad measure of market performance.</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000057">The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000058">www.alpsfunds.com</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000059">866.759.5679</oef:PerformanceAvailabilityPhone>
+    <oef:BarChartHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000060">Annual Total Returns (calendar years ended (12/31)</oef:BarChartHeading>
+    <oef:AnnlRtrPct
+      contextRef="From2016-01-012016-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000062"
+      unitRef="Ratio">0.1322</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2017-01-012017-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000064"
+      unitRef="Ratio">0.1813</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2018-01-012018-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000066"
+      unitRef="Ratio">-0.0601</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2019-01-012019-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000068"
+      unitRef="Ratio">0.2786</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2020-01-012020-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000070"
+      unitRef="Ratio">0.1064</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2021-01-012021-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000072"
+      unitRef="Ratio">0.2927</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2022-01-012022-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000074"
+      unitRef="Ratio">-0.1058</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2023-01-012023-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000076"
+      unitRef="Ratio">0.1686</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000078"
+      unitRef="Ratio">0.1632</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000080"
+      unitRef="Ratio">0.1314</oef:AnnlRtrPct>
+    <oef:BarChartClosingTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000081">&lt;div id="xdx_A85_eoef--BarChartClosingTextBlock_zbeAZrmeRjm3"&gt;&lt;/div&gt;
+&lt;table cellpadding="2" cellspacing="0" style="font: 11pt Times New Roman, Times, Serif; width: 100%; border-collapse: collapse"&gt;
+&lt;tr style="background-color: Gainsboro"&gt;
+&lt;td style="vertical-align: bottom; width: 45%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: left; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_902_eoef--HighestQuarterlyReturnLabel_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zHI8DE791aEf"&gt;Highest Quarterly Return&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style="vertical-align: bottom; width: 14%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: right; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_90F_eoef--BarChartHighestQuarterlyReturn_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_z4xaUWkvOWg4"&gt;18.64%&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style="vertical-align: bottom; width: 41%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: right; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_908_eoef--BarChartHighestQuarterlyReturnDate_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zXBkr2zscB2c"&gt;6/30/20&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+&lt;td style="vertical-align: bottom; width: 45%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: left; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_90E_eoef--LowestQuarterlyReturnLabel_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zd6XmylGayS8"&gt;Lowest Quarterly Return&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style="vertical-align: bottom; width: 14%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: right; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_901_eoef--BarChartLowestQuarterlyReturn_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zGap2UEWhhId"&gt;-22.29%&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style="vertical-align: bottom; width: 41%"&gt;&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: right; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_902_eoef--BarChartLowestQuarterlyReturnDate_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zapdx2INJkbj"&gt;3/31/20&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+&lt;p style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;The Fund&#x2019;s &lt;span id="xdx_90E_eoef--YearToDateReturnLabel_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zBq1Y265fOJg"&gt;year-to-date return&lt;/span&gt; as of &lt;span id="xdx_90D_eoef--BarChartYearToDateReturnDate_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_z1moCW7vCeX2"&gt;March 31, 2026&lt;/span&gt; was &lt;span id="xdx_90D_eoef--BarChartYearToDateReturn_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member__oef--ClassAxis__custom--C000077058Member_zfAURQal4Ojk"&gt;2.90%&lt;/span&gt;.
+&lt;/p&gt;
+</oef:BarChartClosingTextBlock>
+    <oef:HighestQuarterlyReturnLabel
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000082">Highest Quarterly Return</oef:HighestQuarterlyReturnLabel>
+    <oef:BarChartHighestQuarterlyReturn
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000083"
+      unitRef="Ratio">0.1864</oef:BarChartHighestQuarterlyReturn>
+    <oef:BarChartHighestQuarterlyReturnDate
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000084">2020-06-30</oef:BarChartHighestQuarterlyReturnDate>
+    <oef:LowestQuarterlyReturnLabel
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000085">Lowest Quarterly Return</oef:LowestQuarterlyReturnLabel>
+    <oef:BarChartLowestQuarterlyReturn
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000086"
+      unitRef="Ratio">-0.2229</oef:BarChartLowestQuarterlyReturn>
+    <oef:BarChartLowestQuarterlyReturnDate
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000087">2020-03-31</oef:BarChartLowestQuarterlyReturnDate>
+    <oef:YearToDateReturnLabel
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000088">year-to-date return</oef:YearToDateReturnLabel>
+    <oef:BarChartYearToDateReturnDate
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      id="Fact000089">2026-03-31</oef:BarChartYearToDateReturnDate>
+    <oef:BarChartYearToDateReturn
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000090"
+      unitRef="Ratio">0.0290</oef:BarChartYearToDateReturn>
+    <oef:PerformanceTableNarrativeTextBlock
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000091">&lt;p id="xdx_A8E_eoef--PerformanceTableNarrativeTextBlock_zwAoki2eiG33" style="font: 11pt Times New Roman, Times, Serif; text-align: justify; margin-left: 0pt; text-indent: 0pt; margin-bottom: 0pt; margin-top: 0pt"&gt;&lt;span id="xdx_90C_eoef--PerformanceTableUsesHighestFederalRate_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zAbD86oLMWN9"&gt;The after-tax returns presented in the table below are calculated using highest historical individual federal marginal income tax rates and do not reflect the impact of state and local taxes.&lt;/span&gt; Your actual after-tax returns will depend on your specific tax situation and may differ from those shown below. &lt;span id="xdx_90E_eoef--PerformanceTableNotRelevantToTaxDeferred_c20260601__20260601__dei--LegalEntityAxis__custom--S000025771Member_zayvmkLNy5gf"&gt;After-tax returns are not relevant to investors who hold Shares of the Fund through tax-deferred arrangements, such as 401(k) plans or individual retirement accounts.&lt;/span&gt;
+&lt;/p&gt;
+</oef:PerformanceTableNarrativeTextBlock>
+    <oef:PerformanceTableUsesHighestFederalRate
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000092">The after-tax returns presented in the table below are calculated using highest historical individual federal marginal income tax rates and do not reflect the impact of state and local taxes.</oef:PerformanceTableUsesHighestFederalRate>
+    <oef:PerformanceTableNotRelevantToTaxDeferred
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000093">After-tax returns are not relevant to investors who hold Shares of the Fund through tax-deferred arrangements, such as 401(k) plans or individual retirement accounts.</oef:PerformanceTableNotRelevantToTaxDeferred>
+    <oef:PerformanceTableHeading
+      contextRef="From2026-06-012026-06-01_custom_S000025771Member"
+      id="Fact000094">Average Annual Total Returns
+For periods ended December 31, 2025
+</oef:PerformanceTableHeading>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000096"
+      unitRef="Ratio">0.1314</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000097"
+      unitRef="Ratio">0.1220</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member"
+      decimals="INF"
+      id="Fact000098"
+      unitRef="Ratio">0.1220</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000100"
+      unitRef="Ratio">0.1261</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000101"
+      unitRef="Ratio">0.1165</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000102"
+      unitRef="Ratio">0.1156</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000104"
+      unitRef="Ratio">0.0804</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2021-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000105"
+      unitRef="Ratio">0.0961</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2016-01-012025-12-31_custom_S000025771Member_custom_C000077058Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000106"
+      unitRef="Ratio">0.0993</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_Index1Member"
+      decimals="INF"
+      id="Fact000108"
+      unitRef="Ratio">0.1333</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2021-01-012025-12-31_custom_S000025771Member_custom_Index1Member"
+      decimals="INF"
+      id="Fact000109"
+      unitRef="Ratio">0.1236</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2016-01-012025-12-31_custom_S000025771Member_custom_Index1Member"
+      decimals="INF"
+      id="Fact000110"
+      unitRef="Ratio">0.1237</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2025-01-012025-12-31_custom_S000025771Member_custom_Index2Member"
+      decimals="INF"
+      id="Fact000112"
+      unitRef="Ratio">0.1788</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2021-01-012025-12-31_custom_S000025771Member_custom_Index2Member"
+      decimals="INF"
+      id="Fact000113"
+      unitRef="Ratio">0.1442</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2016-01-012025-12-31_custom_S000025771Member_custom_Index2Member"
+      decimals="INF"
+      id="Fact000114"
+      unitRef="Ratio">0.1482</oef:AvgAnnlRtrPct>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#Fact000022"
+          xlink:label="Fact000022"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000027" xlink:label="Footnote000027" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Fees have
+                                            been restated to reflect current fees.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000022"
+          xlink:to="Footnote000027"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000024"
+          xlink:label="Fact000024"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000024"
+          xlink:to="Footnote000027"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000026"
+          xlink:label="Fact000026"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000026"
+          xlink:to="Footnote000027"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000108"
+          xlink:label="Fact000108"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000117" xlink:label="Footnote000117" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Index performance shown in the table is the total return, which assumes reinvestment of any dividends and distributions during the time periods shown.</link:footnote>
+        <link:footnote id="Footnote000118" xlink:label="Footnote000118" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Effective June 1, 2026, the VettaFi Modelist Equal Weight Sector 500 Index replaced the NYSE Equal Sector Weight Index as the Fund&#x2019;s primary benchmark. The VettaFi Modelist Equal Weight Sector 500 Index performance information reflects the blended performance of the NYSE Equal Sector Weight Index through May 31, 2026 and the VettaFi Modelist Equal Weight Sector 500 Index thereafter.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000108"
+          xlink:to="Footnote000118"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000108"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000109"
+          xlink:label="Fact000109"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000109"
+          xlink:to="Footnote000118"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000109"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000110"
+          xlink:label="Fact000110"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000110"
+          xlink:to="Footnote000118"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000110"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000112"
+          xlink:label="Fact000112"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000119" xlink:label="Footnote000119" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Broad-based securities market index of the Fund.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000112"
+          xlink:to="Footnote000119"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000112"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000113"
+          xlink:label="Fact000113"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000113"
+          xlink:to="Footnote000119"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000113"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000114"
+          xlink:label="Fact000114"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000114"
+          xlink:to="Footnote000119"
+          xlink:type="arc"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000114"
+          xlink:to="Footnote000117"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

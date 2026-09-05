@@ -131,7 +131,7 @@ def income_page(r, as_of, src):
     gap = pts(w['gap']) if w and w.get('gap') is not None else 'not available'
     desc = f"{r['ticker']} ({r['issuer']}) over 1 year to {fdate(as_of)}: paid {pct(w['cash'], sign=False) if w else 'n/a'} in cash, total return {pct(w['total']) if w else 'n/a'}, {gap} against {r['benchmark']}."
     rows = [('Strategy', r.get('strategy', '')), ('Benchmark', f"{r.get('benchmarkName') or r['benchmark']}" + (' (proxy)' if r.get('benchmarkKind') == 'proxy' else '')), ('Pays', r.get('payoutFrequency') or 'not established'),
-            ('Payout rate, annualised (ETFIQ)', pct(r.get('distributionRate'), sign=False)), ('Cash paid, trailing 12 months (ETFIQ)', pct(r.get('trailing12mCash'), sign=False)), ('Launched', fdate(r.get('inception')))]
+            ('Payout rate, annualised (ETFIQ)', pct(r.get('distributionRate'), sign=False)), ('Expense ratio (prospectus XBRL)', pct(r.get('expenseRatio'), sign=False, d=2)), ('Cash paid, trailing 12 months (ETFIQ)', pct(r.get('trailing12mCash'), sign=False)), ('Launched', fdate(r.get('inception')))]
     for k, lab in (('3M', '3 months'), ('6M', '6 months'), ('1Y', '1 year'), ('3Y', '3 years'), ('ITD', 'since launch')):
         x = (r.get('windows') or {}).get(k)
         if x:
@@ -175,6 +175,10 @@ def theme_page(r, as_of):
         if x:
             rows.append((f"{lab}: total return / S&P 500 / gap / Nasdaq-100 gap (ETFIQ)", f"{pct(x['total'])} / {pct(x.get('bench'))} / {pts(x.get('gap'))} / {pts(x.get('gapQ'))}"))
     rows.append(('Below its all-time high (ETFIQ)', pct(r.get('drawdown'))))
+    if r.get('expenseRatio') is not None:
+        rows.append(('Expense ratio (prospectus XBRL)', pct(r['expenseRatio'], sign=False, d=2)))
+    if r.get('activeFee') is not None:
+        rows.append(('Fee for the part that differs from the S&P 500, active expense ratio (ETFIQ)', pct(r['activeFee'], sign=False, d=2)))
     if r.get('peers'):
         rows.append(('Closest funds by holdings overlap', ', '.join(f"{p['t']} {p['o']}%" for p in r['peers'])))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'themes', as_of, words, rows, f"{BASE}/#/themes/check/{r['ticker']}",

@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:ftetfiv="http://www.ftportfolios.com/20241031"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ftetfiv-20241031.xsd" xlink:type="simple"/>
+    <context id="D_31Oct2024_31Oct2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_RiskNotInsuredDepositoryInstitutionMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredDepositoryInstitutionMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_AuthorizedParticipantConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:AuthorizedParticipantConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_ConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:ConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_CurrencyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:CurrencyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_CurrentMarketConditionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:CurrentMarketConditionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_CyberSecurityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:CyberSecurityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_DepositaryReceiptsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:DepositaryReceiptsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_EnergyCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:EnergyCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_EnergyInfrastructureCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:EnergyInfrastructureCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_EquitySecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:EquitySecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_IndexOrModelConstituentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:IndexOrModelConstituentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_InflationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:InflationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_LargeCapitalizationCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:LargeCapitalizationCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_LiquidityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:LiquidityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_ManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:ManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_MarketMakerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:MarketMakerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_MLPRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:MLPRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_MLPTaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:MLPTaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_MoneyMarketShortTermSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:MoneyMarketShortTermSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_RiskNondiversifiedMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:RiskNondiversifiedMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_NonUSSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:NonUSSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_NuclearPowerCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:NuclearPowerCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_OperationalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:OperationalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_PremiumDiscountRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:PremiumDiscountRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_RenewableEnergyCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:RenewableEnergyCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_SmallerCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:SmallerCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_TradingIssuesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:TradingIssuesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_UtilityCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:UtilityCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_ValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfiv:ValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_01Jan2020_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_19Aug2019_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-08-19</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-10-31</startDate>
+            <endDate>2024-10-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsMember_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsMember_01Jan2020_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsMember_19Aug2019_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-08-19</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsAndSalesMember_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsAndSalesMember_01Jan2020_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000213865_AfterTaxesOnDistributionsAndSalesMember_19Aug2019_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-08-19</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_SP500IndexMember_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:SP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_SP500IndexMember_01Jan2020_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:SP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_SP500IndexMember_19Aug2019_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:SP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-08-19</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_PHLXUtilitySectorIndexMember_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:PHLXUtilitySectorIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_PHLXUtilitySectorIndexMember_01Jan2020_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:PHLXUtilitySectorIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="_PHLXUtilitySectorIndexMember_19Aug2019_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ftetfiv:PHLXUtilitySectorIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-08-19</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865_01Jan2020_31Dec2020">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2020-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865_01Jan2021_31Dec2021">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2021-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865_01Jan2022_31Dec2022">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-01-01</startDate>
+            <endDate>2022-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865_01Jan2023_31Dec2023">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-01-01</startDate>
+            <endDate>2023-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000066179_C000213865_01Jan2024_31Dec2024">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001517936</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfiv:S000066179Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfiv:C000213865Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_31Oct2024_31Oct2024" id="apid_1">2024-10-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_31Oct2024_31Oct2024" id="apid_2">0001517936</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_31Oct2024_31Oct2024" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_31Oct2024_31Oct2024" id="apid_4">485BPOS</dei:DocumentType>
+    <oef:AnnlRtrPct
+      contextRef="S000066179_C000213865_01Jan2020_31Dec2020"
+      decimals="4"
+      id="x_82e00085-fd1b-4bbd-a927-d7aed2b8b8d5"
+      unitRef="pure">0.0870</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="S000066179_C000213865_01Jan2021_31Dec2021"
+      decimals="4"
+      id="b8a98f41-46ce-4e9a-93fe-691caa1b4a31"
+      unitRef="pure">0.1236</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="S000066179_C000213865_01Jan2022_31Dec2022"
+      decimals="4"
+      id="x_5b274c30-7e92-4b47-8c50-2bebb8a9e268"
+      unitRef="pure">0.0524</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="S000066179_C000213865_01Jan2023_31Dec2023"
+      decimals="4"
+      id="x_338ac0b7-346a-4621-9ebb-40d3f6eda655"
+      unitRef="pure">-0.0302</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="S000066179_C000213865_01Jan2024_31Dec2024"
+      decimals="4"
+      id="d83be5f0-1d1d-446a-9e80-009ac8a3e75b"
+      unitRef="pure">0.2245</oef:AnnlRtrPct>
+    <dei:EntityInvCompanyType
+      contextRef="D_31Oct2024_31Oct2024"
+      id="x_0c06a843-2937-47e9-b98b-677c3d130a95">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_31Oct2024_31Oct2024"
+      id="apid_407da197-3722-4c43-85e4-3cf737e6ba0e">First Trust Exchange-Traded Fund IV</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_31Oct2024_31Oct2024"
+      id="apid_035aba3e-0993-4185-a93d-26bb35613690">2025-09-05</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000066179"
+      id="x_042fe931-8ffe-4d5a-9947-d3d3bed51731">&lt;span style="color:#000000;font-family:Arial;font-size:12.60pt;font-weight:bold;"&gt;First Trust EIP Power Solutions ETF (FPWR)&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000066179"
+      id="x_58d117a0-ea90-460f-92a3-38b764c14799">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000066179"
+      id="abdbbc8b-37ab-414a-bdf7-bbb34f47b04d">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The First Trust EIP Power Solutions ETF seeks to achieve a competitive risk-adjusted total return balanced between dividends &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and capital appreciation.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000066179"
+      id="x_41d57143-2bad-41b3-a48a-0497fa091244">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000066179"
+      id="c88b92bb-983d-478a-8458-178e28b3dbf9">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The following table describes the fees and expenses you may pay if you buy, hold and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Investors may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;the table and example below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:ShareholderFeesCaption
+      contextRef="S000066179"
+      id="x_7a85c729-fc7a-492b-ac3e-6d994f200f3f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Shareholder Fees&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(fees paid directly from your investment)&lt;/span&gt;</oef:ShareholderFeesCaption>
+    <oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="x_3d614503-f603-427a-92be-cf5f6c5b1842"
+      unitRef="pure">0</oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice>
+    <oef:OperatingExpensesCaption
+      contextRef="S000066179"
+      id="x_736fd1ff-3ddd-471a-b227-bcb4e2bcffec">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Annual Fund Operating Expenses&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="aaca3143-48fc-4478-81ee-6b32b72211e2"
+      unitRef="pure">0.0095</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="ca96e814-269b-498a-84e9-c11a80213e21"
+      unitRef="pure">0.0000</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="dd8be10d-a1fb-412a-9aba-03e39d6de240"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:AcquiredFundFeesAndExpensesOverAssets
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="x_96ca2b2e-1d0f-42e5-95e0-5825ed5d18b2"
+      unitRef="pure">0.0001</oef:AcquiredFundFeesAndExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="x_06daec9c-a798-4b71-9432-8d919dd9fff0"
+      unitRef="pure">0.0096</oef:ExpensesOverAssets>
+    <oef:ExpenseExampleHeading
+      contextRef="S000066179"
+      id="x_115d601a-62c5-4e20-ba4c-be427f5c541d">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;font-weight:bold;"&gt;Example&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNoRedemptionNarrativeTextBlock
+      contextRef="S000066179"
+      id="x_0b4c22a3-b50f-4c96-94ba-2ad9e7b817f1">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The example below is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The example assumes that you invest $10,000 in the Fund for the time periods indicated and then hold or sell all of your shares at the end of those periods. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain at current levels. Although your actual costs may be higher or lower, based on these &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;assumptions your costs would be:&lt;/span&gt;</oef:ExpenseExampleNoRedemptionNarrativeTextBlock>
+    <oef:ExpenseExampleNoRedemptionYear01
+      contextRef="S000066179_C000213865"
+      decimals="INF"
+      id="x_2fc2cf68-50c1-467b-8c81-a5dfc2995e5a"
+      unitRef="USD">98</oef:ExpenseExampleNoRedemptionYear01>
+    <oef:ExpenseExampleNoRedemptionYear03
+      contextRef="S000066179_C000213865"
+      decimals="INF"
+      id="x_4c11de87-828f-49df-b412-b18629303839"
+      unitRef="USD">306</oef:ExpenseExampleNoRedemptionYear03>
+    <oef:ExpenseExampleNoRedemptionYear05
+      contextRef="S000066179_C000213865"
+      decimals="INF"
+      id="c6c71adc-e934-4e52-b514-9562f2113f2c"
+      unitRef="USD">531</oef:ExpenseExampleNoRedemptionYear05>
+    <oef:ExpenseExampleNoRedemptionYear10
+      contextRef="S000066179_C000213865"
+      decimals="INF"
+      id="d91b9990-56ed-464c-8abd-69df22e84443"
+      unitRef="USD">1178</oef:ExpenseExampleNoRedemptionYear10>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000066179"
+      id="x_95ec389a-208a-47d1-b8a3-c1360686547c">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000066179"
+      id="x_0f15a9cf-1ab2-47c9-b416-f2459ac32668">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s performance. During the most recent fiscal year, the Fund&#x2019;s portfolio turnover rate was &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;16%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; of the average value of its portfolio. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Due to changes in the Fund's Principal Investment Strategies on September 5, 2025 the Fund may experience higher levels &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of portfolio turnover in the current fiscal year than in previous years.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:PortfolioTurnoverRate
+      contextRef="S000066179"
+      decimals="4"
+      id="x_8bc84676-bc9d-437a-a20b-b328b6dacaba"
+      unitRef="pure">0.16</oef:PortfolioTurnoverRate>
+    <oef:StrategyHeading
+      contextRef="S000066179"
+      id="f03bf0b7-ab00-4d6d-8770-60d24a19d341">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Principal Investment Strategies&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000066179"
+      id="x_09f5a314-9bce-47ee-8b8d-e44e967d9cd3">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Under normal market conditions, the Fund will invest at least 80% of its net assets (plus any borrowings for investment purposes) in the equity securities of companies identified by the Fund&#x2019;s investment sub-advisor, Energy Income Partners, LLC (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;EIP&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; or the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Sub-Advisor&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;), as Power Solutions Companies. According to the Sub-Advisor, Power Solutions Companies are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;those companies that provide technology, equipment and services that contribute to the production, transmission, storage and delivery of electric power and/or have a positive impact on the cost, reliability, safety or environmental impact to help meet the growing demands of the electric power system. Power Solutions Companies include companies in the Global Industry Classification Standard (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;GICS&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) Electrical Equipment industry in the Industrials sector, companies in the GICS Utilities sector &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;(excluding water utilities), companies in the GICS Energy sector, and companies in any other GICS sectors that derive at least 50% of their revenues or profits from electric generation, transmission, distribution, grid solutions, storage and system reliability &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;support (collectively, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;power-related activities&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;), nuclear power life-extension and small modular reactors (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;"SMR"&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;), exploration, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;development, production, gathering, transportation, processing, storing, refining, distribution, mining or marketing, of natural gas, natural gas liquids (including propane), electricity, uranium, hydrogen or other energy sources, renewable energy production, renewable energy equipment, energy storage, or carbon, carbon dioxide and fugitive methane mitigation and management. Power Solutions Companies also include companies providing engineering, consulting and construction services that derive at least 50% of their revenues or profits from energy and utility-related activities, as determined by the Sub-Advisor. Power Solutions Companies may include publicly traded master limited partnerships or limited liability companies taxed as &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;partnerships (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;MLPs&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) and MLP affiliates.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Sub-Advisor selects securities for the Fund&#x2019;s portfolio based upon its holistic assessment of both quantitative and qualitative attributes. Such quantitative attributes include, but are not limited to, operating metrics and financial metrics, such as stability of cash flows and the strength of the balance sheet. Relevant qualitative attributes include, but are not limited to, the Sub-Advisor&#x2019;s confidence in the company&#x2019;s management team, the sustainability of a company&#x2019;s business model and the competitiveness of a company&#x2019;s assets. In its assessment of quality, the Sub-Advisor will not consider any measures of valuation. No one quantitative or qualitative attribute is dispositive in the Sub-Advisor&#x2019;s security selection process, but rather, when considered cumulatively, such attributes help inform the Sub-Advisor&#x2019;s investment decisions in light of market conditions and the Sub-Advisor&#x2019;s own experience. In determining security weights, the Sub-Advisor balances each position&#x2019;s expected rate &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of return against risks, position size and diversification considerations and the Fund&#x2019;s portfolio limitations.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund&#x2019;s investments will be concentrated in the industries constituting the energy infrastructure sector. These companies principally include: utilities; natural gas pipeline companies; manufacturers, contracted developers and/or owners of renewable energy, contracted developers and/or owners of nuclear energy; and other companies that derive the majority of their earnings from manufacturing, operating, constructing or providing services in support of infrastructure assets and/or infrastructure activities such as electricity generating equipment, energy storage, carbon capture and sequestration, fugitive methane abatement and energy transmission and distribution equipment, such as pipelines, power transmission and voltage, and frequency control. The Sub-Advisor will generally seek to focus on companies with a strategic connection to (x) the generation or transmission of electric power, or (y) making the electric power system safer, cleaner, more reliable, or lower in cost. The Fund&#x2019;s portfolio will be principally composed of equity securities, including common stock, depositary receipts, units issued by master limited partnerships (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;MLPs&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) and may also include investments in money market funds. Such securities may be &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;issued by small, mid and large capitalization companies operating in developed market countries and may be denominated in a non-U.S. currency. While the Fund may invest in equity securities of MLPs, the Fund will limit its investment in MLPs, or other companies taxed as partnerships in order to comply with applicable tax diversification rules. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;As of September 5, 2025, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund had significant investments in utility companies, although this may change from time to time.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; To the extent the Fund &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;invests a significant portion of its assets in a given jurisdiction or investment sector, the Fund may be exposed to the risks &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;associated with that jurisdiction or investment sector.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund is classified as &#x201c;non-diversified&#x201d; under the Investment Company Act of 1940, as amended (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;1940 Act&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;).&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="S000066179"
+      id="x_38a2ca60-868c-4901-a5c9-56bc9cf93995">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;As of September 5, 2025, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund had significant investments in utility companies, although this may change from time to time.&lt;/span&gt;</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="S000066179_RiskLoseMoneyMember"
+      id="x_5bdf06a5-301c-4ed9-b1b9-afd32e2ef387">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;You could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_RiskNotInsuredDepositoryInstitutionMember"
+      id="x_431317b4-4fa9-4c8e-8c43-49ac85e759ca">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;An investment in the Fund is not a deposit of a bank and is not insured or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;guaranteed by the Federal Deposit Insurance Corporation or any other governmental agency.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_AuthorizedParticipantConcentrationRiskMember"
+      id="e8fb004b-ef56-4655-9d6d-214befd2ff42">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;AUTHORIZED PARTICIPANT CONCENTRATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Only an authorized participant may engage in creation or redemption &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;transactions directly with the Fund. A limited number of institutions act as authorized participants for the Fund. To the extent that these institutions exit the business or are unable to proceed with creation and/or redemption orders and no other authorized participant steps forward to create or redeem, the Fund&#x2019;s shares may trade at a premium or discount (the difference between the market price of the Fund's shares and the Fund's net asset value) and possibly face delisting and the bid/ask spread (the difference between the price that someone is willing to pay for shares of the Fund at a specific point in time versus &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;the price at which someone is willing to sell) on the Fund&#x2019;s shares may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_ConcentrationRiskMember"
+      id="x_93e3c2bc-6a7c-4d12-89a5-46871bdf188c">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CONCENTRATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is concentrated in the industries comprising the energy infrastructure sector. To the extent &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;that the Fund invests a large percentage of its assets in a single asset class or the securities of issuers within the same country, state, region, industry or sector, an adverse economic, business or political development may affect the value of the Fund&#x2019;s investments more than if the Fund were more broadly diversified. A concentration makes the Fund more susceptible to any &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;single occurrence and may subject the Fund to greater market risk than a fund that is not so concentrated.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_CurrencyRiskMember"
+      id="x_50bfa042-1288-48a2-9784-27ac489ae785">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CURRENCY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Changes in currency exchange rates affect the value of investments denominated in a foreign currency, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;and therefore the value of such investments in the Fund&#x2019;s portfolio. The Fund&#x2019;s net asset value could decline if a currency to which the Fund has exposure depreciates against the U.S. dollar or if there are delays or limits on repatriation of such currency. Currency exchange rates can be very volatile and can change quickly and unpredictably. As a result, the value of an investment &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;in the Fund may change quickly and without warning.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_CurrentMarketConditionsRiskMember"
+      id="x_19368629-7305-4a9a-b026-295ba1905d79">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CURRENT MARKET CONDITIONS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Current market conditions risk is the risk that a particular investment, or shares of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund in general, may fall in value due to current market conditions. As a means to fight inflation, which remains at elevated levels, the Federal Reserve and certain foreign central banks have raised interest rates; however, the Federal Reserve has recently lowered interest rates and may continue to do so. U.S. regulators have proposed several changes to market and issuer regulations which would directly impact the Fund, and any regulatory changes could adversely impact the Fund&#x2019;s ability to achieve its investment strategies or make certain investments. Recent and potential future bank failures could result in disruption to the broader banking industry or markets generally and reduce confidence in financial institutions and the economy as a whole, which may also heighten market volatility and reduce liquidity. Additionally, challenges in commercial real estate markets, including rising interest rates, declining valuations and increasing vacancies, could have a broader impact on financial markets. The ongoing adversarial political climate in the United States, as well as political and diplomatic events both domestic and abroad, have and may continue to have an adverse impact the U.S. regulatory landscape, markets and investor behavior, which could have a negative impact on the Fund&#x2019;s investments and operations. The change in administration resulting from the 2024 United States national elections could result in significant impacts to international trade relations, tax and immigration policies, and other aspects of the national and international political and financial landscape, which could affect, among other things, inflation and the securities markets generally. Other unexpected political, regulatory and diplomatic events within the U.S. and abroad may affect investor and consumer confidence and may adversely impact financial markets and the broader economy. For example, ongoing armed conflicts between Russia and Ukraine in Europe and among Israel, Iran, Hamas and other militant groups in the Middle East, have caused and could continue to cause significant market disruptions and volatility within the markets in Russia, Europe, the Middle East and the United States. The hostilities and sanctions resulting from those hostilities have and could continue to have a significant impact on certain Fund investments as well as Fund performance and liquidity. The economies of the United States and its trading partners, as well as the financial markets generally, may be adversely impacted by trade disputes, including the imposition of tariffs, and other matters. For example, the United States has imposed trade barriers and restrictions on China. In addition, the Chinese government is engaged in a longstanding dispute with Taiwan, continually threatening an invasion. If the political climate between the United States and China does not improve or continues to deteriorate, if China were to attempt invading Taiwan, or if other geopolitical conflicts develop or worsen, economies, markets and individual securities may be adversely affected, and the value of the Fund&#x2019;s assets may go down. A public health crisis and the ensuing policies enacted by governments and central banks may cause significant volatility and uncertainty in global financial markets, negatively impacting global growth prospects. As the COVID-19 global pandemic illustrated, such events may affect certain geographic regions, countries, sectors and industries more significantly than others. Advancements in technology may also adversely impact markets and the overall performance of the Fund. For instance, the economy may be significantly impacted by the advanced development and increased regulation of artificial intelligence. Additionally, cyber security breaches of both government and non-government entities could have negative impacts on infrastructure and the ability of such entities, including the Fund, to operate properly. These events, and any other future events, may adversely &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;affect the prices and liquidity of the Fund&#x2019;s portfolio investments and could result in disruptions in the trading markets.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_CyberSecurityRiskMember"
+      id="x_3adba73d-faf8-4032-bea4-cd6f50d06caa">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CYBER SECURITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is susceptible to operational risks through breaches in cyber security. A breach in cyber &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;security refers to both intentional and unintentional events that may cause the Fund to lose proprietary information, suffer data corruption or lose operational capacity. Such events could cause the Fund to incur regulatory penalties, reputational damage, additional compliance costs associated with corrective measures and/or financial loss. Cyber security breaches may involve unauthorized access to the Fund&#x2019;s digital information systems through &#x201c;hacking&#x201d; or malicious software coding but may also result from outside attacks such as denial-of-service attacks through efforts to make network services unavailable to intended users. In addition, cyber security breaches of the issuers of securities in which the Fund invests or the Fund&#x2019;s third-party service providers, such as its administrator, transfer agent, custodian, or sub-advisor, as applicable, can also subject the Fund to many of the same risks associated with direct cyber security breaches. Although the Fund has established risk management systems designed to reduce the risks associated with cyber security, there is no guarantee that such efforts will succeed, especially because the Fund does not directly control the cyber security systems of issuers or third-party service &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;providers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_DepositaryReceiptsRiskMember"
+      id="bbb89e7e-41b5-438c-90e5-4ef421a54ba1">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;DEPOSITARY RECEIPTS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Depositary receipts represent equity interests in a foreign company that trade on a local stock &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;exchange. Depositary receipts may be less liquid than the underlying shares in their primary trading market. Any distributions paid to the holders of depositary receipts are usually subject to a fee charged by the depositary. Holders of depositary receipts &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;may have limited voting rights, and investment restrictions in certain countries may adversely impact the value of depositary receipts because such restrictions may limit the ability to convert the equity shares into depositary receipts and vice versa. Such restrictions may cause the equity shares of the underlying issuer to trade at a discount or premium to the market price &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the depositary receipts.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_EnergyCompaniesRiskMember"
+      id="x_4ada35d6-b9db-449b-a719-09520cae2a58">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;ENERGY COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund invests significantly in energy companies. The success of energy companies may be &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;cyclical and highly dependent on energy prices. The market value of securities issued by energy companies may decline for many reasons, including, among other things, changes in the levels and volatility of global energy prices, energy supply and demand, capital expenditures on exploration and production of energy sources, exchange rates, interest rates, economic conditions, tax treatment, energy conservation efforts, increased competition and technological advances. Energy companies may be subject to substantial government regulation and contractual fixed pricing, which may increase the cost of doing business and limit the earnings of these companies. A significant portion of the revenues of energy companies may depend on a relatively small number of customers, including governmental entities and utilities. As a result, governmental budget constraints may have a material adverse effect on the stock prices of energy companies. Energy companies may also operate in, or engage in transactions involving, countries with less developed regulatory regimes or a history of expropriation, nationalization or other adverse policies. Energy companies also face a significant risk of liability from accidents resulting in injury or loss of life or property, pollution or other environmental problems, equipment malfunctions or mishandling of materials &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and a risk of loss from terrorism, political strife or natural disasters.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_EnergyInfrastructureCompaniesRiskMember"
+      id="f4d170f9-deb2-446a-bc77-e5109b898550">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;ENERGY INFRASTRUCTURE COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Energy infrastructure companies, including MLPs and utility companies, are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;subject to risks specific to the energy and energy-related industries. This includes but is not limited to: fluctuations in commodity prices impacting the volume of energy commodities transported, processed, stored or distributed; reductions in volumes of natural gas or other energy commodities being available for transporting, processing, storing or distributing; slowdowns in new construction and acquisitions limiting growth potential; reduced demand for oil, natural gas and petroleum products, particularly for a sustained period of time; depletion of natural gas reserves or other commodities; rising interest rates resulting in higher costs of capital, increased operating costs; counterparties to contracts defaulting or going bankrupt; and an inability to execute acquisitions or expansion projects in a cost-effective manner; extreme weather events and environmental hazards; and threats of attack by terrorists on energy assets. Energy infrastructure companies may also face counterparty risk, such that long-term contracts may be declared void if the counterparty to those contracts enters bankruptcy proceedings. In addition, energy infrastructure companies are subject to significant federal, state and local government regulation in virtually every aspect of their operations, including how facilities are constructed, maintained and operated, environmental and safety controls, and the prices they may charge for products and services. Energy infrastructure companies that own interstate pipelines are subject to regulation by U.S. Federal Energy Regulatory Commission (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;"FERC"&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) with respect to the tariff rates they may charge &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;for transportation services. An adverse determination by FERC with respect to the tariff rates of such a company could have a material adverse effect on its business, financial condition, results of operations and cash flows and its ability to pay cash distributions or dividends. Various governmental authorities have the power to enforce compliance with these regulations and the permits issued under them and violators are subject to administrative, civil and criminal penalties, including civil fines, injunctions or both. Stricter laws, regulations or enforcement policies could be enacted in the future which would likely increase compliance costs and may adversely affect the financial performance of energy infrastructure companies. Natural disasters, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;such as hurricanes in the Gulf of Mexico, also may impact the energy infrastructure companies.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Certain energy infrastructure companies in the utility sector are subject to the imposition of rate caps, increased competition due to deregulation, the difficulty in obtaining an adequate return on invested capital or in financing large construction projects, the limitations on operations and increased costs and delays attributable to environmental considerations, and the capital market&#x2019;s ability to absorb utility debt. In addition, taxes, government regulation, international politics, price and supply fluctuations, volatile interest rates and energy conservation may cause difficulties for these companies. Such issuers have &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;been experiencing certain of these problems in varying degrees.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Certain energy infrastructure companies are involved in the production of electrical equipment and components. General risks of these companies include the general state of the economy, exchange rates, commodity prices, intense competition, consolidation, domestic and international politics, government regulation, import controls, excess capacity, consumer demand and spending trends. In addition, the companies may also be significantly affected by overall capital spending levels, economic cycles, rapid technological changes, delays in modernization, labor relations, environmental liabilities, governmental and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;product liability and e-commerce initiatives.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_EquitySecuritiesRiskMember"
+      id="x_4d6b99e6-2c23-4883-a67c-b169948695ea">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;EQUITY SECURITIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The value of the Fund's shares will fluctuate with changes in the value of the equity securities in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;which it invests. Equity securities prices fluctuate for several reasons, including changes in investors&#x2019; perceptions of the financial &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;condition of an issuer or the general condition of the relevant equity market, such as market volatility, or when political or economic events affecting an issuer occur. Common stock prices may be particularly sensitive to rising interest rates, as the cost of capital rises and borrowing costs increase. Equity securities may decline significantly in price over short or extended periods of time, and such declines may occur in the equity market as a whole, or they may occur in only a particular country, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;company, industry or sector of the market.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_IndexOrModelConstituentRiskMember"
+      id="x_03933e54-353a-40c6-b55f-c65317f8b018">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INDEX OR MODEL CONSTITUENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may be a constituent of one or more indices or ETF models. As a result, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund may be included in one or more index-tracking exchange-traded funds or mutual funds. Being a component security of such a vehicle could greatly affect the trading activity involving the Fund&#x2019;s shares, the size of the Fund and the market volatility of the Fund. Inclusion in an index could increase demand for the Fund and removal from an index could result in outsized selling activity in a relatively short period of time. As a result, the Fund&#x2019;s net asset value could be negatively impacted and the Fund&#x2019;s market price may be below the Fund&#x2019;s net asset value during certain periods. In addition, index rebalances may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;potentially result in increased trading activity in the Fund's shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_InflationRiskMember"
+      id="x_1be09917-e3ca-4202-9f74-5214438209ef">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INFLATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Inflation risk is the risk that the value of assets or income from investments will be less in the future as &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;inflation decreases the value of money. As inflation increases, the present value of the Fund&#x2019;s assets and distributions may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;decline.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_LargeCapitalizationCompaniesRiskMember"
+      id="x_6276ae48-5df9-418f-aaa0-da34fcb06eb6">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;LARGE CAPITALIZATION COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Large capitalization companies may grow at a slower rate and be less able to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;adapt to changing market conditions than smaller capitalization companies. Thus, the return on investment in securities of large capitalization companies may be less than the return on investment in securities of small and/or mid capitalization companies. The performance of large capitalization companies also tends to trail the overall market during different market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;cycles.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_LiquidityRiskMember"
+      id="x_218a34a4-acd6-4926-ae5b-95d745a1165c">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;LIQUIDITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may hold certain investments that may be subject to restrictions on resale, trade over-the-counter &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or in limited volume, or lack an active trading market. Certain investments held by the Fund that trade on non-U.S. exchanges may be further subject to liquidity risk due to foreign market closures or unexpected impediments to trading in local markets. Accordingly, the Fund may not be able to sell or close out of such investments at favorable times or prices (or at all), or at the prices approximating those at which the Fund currently values them. Illiquid securities may trade at a discount from comparable, more liquid investments and may be subject to wide fluctuations in market value and the bid/ask spread on the Fund's shares &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_ManagementRiskMember"
+      id="x_76815607-514b-4917-94cb-086992dd1b41">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MANAGEMENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is subject to management risk because it is an actively managed portfolio. In managing the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s investment portfolio, the portfolio managers will apply investment techniques and risk analyses that may not produce &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;the desired result. There can be no guarantee that the Fund will meet its investment objective.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_MarketMakerRiskMember"
+      id="ab39dfe9-f4c4-45ea-8b10-8e61fbe9197a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MARKET MAKER RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund faces numerous market trading risks, including the potential lack of an active market for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund shares due to a limited number of market markers. Decisions by market makers or authorized participants to reduce their role or step away from these activities in times of market stress could inhibit the effectiveness of the arbitrage process in maintaining the relationship between the underlying values of the Fund&#x2019;s portfolio securities and the Fund&#x2019;s market price. The Fund may rely on a small number of third-party market makers to provide a market for the purchase and sale of shares. Any trading halt or other problem relating to the trading activity of these market makers could result in a dramatic change in the spread between the Fund&#x2019;s net asset value and the price at which the Fund&#x2019;s shares are trading on the Exchange, which could result in a decrease in value of the Fund&#x2019;s shares. This reduced effectiveness could result in Fund shares trading at a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;discount to net asset value and also in greater than normal intraday bid-ask spreads for Fund shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_MarketRiskMember"
+      id="x_37a15e0f-8254-4fd9-b1b6-7334bf936130">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MARKET RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Market risk is the risk that a particular investment, or shares of the Fund in general, may fall in value. Securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;are subject to market fluctuations caused by real or perceived adverse economic, political, and regulatory factors or market developments, changes in interest rates and perceived trends in securities prices. Shares of the Fund could decline in value or underperform other investments. In addition, local, regional or global events such as war, acts of terrorism, market manipulation, government defaults, government shutdowns, regulatory actions, political changes, diplomatic developments, the imposition of sanctions and other similar measures, spread of infectious diseases or other public health issues, recessions, natural disasters, or other events could have a significant negative impact on the Fund and its investments. Any of such circumstances could have a materially negative impact on the value of the Fund&#x2019;s shares, the liquidity of an investment, and may result in increased market volatility. During any such events, the Fund&#x2019;s shares may trade at increased premiums or discounts to their net asset value, the bid/ask spread on the Fund&#x2019;s shares may widen and the returns on investment may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fluctuate.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_MLPRiskMember"
+      id="x_10894494-31d8-460f-9113-a53ba1141288">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MLP RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Investments in securities of MLPs involve certain risks different from or in addition to the risks of investing in common &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;stocks. MLP common units can be affected by macro-economic factors and other factors unique to the partnership or company and the industry or industries in which the MLP operates. Certain MLP securities may trade in relatively low volumes due to their smaller capitalizations or other factors, which may cause them to have a high degree of price volatility and illiquidity. The structures of MLPs create certain risks, including, for example, risks related to the limited ability of investors to control an MLP and to vote on matters affecting the MLP, risks related to potential conflicts of interest between an MLP and the MLP's general partner, the risk that an MLP will generate insufficient cash flow to meet its current operating requirements, the risk that an MLP will issue additional securities or engage in other transactions that will have the effect of diluting the interests of existing investors, and risks related to the general partner's right to require unit-holders to sell their common units at an &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;undesirable time or price.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_MLPTaxRiskMember"
+      id="x_4dc578d5-441c-42ea-8ed8-24eb3e999f13">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MLP TAX RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund&#x2019;s ability to meet its investment objective relies in part upon the level of taxable income it receives &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;from the MLPs in which it invests, a factor over which the Fund has no control. The benefit the Fund derives from its investment in MLPs is largely dependent on their being treated as partnerships for U.S. federal income tax purposes. Partnerships do not pay U.S. federal income tax at the partnership level. Rather, each partner is allocated a share of the partnership&#x2019;s income, gains, losses, deductions and expenses. A change in current tax law or a change in the underlying business mix of a given MLP could result in an MLP being treated as a corporation for U.S. federal income tax purposes, which would result in the MLP being required to pay U.S. federal income tax (as well as state and local income taxes) on its taxable income at the applicable corporate tax rate. This would have the effect of reducing the amount of cash available for distribution by an MLP and could result in a significant reduction in the value of the Fund&#x2019;s investment. The classification of an MLP as a corporation for U. S. federal income tax purposes would have the effect of reducing the amount of cash available for distribution by the MLP and causing any such distributions received by the Fund to be taxed as dividend income to the extent of the MLP&#x2019;s current or accumulated earnings and profits. To the extent a distribution received by the Fund from an MLP is treated as a return of capital, the Fund&#x2019;s adjusted tax basis in the interests of the MLP may be reduced, which will result in an increase in the amount of income or gain (or decrease in the amount of loss) that will be recognized by the Fund for tax purposes upon the sale of any such interests or upon subsequent distributions in respect of such interests. Furthermore, any return of capital distribution received from an MLP may require the Fund to restate the character of its distributions and amend any shareholder tax reporting &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;previously issued. See "Deferred Tax Liability Risk."&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_MoneyMarketShortTermSecuritiesRiskMember"
+      id="x_2eb9175c-eef0-4870-a3a9-43c2a1a7e06b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MONEY MARKET/SHORT-TERM SECURITIES RISK. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;To the extent the Fund holds cash or invests in money market or short-term &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;securities, the Fund may be less likely to achieve its investment objective. In addition, it is possible that the Fund&#x2019;s investments &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;in these instruments could lose money.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_RiskNondiversifiedMember"
+      id="fc8bcabd-d6fb-4a26-bba2-5925239aca06">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-DIVERSIFICATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is classified as &#x201c;non-diversified&#x201d; under the 1940 Act. As a result, the Fund is only &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;limited as to the percentage of its assets which may be invested in the securities of any one issuer by the diversification requirements imposed by the Internal Revenue Code of 1986, as amended. The Fund may invest a relatively high percentage of its assets in a limited number of issuers. As a result, the Fund may be more susceptible to a single adverse economic or regulatory occurrence affecting one or more of these issuers, experience increased volatility and be highly invested in certain &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;issuers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_NonUSSecuritiesRiskMember"
+      id="x_959948eb-34bb-47f6-a552-266f0338eec3">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-U.S. SECURITIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Non-U.S. securities are subject to higher volatility than securities of domestic issuers due to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;possible adverse political, social or economic developments, restrictions on foreign investment or exchange of securities, capital controls, lack of liquidity, currency exchange rates, excessive taxation, government seizure of assets, the imposition of sanctions by foreign governments, different legal or accounting standards, and less government supervision and regulation of securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;exchanges in foreign countries.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_NuclearPowerCompaniesRiskMember"
+      id="f9ff69da-10b4-42d0-b2b7-27db44570abf">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NUCLEAR POWER COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Nuclear power companies may face considerable risk as a result of incidents and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;accidents, breaches of security, ill-intentioned acts of terrorism, natural disasters, equipment malfunctions or mishandling in storage, handling, transportation, treatment or conditioning of substances and nuclear materials. Such events could have serious consequences, especially in the case of radioactive contamination and irradiation of the environment, for the general population, as well as a material, negative impact on nuclear infrastructure companies. In addition, nuclear infrastructure companies are subject to competitive risk associated with the prices of other energy sources, such as natural gas and oil. Consumers of nuclear energy may have the ability to switch between nuclear energy and other energy sources and, as a result, during periods when competing energy sources are less expensive, the revenues of nuclear infrastructure companies may decline with a corresponding impact on earnings. Nuclear activity is also subject to particularly detailed and restrictive regulations, with a scheme for the monitoring and periodic re-examination of operating authorization, which primarily takes into account nuclear safety, environmental and public health protection, and also national security considerations, including &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;terrorist threats in particular. These regulations and any future regulations may be subject to significant tightening by national and international authorities. This could result in increased operating costs, which would have a negative impact on nuclear power companies and may cause operating businesses related to nuclear energy to become unprofitable or impractical to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;operate.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_OperationalRiskMember"
+      id="x_0ef45774-6384-40d1-b1c9-7e807ba0f503">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;OPERATIONAL RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is subject to risks arising from various operational factors, including, but not limited to, human &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;error, processing and communication errors, errors of the Fund&#x2019;s service providers, counterparties or other third-parties, failed or inadequate processes and technology or systems failures. The Fund relies on third-parties for a range of services, including custody. Any delay or failure relating to engaging or maintaining such service providers may affect the Fund&#x2019;s ability to meet its investment objective. Although the Fund and the Fund's investment advisor seek to reduce these operational risks through &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;controls and procedures, there is no way to completely protect against such risks.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_PremiumDiscountRiskMember"
+      id="x_60854f95-02a1-43e7-96cd-c0269902c162">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PREMIUM/DISCOUNT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The market price of the Fund&#x2019;s shares will generally fluctuate in accordance with changes in the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s net asset value as well as the relative supply of and demand for shares on the Exchange. The Fund&#x2019;s investment advisor cannot predict whether shares will trade below, at or above their net asset value because the shares trade on the Exchange at market prices and not at net asset value. Price differences may be due, in large part, to the fact that supply and demand forces at work in the secondary trading market for shares will be closely related, but not identical, to the same forces influencing the prices of the holdings of the Fund trading individually or in the aggregate at any point in time. However, given that shares can only be purchased and redeemed in Creation Units, and only to and from broker-dealers and large institutional investors that have entered into participation agreements (unlike shares of closed-end funds, which frequently trade at appreciable discounts from, and sometimes at premiums to, their net asset value), the Fund&#x2019;s investment advisor believes that large discounts or premiums to the net asset value of shares should not be sustained. During stressed market conditions, the market for the Fund&#x2019;s shares may become less liquid in response to deteriorating liquidity in the market for the Fund&#x2019;s underlying portfolio holdings, which could in turn lead to differences between the market price of the Fund&#x2019;s shares and their net asset &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;value and the bid/ask spread on the Fund&#x2019;s shares may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_RenewableEnergyCompaniesRiskMember"
+      id="x_4907fb0b-34a1-4014-b258-7114d7041a50">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;RENEWABLE ENERGY COMPANIES RISK. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Renewable energy companies are subject to risks specific to the energy and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;energy-related industries, including but not limited to, fluctuations in energy prices and/or interest rates, slowdowns in new construction, reduced demand, extreme weather events and environmental hazards, world events and economic conditions, events relating to international politics, changes in exchange rates, imposition of import controls, and threats of attack by terrorists on energy assets. Renewable energy companies can also be significantly affected by intense competition, obsolescence of existing technology, short product cycles, and changes in governmental or environmental regulation, including tax incentives and subsidies. Renewable energy companies may also be more volatile than companies operating in more established sectors. Additionally, certain methods used to value renewable energy companies have not been widely used for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;a significant period of time and may further increase the volatility of renewable energy company share prices.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_SmallerCompaniesRiskMember"
+      id="x_6f513103-943f-4b4d-add9-262218490edc">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;SMALLER COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Small and/or mid capitalization companies may be more vulnerable to adverse general market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or economic developments, and their securities may be less liquid and may experience greater price volatility than larger, more established companies as a result of several factors, including limited trading volumes, fewer products or financial resources, management inexperience and less publicly available information. Accordingly, such companies are generally subject &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;to greater market risk than larger, more established companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_TradingIssuesRiskMember"
+      id="x_10a3ff9a-e08e-4968-b8f5-a351280df748">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;TRADING ISSUES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Trading in Fund shares on the Exchange may be halted due to market conditions or for reasons that, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;in the view of the Exchange, make trading in shares inadvisable. In addition, trading in Fund shares on the Exchange is subject to trading halts caused by extraordinary market volatility pursuant to the Exchange&#x2019;s &#x201c;circuit breaker&#x201d; rules. There can be no assurance that the requirements of the Exchange necessary to maintain the listing of the Fund will continue to be met or will remain unchanged. The Fund may have difficulty maintaining its listing on the Exchange in the event the Fund&#x2019;s assets are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;small, the Fund does not have enough shareholders, or if the Fund is unable to proceed with creation and/or redemption orders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_UtilityCompaniesRiskMember"
+      id="x_6abb00cb-000f-4da2-a062-fef9450ecabc">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;UTILITY COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Utility companies include companies producing or providing gas, electricity or water. These &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;companies are subject to the risk of the imposition of rate caps, increased competition due to deregulation, the difficulty in obtaining an adequate return on invested capital or in financing large construction projects counterparty risk, the limitations on operations and increased costs and delays attributable to environmental considerations and the capital market&#x2019;s ability to absorb utility debt. In addition, taxes, government regulation, domestic and international politics, price and supply &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fluctuations, volatile interest rates and energy conservation may negatively affect utility companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000066179_ValuationRiskMember"
+      id="x_28b3554c-e193-4957-8864-4d4862ed304f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;VALUATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may hold securities or other assets that may be valued on the basis of factors other than market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;quotations. This may occur because the asset or security does not trade on a centralized exchange, or in times of market turmoil &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or reduced liquidity. There are multiple methods that can be used to value a portfolio holding when market quotations are not readily available. Fund investments that trade on non-U.S. exchanges that close prior to the close of the NYSE may be fair valued using a systematic fair valuation model. If these foreign investments meet certain criteria in relation to the valuation model, their valuation is systematically adjusted to reflect the impact of movement in the U.S. market after the close of certain foreign markets. The value established for any portfolio holding at a point in time might differ from what would be produced using a different methodology or if it had been priced using market quotations. In addition, there is no assurance that the Fund could sell or close out a portfolio position for the value established for it at any time, and it is possible that the Fund would incur a loss because a portfolio position is sold or closed out at a discount to the valuation established by the Fund at that time. The Fund&#x2019;s ability to value investments may be impacted by technological issues or errors by pricing services or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;other third-party service providers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000066179"
+      id="x_0cb715c6-f5e4-4768-a6d8-985aaca5fad9">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Annual Total Return&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000066179"
+      id="a08ac628-5950-4d30-ac2a-15c29f3e39c2">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The bar chart and table below illustrate the annual calendar year returns of the Fund based on net asset value as well as the average annual Fund returns. The bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance from year-to-year and by showing how the Fund&#x2019;s average annual total returns based on net asset value compared to those of a broad-based securities market index and a market index. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s performance information is accessible on the Fund&#x2019;s website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;On September 5, 2025, the Fund changed its name and Principal Investment Strategies. Therefore, any Fund performance and historical returns shown below that incorporate Fund performance prior to September 5, 2025 are not necessarily indicative &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the performance that the Fund, based on its current Principal Investment Strategies, would have generated.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="S000066179"
+      id="x_56165135-8426-41b7-a6fc-e3944a35b5de">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The bar chart and table below illustrate the annual calendar year returns of the Fund based on net asset value as well as the average annual Fund returns. The bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance from year-to-year and by showing how the Fund&#x2019;s average annual total returns based on net asset value compared to those of a broad-based securities market index and a market index. &lt;/span&gt;</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000066179"
+      id="x_1770df73-813b-4c38-b8be-970c01c3f796">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:BarChartHeading
+      contextRef="S000066179"
+      id="x_40ef678a-e2af-4b40-b567-0e69e4b2b485">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;First Trust EIP Power Solutions ETF&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Calendar Year Total Returns as of 12/31&lt;/span&gt;</oef:BarChartHeading>
+    <oef:BarChartClosingTextBlock
+      contextRef="S000066179"
+      id="acd76bda-317d-4017-8be8-5b2ecfa73f8b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;During the periods shown in the chart above:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Return&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Period Ended&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0.0pt;"&gt;Best Quarter&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;15.80%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;September 30, 2024&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0.0pt;"&gt;Worst Quarter&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;-11.97%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;March 31, 2020&lt;/span&gt;</oef:BarChartClosingTextBlock>
+    <oef:HighestQuarterlyReturnLabel
+      contextRef="S000066179_C000213865"
+      id="c2cb366c-0a45-4e96-9f52-7f6fe418e09f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0.0pt;"&gt;Best Quarter&lt;/span&gt;</oef:HighestQuarterlyReturnLabel>
+    <oef:BarChartHighestQuarterlyReturn
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="x_92c6c919-5d5c-4350-b040-44e3628c662d"
+      unitRef="pure">0.1580</oef:BarChartHighestQuarterlyReturn>
+    <oef:BarChartHighestQuarterlyReturnDate
+      contextRef="S000066179_C000213865"
+      id="x_2f1c3fc7-24cf-44f9-a79f-452ffd83e313">2024-09-30</oef:BarChartHighestQuarterlyReturnDate>
+    <oef:LowestQuarterlyReturnLabel
+      contextRef="S000066179_C000213865"
+      id="b65d37c7-7091-4af0-984c-ee93ce33316f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0.0pt;"&gt;Worst Quarter&lt;/span&gt;</oef:LowestQuarterlyReturnLabel>
+    <oef:BarChartLowestQuarterlyReturn
+      contextRef="S000066179_C000213865"
+      decimals="4"
+      id="c9183ed3-7f71-4f75-b2ef-4dae94389308"
+      unitRef="pure">-0.1197</oef:BarChartLowestQuarterlyReturn>
+    <oef:BarChartLowestQuarterlyReturnDate
+      contextRef="S000066179_C000213865"
+      id="x_776a38e5-62b3-4372-ad1f-f44a894ad2ce">2020-03-31</oef:BarChartLowestQuarterlyReturnDate>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000066179"
+      id="d1d5b2f6-e3db-43eb-b643-65ac95943120">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceTableUsesHighestFederalRate
+      contextRef="S000066179"
+      id="x_0f848527-c699-40cc-bd96-e09d4e4432ee">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;All after-tax returns are calculated using the historical highest individual federal marginal income tax rates and do not reflect the impact of any state or local tax.&lt;/span&gt;</oef:PerformanceTableUsesHighestFederalRate>
+    <oef:PerformanceTableExplanationAfterTaxHigher
+      contextRef="S000066179"
+      id="x_35bbffe1-99b2-486b-9144-f7b355dc2155">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Returns after taxes on distributions reflect the taxed return on the payment of dividends &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;and capital gains. Returns after taxes on distributions and sale of shares assume you sold your shares at period end, and, therefore, are also adjusted for any capital gains or losses incurred. Returns for an index do not include expenses, which are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;deducted from Fund returns, or taxes.&lt;/span&gt;</oef:PerformanceTableExplanationAfterTaxHigher>
+    <oef:PerformanceTableNotRelevantToTaxDeferred
+      contextRef="S000066179"
+      id="a02fe572-cbeb-4d54-9280-2e4107394324">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Your own actual after-tax returns will depend on your specific tax situation and may differ from what is shown here. After-tax returns are not relevant to investors who hold Fund shares in tax-deferred accounts such as individual retirement accounts &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;IRAs&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) or employee-sponsored retirement plans.&lt;/span&gt;</oef:PerformanceTableNotRelevantToTaxDeferred>
+    <oef:PerformanceTableHeading
+      contextRef="S000066179"
+      id="x_53c21600-133a-48ac-aa74-4e04695888c1">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Average Annual Total Returns for the Periods Ended December 31, 2024&lt;/span&gt;</oef:PerformanceTableHeading>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_01Jan2024_31Dec2024"
+      decimals="4"
+      id="c9f22d36-886b-4b4e-94e1-0f191ebb651d"
+      unitRef="pure">0.2245</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_01Jan2020_31Dec2024"
+      decimals="4"
+      id="c9c10192-3227-4670-bc8c-5227823f9ea0"
+      unitRef="pure">0.0883</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_19Aug2019_31Dec2024"
+      decimals="4"
+      id="ab376260-a1e3-4933-9c95-0bc285e7a680"
+      unitRef="pure">0.0929</oef:AvgAnnlRtrPct>
+    <oef:PerfInceptionDate
+      contextRef="C000213865"
+      id="x_56c74be2-63df-47de-a71c-141d55336707">2019-08-19</oef:PerfInceptionDate>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsMember_01Jan2024_31Dec2024"
+      decimals="4"
+      id="x_2ff974b1-c1f1-4de9-b30d-1ed235ecfa39"
+      unitRef="pure">0.2112</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsMember_01Jan2020_31Dec2024"
+      decimals="4"
+      id="x_6262f2d4-ce47-4ee1-a66e-b923371f62df"
+      unitRef="pure">0.0790</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsMember_19Aug2019_31Dec2024"
+      decimals="4"
+      id="f3087644-b740-457c-81a0-f891ccbc290b"
+      unitRef="pure">0.0836</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsAndSalesMember_01Jan2024_31Dec2024"
+      decimals="4"
+      id="x_7ce7080d-0aac-4885-88e6-1b4d2e8b2381"
+      unitRef="pure">0.1323</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsAndSalesMember_01Jan2020_31Dec2024"
+      decimals="4"
+      id="d0b44e9e-b1a3-49be-b1a4-0cfa2bf82cb0"
+      unitRef="pure">0.0650</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000213865_AfterTaxesOnDistributionsAndSalesMember_19Aug2019_31Dec2024"
+      decimals="4"
+      id="f7aed242-22d5-4ca6-9d83-6edbcf62b169"
+      unitRef="pure">0.0689</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_SP500IndexMember_01Jan2024_31Dec2024"
+      decimals="4"
+      id="x_063573c7-ae0f-4260-86da-6d5cb474b956"
+      unitRef="pure">0.2502</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_SP500IndexMember_01Jan2020_31Dec2024"
+      decimals="4"
+      id="x_32997020-7933-4eb3-bb2b-7f94dc117dd7"
+      unitRef="pure">0.1453</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_SP500IndexMember_19Aug2019_31Dec2024"
+      decimals="4"
+      id="bdd79bc6-8409-4671-87bf-4a65f8dd225a"
+      unitRef="pure">0.1575</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_PHLXUtilitySectorIndexMember_01Jan2024_31Dec2024"
+      decimals="4"
+      id="x_8ea4ef3b-1ac1-41a9-9730-62157fb6ed83"
+      unitRef="pure">0.2088</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_PHLXUtilitySectorIndexMember_01Jan2020_31Dec2024"
+      decimals="4"
+      id="x_0f62bf6a-572f-418c-b53a-2560b90fbbe7"
+      unitRef="pure">0.0607</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_PHLXUtilitySectorIndexMember_19Aug2019_31Dec2024"
+      decimals="4"
+      id="x_8d97c01c-c5fd-4501-b875-f3357db07bf5"
+      unitRef="pure">0.0684</oef:AvgAnnlRtrPct>
+</xbrl>

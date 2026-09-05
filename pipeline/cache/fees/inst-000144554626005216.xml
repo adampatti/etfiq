@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2026"
+  xmlns:fnd="http://xbrl.sec.gov/fnd/2026"
+  xmlns:ftetfii="http://www.ftportfolios.com/20260717"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2026"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ftetfii-20260717.xsd" xlink:type="simple"/>
+    <context id="D_17Jul2026_17Jul2026">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_C000277163">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ftetfii:C000277163Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_RiskNotInsuredDepositoryInstitutionMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredDepositoryInstitutionMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_AuthorizedParticipantConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:AuthorizedParticipantConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_CurrencyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:CurrencyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_CurrentMarketConditionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:CurrentMarketConditionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_CyberSecurityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:CyberSecurityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_DepositaryReceiptsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:DepositaryReceiptsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_EmergingMarketsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:EmergingMarketsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_EquitySecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:EquitySecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_IndexConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:IndexConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_IndexOrModelConstituentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:IndexOrModelConstituentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_IndexProviderRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:IndexProviderRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_InternationalClosedMarketTradingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:InternationalClosedMarketTradingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_LargeCapitalizationCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:LargeCapitalizationCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_LiquidityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:LiquidityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_MarketMakerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:MarketMakerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_MaterialsCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:MaterialsCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_MidCapitalizationCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:MidCapitalizationCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_NonCorrelationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:NonCorrelationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_RiskNondiversifiedMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:RiskNondiversifiedMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_NonUSSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:NonUSSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_OperationalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:OperationalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_PassiveInvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:PassiveInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_PortfolioTurnoverRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:PortfolioTurnoverRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_PreciousMetalsMiningCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:PreciousMetalsMiningCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_PremiumDiscountRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:PremiumDiscountRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_SmallCapitalizationCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:SmallCapitalizationCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_TradingIssuesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:TradingIssuesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <context id="S000106314_ValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001364608</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ftetfii:S000106314Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ftetfii:ValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-17</startDate>
+            <endDate>2026-07-17</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_17Jul2026_17Jul2026" id="apid_1">2026-07-17</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_17Jul2026_17Jul2026" id="apid_2">0001364608</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_17Jul2026_17Jul2026" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_17Jul2026_17Jul2026" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_17Jul2026_17Jul2026"
+      id="x_0c270a97-005f-4856-a7b3-e0af36c6c1b9">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_17Jul2026_17Jul2026"
+      id="apid_42bb0f75-7caf-4057-bf72-d716079b60f9">First Trust Exchange-Traded Fund II</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_17Jul2026_17Jul2026"
+      id="apid_b6e33121-8eac-4fd3-aeb6-98d33b424568">2026-07-20</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000106314"
+      id="c5e7be96-9b05-4439-891d-ffd89729a56c">&lt;span style="color:#000000;font-family:Arial;font-size:12.60pt;font-weight:bold;"&gt;First Trust Indxx Quality Precious Metals Miners ETF (PMTL)&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000106314"
+      id="a2989e72-8d0f-486e-b5ce-5244f101e9a8">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000106314"
+      id="x_91658c90-20fe-45b9-951c-00d0f3cb2beb">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The First Trust Indxx Quality Precious Metals Miners ETF (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Fund&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) seeks investment results that correspond generally to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the price and yield (before the Fund&#x2019;s fees and expenses) of an index called the Indxx Quality Precious Metals Miners Index &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Index&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;).&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000106314"
+      id="x_15c37e6a-a66a-4cd0-9715-b41ba343a123">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000106314"
+      id="d7a431af-06b7-4559-883a-d1fd19aa5722">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The following table describes the fees and expenses you may pay if you buy, hold and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Investors may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;the table and example below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:ShareholderFeesCaption
+      contextRef="S000106314"
+      id="fba6758c-e0fb-4861-bbfc-8ea1fad29686">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Shareholder Fees&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(fees paid directly from your investment)&lt;/span&gt;</oef:ShareholderFeesCaption>
+    <oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice
+      contextRef="S000106314_C000277163"
+      decimals="4"
+      id="x_5dba9a76-3997-4787-99d8-a805acc5ca0a"
+      unitRef="pure">0</oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice>
+    <oef:OperatingExpensesCaption
+      contextRef="S000106314"
+      id="x_4b253976-c8b3-483a-954a-afb1cd13d730">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Annual Fund Operating Expenses&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000106314_C000277163"
+      decimals="4"
+      id="x_95d7dcf5-9e70-49ee-ab5a-1a45f617d69d"
+      unitRef="pure">0.0065</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000106314_C000277163"
+      decimals="4"
+      id="ad15929d-7e38-4018-ba28-af766ee84870"
+      unitRef="pure">0.0000</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000106314_C000277163"
+      decimals="4"
+      id="x_821eb757-0c96-4e46-8a96-494a4f5a1cf1"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000106314_C000277163"
+      decimals="4"
+      id="x_11a5aff0-26de-46e5-a024-5806ce8681cf"
+      unitRef="pure">0.0065</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000106314"
+      id="efb2dd2b-44ca-43aa-8543-bd95a08fa3b9">&lt;span style="color:#000000;font-family:Arial;font-size:8.10pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; is an estimate based on the expenses the Fund expects to incur for the current fiscal year.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="S000106314"
+      id="x_1da170f6-3558-42e1-a10c-40cbca9b95a4">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;font-weight:bold;"&gt;Example&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNoRedemptionNarrativeTextBlock
+      contextRef="S000106314"
+      id="x_542321b3-c2d8-4c7f-9d0f-40331bc3b869">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The example below is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The example assumes that you invest $10,000 in the Fund for the time periods indicated and then hold or sell all of your shares at the end of those periods. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain at current levels. Although your actual costs may be higher or lower, based on these &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;assumptions your costs would be:&lt;/span&gt;</oef:ExpenseExampleNoRedemptionNarrativeTextBlock>
+    <oef:ExpenseExampleNoRedemptionYear01
+      contextRef="S000106314_C000277163"
+      decimals="INF"
+      id="d52cb807-b3d3-4cb2-bf7d-b731d6ea3607"
+      unitRef="USD">66</oef:ExpenseExampleNoRedemptionYear01>
+    <oef:ExpenseExampleNoRedemptionYear03
+      contextRef="S000106314_C000277163"
+      decimals="INF"
+      id="ea091011-a316-4f29-9cdc-7cdc34f75004"
+      unitRef="USD">208</oef:ExpenseExampleNoRedemptionYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000106314"
+      id="x_56a911d9-1aa8-4269-bb3a-ca7bff1b58c3">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000106314"
+      id="c41c79c9-e31b-4119-ac6f-8198e838583d">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;performance. The Fund has no operational history and therefore no historical turnover rate.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000106314"
+      id="d89f88ca-dca8-461d-af66-623e2ca167a2">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Principal Investment Strategies&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000106314"
+      id="ca618364-a225-48aa-9351-4771e342bc16">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Under normal market conditions, the Fund will invest at least 80% of its net assets (plus any investment borrowings) in the securities that comprise the Index.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund, using an indexing investment approach, attempts to replicate, before fees and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;expenses, the performance of the Index. The Index is owned and is developed, maintained and sponsored by Indxx, Inc. (the &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Index Provider&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;). The Index is a rules-based index, however, the Index Provider reserves the right to use qualitative judgment &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;to include, exclude, adjust, or postpone the inclusion of a stock in the Index which is the ordinary course discretion that the Index Provider has to modify which securities qualify for inclusion in the Index in accordance with the rules of its selection &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;methodology.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, the Index is a modified market capitalization weighted index designed to track the performance of companies with a &#x201c;Precious Metals Miners&#x201d; theme, which it describes as companies primarily engaged in the extraction, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;production and refinement of precious metals, including gold, silver, platinum, palladium, rhodium, iridium and osmium (each such metal a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Precious Metal&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d; or, collectively, &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Precious Metals&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;), widely used in jewelry, electronics, automotive catalysts &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;(emissions-control components that utilize certain Precious Metals to convert toxic exhaust gases into less harmful emissions) &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and as stores of value (&#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Precious Metals Miners Companies&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;).&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, for a company&#x2019;s security to be eligible for inclusion in the Index, it must: (i)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; belong to an &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;industry that the Index Provider determines is primarily or tangentially engaged in the extraction, production or refinement of Precious Metals; (ii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; be listed in a developed market or emerging market (excluding China A-Shares, Vietnam and Kuwait), &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;as determined by the Index Provider; and (iii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; meet the size, liquidity, price, security type and seasoning requirements of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Index. If a company issues more than one security that meets the eligibility requirements of the Index, the Index Provider will &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;evaluate the most liquid share class for inclusion.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Index Provider further categorizes Precious Metals Miners Companies into three sub-groups: (i)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Pure-Play Precious Metals &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Miners Companies,&#x201d; which it describes as companies that derive at least 50% of their revenue from activities relating to the Precious Metals Miners theme; (ii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Quasi-Play Precious Metals Miners Companies,&#x201d; which it describes as companies that derive &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;at least 20% but less than 50% of their revenue from activities relating to the Precious Metals Miners theme; and (iii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Marginal-Play Precious Metals Miners Companies,&#x201d; which it describes as companies that derive less than 20% of their revenue from activities relating to the Precious Metals Miners theme.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, the Index Provider will then select from the remaining eligible securities the top seventy-five (75) Pure-Play Precious Metals Miners Companies based on a combination of market capitalization and Composite Quality Score, with equal weight given to each. The Index Provider calculates a security&#x2019;s Composite Quality Score based on certain quantitative factors, such as a company&#x2019;s return on equity, debt-to-equity ratio and, for gold and silver miners, all-in sustaining costs. If fewer than seventy-five (75), but more than forty (40), Pure-Play Precious Metals Miners Companies are eligible for inclusion in the Index, then all eligible Pure-Play Precious Metals Miners Companies will be included in the Index. If fewer than forty (40) Pure-Play Precious Metals Miners Companies are eligible for inclusion in the Index, then the Index Provider will include in the Index eligible Quasi-Play Precious Metals Miners Companies followed by eligible Marginal-Play Precious Metals Miners Companies to ensure that there are a minimum of forty (40) constituents in the Index. As of July 14, 2026, the Index &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;was composed of 75 securities, each of which was a Pure-Play Precious Metals Miners Company.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, Index securities are weighted based on their market capitalization and Composite Quality Score, with equal weight given to each. No individual security for any company may be weighted above 6.0%. Any individual security with excess weight shall be redistributed proportionately among the remaining securities in the Index. The aggregate weight of securities with weight greater than or equal to 5.0% shall not exceed 45% of the Index. If the aggregate weight of securities with weight greater than or equal to 5.0% exceeds 45% of the portfolio, a secondary cap of 4.0% will be applied to those securities with weight greater than or equal to 5%, with any excess weight being redistributed proportionately among the remaining securities in the Index. The cumulative weight of Quasi-Play Precious Metals Miners Companies and Marginal-Play Precious Metals Miners Companies is capped at 20% of the Index. Additionally, securities with a free float market capitalization &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of less than $1 billion are subject to additional caps.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Index is reconstituted and rebalanced semi-annually, and the Fund will make corresponding changes to its portfolio shortly after the Index changes are made public. The Index&#x2019;s semi-annual rebalance schedule may cause the Fund to experience a higher rate of portfolio turnover. The Index employs buffer rules designed to reduce portfolio turnover by allowing existing constituents to remain in the Index even if they fall marginally below the applicable market capitalization, liquidity or revenue thresholds at the time of reconstitution. These rules introduce the possibility that the Index may continue to include securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;with characteristics below the eligibility thresholds imposed upon new Index constituents.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund will be concentrated in an industry or a group of industries to the extent that the Index is so concentrated. As of July 20, 2026, the Index had significant exposure to materials companies, although this may change from time to time.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s investments will change as the Index changes and, as a result, the Index may have significant investments in jurisdictions or investment sectors that it may not have had as of July 20, 2026. To the extent the Fund invests a significant portion of its assets in a given jurisdiction or investment sector, the Fund may be exposed to the risks associated with that jurisdiction or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;investment sector.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund is classified as &#x201c;non-diversified&#x201d; under the Investment Company Act of 1940, as amended (the &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;1940 Act&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;).&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock
+      contextRef="S000106314"
+      id="x_775dd3c7-8a16-499d-8236-2bc0ec59f7c9">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Under normal market conditions, the Fund will invest at least 80% of its net assets (plus any investment borrowings) in the securities that comprise the Index.&lt;/span&gt;</fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock>
+    <fnd:NmRule35d1TermSlctnCritSmryTextBlock
+      contextRef="S000106314"
+      id="x_6a99f3c5-c178-42bb-bb45-c4bdf80db703">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, the Index is a modified market capitalization weighted index designed to track the performance of companies with a &#x201c;Precious Metals Miners&#x201d; theme, which it describes as companies primarily engaged in the extraction, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;production and refinement of precious metals, including gold, silver, platinum, palladium, rhodium, iridium and osmium (each such metal a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Precious Metal&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d; or, collectively, &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Precious Metals&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;), widely used in jewelry, electronics, automotive catalysts &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;(emissions-control components that utilize certain Precious Metals to convert toxic exhaust gases into less harmful emissions) &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and as stores of value (&#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Precious Metals Miners Companies&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;).&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, for a company&#x2019;s security to be eligible for inclusion in the Index, it must: (i)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; belong to an &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;industry that the Index Provider determines is primarily or tangentially engaged in the extraction, production or refinement of Precious Metals; (ii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; be listed in a developed market or emerging market (excluding China A-Shares, Vietnam and Kuwait), &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;as determined by the Index Provider; and (iii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; meet the size, liquidity, price, security type and seasoning requirements of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Index. If a company issues more than one security that meets the eligibility requirements of the Index, the Index Provider will &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;evaluate the most liquid share class for inclusion.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Index Provider further categorizes Precious Metals Miners Companies into three sub-groups: (i)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Pure-Play Precious Metals &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Miners Companies,&#x201d; which it describes as companies that derive at least 50% of their revenue from activities relating to the Precious Metals Miners theme; (ii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Quasi-Play Precious Metals Miners Companies,&#x201d; which it describes as companies that derive &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;at least 20% but less than 50% of their revenue from activities relating to the Precious Metals Miners theme; and (iii)&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; &#x201c;Marginal-Play Precious Metals Miners Companies,&#x201d; which it describes as companies that derive less than 20% of their revenue from activities relating to the Precious Metals Miners theme.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, the Index Provider will then select from the remaining eligible securities the top seventy-five (75) Pure-Play Precious Metals Miners Companies based on a combination of market capitalization and Composite Quality Score, with equal weight given to each. The Index Provider calculates a security&#x2019;s Composite Quality Score based on certain quantitative factors, such as a company&#x2019;s return on equity, debt-to-equity ratio and, for gold and silver miners, all-in sustaining costs. If fewer than seventy-five (75), but more than forty (40), Pure-Play Precious Metals Miners Companies are eligible for inclusion in the Index, then all eligible Pure-Play Precious Metals Miners Companies will be included in the Index. If fewer than forty (40) Pure-Play Precious Metals Miners Companies are eligible for inclusion in the Index, then the Index Provider will include in the Index eligible Quasi-Play Precious Metals Miners Companies followed by eligible Marginal-Play Precious Metals Miners Companies to ensure that there are a minimum of forty (40) constituents in the Index. As of July 14, 2026, the Index &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;was composed of 75 securities, each of which was a Pure-Play Precious Metals Miners Company.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;According to the Index Provider, Index securities are weighted based on their market capitalization and Composite Quality Score, with equal weight given to each. No individual security for any company may be weighted above 6.0%. Any individual security with excess weight shall be redistributed proportionately among the remaining securities in the Index. The aggregate weight of securities with weight greater than or equal to 5.0% shall not exceed 45% of the Index. If the aggregate weight of securities with weight greater than or equal to 5.0% exceeds 45% of the portfolio, a secondary cap of 4.0% will be applied to those securities with weight greater than or equal to 5%, with any excess weight being redistributed proportionately among the remaining securities in the Index. The cumulative weight of Quasi-Play Precious Metals Miners Companies and Marginal-Play Precious Metals Miners Companies is capped at 20% of the Index. Additionally, securities with a free float market capitalization &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of less than $1 billion are subject to additional caps.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Index is reconstituted and rebalanced semi-annually, and the Fund will make corresponding changes to its portfolio shortly after the Index changes are made public. The Index&#x2019;s semi-annual rebalance schedule may cause the Fund to experience a higher rate of portfolio turnover. The Index employs buffer rules designed to reduce portfolio turnover by allowing existing constituents to remain in the Index even if they fall marginally below the applicable market capitalization, liquidity or revenue thresholds at the time of reconstitution. These rules introduce the possibility that the Index may continue to include securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;with characteristics below the eligibility thresholds imposed upon new Index constituents.&lt;/span&gt;</fnd:NmRule35d1TermSlctnCritSmryTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="S000106314"
+      id="x_44d7b78a-53e6-464f-820e-6eadd9a5206a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund will be concentrated in an industry or a group of industries to the extent that the Index is so concentrated. As of July 20, 2026, the Index had significant exposure to materials companies, although this may change from time to time.&lt;/span&gt;</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="S000106314_RiskLoseMoneyMember"
+      id="b264460c-f786-48ff-9d9f-df32443f2728">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;You could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_RiskNotInsuredDepositoryInstitutionMember"
+      id="x_80d1a4ad-6e05-48e2-8ca0-19df4caf44ca">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;An investment in the Fund is not a deposit of a bank and is not insured or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;guaranteed by the Federal Deposit Insurance Corporation or any other governmental agency.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_AuthorizedParticipantConcentrationRiskMember"
+      id="x_7a7127b6-8d38-4268-9771-4492c8564d9d">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;AUTHORIZED PARTICIPANT CONCENTRATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Only an authorized participant may engage in creation or redemption &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;transactions directly with the Fund. A limited number of institutions act as authorized participants for the Fund. To the extent that these institutions exit the business or are unable to proceed with creation and/or redemption orders and no other authorized participant steps forward to create or redeem, the Fund&#x2019;s shares may trade at a premium or discount (the difference between the market price of the Fund's shares and the Fund's net asset value) and possibly face delisting and the bid/ask spread (the difference between the price that someone is willing to pay for shares of the Fund at a specific point in time versus &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;the price at which someone is willing to sell) on the Fund&#x2019;s shares may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_CurrencyRiskMember"
+      id="d5f4f5a1-91ea-4712-b9c0-5b38a28519d2">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CURRENCY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Changes in currency exchange rates affect the value of investments denominated in a foreign currency, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;and therefore the value of such investments in the Fund&#x2019;s portfolio. The Fund&#x2019;s net asset value could decline if a currency to which the Fund has exposure depreciates against the U.S. dollar or if there are delays or limits on repatriation of such currency. Currency exchange rates can be very volatile and can change quickly and unpredictably. As a result, the value of an investment &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;in the Fund may change quickly and without warning.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_CurrentMarketConditionsRiskMember"
+      id="x_5fd093c3-755a-4d6e-9bf6-b7a9b8acb131">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CURRENT MARKET CONDITIONS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Current market conditions risk is the risk that a particular investment, or shares of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund in general, may fall in value due to current market conditions. As a means to fight inflation, the Federal Reserve and certain foreign central banks have raised interest rates; however, the Federal Reserve has begun to lower interest rates and may continue to do so. U.S. regulators have proposed several changes to market and issuer regulations which would directly impact the Fund, and any regulatory changes could adversely impact the Fund&#x2019;s ability to achieve its investment strategies or make certain investments. Potential future bank failures could result in disruption to the broader banking industry or markets generally and reduce confidence in financial institutions and the economy as a whole, which may also heighten market volatility and reduce liquidity. Additionally, challenges in commercial real estate markets, including high interest rates, declining valuations and elevated vacancies, could have a broader impact on financial markets. The ongoing adversarial political climate in the United States, as well as political and diplomatic events both domestic and abroad, have and may continue to have an adverse impact the U.S. regulatory landscape, markets and investor behavior, which could have a negative impact on the Fund&#x2019;s investments and operations. The change in administration resulting from the 2024 United States national elections could result in significant impacts to international trade relations, tax and immigration policies, and other aspects of the national and international political and financial landscape, which could affect, among other things, inflation and the securities markets generally. Other unexpected political, regulatory and diplomatic events within the U.S. and abroad may affect investor and consumer confidence and may adversely impact financial markets and the broader economy. For example, ongoing armed conflicts between Russia and Ukraine in Europe and among the United States, Israel, Iran, Hamas, Hezbollah and other militant groups in the Middle East, have caused and could continue to cause significant market disruptions and volatility within the markets in Russia, Europe, the Middle East, the United States, and other nations. Such events may also disrupt global trade and supply chains, increase sanctions and other governmental actions, and contribute to volatility in oil and natural gas markets. The hostilities and sanctions resulting from those hostilities have and could continue to have a significant impact on certain Fund investments as well as Fund performance and liquidity. The economies of the United States and its trading partners, as well as the financial markets generally, may be adversely impacted by trade disputes, including the imposition of tariffs, and other matters. For example, the United States has imposed trade barriers and restrictions on China. In addition, the Chinese government is engaged in a longstanding dispute with Taiwan, continually threatening an invasion. If the political climate between the United States and China does not improve or continues to deteriorate, if China were to attempt invading Taiwan, or if other geopolitical conflicts develop or worsen, economies, markets and individual securities may be adversely affected, and the value of the Fund&#x2019;s assets may go down. A public health crisis and the ensuing policies enacted by governments and central banks may cause significant volatility and uncertainty in global financial markets, negatively impacting global growth prospects. As the COVID-19 global pandemic illustrated, such events may affect certain geographic regions, countries, sectors and industries more significantly than others. Advancements in technology may also adversely impact markets and the overall performance of the Fund. For instance, the economy may be significantly impacted by the advanced development and increased regulation of artificial intelligence. Additionally, cyber security breaches of both government and non-government entities could have negative impacts on infrastructure and the ability of such entities, including the Fund, to operate properly. These events, and any other future events, may adversely affect the prices and liquidity of the Fund&#x2019;s portfolio investments and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;could result in disruptions in the trading markets.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_CyberSecurityRiskMember"
+      id="x_2abe2d72-1fc8-4715-817f-1550ae9fac5a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CYBER SECURITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is susceptible to operational, information security and related risks through breaches in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;cyber security. A breach in cyber security refers to both intentional and unintentional events that may cause the Fund to lose proprietary information, suffer data corruption or lose operational capacity, any of which could result in a material adverse effect on the Fund or its shareholders. Such events could cause the Fund to incur regulatory penalties, reputational damage, additional compliance costs associated with corrective measures and/or financial loss. Cyber security breaches may involve unauthorized access to the Fund&#x2019;s digital information systems through &#x201c;hacking&#x201d; or malicious software coding but may also result from outside attacks such as denial-of-service attacks through efforts to make network services unavailable to intended users. Emerging threats like ransomware or zero-day exploits could also cause disruptions to Fund operations. In addition, cyber security breaches of the issuers of securities in which the Fund invests or the Fund&#x2019;s third-party service providers, such as its administrator, transfer agent, custodian, or sub-advisor, as applicable, among many other third-party service providers, can also subject the Fund to many of the same risks associated with direct cyber security breaches. Further, errors, misconduct, or compromise of accounts of employees of the Fund or its third-party service providers can also create material cybersecurity risks. Although the Fund has established risk management systems designed to reduce the risks associated with cyber security, there is no guarantee that such efforts will succeed, especially because the Fund does not directly control the cyber security systems of issuers or third-party service providers. Cyber security incidents may also trigger Fund obligations under data privacy laws, potentially increasing notification and compliance burdens. Cyber security incidents affecting issuers in whose securities the Fund invests may also have a negative impact on the value of the securities of such issuers, and in turn, the value of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_DepositaryReceiptsRiskMember"
+      id="x_9deeeac6-4d94-46ed-9771-81b93753fc35">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;DEPOSITARY RECEIPTS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Depositary receipts represent equity interests in a foreign company that trade on a local stock &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;exchange. Depositary receipts may be less liquid than the underlying shares in their primary trading market. Any distributions paid to the holders of depositary receipts are usually subject to a fee charged by the depositary. Holders of depositary receipts may have limited voting rights, and investment restrictions in certain countries may adversely impact the value of depositary receipts because such restrictions may limit the ability to convert the equity shares into depositary receipts and vice versa. Such restrictions may cause the equity shares of the underlying issuer to trade at a discount or premium to the market price &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the depositary receipts.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_EmergingMarketsRiskMember"
+      id="x_0bcd1f64-43b4-4894-b29f-389b0914a325">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;EMERGING MARKETS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Investments in securities issued by companies operating in emerging market countries involve &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;additional risks relating to political, economic, or regulatory conditions not associated with investments in securities and instruments issued by U.S. companies or by companies operating in other developed market countries. Investments in emerging markets securities are generally considered speculative in nature and are subject to the following heightened risks: smaller market capitalization of securities markets which may suffer periods of relative illiquidity; significant price volatility; restrictions on foreign investment; possible repatriation of investment income and capital; rapid inflation; and currency convertibility issues. Emerging market countries also often have less uniformity in accounting, auditing and reporting requirements, unsettled securities laws, unreliable securities valuation and greater risk associated with custody of securities. Financial and other reporting by companies also may be less reliable in emerging market countries. Shareholder claims that are available in the U.S., as well as regulatory oversight and authority that is common in the U.S., including for claims based on fraud, may be difficult or impossible for shareholders of securities in emerging market countries or for U.S. authorities to pursue. The Index the Fund seeks to track does not weight the securities in emerging market countries on the basis of investor protection limitations, financial reporting quality or available oversight mechanisms. Furthermore, investors may be required to register with the government of an emerging market country the proceeds of sales of securities and future economic or political crises could lead to price controls, forced mergers, expropriation or confiscatory taxation, seizure, nationalization or creation of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;government monopolies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_EquitySecuritiesRiskMember"
+      id="x_4ae9e299-2b2b-4148-a4d5-70b37b59fa3e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;EQUITY SECURITIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The value of the Fund's shares will fluctuate with changes in the value of the equity securities in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;which it invests. Equity securities prices fluctuate for several reasons, including changes in investors&#x2019; perceptions of the financial condition of an issuer or the general condition of the relevant equity market, such as market volatility, or when political or economic events affecting an issuer occur. Common stock prices may be particularly sensitive to rising interest rates, as the cost of capital rises and borrowing costs increase. Equity securities may decline significantly in price over short or extended periods of time, and such declines may occur in the equity market as a whole, or they may occur in only a particular country, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;company, industry or sector of the market.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_IndexConcentrationRiskMember"
+      id="x_28c80eaa-5a40-4011-a1c7-066b6f7ac82b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INDEX CONCENTRATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund will be concentrated in an industry or a group of industries to the extent that the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Index is so concentrated. To the extent that the Fund invests a significant percentage of its assets in a single asset class or the securities of issuers within the same country, state, region, industry or sector, an adverse economic, business or political development may affect the value of the Fund&#x2019;s investments more than if the Fund were more broadly diversified. A significant &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;exposure makes the Fund more susceptible to any single occurrence and may subject the Fund to greater market risk than a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fund that is more broadly diversified.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_IndexOrModelConstituentRiskMember"
+      id="a33a4d81-e1e6-4da6-baf5-300a284e1962">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INDEX OR MODEL CONSTITUENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may be a constituent of one or more indices or ETF models. As a result, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund may be included in one or more index-tracking exchange-traded funds or mutual funds. Being a component security of such a vehicle could greatly affect the trading activity involving the Fund&#x2019;s shares, the size of the Fund and the market volatility of the Fund. Inclusion in an index could increase demand for the Fund and removal from an index could result in outsized selling activity in a relatively short period of time. As a result, the Fund&#x2019;s net asset value could be negatively impacted and the Fund&#x2019;s market price may be below the Fund&#x2019;s net asset value during certain periods. In addition, index rebalances may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;potentially result in increased trading activity in the Fund's shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_IndexProviderRiskMember"
+      id="x_93c20b32-d63f-4582-b189-89c9fd28340b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INDEX PROVIDER RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; There is no assurance that the Index Provider, or any agents that act on its behalf, will compile the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Index accurately, or that the Index will be determined, maintained, constructed, reconstituted, rebalanced, composed, calculated or disseminated accurately. The Index Provider and its agents do not provide any representation or warranty in relation to the quality, accuracy or completeness of data in the Index, and do not guarantee that the Index will be calculated in accordance with its stated methodology. The Advisor&#x2019;s mandate as described in this prospectus is to manage the Fund consistently with the Index provided by the Index Provider. The Advisor relies upon the Index Provider and its agents to accurately compile, maintain, construct, reconstitute, rebalance, compose, calculate and disseminate the Index accurately. Therefore, losses or costs associated with any Index Provider or agent errors generally will be borne by the Fund and its shareholders. To correct any such error, the Index Provider or its agents may carry out an unscheduled rebalance of the Index or other modification of Index constituents or weightings. When the Fund in turn rebalances its portfolio, any transaction costs and market exposure arising from such portfolio rebalancing will be borne by the Fund and its shareholders. Unscheduled rebalances also expose the Fund to additional tracking error risk. Errors in respect of the quality, accuracy and completeness of the data used to compile the Index may occur from time to time and may not be identified and corrected by the Index Provider for a period of time or at all, particularly where the Index is less commonly used as a benchmark by funds or advisors. For example, during a period where the Index contains incorrect constituents, the Fund tracking the Index would have market exposure to such constituents and would be underexposed to the Index&#x2019;s other constituents. Such errors may negatively impact the Fund and its shareholders. The Index Provider and its agents rely on various sources of information to assess the criteria of issuers included in the Index, including information that may be based on assumptions and estimates. Neither the Fund nor the Advisor can offer assurances that the Index&#x2019;s calculation methodology or sources of information will provide an accurate assessment of included issuers. Unusual market conditions or issuer-specific events may cause the Index Provider to postpone a scheduled rebalance, exclude or substitute a security in the Index or undertake other measures which could cause the Index to vary from its normal or expected composition. The postponement of a scheduled rebalance in a time of market volatility could mean that constituents that would otherwise be removed at rebalance due to changes in market capitalizations, issuer credit ratings, or other reasons may remain, causing the performance and constituents of the Index to vary from those expected under normal conditions. Apart from scheduled rebalances, the Index Provider or its agents may carry out additional ad hoc rebalances to the Index due to unusual market conditions or in order, for example, to correct an error in the selection of index &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;constituents.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_InternationalClosedMarketTradingRiskMember"
+      id="x_83c158c2-0045-4cae-900b-4f11d7567394">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INTERNATIONAL CLOSED MARKET TRADING RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Because securities held by the Fund trade on non-U.S. exchanges that &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;are closed when the Fund&#x2019;s primary listing exchange is open, there are likely to be deviations between the current price of an underlying security and the last quoted price for the underlying security (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;, the Fund&#x2019;s quote from the closed foreign market) &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;used for purposes of calculating the Fund's net asset value, resulting in premiums or discounts to the Fund&#x2019;s net asset value that may be greater than those experienced by other exchange-traded funds. In addition, shareholders may not be able to purchase and sell shares of the Fund on the listing exchange for the Fund, on days when the net asset value of the Fund could &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;be significantly affected by events in the relevant foreign markets.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_LargeCapitalizationCompaniesRiskMember"
+      id="x_576912af-5467-4795-bbfd-886be89606c5">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;LARGE CAPITALIZATION COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Large capitalization companies may grow at a slower rate and be less able to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;adapt to changing market conditions than smaller capitalization companies. Thus, the return on investment in securities of large capitalization companies may be less than the return on investment in securities of small and/or mid capitalization companies. The performance of large capitalization companies also tends to trail the overall market during different market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;cycles.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_LiquidityRiskMember"
+      id="f629cf1f-43de-49d4-b462-a652acbcff5c">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;LIQUIDITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may hold certain investments that may be subject to restrictions on resale, trade over-the-counter &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or in limited volume, or lack an active trading market. Certain investments held by the Fund that trade on non-U.S. exchanges may be further subject to liquidity risk due to foreign market closures or unexpected impediments to trading in local markets. Accordingly, the Fund may not be able to sell or close out of such investments at favorable times or prices (or at all), or at the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;prices approximating those at which the Fund currently values them. Illiquid securities may trade at a discount from comparable, more liquid investments and may be subject to wide fluctuations in market value and the bid/ask spread on the Fund's shares &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_MarketMakerRiskMember"
+      id="x_3df32e29-8e2e-4f98-b852-f66ab3915d44">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MARKET MAKER RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund faces numerous market trading risks, including the potential lack of an active market for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund shares due to a limited number of market makers. Decisions by market makers or authorized participants to reduce their role or step away from these activities in times of market stress could inhibit the effectiveness of the arbitrage process in maintaining the relationship between the underlying values of the Fund&#x2019;s portfolio securities and the Fund&#x2019;s market price. The Fund may rely on a small number of third-party market makers to provide a market for the purchase and sale of shares. Any trading halt or other problem relating to the trading activity of these market makers could result in a dramatic change in the spread between the Fund&#x2019;s net asset value and the price at which the Fund&#x2019;s shares are trading on the Exchange, which could result in a decrease in value of the Fund&#x2019;s shares. This reduced effectiveness could result in Fund shares trading at a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;discount to net asset value and also in greater than normal intraday bid-ask spreads for Fund shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_MarketRiskMember"
+      id="d648fce6-e68a-46f0-a350-31c04eddd4a3">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MARKET RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Market risk is the risk that a particular investment, or shares of the Fund in general, may fall in value. Securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;are subject to market fluctuations caused by real or perceived adverse economic, political, and regulatory factors or market developments, changes in interest rates and perceived trends in securities prices. Shares of the Fund could decline in value or underperform other investments. In addition, local, regional or global events such as war, acts of terrorism, market manipulation, government defaults, government shutdowns, regulatory actions, political changes, diplomatic developments, the imposition of sanctions and other similar measures, spread of infectious diseases or other public health issues, recessions, natural disasters, or other events could have a significant negative impact on the Fund and its investments. Any of such circumstances could have a materially negative impact on the value of the Fund&#x2019;s shares, the liquidity of an investment, and may result in increased market volatility. During any such events, the Fund&#x2019;s shares may trade at increased premiums or discounts to their net asset value, the bid/ask spread on the Fund&#x2019;s shares may widen and the returns on investment may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fluctuate.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_MaterialsCompaniesRiskMember"
+      id="x_1e169d4d-dc11-40f3-866c-32c07175852b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MATERIALS COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Materials and processing companies are involved in the extraction or processing of raw &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;materials such as metals, ore and forestry products. These companies are sensitive to changes in the business cycle and fluctuations in the supply and demand for raw materials. Further, certain materials and processing companies can be affected by shifts in the housing market, as many produced raw materials are components of construction projects. Rising wage costs can also impact companies that rely on skilled labor. In addition, materials and processing companies may be significantly affected by volatility of commodity prices, import controls, worldwide competition, liability for environmental damage, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;depletion of resources and mandated expenditures for safety and pollution control devices.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_MidCapitalizationCompaniesRiskMember"
+      id="x_9cb1d3f2-b703-4179-83d4-099f15fa0bbc">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MID CAPITALIZATION COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Mid capitalization companies may be more vulnerable to adverse general market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or economic developments and thus may experience greater price volatility than more established large capitalization companies. Securities of mid capitalization companies may also be less liquid than securities of large capitalization companies and may have more limited trading volumes. Accordingly, such companies are generally subject to greater market risk than &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;larger, more established companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_NewFundRiskMember"
+      id="x_0d188f49-e6f6-4a50-a7db-d1dfe1206441">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NEW FUND RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is new and has no performance history or assets as of the date of this prospectus. The Fund expects &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;to have fewer assets than larger funds. Like other new funds, large inflows and outflows may impact the Fund&#x2019;s market exposure, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and in turn, the Fund&#x2019;s returns for limited periods of time.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_NonCorrelationRiskMember"
+      id="ca7cafdd-4cbd-4828-9340-0cff844bb707">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-CORRELATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund&#x2019;s return may not match the return of the Index for a number of reasons. The Fund incurs &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;operating expenses not applicable to the Index, and may incur costs in buying and selling securities, especially when rebalancing the Fund's portfolio holdings to reflect changes in the composition of the Index. In addition, the Fund&#x2019;s portfolio holdings may not exactly replicate the securities included in the Index or the ratios between the securities included in the Index. Additionally, in order to comply with its investment strategies and policies, the Fund's portfolio may deviate from the composition of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Index. Accordingly, the Fund's return may underperform the return of the Index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_RiskNondiversifiedMember"
+      id="cf31af57-3f2a-4e95-8726-7e78cba7ab89">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-DIVERSIFICATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is classified as &#x201c;non-diversified&#x201d; under the 1940 Act. As a result, the Fund is only &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;limited as to the percentage of its assets which may be invested in the securities of any one issuer by the diversification requirements imposed by the Internal Revenue Code of 1986, as amended. The Fund may invest a relatively high percentage of its assets in a limited number of issuers. As a result, the Fund may be more susceptible to a single adverse economic or regulatory occurrence affecting one or more of these issuers, experience increased volatility and be highly invested in certain &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;issuers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_NonUSSecuritiesRiskMember"
+      id="d8fd564b-0fed-41a0-88a1-be142d24ad7f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-U.S. SECURITIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Non-U.S. securities are subject to higher volatility than securities of domestic issuers due to &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;possible adverse political, social or economic developments, restrictions on foreign investment or exchange of securities, capital controls, lack of liquidity, currency exchange rates, excessive taxation, government seizure of assets, the imposition of sanctions by foreign governments, different legal or accounting standards, and less government supervision and regulation of securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;exchanges in foreign countries.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_OperationalRiskMember"
+      id="x_0406bbbd-8b1f-42e5-9ea7-3814e6504019">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;OPERATIONAL RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is subject to risks arising from various operational factors, including, but not limited to, human &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;error, processing and communication errors, errors of the Fund&#x2019;s service providers, counterparties or other third-parties, failed or inadequate processes and technology or systems failures. These errors or failures may adversely affect the Fund&#x2019;s operations, including its ability to execute its investment process, calculate or disseminate its NAV or intraday indicative optimized portfolio value in a timely manner, and process creations or redemptions. The Fund relies on third-parties for a range of services, including custody, valuation, administration, transfer services, securities lending and accounting, among many others. Any delay or failure relating to engaging or maintaining such service providers may affect the Fund&#x2019;s ability to meet its investment objective. Although the Fund and the Fund's investment advisor seek to reduce these operational risks through controls and procedures, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;there is no way to completely protect against such risks.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_PassiveInvestmentRiskMember"
+      id="x_9ded8327-b1a8-43d6-b75f-7aee6268c972">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PASSIVE INVESTMENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is not actively managed. The Fund invests in securities included in or representative &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;of the Index regardless of investment merit. The Fund generally will not attempt to take defensive positions in declining markets. In the event that the Index is no longer calculated, the Index license is terminated or the identity or character of the Index is &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;materially changed, the Fund will seek to engage a replacement index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_PortfolioTurnoverRiskMember"
+      id="b0860ec1-4739-4c75-8d11-b873293b97b4">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PORTFOLIO TURNOVER RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; High portfolio turnover may result in the Fund paying higher levels of transaction costs and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;may generate greater tax liabilities for shareholders. Portfolio turnover risk may cause the Fund&#x2019;s performance to be less than &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;expected.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_PreciousMetalsMiningCompaniesRiskMember"
+      id="a2e3d850-27be-4fc1-8160-f0f9af36c0a4">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PRECIOUS METALS MINING COMPANIES RISK. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Companies engaged in the mining of Precious Metals face a unique set of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;risks that can significantly impact their operations and financial performance. The profitability and valuations of Precious Metals mining companies are highly sensitive to the prices of the underlying Precious Metals they produce. Prices for these commodities can be volatile and are influenced by supply-demand dynamics, speculation, macroeconomic trends, changes in technology, and actions by governments or large producers. A decline in the market price of one or more Precious Metals may significantly reduce the earnings, cash flows, and market valuations of such mining companies and the Fund&#x2019;s performance. The mining industry is inherently cyclical and sensitive to fluctuations in global economic activity. Economic expansions or contractions in sectors that drive demand for Precious Metals such as jewelry, electronics, automotive catalysts and stores of value can significantly impact revenue and profitability. Overinvestment during commodity booms often leads to supply gluts and sharp price declines during bust cycles. Rapid technological innovation may negatively impact the long-term demand for Precious Metals. Companies that fail to adapt to changes in technologies may be negatively affected. Mining projects, particularly those in the exploration or development phase, carry high technical and economic uncertainty. The feasibility of a project depends on factors such as ore quality, extraction costs, infrastructure availability, financing and commodity price assumptions. Companies may expend great amounts of resources on a project only to have it never reach commercial production or only reach commercial production at unfavorable economics. Mining companies are subject to operational risks including mine accidents, equipment failures, labor disputes, cybersecurity breaches, natural disasters and unexpected geological conditions. Many mines are located in remote areas with limited infrastructure, which can exacerbate logistical and cost challenges. Any sustained disruption of operations may lead to production shortfalls and financial underperformance. Mining companies involved in Precious Metals may face intense scrutiny due to the environmental degradation associated with mining processes, including habitat destruction, water contamination, and hazardous waste production. Licenses to operate may be revoked or impaired if companies are perceived as failing to meet community, labor or environmental standards. Increasing global ESG mandates may restrict institutional capital flows to certain mining operations or compel costly changes to production practices. Companies failing to adhere to ESG norms may face reputational harm, reduced access to capital or regulatory sanctions. Governments may assert increased control over their natural resources through higher taxes, royalties, export quotas, nationalization of mining assets or preferential treatment of domestic companies. These forms of resource nationalism can significantly impair the profitability of foreign-listed mining firms. Additionally, global supply chains for Precious Metals are increasingly viewed as strategic and may be disrupted by geopolitical tensions, trade wars or national security concerns. Political instability, armed conflict, corruption, and weak rule of law in certain countries may pose significant threats to mining operations. In particular, assets may be seized, contracts voided, or operations disrupted due to regime changes, civil unrest or shifts in political leadership. Sanctions, tariffs and other forms of economic retaliation may further restrict investment or operations in certain countries. Mining operations are subject to a complex framework of local, national and international environmental and safety regulations, including requirements for obtaining and renewing exploration and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;extraction permits. Regulatory frameworks are subject to change and may become more stringent, increasing compliance costs or causing delays or denials of key operating permits. Projects can be delayed for years or halted indefinitely due to environmental opposition, litigation, or local community resistance. Such risks may impair production timelines and the financial &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;viability of the underlying companies in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_PremiumDiscountRiskMember"
+      id="x_27b808b2-28d4-49d9-b1c3-5624791504fe">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PREMIUM/DISCOUNT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The market price of the Fund&#x2019;s shares will generally fluctuate in accordance with changes in the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s net asset value as well as the relative supply of and demand for shares on the Exchange. The Fund&#x2019;s investment advisor cannot predict whether shares will trade below, at or above their net asset value because the shares trade on the Exchange at market prices and not at net asset value. Price differences may be due, in large part, to the fact that supply and demand forces at work in the secondary trading market for shares will be closely related, but not identical, to the same forces influencing the prices of the holdings of the Fund trading individually or in the aggregate at any point in time. However, given that shares can only be purchased and redeemed in Creation Units, and only to and from broker-dealers and large institutional investors that have entered into participation agreements (unlike shares of closed-end funds, which frequently trade at appreciable discounts from, and sometimes at premiums to, their net asset value), the Fund&#x2019;s investment advisor believes that large discounts or premiums to the net asset value of shares should not be sustained. During stressed market conditions, the market for the Fund&#x2019;s shares may become less liquid in response to deteriorating liquidity in the market for the Fund&#x2019;s underlying portfolio holdings, which could in turn lead to differences between the market price of the Fund&#x2019;s shares and their net asset &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;value and the bid/ask spread on the Fund&#x2019;s shares may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_SmallCapitalizationCompaniesRiskMember"
+      id="x_933830b5-2a85-4309-971c-b2730c7fe0e7">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;SMALL CAPITALIZATION COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Small capitalization companies may be more vulnerable to adverse general &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;market or economic developments, and their securities may be less liquid and may experience greater price volatility than large and mid capitalization companies as a result of several factors, including limited trading volumes, fewer products or financial resources, management inexperience and less publicly available information. Accordingly, such companies are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;generally subject to greater market risk than large and mid capitalization companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_TradingIssuesRiskMember"
+      id="x_4b7969e3-f8f1-48bd-a133-efbd80628b82">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;TRADING ISSUES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Trading in Fund shares on the Exchange may be halted due to market conditions or for reasons that, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;in the view of the Exchange, make trading in shares inadvisable. In addition, trading in Fund shares on the Exchange is subject to trading halts caused by extraordinary market volatility pursuant to the Exchange&#x2019;s &#x201c;circuit breaker&#x201d; rules. There can be no assurance that the requirements of the Exchange necessary to maintain the listing of the Fund will continue to be met or will remain unchanged. The Fund may have difficulty maintaining its listing on the Exchange in the event the Fund&#x2019;s assets are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;small, the Fund does not have enough shareholders, or if the Fund is unable to proceed with creation and/or redemption orders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000106314_ValuationRiskMember"
+      id="x_8e1b86f1-4c63-43bf-beaa-7473319d4f86">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;VALUATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may hold securities or other assets that may be valued on the basis of factors other than market &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;quotations. This may occur because the asset or security does not trade on a centralized exchange, or in times of market turmoil or reduced liquidity. There are multiple methods that can be used to value a portfolio holding when market quotations are not readily available. Fund investments that trade on non-U.S. exchanges that close prior to the close of the Exchange may be fair valued using a systematic fair valuation model. If these foreign investments meet certain criteria in relation to the valuation model, their valuation is systematically adjusted to reflect the impact of movement in the U.S. market after the close of certain foreign markets. The value established for any portfolio holding at a point in time might differ from what would be produced using a different methodology or if it had been priced using market quotations. Portfolio holdings that are valued using techniques other than market quotations, including &#x201c;fair valued&#x201d; assets or securities, may be subject to greater fluctuation in their valuations from one day to the next than if market quotations were used. In addition, there is no assurance that the Fund could sell or close out a portfolio position for the value established for it at any time, and it is possible that the Fund would incur a loss because a portfolio position is sold or closed out at a discount to the valuation established by the Fund at that time. The Fund&#x2019;s ability to value investments may be impacted by technological issues or errors by pricing services or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;other third-party service providers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000106314"
+      id="f4318485-7b9a-41d9-a972-5dd40e9bdc5a">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000106314"
+      id="x_31e150f3-7a6a-4554-b56b-7b25c16b90ae">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund does not have a performance history.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Once available, the Fund&#x2019;s performance information, and information that &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;gives some indication of the risks of an investment in the Fund by comparing the Fund&#x2019;s performance with a broad measure of market performance, will be available on the Fund&#x2019;s website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000106314"
+      id="x_162cb035-4e5d-4c2f-a624-686965849563">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund does not have a performance history.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000106314"
+      id="x_8279bbb6-92a5-42fa-8a7d-6739db5dd96e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000106314"
+      id="x_9ce30eff-e7b3-4f9f-bc41-d227c413a7b8">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#x_821eb757-0c96-4e46-8a96-494a4f5a1cf1"
+          xlink:label="x_821eb757-0c96-4e46-8a96-494a4f5a1cf1"
+          xlink:type="locator"/>
+        <link:footnote id="x_0001rs_ed37a256-5b0a-4693-8a0d-378a33712867" xlink:label="x_0001rs_ed37a256-5b0a-4693-8a0d-378a33712867" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Arial;font-size:8.10pt;font-style:italic;">&#x201c;Other Expenses&#x201d; is an estimate based on the expenses the Fund expects to incur for the current fiscal year.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_821eb757-0c96-4e46-8a96-494a4f5a1cf1"
+          xlink:to="x_0001rs_ed37a256-5b0a-4693-8a0d-378a33712867"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

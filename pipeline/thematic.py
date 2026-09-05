@@ -49,6 +49,8 @@ def build():
     refresh = os.environ.get('HOLDINGS_REFRESH') == '1' or TODAY.weekday() == 5 or not prev_by
     print(f"  holdings: {'refreshing from EDGAR' if refresh else 'carried forward from the last run'}", file=sys.stderr)
     HOLD_KEYS = ('holdingsAsOf', 'holdingsFiled', 'holdingsSource', 'holdingsCount', 'top10Weight', 'assets', 'top', 'vsSPY', 'vsQQQ', 'peers')
+    fees_path = ROOT / 'data' / 'fees.json'
+    fees = json.loads(fees_path.read_text()) if fees_path.exists() else {}
     spy = H.index_holdings('SPY') if refresh else None
     qqq = H.index_holdings('QQQ') if refresh else None
     if refresh:
@@ -130,8 +132,14 @@ def build():
             cands.append((v, t))
         cands.sort(reverse=True)
         r['peers'] = [{'t': t, 'o': v} for v, t in cands[:5] if v >= 10]
+    for r in out:
+        f = fees.get(r['ticker'])
+        r['expenseRatio'] = f['expenseRatio'] if f else None
+        r['feeSource'] = f['source'] if f else None
+        a = (r.get('vsSPY') or {}).get('activeShare')
+        r['activeFee'] = round(r['expenseRatio'] / (a / 100), 2) if r['expenseRatio'] is not None and a and a >= 5 else None
     out.sort(key=lambda r: (r['themeName'], r['ticker']))
-    meta = {'asOf': max((r['asOf'] for r in out), default=TODAY.isoformat()), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
+    meta = {'asOf': max((r['asOf'] for r in out), default=TODAY.isoformat()), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'), 'withFee': sum(1 for r in out if r['expenseRatio'] is not None),
             'universe': len(universe), 'shown': len(out), 'withHoldings': sum(1 for r in out if r.get('vsSPY')), 'missingPrices': missing, 'missingHoldings': no_holdings, 'closed': closed,
             'holdingsRefreshed': refresh, 'indexHoldingsAsOf': ({'SPY': spy['asOf'], 'QQQ': qqq['asOf']} if refresh else (json.loads((ROOT / 'site' / 'data' / 'thematic_meta.json').read_text()).get('indexHoldingsAsOf') if (ROOT / 'site' / 'data' / 'thematic_meta.json').exists() else None)),
             'feed': 'Tiingo end-of-day; SEC N-PORT holdings'}

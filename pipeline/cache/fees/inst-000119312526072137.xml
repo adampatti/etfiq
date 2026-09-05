@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:ssga="http://www.ssgafunds.com/20251031"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ssga-20251031.xsd" xlink:type="simple"/>
+    <context id="D_31Oct2025_31Oct2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_C000253542">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_RiskNotInsuredMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_CommoditiesandCommodityLinkedDerivativesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:CommoditiesandCommodityLinkedDerivativesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_AgriculturalCommoditiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:AgriculturalCommoditiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_EnergyCommoditiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:EnergyCommoditiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_MetalsCommoditiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:MetalsCommoditiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_DerivativesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:DerivativesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_SwapsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:SwapsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_FuturesContractRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:FuturesContractRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_CounterpartyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:CounterpartyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_CommodityLinkedDerivativeTaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:CommodityLinkedDerivativeTaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_CashPositionRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:CashPositionRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_CashTransactionRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:CashTransactionRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_IndexingStrategyIndexTrackingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:IndexingStrategyIndexTrackingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_LimitedTrackRecordRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:LimitedTrackRecordRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_LiquidityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:LiquidityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_MoneyMarketFundInvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:MoneyMarketFundInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_SubsidiaryInvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:SubsidiaryInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_USTreasuryObligationsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:USTreasuryObligationsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_ValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ssga:ValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-10-31</startDate>
+            <endDate>2025-10-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_05Sep2024_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-05</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_AfterTaxesOnDistributionsMember_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_AfterTaxesOnDistributionsMember_05Sep2024_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-05</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_AfterTaxesOnDistributionsAndSalesMember_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="C000253542_AfterTaxesOnDistributionsAndSalesMember_05Sep2024_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-05</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="_BloombergEnhancedRollYieldTotalReturnIndexMember_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ssga:BloombergEnhancedRollYieldTotalReturnIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="_BloombergEnhancedRollYieldTotalReturnIndexMember_05Sep2024_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ssga:BloombergEnhancedRollYieldTotalReturnIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-05</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="_MSCIACWIIMIIndexMember_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ssga:MSCIACWIIMIIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="_MSCIACWIIMIIndexMember_05Sep2024_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">ssga:MSCIACWIIMIIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-05</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <context id="S000087667_C000253542_01Jan2025_31Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001064642</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ssga:S000087667Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ssga:C000253542Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-01-01</startDate>
+            <endDate>2025-12-31</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_31Oct2025_31Oct2025" id="apid_1">2025-10-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_31Oct2025_31Oct2025" id="apid_2">0001064642</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_31Oct2025_31Oct2025" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_31Oct2025_31Oct2025" id="apid_4">485BPOS</dei:DocumentType>
+    <oef:AnnlRtrPct
+      contextRef="S000087667_C000253542_01Jan2025_31Dec2025"
+      decimals="4"
+      id="f55deb21-906d-4ab3-a4a4-91af3149b2dd"
+      unitRef="pure">0.1606</oef:AnnlRtrPct>
+    <dei:EntityInvCompanyType
+      contextRef="D_31Oct2025_31Oct2025"
+      id="apid_d617efd1-c156-458b-bd65-c6ebd3a5f34c">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_31Oct2025_31Oct2025"
+      id="apid_2a924c6b-5c85-4689-acdc-64978b92ea0f">SPDR&#160;SERIES TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_31Oct2025_31Oct2025"
+      id="apid_bc197297-b645-4181-982c-f9cbb6a6c51a">2026-03-01</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000087667"
+      id="bea7df38-e9ad-48c6-85b7-a72b1ae5f06a">&lt;span style="color:#000000;font-family:Arial;font-size:12pt;text-transform:uppercase;"&gt;Fund Summary&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt;State Street&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:11.5pt;font-weight:bold;position:relative;top:-5pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt; SPDR&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:11.5pt;font-weight:bold;position:relative;top:-5pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:18pt;font-weight:bold;"&gt; Bloomberg Enhanced Roll Yield Commodity Strategy No K-1 ETF&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000087667"
+      id="x_072bc6c0-d669-4a5d-a85b-16bfe2eec840">&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;font-weight:bold;margin-left:10.5pt;text-transform:uppercase;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000087667"
+      id="b7a84703-a74f-4662-8036-10511a45d2a7">&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;The State Street SPDR Bloomberg Enhanced Roll Yield Commodity Strategy No K-1 ETF (the &#x201c;Fund&#x201d;) &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;seeks to provide investment results that, before fees and expenses, correspond generally to the total return &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10.5pt;margin-left:10.5pt;"&gt;performance of an index composed of a broad range of commodity exposures.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000087667"
+      id="fdf2ae92-8130-4290-be9d-46c9efd6ef9d">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000087667"
+      id="x_1c7d0cb8-180e-40c8-9a32-d8f1a810b13e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The table below describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund (&#x201c;Fund Shares&#x201d;). &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and Example below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000087667"
+      id="x_9df68de5-5a09-4677-b85b-1012b4450091">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Annual Fund Operating Expenses &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;"&gt;(expenses that you pay each year as a percentage of the value of your investment):&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="x_6004de5d-6bb3-44d1-8811-a55152577d69"
+      unitRef="pure">0.0028</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="d7b01aa5-d91e-4d50-bab0-8fcb7ae0b393"
+      unitRef="pure">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="d1dd8d8a-b2d7-4174-8eaf-c9885847c3f0"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="x_871832f4-42d5-43ce-8007-9cb869a2179f"
+      unitRef="pure">0.0028</oef:ExpensesOverAssets>
+    <oef:ExpenseExampleHeading
+      contextRef="S000087667"
+      id="x_1dd3cf65-3a39-46ec-b9a1-c7aea55d86b7">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Example:&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000087667"
+      id="c7fbf29b-e366-4f6c-8f0c-4922b77288b9">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;This Example is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds. The Example assumes that you invest $10,000 in the Fund for the time periods indicated, and then sell or hold all of your Fund Shares at the end of those periods. The Example also assumes that your investment has a 5% return each year and that the Fund's operating expenses remain the same. Although your actual costs may be higher or lower, based on these assumptions your costs would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000087667_C000253542"
+      decimals="INF"
+      id="x_0dc0e4c7-ce37-4939-93fc-be38d6f3ecc1"
+      unitRef="USD">29</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000087667_C000253542"
+      decimals="INF"
+      id="da727ada-cdcc-4acc-b897-57ac3e0e1b1f"
+      unitRef="USD">90</oef:ExpenseExampleYear03>
+    <oef:ExpenseExampleYear05
+      contextRef="S000087667_C000253542"
+      decimals="INF"
+      id="a1240ad8-9f99-4027-8e29-3f4d9f2506a3"
+      unitRef="USD">157</oef:ExpenseExampleYear05>
+    <oef:ExpenseExampleYear10
+      contextRef="S000087667_C000253542"
+      decimals="INF"
+      id="x_10fd1cd1-0b5e-4408-a49f-55b2a4a95057"
+      unitRef="USD">356</oef:ExpenseExampleYear10>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000087667"
+      id="x_19475ea2-0972-4f40-b993-ac61d7b80126">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Portfolio Turnover:&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000087667"
+      id="d827bb55-c7dd-436d-af83-46a5a9e44098">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund Shares are held in a taxable account. These costs, which are not reflected in Annual Fund Operating Expenses or in the Example, affect the Fund's performance.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; During the most recent fiscal year, the Fund's portfolio turnover rate was &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;0&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;% of the average value of its portfolio.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:PortfolioTurnoverRate
+      contextRef="S000087667"
+      decimals="4"
+      id="x_7936af61-d916-4d7d-953c-7ca2f87bc239"
+      unitRef="pure">0</oef:PortfolioTurnoverRate>
+    <oef:StrategyHeading
+      contextRef="S000087667"
+      id="x_6c72ae7b-5449-414d-94ec-da802c4a8ba1">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;The Fund's Principal Investment Strategy&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000087667"
+      id="x_124928f8-7426-4d87-bbb6-286f44ed2729">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Fund seeks to track the performance of the Bloomberg Enhanced Roll Yield Total Return Index (the &#x201c;Index&#x201d;). Under normal market conditions, the Fund generally invests substantially all, but at least 80%, of its net assets (plus borrowings, if any), directly or indirectly, in securities and/or other instruments comprising the index it seeks to track or in instruments providing exposure to securities and/or other instruments comprising the index it seeks to track. Prior to any change in this 80% investment policy, the Fund will provide shareholders with 60 days' notice. The Fund seeks to achieve its investment objective primarily through exposure to commodity-linked derivative instruments based on the Index. The Fund expects to gain exposure to these investments by investing in a wholly-owned subsidiary, an exempted limited company organized under the laws of the Cayman Islands (&#x201c;Subsidiary&#x201d;). The Fund may, to a lesser extent, invest directly in these instruments. The Fund expects to obtain a substantial amount of its exposure to the investment results of the Index through direct or indirect investments in total return swaps that provide returns similar to the commodity futures contracts in the Index. The Subsidiary and Fund may also invest in other commodity-linked derivative instruments, including futures contracts. The performance of these commodity-linked derivative instruments is expected to correspond to the performance of the Index, without requiring the Fund to invest directly in commodities. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Subsidiary and the Fund may also invest in cash and cash equivalents (including U.S. treasury obligations) or money market instruments (including money market funds advised by SSGA FM), which are intended to provide liquidity, preserve capital, and serve as collateral for the Subsidiary's or Fund's derivative instruments. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Subsidiary is managed by SSGA Funds Management, Inc. (&#x201c;SSGA FM&#x201d; or the &#x201c;Adviser&#x201d;), the investment adviser to the Fund, and has the same investment strategy as the Fund. The Fund's investments in the Subsidiary generally provide the Fund with exposure to commodity-linked derivatives instruments within the limits of the federal tax laws, which limit the ability of investment companies like the Fund to invest directly in such instruments. The Fund will not invest more than 25% of the value of its total assets in the Subsidiary. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index measures the performance of a diversified, liquid and cost-effective long exposure to the broad commodities market through synthetic positions in futures contracts, with no single commodity or sector dominating the Index. The Index is calculated on a total return basis, which reflects the returns on a fully collateralized investment in the Index. This combines the returns of the Index with the returns on cash collateral based on the Secured Overnight Financing Rate (SOFR). The Index methodology selects commodities that are both sufficiently significant to the world economy as measured by liquidity and tradable through a qualifying related futures contract. Commodity futures contracts normally specify a certain date for the delivery of the underlying physical commodity. To avoid the effects of the delivery process on Index performance and to maintain a long futures position, the Index embeds a &#x201c;rolling&#x201d; process. In a rolling process, nearby futures contracts are sold and contracts that have not yet reached the delivery period are purchased. The Index is composed of three to four futures contracts for each commodity, which are rolled each month to a new set of futures contracts, and each contract for a specific commodity is equally weighted. The contract rolls take place over the first ten business days of each month. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;In January of each year, the Index rebalances new commodity target weights. The commodity target weights are calculated on the last business day of November and implemented within the first ten business days of January of the following year. The commodity target weights are calculated by combining commodity liquidity percentages and slope scores. Commodity liquidity percentages are determined for each commodity by taking a three-year average of daily trading volumes and dividing by the sum of such trading volumes for all the commodities. The commodity liquidity percentages are then adjusted based on the following diversification capping process to mitigate over-concentration to any individual commodity or commodity group: &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;&#x2022;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;No single commodity (e.g., natural gas, silver) can exceed 15% of the Index; &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;&#x2022;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;No commodity group (e.g., energy, precious metals) may constitute more than 33% of the Index; and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;&#x2022;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;No single commodity (e.g., natural gas, silver) may constitute less than 1.5% of the Index as liquidity allows. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Each commodity is also assigned a &#x201c;Slope Score&#x201d;, which is the three year daily average shape of the commodity futures forward curve from nearby to 1 year ahead. The Slope Score is a measure of how backwardated (downward sloping) or contangoed (upward sloping) each commodity is. &#x201c;Contango&#x201d; refers to a pattern of higher futures prices for longer expiration futures contracts, while &#x201c;backwardation&#x201d; refers to a pattern of higher futures prices for shorter expiration futures contracts. The commodity with the highest degree of backwardation is given the highest slope score, which results in a higher allocation weighting for that commodity. Similar to the liquidity measure, the slope score per commodity is standardized relative to the universe. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;In the final step to calculate commodity target weights, both the diversified liquidity percentages and slope scores are assessed. For each commodity, the liquidity percentage and the slope score are scaled and multiplied to generate a relative weight by standardizing across the commodity universe. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;As of January 31, 2026, the following commodities were eligible for inclusion in the Index: agricultural (Chicago Wheat, Kansas Wheat, Soybeans, Soybean Meal, Soybean Oil, Corn, Cocoa, Cotton, Coffee and Sugar), energy (Brent Crude Oil, Gasoil, WTI Crude Oil, Heating Oil, Natural Gas and Gasoline), industrial metals (Copper, LME Copper, Zinc, Tin, Nickel, Lead and Aluminum), livestock (Live Cattle, Lean Hogs and Feeder Cattle) and precious metals (Gold, Platinum and Silver). In seeking to track the Index, the Fund's assets may be concentrated in an industry or group of industries, but only to the extent that the Index concentrates in a particular industry or group of industries. As of January 31, 2026, the Fund had significant exposure to precious metals commodities, industrial metals commodities, agricultural commodities, and energy commodities.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The Index is sponsored by Bloomberg Index Services Limited&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;(the &#x201c;Index Provider&#x201d;), which is not affiliated with the Fund or SSGA FM. The Index Provider determines the composition of the Index, relative weightings of the securities in the Index and publishes information regarding the market value of the Index. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The phrase &#x201c;No K-1&#x201d; in the Fund's name means that the Fund does not issue a Schedule K-1, which is the tax reporting form issued by commodities partnerships. Schedule K-1 typically presents additional complexities. Instead, like most other ETFs, the Fund reports income on Form 1099.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_RiskLoseMoneyMember"
+      id="x_75cd7a7f-c905-4d83-82e7-d90d3e039f2f">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;As with all investments, there are certain risks of investing in the Fund. Fund Shares will change in value, and you could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_RiskNotInsuredMember"
+      id="x_9cd58a33-0a1e-4518-b50c-7875d022d660">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; An investment in the Fund is not insured or guaranteed by the Federal &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Deposit Insurance Corporation or any other government agency.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_MarketRiskMember"
+      id="de684deb-e3f7-40c1-a276-51de9bb49a1b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Market Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund's investments are subject to changes in general economic conditions, general market fluctuations and the risks inherent in investment in securities and commodities markets. Investment markets can be volatile and prices of investments can change substantially due to various factors including, but not limited to, economic growth or recession, changes in interest rates, inflation, changes in the actual or perceived creditworthiness of issuers, and general market liquidity. The Fund is subject to the risk that geopolitical events will disrupt securities and commodities markets and adversely affect global economies and markets. Local, regional or global events such as war, military conflicts, acts of terrorism, trade policy changes or disputes, the threat or actual imposition of tariffs, natural disasters, the spread of infectious illness or other public health issues, or other events could have a significant impact on the Fund and its investments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_CommoditiesandCommodityLinkedDerivativesRiskMember"
+      id="x_2a11b364-d1c0-45a9-9bdb-72d35999f6fc">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Commodities and Commodity-Linked Derivatives Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Commodity prices can have significant volatility, and exposure to commodities can cause the net asset value (&#x201c;NAV&#x201d;) of Fund Shares to decline or fluctuate in a rapid and unpredictable manner. A liquid secondary market may not exist for certain commodity investments, which may make it difficult for the Fund to sell them at a desirable price or at the price at which it is carrying them. The value of commodities and commodity-linked derivative instruments typically is based upon the price movements of a physical commodity or an economic variable linked to such price movements. Therefore, the value of commodities and commodity-linked derivative instruments may be affected by, for example, changes in overall market movements, economic conditions, changes in interest rates, or factors affecting a particular commodity or industry, such as production, supply, demand, drought, floods, weather, political, economic and regulatory developments. These factors may impair the ability of the Fund to sell its portfolio holdings quickly or for full value. Commodity-linked derivatives are subject to the risk that the counterparty to the transaction may default or otherwise fail to perform.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_AgriculturalCommoditiesRiskMember"
+      id="x_45fd9be9-6f83-4496-a82a-714fcccffe5b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Agricultural Commodities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Price movements in agricultural commodities are affected by many factors, some of which include, but are not limited to: farmer planting decisions; weather conditions, including hurricanes, tornadoes, storms and droughts; changes in global supply and demand for agriculture products; the price and quantity of imports and exports of agricultural commodities; general economic, market and regulatory factors; political conditions, including embargoes and war, affecting agricultural production, imports and exports; and technological advances in agricultural production.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_EnergyCommoditiesRiskMember"
+      id="cb2a69e0-cefc-4137-a71f-6109b5f3c39c">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Energy Commodities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Energy commodities are subject to frequent, and often substantial, price fluctuations. The markets and prices for energy commodities are affected by many factors, some of which include, but are not limited to: changes in global supply and demand for oil and natural gas; the price and quantity of imports and exports of oil and natural gas; political conditions, including embargoes and war, affecting oil producing activities; the level of global oil and natural gas exploration, inventories, production or pricing; weather conditions; technological advances effecting energy consumption; and the price and availability of alternative fuels.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_MetalsCommoditiesRiskMember"
+      id="x_2fee9ef7-2258-4993-90fd-ff30470030c5">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Metals Commodities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Price movements in metals commodities are affected by many factors. A change in economic conditions, such as a recession, can adversely affect the price of metals. An economic downturn may have a negative impact on the usage and demand of metals, which may result in a loss for the Fund. Other factors affecting prices include, but are not limited to: a sudden shift in political conditions in the world's leading metal producing countries; an increase in the hedging of precious metals; changes in global supply and demand for industrial and precious metals; the price and quantity of imports and exports of industrial and precious metals; and technological advances in the processing and mining of industrial and precious metals.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_DerivativesRiskMember"
+      id="x_62396128-3be3-4ce1-94e2-f378e9132c01">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Derivatives Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Derivative transactions can create investment leverage and may have significant volatility. It is possible that a derivative transaction will result in a much greater loss than the principal amount invested, and the Fund may not be able to close out a derivative transaction at a favorable time or price. The counterparty to a derivatives contract may be unable or unwilling to make timely settlement payments, return the Fund's margin, or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;otherwise honor its obligations. A derivatives transaction may not behave in the manner anticipated by the Adviser or may not have the effect on the Fund anticipated by the Adviser.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_SwapsRiskMember"
+      id="x_8e15016f-32ea-4516-87ef-9687c8cc9021">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Swaps Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; A swap is a two-party contract that generally obligates the parties to exchange payments based on a specified reference security, basket of securities, security index&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;or index component&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and/or other instruments. A total return swap is an agreement between two parties in which one party agrees to make payments of the total return of a reference asset in return for payments equal to a rate of interest on another reference asset. Swaps generally can involve greater risks than direct investment in securities because swaps may be leveraged and are subject to counterparty risk (e.g., the risk of a counterparty's defaulting on the obligation or bankruptcy), credit risk and pricing risk (i.e., swaps may be difficult to value). It may not be possible for the Fund to liquidate a swap position at an advantageous time or price, which may result in significant losses. Frequent transactions in swaps may result in higher Fund expenses and may result in increased taxable distributions to investors, including potentially increased distributions that are taxable to individuals as ordinary income.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_FuturesContractRiskMember"
+      id="x_93a680b4-f6b9-4cee-9bfc-bdea8b9c9331">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Futures Contract Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; A futures contract is a standardized agreement that calls for the purchase or sale of a specific asset at a specific price at a specific future time, or cash settlement of the terms of the contract. Transactions in futures contracts can create investment leverage and may have significant volatility. It is possible that a futures contract transaction will result in a much greater loss than the principal amount invested, and the Fund may not be able to close out the futures contract at a favorable time or price. There is no assurance that a liquid secondary market on an exchange will exist for any particular futures contract. In the event no such market exists, it might not be possible to effect closing transactions, and the Fund will be unable to terminate its exposure to the futures contract. There is also a risk of imperfect correlation between movements in the prices of the futures contract and movements in the price of the underlying assets. The counterparty to a futures contract may be unable or unwilling to make timely settlement payments, return the Fund's margin, or otherwise honor its obligations.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_CounterpartyRiskMember"
+      id="x_3f41c87a-3028-4523-b1a1-d76d8fefcc4e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Counterparty Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund will be subject to credit risk with respect to the counterparties with which the Fund enters into derivatives instruments, as well as other transactions. If a counterparty fails to meet its contractual obligations, the Fund may be unable to terminate or realize any gain on the investment or transaction, or to recover collateral posted to the counterparty, resulting in a loss to the Fund. If the Fund holds collateral posted by its counterparty, it may be delayed or prevented from realizing on the collateral in the event of a bankruptcy or insolvency proceeding relating to the counterparty.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_CommodityLinkedDerivativeTaxRiskMember"
+      id="x_39a8166e-b226-4b30-9e87-0e83bcdd1b46">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Commodity-Linked Derivative Tax Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; To qualify for the favorable U.S. federal income tax treatment accorded to regulated investment companies (&#x201c;RICs&#x201d;), the Fund must, among other things, derive in each taxable year at least 90% of its gross income from certain prescribed sources. The Fund generally intends to invest in commodity-linked derivative instruments indirectly through the Subsidiary. The Fund's investment in the Subsidiary is expected to provide the Fund with exposure to the commodities markets within the limitations of the federal tax requirements of the Code for qualification as a RIC. The Adviser intends to conduct the Fund's investments in the Subsidiary in a manner consistent with the terms and conditions of the regulations promulgated by the U.S. Treasury, and will monitor the Fund's investments in the Subsidiary to ensure that no more than 25% of the Fund's total assets are invested in the Subsidiary.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_FluctuationofNetAssetValueSharePremiumsandDiscountsRiskMember"
+      id="x_25e6c707-587e-4b78-b1a5-196d748685b9">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Fluctuation of Net Asset Value, Share Premiums and Discounts Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; As with all exchange-traded funds, Fund Shares may be bought and sold in the secondary market at market prices. The trading prices of Fund Shares in the secondary market may differ from the Fund's daily NAV per share and there may be times when the market price of the shares is more than the NAV per share (premium) or less than the NAV per share (discount). This risk is heightened in times of market volatility or periods of steep market declines.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_CashPositionRiskMember"
+      id="x_736462aa-9e09-4ebe-b91d-696bcda9473c">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Cash Position Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; If the Fund holds a significant position in cash or cash equivalents, its investment returns may be adversely affected, and the Fund may underperform other funds that do not similarly invest in cash and cash equivalents for investment purposes and/or to collateralize derivative instruments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_CashTransactionRiskMember"
+      id="x_248a07de-56ed-4a5f-a22b-a900f69d3c31">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Cash Transaction Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund may sell portfolio securities to meet some or all of a redemption request with cash. In such cases, the Fund may incur taxable gains or losses that it might not have incurred had it made redemptions entirely in-kind. As a result, the Fund may pay out higher annual capital gain distributions than if the in-kind redemption process was used.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_IndexingStrategyIndexTrackingRiskMember"
+      id="x_61349720-f854-4e1b-a818-dfeca6fd6f09">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Indexing Strategy/Index Tracking Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund is managed with an indexing investment strategy, attempting to track the performance of an unmanaged index of securities&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and/or other instruments, regardless of the current or projected performance of the Index or of the actual securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and/or other instruments comprising the Index. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;This differs from an actively-managed fund, which typically seeks to outperform a benchmark index. As a result, the Fund's performance may be less favorable than that of a portfolio managed using an active investment strategy. The structure and composition of the Index will affect the performance, volatility, and risk of the Index and, consequently, the performance, volatility, and risk of the Fund. Errors in index data, index computations or the construction of the Index in accordance with its methodology may occur from time to time and may not be identified and corrected&#160;by the Index Provider for a period of time or at all, which may have an adverse impact on the Fund and its shareholders. To the extent circumstances evolve in between reconstitutions, the Index may include, and the Fund may therefore hold for a period of time,&#160;investments that do not align with the Index's objective and/or criteria. When there are changes made to the component securities&#160;and/or other instruments of the Index and the Fund in turn makes similar changes to its portfolio, any transaction costs and market&#160;exposure arising from such portfolio changes will be borne directly by the Fund and its shareholders. The Fund may recognize gains&#160;as a result of rebalancing or reconstituting its holdings to reflect changes in the Index. The Fund also may be required to distribute&#160;any such gains to its shareholders to avoid adverse federal income tax consequences. While the Adviser seeks to track the performance of the Index (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;, achieve a high degree of correlation with the Index), the Fund's return may not match the return of the Index. The Fund incurs a number of operating expenses not applicable to the Index, and may incur costs in buying and selling securities&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and/or other instruments. In addition, the Fund may not be fully invested at times, generally as a result of cash flows into or out of the Fund or reserves of cash held by the Fund to meet redemptions. The Adviser may attempt to track&#160;the Index return by investing in fewer than all of the securities and/or other instruments in the Index, or in securities and/or other instruments not included in the Index, potentially increasing the risk of divergence between the Fund's return and that of the Index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_LimitedTrackRecordRiskMember"
+      id="x_9f45be32-35c3-4144-8734-76f819003a7b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Limited Track Record Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Fund has a limited track record and there is no assurance that the Fund will grow quickly. When the Fund's size is small, the Fund may experience low trading volume, which could lead to wider bid/ask spreads. In addition, the Fund may face the risk of being delisted if the Fund does not meet certain conditions of the listing exchange. Any resulting liquidation of the Fund could cause elevated transaction costs for the Fund and negative tax consequences for its shareholders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_LiquidityRiskMember"
+      id="x_7b7c4cdd-83fe-478f-bb58-78bf15daba7b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Liquidity Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Lack of a ready market, stressed market conditions, or restrictions on resale may limit the ability of the Fund to sell a security &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;line-height:12pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;and/or other instrument at an advantageous time or price or at all. Illiquid investments may trade at a discount from comparable, more liquid investments and may be subject to wide fluctuations in market value. If the liquidity of the Fund's holdings deteriorates, it may lead to differences between the market price of Fund Shares and the NAV of Fund Shares, and could result in the Fund Shares being less liquid. Illiquidity of the Fund's holdings may also limit the ability of the Fund to obtain cash to meet redemptions on a timely basis. In addition, the Fund, due to limitations on investments in any illiquid investments and/or the difficulty in purchasing and selling such investments, may be unable to achieve its desired level of exposure to a certain market or sector.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_MoneyMarketFundInvestmentRiskMember"
+      id="x_33384388-ebab-4d72-9f76-771674ab726e">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Money Market Fund Investment Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; An investment in a money market fund is not a deposit of any bank and is not insured or guaranteed by the FDIC or any other government agency. Certain money market funds seek to preserve the value of their shares at $1.00 per share, although there can be no assurance that they will do so, and it is possible to lose money by investing in such a money market fund. A major or unexpected change in interest rates or a decline in the credit quality of an issuer or entity providing credit support, an inactive trading market for money market instruments, or adverse market, economic, industry, political, regulatory, geopolitical, and other conditions could cause the share price of such a money market fund to fall below $1.00. Other money market funds price and transact at a &#x201c;floating&#x201d; NAV that will fluctuate along with changes in the market-based value of fund assets. Shares sold utilizing a floating NAV may be worth more or less than their original purchase price. Recent changes in the regulation of money market funds may affect the operations and structures of money market funds.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_RiskNondiversifiedStatusMember"
+      id="x_7e2b29a9-1002-48f1-b900-52e2a463a591">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Non-Diversification Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; As a&#160;&#x201c;non-diversified&#x201d; fund, the Fund may hold a smaller number of investments than many other funds. To the extent the Fund invests in a relatively small number of issuers, a decline in the market value of a particular investment held by the Fund may affect its value more than if it invested in a larger number of issuers. The value of Fund Shares may be more volatile than the values of shares of more diversified funds. The Fund may become diversified for periods of time solely as a result of tracking the Index (e.g., changes in weightings of one or more component securities and/or other instruments).&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_SubsidiaryInvestmentRiskMember"
+      id="x_4fe53f08-2558-4488-8ff8-d0ab0dc92dab">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Subsidiary Investment Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; The Subsidiary is not registered under the Investment Company Act of 1940, as amended (the &#x201c;1940 Act&#x201d;) and is not subject to all of the investor protections of the 1940 Act. Thus, the Fund, as an investor in the Subsidiary, will not have all of the protections offered to investors in registered investment companies. In addition, changes in the laws of the United States and/or the Cayman Islands could result in the inability of the Fund to operate as intended and could negatively affect the Fund and its shareholders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_USTreasuryObligationsRiskMember"
+      id="x_171c0201-b147-4e98-a9d1-ad7a1daf8de0">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;U.S. Treasury Obligations Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; U.S. Treasury obligations may differ from other fixed income securities in their interest rates, maturities, times of issuance and other characteristics. Similar to other issuers, changes to the financial condition or credit rating of the U.S. government may cause the value of the Fund's U.S. Treasury obligations to decline.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000087667_ValuationRiskMember"
+      id="x_3b2e2b54-59a3-4fa9-8bcc-e9deedea33c9">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Valuation Risk: &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Certain portfolio holdings&#160;may be valued on the basis of factors other than market quotations. This may occur more often in times of market turmoil or reduced liquidity. There are multiple methods that can be used to value a portfolio holding when market quotations are not readily available. The value established for any portfolio holding at a point in time might differ from what would be produced using a different methodology or if it had been priced using market quotations. Portfolio holdings that are valued using techniques other than market quotations, including &#x201c;fair valued&#x201d; securities, may be subject to greater fluctuation in their valuations from one day to the next than if market quotations were used. In addition, there is no assurance that the Fund could sell or close out a portfolio position for the value established for it at any time, and it is possible that the Fund would incur a loss because a portfolio position is sold or closed out at a discount to the valuation established by the Fund at that time.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000087667"
+      id="x_9be27dad-4001-4849-8205-a076cdcc54f4">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;text-transform:uppercase;"&gt;Fund Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000087667"
+      id="x_33c3cc1a-6ae8-42b5-a97b-ec7f6575013b">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The following bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund's performance from year to year and by showing how the Fund's average annual returns for certain time periods compare with the average annual returns of the Index and of a relevant broad-based securities index. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Fund's past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; Updated performance information is available &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;by calling &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;1-866-787-2257&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt; or visiting our website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;www.statestreet.com/im&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="S000087667"
+      id="e30a7a07-b1cf-47cf-a337-e9a19563b253">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The following bar chart and table provide an indication of the risks of investing in the Fund by showing changes in the Fund's performance from year to year and by showing how the Fund's average annual returns for certain time periods compare with the average annual returns of the Index and of a relevant broad-based securities index. &lt;/span&gt;</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000087667"
+      id="c2557d14-32b1-4303-8869-19b591772f84">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Fund's past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="S000087667"
+      id="d76152ff-3348-4895-9cc8-2f91b3ef388a">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;1-866-787-2257&lt;/span&gt;</oef:PerformanceAvailabilityPhone>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000087667"
+      id="bddf77a1-b2eb-4a9e-95ee-abbd556db3bc">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;www.statestreet.com/im&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:BarChartHeading
+      contextRef="S000087667"
+      id="x_330f78d9-b8dc-406f-ab35-b635ee9f0d78">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Annual Total Returns &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;"&gt;(Year ended 12/31)&lt;/span&gt;</oef:BarChartHeading>
+    <oef:BarChartClosingTextBlock
+      contextRef="S000087667"
+      id="x_2cc6ab3a-ad65-46f6-bdb9-c8936b50ef5c">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Returns&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;"&gt;Quarter/Year&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.0pt;"&gt;Highest Quarterly Return&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;7.03%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Q1 2025&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.0pt;"&gt;Lowest Quarterly Return&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;-1.87%&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Q2 2025&lt;/span&gt;</oef:BarChartClosingTextBlock>
+    <oef:HighestQuarterlyReturnLabel
+      contextRef="S000087667_C000253542"
+      id="x_7c897405-6bac-439e-82f6-609e536b7aa6">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.0pt;"&gt;Highest Quarterly Return&lt;/span&gt;</oef:HighestQuarterlyReturnLabel>
+    <oef:BarChartHighestQuarterlyReturn
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="x_35a75ff7-b5af-484f-a1cc-981e48f576fa"
+      unitRef="pure">0.0703</oef:BarChartHighestQuarterlyReturn>
+    <oef:BarChartHighestQuarterlyReturnDate
+      contextRef="S000087667_C000253542"
+      id="be0e6e19-41e3-44f8-aba8-0cec586a66cc">2025-03-31</oef:BarChartHighestQuarterlyReturnDate>
+    <oef:LowestQuarterlyReturnLabel
+      contextRef="S000087667_C000253542"
+      id="x_6eb51e1d-9977-4d15-8604-58021ada3c18">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;font-weight:bold;margin-left:0.0pt;"&gt;Lowest Quarterly Return&lt;/span&gt;</oef:LowestQuarterlyReturnLabel>
+    <oef:BarChartLowestQuarterlyReturn
+      contextRef="S000087667_C000253542"
+      decimals="4"
+      id="x_5c634383-bd51-475b-96b1-203111b9daad"
+      unitRef="pure">-0.0187</oef:BarChartLowestQuarterlyReturn>
+    <oef:BarChartLowestQuarterlyReturnDate
+      contextRef="S000087667_C000253542"
+      id="x_614904d4-f889-4b9a-b601-59cfc47b3841">2025-06-30</oef:BarChartLowestQuarterlyReturnDate>
+    <oef:PerformanceTableHeading
+      contextRef="S000087667"
+      id="x_03e34865-1f54-45ff-b945-20c1d589b78f">&lt;span style="color:#000000;font-family:Arial;font-size:8pt;font-weight:bold;text-transform:uppercase;"&gt;Average Annual Total Returns &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:8pt;"&gt;(for periods ended 12/31/25)&lt;/span&gt;</oef:PerformanceTableHeading>
+    <oef:PerformanceTableNarrativeTextBlock
+      contextRef="S000087667"
+      id="x_184eeeb7-534c-4b4b-b282-a31bd9c8fe65">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The after-tax returns presented in the table below are calculated using highest historical individual federal marginal income tax rates and do not reflect the impact of state and local taxes. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Your actual after-tax returns will depend on &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;your specific tax situation and may differ from those shown below. After-tax returns are not relevant to investors who hold Fund Shares through tax-advantaged arrangements, such as 401(k) plans or individual retirement accounts. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;returns after taxes can exceed the returns before taxes due to an assumed tax benefit for a shareholder from realizing a capital loss on a sale of Fund Shares.&lt;/span&gt;</oef:PerformanceTableNarrativeTextBlock>
+    <oef:PerformanceTableUsesHighestFederalRate
+      contextRef="S000087667"
+      id="x_0bebd64b-6ac9-4eac-8891-4e1fc0b6402f">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The after-tax returns presented in the table below are calculated using highest historical individual federal marginal income tax rates and do not reflect the impact of state and local taxes. &lt;/span&gt;</oef:PerformanceTableUsesHighestFederalRate>
+    <oef:PerformanceTableNotRelevantToTaxDeferred
+      contextRef="S000087667"
+      id="b5c208d3-4fc8-42c0-b51f-0432040be3f3">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;Your actual after-tax returns will depend on &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;your specific tax situation and may differ from those shown below. After-tax returns are not relevant to investors who hold Fund Shares through tax-advantaged arrangements, such as 401(k) plans or individual retirement accounts. &lt;/span&gt;</oef:PerformanceTableNotRelevantToTaxDeferred>
+    <oef:PerformanceTableExplanationAfterTaxHigher
+      contextRef="S000087667"
+      id="x_8e793aae-7590-45b8-8aae-7b238ff180fa">&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;The &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:10pt;"&gt;returns after taxes can exceed the returns before taxes due to an assumed tax benefit for a shareholder from realizing a capital loss on a sale of Fund Shares.&lt;/span&gt;</oef:PerformanceTableExplanationAfterTaxHigher>
+    <oef:PerfInceptionDate
+      contextRef="C000253542"
+      id="ddbb6382-00d8-49e4-9840-60a96e809359">2024-09-04</oef:PerfInceptionDate>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_01Jan2025_31Dec2025"
+      decimals="4"
+      id="x_29b73432-beb6-49ee-910c-b9d9e0074220"
+      unitRef="pure">0.1606</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_05Sep2024_31Dec2025"
+      decimals="4"
+      id="a8337803-6721-456d-a9b9-934c5aeec62d"
+      unitRef="pure">0.1529</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_AfterTaxesOnDistributionsMember_01Jan2025_31Dec2025"
+      decimals="4"
+      id="d3b1dba1-fd11-43fe-aa29-b09b662b4edb"
+      unitRef="pure">0.1381</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_AfterTaxesOnDistributionsMember_05Sep2024_31Dec2025"
+      decimals="4"
+      id="x_3b56e4fc-e187-46ea-a8cc-83aeacb69569"
+      unitRef="pure">0.1344</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_AfterTaxesOnDistributionsAndSalesMember_01Jan2025_31Dec2025"
+      decimals="4"
+      id="x_537f4b5c-f9b7-4aa7-a704-9077e1b65df2"
+      unitRef="pure">0.0951</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="C000253542_AfterTaxesOnDistributionsAndSalesMember_05Sep2024_31Dec2025"
+      decimals="4"
+      id="x_1a1b1fb6-0a6b-40e5-8b9b-6bdcf6d50ce9"
+      unitRef="pure">0.1094</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_BloombergEnhancedRollYieldTotalReturnIndexMember_01Jan2025_31Dec2025"
+      decimals="4"
+      id="a3de6464-3091-4c36-80bb-7c8016dfd1e4"
+      unitRef="pure">0.1652</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_BloombergEnhancedRollYieldTotalReturnIndexMember_05Sep2024_31Dec2025"
+      decimals="4"
+      id="x_280c017c-7189-4182-a609-0acd2175a436"
+      unitRef="pure">0.1575</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_MSCIACWIIMIIndexMember_01Jan2025_31Dec2025"
+      decimals="4"
+      id="x_7352cc2c-eecc-468a-9eda-b56744e4a4b1"
+      unitRef="pure">0.2206</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="_MSCIACWIIMIIndexMember_05Sep2024_31Dec2025"
+      decimals="4"
+      id="x_2f028494-6e08-4b1a-bb8b-a8548daa4fea"
+      unitRef="pure">0.1919</oef:AvgAnnlRtrPct>
+</xbrl>
