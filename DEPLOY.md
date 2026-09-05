@@ -8,6 +8,10 @@ GitHub Pages, published by GitHub Actions from the `site/` folder of a GitHub re
 
 Why this and not a hosting account: it is free, HTTPS on a custom domain is automatic, this machine is already logged in to GitHub as `adampatti`, the daily data snapshot is a second workflow in the same repository that commits and redeploys, and any future session publishes by pushing. Cloudflare Pages, Vercel or Netlify work the same way if you ever want them; only the DNS target changes.
 
+## Status on 2026-09-04, evening
+
+Done: repository https://github.com/adampatti/etfiq (public), GitHub Pages enabled from the Actions workflow, custom domain `etfiq.com` attached. Remaining: the DNS records at GoDaddy in step 3 below, and HTTPS enforcement once the certificate issues (step 4). `etfiq.ai` forwarding is step 5.
+
 ## One-time setup
 
 1. Create the repository from this folder and push it. Public, because Pages on a private repository needs a paid plan and the site is public anyway.
