@@ -52,10 +52,12 @@ def yieldmax():
         for tb in tables:
             rr = rows(tb)
             if rr and any('Group' in c for c in rr[0]):
+                ngroups = max(1, sum(1 for c in rr[0] if 'Group' in c))
                 for row in rr[1:]:
-                    for gi, tk in enumerate(row):
+                    per = max(1, len(row) // ngroups)
+                    for ci, tk in enumerate(row):
                         if re.fullmatch(r'[A-Z]{2,5}', tk):
-                            out['groups'][tk] = gi
+                            out['groups'][tk] = min(ci // per, ngroups - 1)
                 continue
             dated = [x for x in rr if len(x) >= 3 and re.search(r'\d{4}', x[-1])]
             if dated:
@@ -141,8 +143,10 @@ def schedule(ticker, freq, issuer=None, ym=None):
     gaps = [(b - a).days for a, b in zip(exs, exs[1:]) if (b - a).days > 0]
     cadence = int(statistics.median(gaps)) if len(gaps) >= 2 else ({'weekly': 7, 'monthly': 30, 'quarterly': 91}.get(freq) or None)
     # ex-to-pay lag from Nasdaq history where available
-    lags = [(datetime.date.fromisoformat(r['pay']) - datetime.date.fromisoformat(r['ex'])).days for r in nq if r.get('pay') and r['ex'] <= today.isoformat()]
-    lag = int(statistics.median(lags[-6:])) if lags else (1 if cadence and cadence <= 9 else 2)
+    past = sorted([r for r in nq if r.get('pay') and r['ex'] <= today.isoformat()], key=lambda r: r['ex'])
+    lags = [(datetime.date.fromisoformat(r['pay']) - datetime.date.fromisoformat(r['ex'])).days for r in past[-6:]]
+    lags = [x for x in lags if 0 <= x <= 40]
+    lag = int(statistics.median(lags)) if lags else (1 if cadence and cadence <= 9 else 2)
     last = hist[-1] if hist else None
     last_nq = next((r for r in sorted(nq, key=lambda r: r['ex']) if r['ex'] <= today.isoformat()), None)
     last_rec = None
