@@ -121,7 +121,7 @@ def buffer_page(f, as_of):
     ]
     return page(title, desc, f['ticker'], f['name'], f['issuer'], 'buffer', as_of, words, rows, f"{BASE}/#/buffer/check/{f['ticker']}",
                 'Issuer-published figures as of the date shown; ETFIQ calculations marked. Definitions on the learn page.',
-                faqs=buffer_faqs(f, state, left, fall_ref, as_of), related=embed_block('buffer', f['ticker'], f['name']) + related_links('buffer', f['ticker']) + neighbour_links('buffer', f['ticker']),
+                faqs=buffer_faqs(f, state, left, fall_ref, as_of), related=related_links('buffer', f['ticker']) + neighbour_links('buffer', f['ticker']) + embed_block('buffer', f['ticker'], f['name']),
                 cik=None, filings=[u for u in [(f.get('source') or {}).get('fundPage')] if u],
                 sources=sources_block([(f"{f['issuer']} page for {f['ticker']}", (f.get('source') or {}).get('fundPage')),
                                        (f"{f['issuer']} product table", (f.get('source') or {}).get('issuerPage')),
@@ -164,7 +164,7 @@ def income_page(r, as_of, src):
         rows.append((f"Return of capital, latest distribution ({src['issuer']} 19a-1 estimate)", pct(src['latest']['roc'], sign=False)))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'income', as_of, words, rows, f"{BASE}/#/income/check/{r['ticker']}",
                 'Every figure is an ETFIQ calculation from exchange prices and cash distributions (Tiingo end-of-day), total return with distributions reinvested. Return of capital is the issuer’s estimate.',
-                faqs=income_faqs(r, w, src, as_of), related=embed_block('income', r['ticker'], r['name']) + related_links('income', r['ticker']) + neighbour_links('income', r['ticker']),
+                faqs=income_faqs(r, w, src, as_of), related=related_links('income', r['ticker']) + neighbour_links('income', r['ticker']) + embed_block('income', r['ticker'], r['name']),
                 cik=r.get('cik'), filings=[u for u in [(src or {}).get('url'), (FEES.get(r['ticker']) or {}).get('source')] if u],
                 sources=sources_block([(f"{(src or {}).get('issuer', r['issuer'])} 19a-1 distribution notice", (src or {}).get('url')),
                                        ('Prospectus filing with the expense ratio (SEC)', (FEES.get(r['ticker']) or {}).get('source')),
@@ -214,7 +214,7 @@ def theme_page(r, as_of):
         rows.append(('Closest funds by holdings overlap', ', '.join(f"{p['t']} {p['o']}%" for p in r['peers'])))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'themes', as_of, words, rows, f"{BASE}/#/themes/check/{r['ticker']}",
                 'Holdings from the fund’s latest public SEC N-PORT filing; overlap and active share computed by ETFIQ against the IVV and QQQM books; returns from Tiingo end-of-day prices with distributions reinvested.',
-                faqs=theme_faqs(r, w, as_of), related=embed_block('themes', r['ticker'], r['name']) + related_links('themes', r['ticker']) + neighbour_links('themes', r['ticker']),
+                faqs=theme_faqs(r, w, as_of), related=related_links('themes', r['ticker']) + neighbour_links('themes', r['ticker']) + embed_block('themes', r['ticker'], r['name']),
                 cik=r.get('cik'), filings=[u for u in [r.get('holdingsSource'), r.get('feeSource')] if u],
                 sources=sources_block([('Holdings filing (SEC Form N-PORT)', r.get('holdingsSource')),
                                        ('Prospectus filing with the expense ratio (SEC)', r.get('feeSource')),
@@ -638,6 +638,7 @@ def x_cmp_page(a, b, ka, kb, as_of, matrix, words_a, words_b, related_pairs):
              + f'<h2>{esc(tb)} in plain words</h2><p>{esc(words_b)}</p>'
              + faq_html
              + (f'<h2>Other comparisons</h2><nav class="rel">{rel}</nav>' if rel else '')
+             + f'<h2>Where to next</h2><nav class="rel"><a href="/funds/{ta}.html">{esc(ta)} on its own</a><a href="/funds/{tb}.html">{esc(tb)} on its own</a><a href="/portfolio/">Hold both: look the portfolio through</a><a href="/rankings/">Rankings</a></nav>'
              + cite_line(f'{ta} against {tb}', as_of, url)
              + '<p class="note">A comparison is not a recommendation. ETFIQ publishes the same fields for every fund and suggests no allocation. '
                '<a href="/standards/">Standards and sources</a></p>')
@@ -1000,14 +1001,15 @@ def data_page(as_of, counts):
 
 
 # ---------------------------------------------------------------- hub pages: issuer, theme, reset month
-def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None, desk=None, extra='', short=None, ld_extra=None):
+def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None, desk=None, extra='', short=None, ld_extra=None, onward=''):
     url = f'{BASE}/{slug}'
     ld = (ld_extra or []) + [{'@type': 'ItemList', 'name': title, 'numberOfItems': len(item_names),
            'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': t, 'url': f'{BASE}/funds/{t}.html'} for i, t in enumerate(item_names[:100])]}]
     trs = ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows)
     inner = (f'<p class="note">Data as of {tdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>{extra}'
              f'<div style="overflow-x:auto"><table class="hub"><caption>{esc(title)}, as of {fdate(as_of)}. Source: ETFIQ.</caption><thead><tr>{"".join(f"<th>{h}</th>" for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>'
-             '<p class="note">ETFIQ is an independent publisher and makes no recommendations; every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>'
+             + (f'<h2>Where to next</h2><nav class="rel">{onward}</nav>' if onward else '')
+             + '<p class="note">ETFIQ is an independent publisher and makes no recommendations; every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>'
              + cite_line(title, as_of, url))
     return doc_page(slug, title, desc, inner, ld, desk=desk, crumb=crumb, wide=True, short=short)
 
@@ -1418,6 +1420,7 @@ def index_page(desk, rows, as_of, intro, hub_nav=''):
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
 {hub_nav}
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
+<h2>Where to next</h2><nav class="rel"><a href="/rankings/">Rankings on this desk</a><a href="/compare/">Compare two funds</a><a href="/issuers/">By issuer</a><a href="/questions/">Questions</a><a href="/learn/{desk}.html">The vocabulary</a></nav>
 <p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/standards/">Standards</a></p>
 </main>{R.footer()}</body></html>"""
 
@@ -1520,7 +1523,8 @@ def build():
             'core/', 'Core index funds: the funds the desks measure against',
             f'{len(core_rows)} index, bond, commodity and digital asset funds with returns against the S&P 500 and the Nasdaq-100, fees and filed holdings.',
             f'{len(core_rows)} funds, on the same fields and the same windows as the three desks. They are here because the desks measure against them and portfolios hold them.',
-            core_rows, ['Ticker', 'Fund', 'Type', 'Tracks', 'Total return 1Y', 'vs S&P 500', 'Fee', 'Holdings'], as_c, core_written, short='Core funds'))
+            core_rows, ['Ticker', 'Fund', 'Type', 'Tracks', 'Total return 1Y', 'vs S&P 500', 'Fee', 'Holdings'], as_c, core_written, short='Core funds',
+            onward='<a href="/compare/">Compare two funds</a><a href="/portfolio/">Look a portfolio through</a><a href="/income/">Income ETFs measured against these</a>'))
         urls.append((f'{BASE}/core/', as_c))
     link = lambda t: f'<a href="/funds/{t}.html" class="tk">{t}</a>'
     w1y = lambda r: (r.get('windows') or {}).get('1Y') or {}
@@ -1598,14 +1602,17 @@ def build():
             org_ld[0]['sameAs'] = [site_link]
         (SITE / 'issuers' / f'{slug}.html').write_text(hub_page(f'issuers/{slug}.html', title, desc, intro, rows,
                                                                ['Ticker', 'Fund', 'Desk', 'What it is', 'Where it stands'], max(as_b, as_i, as_t), names,
-                                                               crumb=[('Browse', f'{BASE}/#/browse'), ('Issuers', f'{BASE}/issuers/')], short=issuer, extra=extra_html, ld_extra=org_ld))
+                                                               crumb=[('Browse', f'{BASE}/#/browse'), ('Issuers', f'{BASE}/issuers/')], short=issuer, extra=extra_html, ld_extra=org_ld,
+                                                               onward=''.join(f'<a href="/{k}/">Every {w} ETF</a>' for k, w in (('buffer', 'buffer'), ('income', 'income'), ('themes', 'thematic')) if desks.get(k))
+                                                                       + '<a href="/compare/">Compare two funds</a><a href="/rankings/">Rankings</a><a href="/issuers/">Every issuer</a>'))
         urls.append((f'{BASE}/issuers/{slug}.html', max(as_b, as_i, as_t)))
         issuer_rows.append([f'<a href="/issuers/{slug}.html">{esc(issuer)}</a>', str(total), counts])
         hubs += 1
     (SITE / 'issuers' / 'index.html').write_text(hub_page('issuers/', 'Every ETF issuer ETFIQ covers',
                                                           'Buffer, option-income and thematic ETF issuers covered by ETFIQ, with fund counts per desk.',
                                                           f'{len(issuer_rows)} issuers. Every fund is treated identically on its desk.', sorted(issuer_rows, key=lambda r: -int(r[1])),
-                                                          ['Issuer', 'Funds', 'Desks'], max(as_b, as_i, as_t), []))
+                                                          ['Issuer', 'Funds', 'Desks'], max(as_b, as_i, as_t), [],
+                                                          onward='<a href="/rankings/">Rankings</a><a href="/compare/">Compare two funds</a><a href="/statistics/">ETF statistics</a>'))
     urls.append((f'{BASE}/issuers/', max(as_b, as_i, as_t)))
     # theme hubs
     by_theme = {}
@@ -1626,7 +1633,9 @@ def build():
         desc = f'{len(rs)} {name.lower()} ETFs compared by holdings overlap with the S&P 500, active share, one-year return and fee.'
         (SITE / 'themes' / f'{key}.html').write_text(hub_page(f'themes/{key}.html', title, desc, intro, rows,
                                                               ['Ticker', 'Fund', 'Issuer', 'In the S&P 500', 'Active share', 'Total return 1Y', 'vs S&P 500', 'Fee'], as_t, names,
-                                                              crumb=[('Browse', f'{BASE}/#/browse/theme'), ('Themes desk', f'{BASE}/themes/')], desk='themes', short=name))
+                                                              crumb=[('Browse', f'{BASE}/#/browse/theme'), ('Themes desk', f'{BASE}/themes/')], desk='themes', short=name,
+                                                              onward='<a href="/themes/">Every thematic ETF</a><a href="/rankings/themes-most-index.html">Which are mostly the index</a>'
+                                                                      '<a href="/compare/">Compare two funds</a><a href="/learn/themes.html">The vocabulary</a>'))
         urls.append((f'{BASE}/themes/{key}.html', as_t))
         hubs += 1
     # buffer reset month hubs
@@ -1645,7 +1654,9 @@ def build():
         desc = f'{len(fs)} buffer ETFs with a {MON[mm]} reset: current cap room, fall before the buffer and state today, every issuer on one page.'
         (SITE / 'buffer' / f'{MON[mm].lower()}.html').write_text(hub_page(f'buffer/{MON[mm].lower()}.html', title, desc, intro, rows,
                                                                          ['Ticker', 'Fund', 'Issuer', 'Index', 'Buffer', 'Period ends', 'Can still gain', 'Fall before buffer', 'State'], as_b, names,
-                                                                         crumb=[('Browse', f'{BASE}/#/browse/month'), ('Buffer desk', f'{BASE}/buffer/')], desk='buffer', short=f'{MON[mm]} resets'))
+                                                                         crumb=[('Browse', f'{BASE}/#/browse/month'), ('Buffer desk', f'{BASE}/buffer/')], desk='buffer', short=f'{MON[mm]} resets',
+                                                                         onward='<a href="/buffer/">Every buffer ETF</a><a href="/rankings/buffer-most-room-to-cap.html">Most room to the cap</a>'
+                                                                                 '<a href="/compare/">Compare two funds</a><a href="/learn/buffer.html">The vocabulary</a>'))
         urls.append((f'{BASE}/buffer/{MON[mm].lower()}.html', as_b))
         hubs += 1
     # ranked lists, one published field each
