@@ -87,6 +87,10 @@ def buffer_piece(funds, as_of):
 def income_piece(income, sources, as_of):
     w1 = lambda r: (r.get('windows') or {}).get('1Y')
     idx = [r for r in income if r.get('benchmarkKind') != 'stock' and w1(r) and w1(r).get('gap') is not None]
+    on_desk = {}
+    for r in income:
+        if r.get('benchmarkKind') != 'stock':
+            on_desk[r['issuer']] = on_desk.get(r['issuer'], 0) + 1
     by_iss = {}
     for r in idx:
         by_iss.setdefault(r['issuer'], []).append(r)
@@ -94,7 +98,7 @@ def income_piece(income, sources, as_of):
     for iss, g in sorted(by_iss.items(), key=lambda kv: -len(kv[1])):
         if len(g) < 2:
             continue
-        rows.append([iss, len(g), sum(1 for r in g if w1(r)['gap'] > 0.5), pts(med([w1(r)['gap'] for r in g])), p(med([w1(r)['cash'] for r in g])), p(med([w1(r)['price'] for r in g]), sign=True), p(med([w1(r)['total'] for r in g]), sign=True)])
+        rows.append([iss, on_desk.get(iss, len(g)), len(g), sum(1 for r in g if w1(r)['gap'] > 0.5), pts(med([w1(r)['gap'] for r in g])), p(med([w1(r)['cash'] for r in g])), p(med([w1(r)['price'] for r in g]), sign=True), p(med([w1(r)['total'] for r in g]), sign=True)])
     roc_rows = []
     by_src = {}
     for t, s in sources.items():
@@ -117,7 +121,7 @@ def income_piece(income, sources, as_of):
                (f"{top_roc[0]} estimates that the median fund's latest distribution was {p(med([v for _, v in top_roc[1]]), d=0)} return of capital, across {len(top_roc[1])} funds with 19a-1 notices." if top_roc else ''),
                "The higher the distribution rate, the worse the price did and the further behind the benchmark the fund fell: a payout above thirty percent a year has mostly been paid out of the price."]
     return {'slug': 'income-ahead', 'desk': 'income', 'title': 'Ahead or behind, and where the cash came from', 'asOf': as_of, 'summary': [s for s in summary if s],
-            'tables': [{'title': 'Results by issuer, index income funds, one year', 'columns': ['Issuer', 'Funds', 'Ahead of benchmark', 'Median gap', 'Median cash paid', 'Median price change', 'Median total return'], 'rows': rows},
+            'tables': [{'title': 'Results by issuer, index income funds, one year', 'columns': ['Issuer', 'Funds on the desk', 'Funds with a full year', 'Ahead of benchmark', 'Median gap', 'Median cash paid', 'Median price change', 'Median total return'], 'rows': rows},
                        {'title': 'Return of capital by issuer, latest 19a-1 estimates', 'columns': ['Issuer', 'Funds with notices', 'Median return of capital', 'Funds at 90% or more', 'Median price change, one year'], 'rows': roc_rows},
                        {'title': 'The cost of the payout: by distribution rate, all funds, one year', 'columns': ['Distribution rate', 'Funds', 'Median cash paid', 'Median price change', 'Median total return', 'Median gap vs benchmark'], 'rows': b_rows}],
             'method': 'ETFIQ calculations from exchange prices and cash distributions (Tiingo end-of-day): cash as a share of the starting price, price change, total return with distributions reinvested, and the benchmark measured the same way. Return of capital is each issuer’s Rule 19a-1 estimate for its latest distribution. Medians across funds.',
