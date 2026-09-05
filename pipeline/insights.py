@@ -111,6 +111,8 @@ def build():
         if twins:
             lines.append({'desk': 'themes', 'text': f"{twins} pairs of thematic ETFs hold portfolios that are more than half identical.", 'href': '#/themes/own'})
     out = {'asOf': max(x for x in (as_b, as_i, as_t) if x) if any((as_b, as_i, as_t)) else datetime.date.today().isoformat(), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'), 'lines': lines, 'stats': stats}
+    for l in lines:
+        l['text'] = l['text'].replace('\u2014', '-')
     (ROOT / 'site' / 'data' / 'insights.json').write_text(json.dumps(out, indent=1))
     for l in lines:
         print(f"  [{l['desk']}] {l['text']}")

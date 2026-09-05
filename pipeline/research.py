@@ -164,7 +164,7 @@ STYLE = """body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.55 Geist,s
 
 
 def esc(s):
-    return html.escape(str(s if s is not None else ''), quote=True)
+    return html.escape(str(s if s is not None else '').replace('\u2014', '-'), quote=True)
 
 
 def piece_page(pc, narrative):

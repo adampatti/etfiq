@@ -27,7 +27,7 @@ def load(p, default):
 
 
 def esc(s):
-    return html.escape(str(s if s is not None else ''), quote=True)
+    return html.escape(str(s if s is not None else '').replace('\u2014', '-'), quote=True)
 
 
 def pct(v, sign=True, d=1):

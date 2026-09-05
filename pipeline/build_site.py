@@ -24,7 +24,7 @@ def load(p, default):
 
 def fill(block_id, data):
     global html
-    payload = json.dumps(data, separators=(',', ':')).replace('</', '<\\/')
+    payload = json.dumps(data, separators=(',', ':')).replace('</', '<\\/').replace('\u2014', '-').replace('\\u2014', '-')
     html, n = re.subn(r'(<script type="application/json" id="' + block_id + r'">).*?(</script>)',
                       lambda m: m.group(1) + payload + m.group(2), html, count=1, flags=re.S)
     if n != 1:
@@ -54,5 +54,7 @@ for key, val in (('asOf', meta.get('asOf')), ('incomeAsOf', imeta.get('asOf')), 
     html, n = re.subn(key + r":\s*(?:null|'[^']*'),", key + ': ' + ('null' if not val else repr(val)) + ',', html, count=1)
     if n != 1:
         sys.exit(f'CONFIG.{key} not found')
+if '\u2014' in html:
+    sys.exit('an em dash is in site/index.html; ETFIQ never publishes one')
 html_path.write_text(html)
 print(f'inlined {len(funds)} buffer funds, {len(income)} income funds, {len(universe)} income universe, {len(thematic.get("funds", []))} thematic funds; asOf={meta.get("asOf")}, incomeAsOf={imeta.get("asOf")}, thematicAsOf={tmeta.get("asOf")}')
