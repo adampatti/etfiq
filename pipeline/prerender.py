@@ -232,7 +232,38 @@ def index_page(desk, rows, as_of, intro):
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
 <p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a></p>
-</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a></nav></footer></body></html>"""
+</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
+
+
+def portfolio_page(as_of, books):
+    url = f'{BASE}/portfolio/'
+    title = 'Portfolio desk: what does my whole portfolio actually own, protect and pay?'
+    intro = ('Enter the ETFs you or a client hold, with weights, share counts or dollar amounts. One page answers with the look-through to filed holdings, '
+             'the overlap between positions, the weighted fee, the buffer protection blended by weight, the cash by month for twelve months, and the outcome of a chosen market move on every buffer position. '
+             'Every number is arithmetic on published data; nothing is suggested.')
+    views = [('What you own', "Every fund looked through to its latest SEC filing or the issuer's daily file, weighted by position: the names you are really concentrated in, the share already in the S&P 500, the pairs of funds that overlap, and the weighted expense ratio."),
+             ('Protection', "The buffer desk's fields for every buffer ETF you hold, blended by weight: what they can still gain, how far they can fall before the buffer, the protection left in index points, with every band on one scale."),
+             ('Cash', "Twelve months of payouts for every income ETF you hold: declared and scheduled from the payout calendar, then carried forward at each fund's cadence and marked projected, with the issuer's latest estimate of return of capital."),
+             ('If the market moves', "Pick a move in the S&P 500 from today to each fund's period end and see the outcome of every buffer ETF from its published cap and buffer, beside the same money unbuffered in the index."),
+             ('Compare funds', 'Up to four funds from any desk as their desk cards, side by side.')]
+    examples = [('VOO:40,JEPI:25,PJAN:20,ARKK:15', 'A retail mix'), ('PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder'), ('JEPI:150S,TSLY:200S,QYLD:300S', 'Three income funds by shares'), ('SPY:30,QQQ:20,SCHD:20,TSLY:10,BOTZ:10,DSEP:10', 'Income and themes on a core')]
+    ld = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'WebApplication', 'name': 'ETFIQ Portfolio desk', 'url': f'{BASE}/#/portfolio', 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Web', 'isAccessibleForFree': True, 'description': intro,
+         'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}, 'provider': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}},
+        {'@type': 'WebPage', 'name': title, 'description': intro, 'url': url, 'dateModified': as_of, 'isPartOf': {'@type': 'WebSite', 'name': 'ETFIQ', 'url': BASE}}]}
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(intro[:300])}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
+<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(intro[:300])}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png">
+<script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}main{{max-width:820px}}</style></head>
+<body>{R.rail('portfolio')}<main>
+<p class="note">Books as of {fdate(as_of)}: {books} funds with filed holdings, from every income and themes desk fund and the core index funds.</p>
+<h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
+<a class="cta" href="{BASE}/#/portfolio">Open the Portfolio desk on ETFIQ</a>
+<h2>Five views</h2><table><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
+<h2>Try an example</h2><p>{' · '.join(f'<a href="{BASE}/#/portfolio/own/{sp}">{esc(l)}</a>' for sp, l in examples)}</p>
+<h2>How positions are written</h2><p>Tickers with a weight (PJAN:20), a share count (JEPI:150S) or a dollar amount (JEPI:$25000), separated by commas. Any fund on the three data desks plus the core index funds. The link carries the positions, so a portfolio can be shared or bookmarked; named portfolios can be kept on the device.</p>
+<p class="note">Books come from each fund's latest SEC N-PORT filing or the issuer's daily file, dated on the desk. Buffer funds enter the look-through as their reference index; synthetic income funds as the stock or index they write options on; a fund with no filing yet stands in as the stock or index in its name; all labelled. ETFIQ is an independent publisher and makes no recommendations or allocation suggestions. <a href="{BASE}/#/standards">Standards</a></p>
+</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">Research</a></nav></footer></body></html>"""
 
 
 def build():
@@ -266,6 +297,10 @@ def build():
         d = SITE / desk
         d.mkdir(exist_ok=True)
         (d / 'index.html').write_text(index_page(desk, rows, as_of, intro)); urls.append((f'{BASE}/{desk}/', as_of))
+    bidx = load('site/data/books/index.json', {'asOf': max(as_b, as_i, as_t), 'books': {}})
+    (SITE / 'portfolio').mkdir(exist_ok=True)
+    (SITE / 'portfolio' / 'index.html').write_text(portfolio_page(bidx.get('asOf') or max(as_b, as_i, as_t), sum(1 for v in bidx.get('books', {}).values() if v.get('n'))))
+    urls.append((f'{BASE}/portfolio/', bidx.get('asOf') or max(as_b, as_i, as_t)))
     for r in sorted((SITE / 'research').glob('*.html')) if (SITE / 'research').exists() else []:
         urls.append((f'{BASE}/research/' + ('' if r.name == 'index.html' else r.name), max(as_b, as_i, as_t)))
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + f'<url><loc>{BASE}/</loc><lastmod>{max(as_b, as_i, as_t)}</lastmod></url>\n' + ''.join(f'<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in urls) + '</urlset>\n'
@@ -290,7 +325,7 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [Themes desk, every fund]({BASE}/themes/): {len(themes)} funds
 - Fund pages: {BASE}/funds/TICKER.html, for example {BASE}/funds/PJAN.html, {BASE}/funds/JEPI.html, {BASE}/funds/ARKK.html
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
-- [Portfolio desk]({BASE}/#/portfolio): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
+- [Portfolio desk]({BASE}/portfolio/): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
 - [Standards and ownership]({BASE}/#/standards)
 - [Live application]({BASE}/)
 
