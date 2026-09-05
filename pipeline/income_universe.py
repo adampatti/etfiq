@@ -159,6 +159,49 @@ def benchmark_of(name):
     return 'SPY', 'S&P 500 (SPY), used as a default proxy', 'proxy'
 
 
+SINGLE_PATTERNS = [
+    r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Option', r'YieldBOOST\s+([A-Z]{1,5})\b', r'Kurv[^()]*\(([A-Z]{1,5})\)',
+    r'Defiance\s+([A-Z]{1,5})\s+(?:Option|Daily|Weekly)', r'Bitwise\s+([A-Z]{1,5})\s+Option', r'Roundhill\s+([A-Z]{1,5})\s+WeeklyPay',
+    r'REX\s+([A-Z]{1,5})\s+(?:Growth|Income|Premium)', r'Tuttle[^()]*\(([A-Z]{1,5})\)', r'\(([A-Z]{2,5})\)\s*(?:ETF)?$',
+]
+TOKEN_SKIP = {'ETF', 'US', 'USA', 'SP', 'SPX', 'NDX', 'DJIA', 'BTC', 'ETH', 'SOL', 'XRP'}
+TICKER_FIX = {'GOOG': 'GOOGL', 'BRK': 'BRK-B', 'BRKB': 'BRK-B', 'FB': 'META'}
+INDEX_RULES = [
+    (r'Bitcoin|\bBTC\b', 'IBIT', 'Bitcoin (IBIT)', 'proxy'), (r'Ether\b|Ethereum|\bETH\b', 'ETHA', 'Ether (ETHA)', 'proxy'),
+    (r'Solana|\bSOL\b|XRP|Crypto|Blockchain', 'BITQ', 'Crypto industry (BITQ), used as the crypto proxy', 'proxy'),
+    (r'R2000|Russell 2000|Small ?Cap', 'IWM', 'Russell 2000 (IWM)', 'index'), (r'Q100|Nasdaq|NASDAQ|QQQ', 'QQQ', 'Nasdaq-100 (QQQ)', 'index'),
+    (r'Equal Weight', 'RSP', 'S&P 500 Equal Weight (RSP)', 'index'), (r'Mid ?Cap', 'MDY', 'S&P MidCap 400 (MDY)', 'index'),
+    (r'Dow\b|DJIA', 'DIA', 'Dow Jones Industrial Average (DIA)', 'index'), (r'Magnificent|MAG ?7|Mag7', 'MAGS', 'Magnificent Seven (MAGS)', 'index'),
+    (r'Semiconductor', 'SMH', 'Semiconductors (SMH)', 'index'), (r'Gold Miner', 'GDX', 'Gold miners (GDX)', 'index'), (r'Gold\b', 'GLD', 'Gold (GLD)', 'proxy'),
+    (r'Silver\b', 'SLV', 'Silver (SLV)', 'proxy'), (r'Energy|\bOil\b|Petroleum|Midstream|MLP', 'XLE', 'Energy sector (XLE), used as the energy proxy', 'proxy'),
+    (r'Financial', 'XLF', 'Financials sector (XLF)', 'proxy'), (r'Utilit', 'XLU', 'Utilities sector (XLU)', 'proxy'), (r'Health', 'XLV', 'Health care sector (XLV)', 'proxy'),
+    (r'Technology|\bTech\b', 'XLK', 'Technology sector (XLK)', 'proxy'), (r'Consumer', 'XLY', 'Consumer discretionary (XLY)', 'proxy'),
+    (r'Industrial', 'XLI', 'Industrials (XLI)', 'proxy'), (r'Communication', 'XLC', 'Communication services (XLC)', 'proxy'), (r'Material', 'XLB', 'Materials (XLB)', 'proxy'),
+    (r'\bAI\b|Artificial Intelligence', 'AIQ', 'AI and technology (AIQ), used as the AI proxy', 'proxy'), (r'Innovation|FANG', 'QQQ', 'Nasdaq-100 (QQQ), used as the innovation proxy', 'proxy'),
+    (r'Aristocrat', 'NOBL', 'S&P 500 Dividend Aristocrats (NOBL)', 'index'), (r'Dividend', 'SCHD', 'US dividend stocks (SCHD), used as the dividend proxy', 'proxy'),
+    (r'Treasury|\bTLT\b|20\+ Year', 'TLT', '20+ Year Treasury (TLT)', 'index'), (r'Emerging', 'EEM', 'Emerging Markets (EEM)', 'index'),
+    (r'Europe', 'VGK', 'Europe (VGK)', 'index'), (r'Japan', 'EWJ', 'Japan (EWJ)', 'index'), (r'China', 'FXI', 'China large caps (FXI)', 'index'),
+    (r'International|EAFE|Developed', 'EFA', 'Developed Markets ex US (EFA)', 'index'), (r'Global|World', 'ACWI', 'All-country world (ACWI)', 'index'),
+    (r'Berkshire', 'BRK-B', 'Berkshire Hathaway (BRK.B)', 'stock'), (r'Low Volatility', 'USMV', 'USA Min Vol (USMV), used as the low volatility proxy', 'proxy'),
+    (r'Momentum', 'MTUM', 'USA Momentum (MTUM), used as the momentum proxy', 'proxy'), (r'Quality', 'QUAL', 'USA Quality (QUAL), used as the quality proxy', 'proxy'),
+    (r'Value', 'VLUE', 'USA Value (VLUE), used as the value proxy', 'proxy'),
+    (r'S&P ?500|SPY\b|U\.?S\.? Stocks|U\.?S\.? Equity|Large ?Cap|US Equity|Core Premium|Equity Premium Income ETF$', 'SPY', 'S&P 500 (SPY)', 'index'),
+]
+
+
+def benchmark_of(name):
+    for pat in SINGLE_PATTERNS:
+        m = re.search(pat, name)
+        if m and m.group(1) not in TOKEN_SKIP:
+            t = TICKER_FIX.get(m.group(1), m.group(1))
+            label = STOCK_NAMES.get(m.group(1)) or STOCK_NAMES.get(t)
+            return t, f'{label + " " if label else ""}({t})'.strip(), 'stock'
+    for pat, tk, label, kind in INDEX_RULES:
+        if re.search(pat, name, re.I):
+            return tk, label, kind
+    return 'SPY', 'S&P 500 (SPY), used as a default proxy', 'proxy'
+
+
 def is_etf_ticker(t):
     return 1 <= len(t) <= 5 and t.isalpha() and t.isupper() and not (len(t) == 5 and t.endswith('X'))
 

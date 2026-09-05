@@ -64,3 +64,13 @@ States on the desk that evening: 87 funds at their cap in reference terms, 113 o
 The band draws plain buffer and floor structures. Dual direction, accelerated, digital return and income-and-buffer funds need their own payoff shapes before they are shown; they sit in the snapshot with a `structure` tag so nothing is lost meanwhile.
 
 The FT Vest Max Buffer line turned out not to be a 100 point buffer: the issuer sets "the maximum available buffer" from option prices at each reset, so the twelve monthly funds carry buffer ends between about minus 44 and minus 78 percent, with one at minus 100. The desk's shared scale stops at minus 40 and draws deeper buffers running off its left edge; the fund panel shows each one on its own scale.
+
+## Income desk, added 2026-09-04 late evening
+
+**Question:** am I ahead of the benchmark? For every option-income ETF, total return with every distribution reinvested, against the total return of the index or stock the fund writes options on, over 3-month, 6-month, 1-year, 3-year and since-launch windows, plus cash paid, price change, payout rate and payout frequency.
+
+**Universe:** `pipeline/income_universe.py` builds `data/income_universe.json` from the SEC series and class file by name (covered call, premium income, option income, 0DTE, YieldMax, YieldBOOST, Target 15 and so on), restricted to ETF-style tickers and known option-income issuers, with a benchmark mapped from the name (S&P 500 to SPY, Nasdaq-100 to QQQ, single stocks to the stock, proxies marked). First run: 414 candidates, 283 included, 131 left for hand review in the `why` field. Five known funds whose names hide the strategy are forced in.
+
+**Feed:** Tiingo end-of-day, Power plan, about $30 a month. `pipeline/income.py` pulls one request per ticker (fund and benchmark) with per-day caching, split-adjusts closes and cash so reverse splits do not distort the price and paid columns, and uses Tiingo's adjusted close for total return. First run: 216 of 283 funds returned prices; the 67 missing are mostly funds the feed does not carry yet or tickers that are not live. Over the trailing year, 37 of 159 funds with a full year of history were ahead of their benchmark.
+
+**Not yet captured:** return of capital from 19a-1 notices (the cash column is total cash regardless of tax character), expense ratios and assets for income funds, and the 67 missing tickers. The nightly job runs `income.py` whenever the `TIINGO_TOKEN` secret is set.
