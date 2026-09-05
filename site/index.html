@@ -372,6 +372,9 @@ select.sel{height:32px;padding:0 28px 0 10px;border:1px solid var(--line-2);bord
 .desk-scroll{overflow:auto;max-height:calc(100vh - 150px);min-height:360px}
 table.desk{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;font-size:13px}
 table.desk th{position:sticky;top:0;z-index:3;background:var(--surface);text-align:left;padding:0 10px;height:38px;font:600 10.5px/1 var(--font-display);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line-2);white-space:nowrap;cursor:pointer;user-select:none}
+table.desk th:nth-child(2),table.desk td:nth-child(2){max-width:330px}
+table.desk td .state{white-space:nowrap}
+table.desk.themes th:nth-child(3),table.desk.themes td:nth-child(3){max-width:170px}
 table.desk th.key,table.desk td.key{background:var(--accent-soft)}
 table.desk th.key{color:var(--ink)}
 table.desk td.key{font-weight:600;font-size:14px}
@@ -699,7 +702,7 @@ const S = {
   filters: { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'' },
   ifilters: { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind: store.get('etfiq.kind', 'index') },
   sort: { k:'daysRemaining', dir:'asc' }, isort: { k:'gap', dir:'desc' },
-  grouped: true, collapsed: new Set(), compact: store.get('etfiq.compact', false),
+  grouped: true, collapsed: new Set(), compact: store.get('etfiq.compact', false), cols: store.get('etfiq.cols', 'key'),
   window: store.get('etfiq.window', '1Y'),
   ladder: [], entrySort: 'reset',
   mine: { buffer: store.get('etfiq.mine.buffer', []), income: store.get('etfiq.mine.income', []), themes: store.get('etfiq.mine.themes', []) },
@@ -992,13 +995,18 @@ function cell(f, c){
   }
   return '<td></td>';
 }
+/* how many columns a desk shows: the answer columns, or everything */
+const CORE_COLS = { buffer: ['ticker', 'name', 'band'], income: ['ticker', 'name', 'bar', 'distributionRate'], themes: ['ticker', 'name', 'themeName', 'bar'] };
+const NOT_ESSENTIAL = new Set(['activeFee']);  // tinted as an answer column, but one step past a first look
+function vis(cols, sortK, desk){ if (S.cols !== 'key') return cols; const keep = new Set([...(CORE_COLS[desk] || []), sortK]); return cols.filter(c => (c.key && !NOT_ESSENTIAL.has(c.k)) || keep.has(c.k)); }
+function colsBtn(){ return `<button class="btn ${S.cols === 'key' ? '' : 'primary'}" type="button" id="allcols" title="${S.cols === 'key' ? 'Show every field ETFIQ carries' : 'Show the answer columns only'}">${S.cols === 'key' ? 'All columns' : 'Fewer columns'}</button>`; }
 function headRow(cols, sort){
   return '<tr>' + cols.map(c => {
     const sorted = sort.k === c.k;
     return `<th class="${c.num ? 'num ' : ''}${c.src === 'etfiq' ? 'etfiq ' : ''}${c.key ? 'key ' : ''}${c.nosort ? 'nosort' : ''} ${sorted ? 'sorted' : ''}" ${c.nosort ? '' : `data-sort="${c.k}"`} scope="col" title="${esc(c.hint || '')}"><span class="lab">${esc(c.l)}</span>${sorted ? `<span class="dir">${sort.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`;
   }).join('') + '<th class="nosort"></th></tr>';
 }
-function rowHtml(f){ return `<tr class="row" data-t="${esc(f.ticker)}" tabindex="0" aria-label="${esc(f.ticker)} ${esc(f.name)}, open details">${COLS.map(c => cell(f, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
+function rowHtml(f){ return `<tr class="row" data-t="${esc(f.ticker)}" tabindex="0" aria-label="${esc(f.ticker)} ${esc(f.name)}, open details">${vis(COLS, S.sort.k, 'buffer').map(c => cell(f, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
 
 /* ====================== shared UI pieces ====================== */
 function filterPop(id, label, items, set){
@@ -1052,7 +1060,7 @@ function bufferControls(){
     ${active ? '<button class="clear" id="clear" type="button">Clear all</button>' : ''}
     <span class="spacer"></span><span class="count" id="count"></span>
     <div class="seg" role="group" aria-label="Layout"><button type="button" data-g="1" class="${S.grouped ? 'on' : ''}">By series</button><button type="button" data-g="0" class="${S.grouped ? '' : 'on'}">Flat</button></div>
-    <button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
+    ${colsBtn()}<button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
     <button class="btn" type="button" id="csv" title="Download the rows and columns shown as a CSV file">Export CSV</button>
   </div>`;
 }
@@ -1062,8 +1070,8 @@ function viewBufferDesk(){
   const rows = all.filter(f => !mine.has(f.ticker));
   const pinned = all.filter(f => mine.has(f.ticker));
   let body = '';
-  if (pinned.length) body += `<tr class="grp mine" data-s="__mine"><td colspan="${COLS.length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__mine') ? '' : pinned.map(rowHtml).join(''));
-  if (!all.length) body = `<tr><td colspan="${COLS.length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
+  if (pinned.length) body += `<tr class="grp mine" data-s="__mine"><td colspan="${vis(COLS, S.sort.k, 'buffer').length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__mine') ? '' : pinned.map(rowHtml).join(''));
+  if (!all.length) body = `<tr><td colspan="${vis(COLS, S.sort.k, 'buffer').length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
   else if (S.grouped) {
     const groups = new Map();
     for (const f of rows) { if (!groups.has(f.seriesKey)) groups.set(f.seriesKey, []); groups.get(f.seriesKey).push(f); }
@@ -1074,7 +1082,7 @@ function viewBufferDesk(){
     for (const g of ordered) {
       const s = S.series.get(g[0].seriesKey);
       const closed = S.collapsed.has(s.key);
-      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="${esc(s.key)}"><td colspan="${COLS.length + 1}"><span class="car"></span><span class="gname">${esc(s.family)}</span><span class="gmeta"><b>${esc(s.issuer)}</b> · ${esc(s.refAsset)} · buffer <b>${esc(s.bufferLabel)}</b> · ${s.periodMonths}-month · ${g.length} of ${s.funds.length} funds</span><button class="btn sm" type="button" data-ladder="${esc(s.key)}">Ladder these</button></td></tr>`;
+      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="${esc(s.key)}"><td colspan="${vis(COLS, S.sort.k, 'buffer').length + 1}"><span class="car"></span><span class="gname">${esc(s.family)}</span><span class="gmeta"><b>${esc(s.issuer)}</b> · ${esc(s.refAsset)} · buffer <b>${esc(s.bufferLabel)}</b> · ${s.periodMonths}-month · ${g.length} of ${s.funds.length} funds</span><button class="btn sm" type="button" data-ladder="${esc(s.key)}">Ladder these</button></td></tr>`;
       if (!closed) body += g.map(rowHtml).join('');
     }
   } else body += rows.map(rowHtml).join('');
@@ -1083,7 +1091,7 @@ function viewBufferDesk(){
   return `<div class="intro buffer data"><div class="txt"><h1>All buffer ETFs</h1><p class="head">Today <b>${atCap} of ${S.funds.length}</b> have already hit their cap.</p></div>${bufferRug()}</div>
     ${bufferPulse()}
     <div class="strips slim">${mineStrip('buffer', S.byT)}</div>
-    ${bufferControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk main"><thead>${headRow(COLS, S.sort)}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
+    ${bufferControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk main"><thead>${headRow(vis(COLS, S.sort.k, 'buffer'), S.sort)}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
     <template id="countText"><b>${all.length}</b> of ${S.funds.length} funds · ${nSeries} series</template>`;
 }
 function viewBufferEntry(){
@@ -1215,9 +1223,9 @@ function icell(r, c){
   }
   return '<td></td>';
 }
-function irowHtml(r){ return `<tr class="row" data-i="${esc(r.ticker)}" tabindex="0" aria-label="${esc(r.ticker)} ${esc(r.name)}, open details">${ICOLS.map(c => icell(r, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
+function irowHtml(r){ return `<tr class="row" data-i="${esc(r.ticker)}" tabindex="0" aria-label="${esc(r.ticker)} ${esc(r.name)}, open details">${vis(ICOLS, S.isort.k, 'income').map(c => icell(r, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
 function iheadRow(){
-  return '<tr>' + ICOLS.map(c => { const sorted = S.isort.k === c.k; const winned = ['cash', 'price', 'total', 'bench', 'gap'].includes(c.k); return `<th class="${c.num ? 'num ' : ''}${c.etfiq ? 'etfiq ' : ''}${c.key ? 'key ' : ''}${c.nosort ? 'nosort' : ''} ${sorted ? 'sorted' : ''}" ${c.nosort ? '' : `data-isort="${c.k}"`} scope="col" title="${esc(c.hint || '')}"><span class="lab">${esc(c.l)}${winned ? ' · ' + (S.window === 'ITD' ? 'launch' : S.window) : ''}</span>${sorted ? `<span class="dir">${S.isort.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`; }).join('') + '<th class="nosort"></th></tr>';
+  return '<tr>' + vis(ICOLS, S.isort.k, 'income').map(c => { const sorted = S.isort.k === c.k; const winned = ['cash', 'price', 'total', 'bench', 'gap'].includes(c.k); return `<th class="${c.num ? 'num ' : ''}${c.etfiq ? 'etfiq ' : ''}${c.key ? 'key ' : ''}${c.nosort ? 'nosort' : ''} ${sorted ? 'sorted' : ''}" ${c.nosort ? '' : `data-isort="${c.k}"`} scope="col" title="${esc(c.hint || '')}"><span class="lab">${esc(c.l)}${winned ? ' · ' + (S.window === 'ITD' ? 'launch' : S.window) : ''}</span>${sorted ? `<span class="dir">${S.isort.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`; }).join('') + '<th class="nosort"></th></tr>';
 }
 function incomeControls(){
   const F = S.ifilters, L = S.income;
@@ -1236,7 +1244,7 @@ function incomeControls(){
     ${active ? '<button class="clear" id="iclear" type="button">Clear all</button>' : ''}
     <span class="spacer"></span><span class="count" id="count"></span>
     <div class="seg" role="group" aria-label="Layout"><button type="button" data-g="1" class="${S.grouped ? 'on' : ''}">By benchmark</button><button type="button" data-g="0" class="${S.grouped ? '' : 'on'}">Flat</button></div>
-    <button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
+    ${colsBtn()}<button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
     <button class="btn" type="button" id="csv" title="Download the rows and columns shown as a CSV file">Export CSV</button>
   </div>`;
 }
@@ -1255,8 +1263,8 @@ function viewIncomeDesk(){
   const mine = new Set(S.mine.income);
   const rows = all.filter(r => !mine.has(r.ticker)), pinned = all.filter(r => mine.has(r.ticker));
   let body = '';
-  if (pinned.length) body += `<tr class="grp mine" data-s="__imine"><td colspan="${ICOLS.length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__imine') ? '' : pinned.map(irowHtml).join(''));
-  if (!all.length) body = `<tr><td colspan="${ICOLS.length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
+  if (pinned.length) body += `<tr class="grp mine" data-s="__imine"><td colspan="${vis(ICOLS, S.isort.k, 'income').length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__imine') ? '' : pinned.map(irowHtml).join(''));
+  if (!all.length) body = `<tr><td colspan="${vis(ICOLS, S.isort.k, 'income').length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
   else if (S.grouped) {
     const groups = new Map();
     for (const r of rows) { if (!groups.has(r.groupKey)) groups.set(r.groupKey, []); groups.get(r.groupKey).push(r); }
@@ -1264,7 +1272,7 @@ function viewIncomeDesk(){
     for (const [k, g] of ordered) {
       const closed = S.collapsed.has('i:' + k), lead = g.find(r => r.benchmarkKind !== 'proxy') || g[0];
       const ahead = g.filter(r => istate(r) === 'ahead').length, proxies = g.filter(r => r.benchmarkKind === 'proxy').length;
-      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="i:${esc(k)}"><td colspan="${ICOLS.length + 1}"><span class="car"></span><span class="gname">${esc((lead.benchmarkName || k).replace(/, used as .*$/, ''))}</span><span class="gmeta">${g.length} funds · <b>${ahead}</b> ahead over ${WIN_LABEL[S.window]}${proxies ? ` · ${proxies} measured against it as a proxy` : ''}</span></td></tr>`;
+      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="i:${esc(k)}"><td colspan="${vis(ICOLS, S.isort.k, 'income').length + 1}"><span class="car"></span><span class="gname">${esc((lead.benchmarkName || k).replace(/, used as .*$/, ''))}</span><span class="gmeta">${g.length} funds · <b>${ahead}</b> ahead over ${WIN_LABEL[S.window]}${proxies ? ` · ${proxies} measured against it as a proxy` : ''}</span></td></tr>`;
       if (!closed) body += g.map(irowHtml).join('');
     }
   } else body += rows.map(irowHtml).join('');
@@ -1530,9 +1538,9 @@ function tcell(r, c){
   }
   return '<td></td>';
 }
-function trowHtml(r){ return `<tr class="row" data-t="${esc(r.ticker)}" data-k="themes" tabindex="0">${TCOLS.map(c => tcell(r, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
+function trowHtml(r){ return `<tr class="row" data-t="${esc(r.ticker)}" data-k="themes" tabindex="0">${vis(TCOLS, S.tsort.k, 'themes').map(c => tcell(r, c)).join('')}<td><span class="go" aria-hidden="true">›</span></td></tr>`; }
 function theadRow(){
-  return '<tr>' + TCOLS.map(c => { const sorted = S.tsort.k === c.k; const winned = ['total', 'gap', 'gapQ'].includes(c.k); return `<th class="${c.num ? 'num ' : ''}${c.etfiq ? 'etfiq ' : ''}${c.key ? 'key ' : ''}${c.nosort ? 'nosort' : ''} ${sorted ? 'sorted' : ''}" ${c.nosort ? '' : `data-tsort="${c.k}"`} scope="col" title="${esc(c.hint || '')}"><span class="lab">${esc(c.l)}${winned ? ' · ' + S.window : ''}</span>${sorted ? `<span class="dir">${S.tsort.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`; }).join('') + '<th class="nosort"></th></tr>';
+  return '<tr>' + vis(TCOLS, S.tsort.k, 'themes').map(c => { const sorted = S.tsort.k === c.k; const winned = ['total', 'gap', 'gapQ'].includes(c.k); return `<th class="${c.num ? 'num ' : ''}${c.etfiq ? 'etfiq ' : ''}${c.key ? 'key ' : ''}${c.nosort ? 'nosort' : ''} ${sorted ? 'sorted' : ''}" ${c.nosort ? '' : `data-tsort="${c.k}"`} scope="col" title="${esc(c.hint || '')}"><span class="lab">${esc(c.l)}${winned ? ' · ' + S.window : ''}</span>${sorted ? `<span class="dir">${S.tsort.dir === 'asc' ? '▲' : '▼'}</span>` : ''}</th>`; }).join('') + '<th class="nosort"></th></tr>';
 }
 function themesControls(opts){
   const F = S.tfilters;
@@ -1550,7 +1558,7 @@ function themesControls(opts){
     ${active ? '<button class="clear" id="tclear" type="button">Clear all</button>' : ''}
     <span class="spacer"></span><span class="count" id="count"></span>
     ${opts && opts.noLayout ? '' : `<div class="seg" role="group" aria-label="Layout"><button type="button" data-g="1" class="${S.grouped ? 'on' : ''}">By theme</button><button type="button" data-g="0" class="${S.grouped ? '' : 'on'}">Flat</button></div>`}
-    <button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
+    ${colsBtn()}<button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
     <button class="btn" type="button" id="csv" title="Download the rows and columns shown as a CSV file">Export CSV</button>
   </div>`;
 }
@@ -1575,8 +1583,8 @@ function viewThemesDesk(){
   const mine = new Set(S.mine.themes);
   const rows = all.filter(r => !mine.has(r.ticker)), pinned = all.filter(r => mine.has(r.ticker));
   let body = '';
-  if (pinned.length) body += `<tr class="grp mine" data-s="__tmine"><td colspan="${TCOLS.length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__tmine') ? '' : pinned.map(trowHtml).join(''));
-  if (!all.length) body = `<tr><td colspan="${TCOLS.length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
+  if (pinned.length) body += `<tr class="grp mine" data-s="__tmine"><td colspan="${vis(TCOLS, S.tsort.k, 'themes').length + 1}"><span class="car"></span><span class="gname">Your funds</span><span class="gmeta">${pinned.length} pinned · <a href="#/alerts">set alerts</a></span></td></tr>` + (S.collapsed.has('__tmine') ? '' : pinned.map(trowHtml).join(''));
+  if (!all.length) body = `<tr><td colspan="${vis(TCOLS, S.tsort.k, 'themes').length + 1}"><div class="empty">No funds match these filters.</div></td></tr>`;
   else if (S.grouped) {
     const groups = new Map();
     for (const r of rows) { if (!groups.has(r.themeName)) groups.set(r.themeName, []); groups.get(r.themeName).push(r); }
@@ -1585,7 +1593,7 @@ function viewThemesDesk(){
       const closed = S.collapsed.has('t:' + k);
       const beat = g.filter(r => tstate(r) === 'ahead').length, inIdx = g.filter(r => r.inSPY != null);
       const med = inIdx.length ? inIdx.map(r => r.inSPY).sort((a, b) => a - b)[Math.floor(inIdx.length / 2)] : null;
-      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="t:${esc(k)}"><td colspan="${TCOLS.length + 1}"><span class="car"></span><span class="gname">${esc(k)}</span><span class="gmeta">${g.length} funds · <b>${beat}</b> beat the S&P 500 over ${WIN_LABEL[S.window]}${med != null ? ` · typical fund ${med.toFixed(0)}% in S&P 500 names` : ''}</span></td></tr>`;
+      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="t:${esc(k)}"><td colspan="${vis(TCOLS, S.tsort.k, 'themes').length + 1}"><span class="car"></span><span class="gname">${esc(k)}</span><span class="gmeta">${g.length} funds · <b>${beat}</b> beat the S&P 500 over ${WIN_LABEL[S.window]}${med != null ? ` · typical fund ${med.toFixed(0)}% in S&P 500 names` : ''}</span></td></tr>`;
       if (!closed) body += g.map(trowHtml).join('');
     }
   } else body += rows.map(trowHtml).join('');
@@ -1795,15 +1803,15 @@ function viewPortfolio(){
   const tabs = [['own', 'What you own'], ['protect', 'Protection'], ['cash', 'Cash'], ['move', 'If the market moves'], ['compare', 'Compare funds']];
   const saved = S.saved.map((p, i) => `<a href="#/portfolio/${S.ptab}/${esc(p.spec)}" class="chip">${esc(p.name)}</a>`).join('');
   const form = `<form class="cq pf" id="pfForm" autocomplete="off"><input id="pfQ" type="text" placeholder="PJAN:20, JEPI:30, ARKK:10, VOO:40  or  JEPI:150S (shares)  or  JEPI:$25000" value="${esc(S.positions.map(x => x.t + (x.mode === 'd' ? ':$' + x.v : x.mode === 's' ? ':' + x.v + 'S' : x.v !== 1 ? ':' + x.v : '')).join(', '))}" aria-label="Positions" spellcheck="false"><button class="btn primary" type="submit">Run</button></form>
-    <p class="hint">Tickers with a weight, a share count (150S) or a dollar amount ($25000). Any fund on the three desks, plus the core index funds. The link carries the positions; <button type="button" class="lnk" data-copy="portfolio/${esc(spec)}">copy it</button> to share or bookmark.${have ? ` <button type="button" class="lnk" id="pfSave">Save on this device</button>` : ''}</p>
+    <p class="hint">Weights (PJAN:20), shares (JEPI:150S) or dollars (JEPI:$25000). Any fund on the desks, plus core index funds. The link carries the positions; <button type="button" class="lnk" data-copy="portfolio/${esc(spec)}">copy it</button> to share or bookmark.${have ? ` <button type="button" class="lnk" id="pfSave">Save on this device</button>` : ''}</p>
     ${S.saved.length ? `<div class="chips"><span class="lbl">Saved</span>${saved}<button type="button" class="lnk" id="pfForget">forget all</button></div>` : ''}`;
   if (!have) {
     const doors = {
-      own: ['What does my whole portfolio actually own, protect and pay?', 'Enter the ETFs you or a client hold. One page answers with the look-through, the buffer protection, the cash by month, and what happens if the market moves. Every number is arithmetic on the three desks\' data; nothing is suggested.', [['VOO:40,JEPI:25,PJAN:20,ARKK:15', 'A retail mix'], ['SPY:30,QQQ:20,SCHD:20,TSLY:10,BOTZ:10,DSEP:10', 'Income and themes on a core'], ['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder']]],
-      protect: ['How much of my portfolio is protected, and how much can it still gain?', 'Enter the positions. The protection view reads the buffer desk\'s fields for every buffer ETF you hold and blends them by weight: what they can still gain, how far they can fall before the buffer, and the protection left in index points, with every band on one scale.', [['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder'], ['VOO:50,PJAN:20,BJUL:15,FJAN:15', 'Buffers beside a core fund'], ['DSEP:34,DJAN:33,DMAY:33', 'A deep-buffer set']]],
-      cash: ['What cash will this portfolio pay, month by month?', 'Enter the positions with share counts or dollar amounts and the cash view lays out the next twelve months of payouts for every income ETF you hold, declared and scheduled from the calendar, then carried forward at each fund\'s cadence and marked projected, with the issuers\' latest word on how much was return of capital.', [['JEPI:150S,TSLY:200S,QYLD:300S', 'Three income funds by shares'], ['SPYI:$25000,JEPQ:$25000,DIVO:$25000', 'Three income funds by dollars'], ['SCHD:40,JEPI:30,XYLD:30', 'Dividends and calls']]],
-      move: ['If the market moves, what happens to my buffer positions?', 'Enter the positions. Pick a move in the S&P 500 from today to each fund\'s period end and see the outcome of every buffer ETF from its published cap and buffer, blended by weight, beside the same money unbuffered in the index. Arithmetic on the terms, before fees, not a forecast.', [['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder'], ['VOO:60,PJAN:40', 'Half buffered'], ['UJAN:50,PJAN:50', 'Ultra beside power']]],
-      compare: ['How do these funds look side by side?', 'Enter up to four tickers from any desk and their desk cards sit next to each other: band, payout bar or difference bar, with the same fields the desks show. Change the order in the box to compare others.', [['PJAN,BJAN,FJAN,UJAN', 'Four January buffers'], ['JEPI,SPYI,XYLD,DIVO', 'Four S&P 500 income funds'], ['ARKK,BOTZ,AIQ,IGV', 'Four themes']]]
+      own: ['What does my whole portfolio actually own, protect and pay?', 'Enter the ETFs you or a client hold. One page: what it really owns, how much is protected, the cash by month, and what happens if the market moves.', [['VOO:40,JEPI:25,PJAN:20,ARKK:15', 'A retail mix'], ['SPY:30,QQQ:20,SCHD:20,TSLY:10,BOTZ:10,DSEP:10', 'Income and themes on a core'], ['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder']]],
+      protect: ['How much of my portfolio is protected, and how much can it still gain?', 'Every buffer ETF you hold, blended by weight: what they can still gain, how far they can fall before the buffer, and the protection left, with every band on one scale.', [['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder'], ['VOO:50,PJAN:20,BJUL:15,FJAN:15', 'Buffers beside a core fund'], ['DSEP:34,DJAN:33,DMAY:33', 'A deep-buffer set']]],
+      cash: ['What cash will this portfolio pay, month by month?', 'Twelve months of payouts for every income ETF you hold, declared and scheduled from the calendar, then projected at each fund\'s own cadence. Add share counts or dollar amounts to see dollars.', [['JEPI:150S,TSLY:200S,QYLD:300S', 'Three income funds by shares'], ['SPYI:$25000,JEPQ:$25000,DIVO:$25000', 'Three income funds by dollars'], ['SCHD:40,JEPI:30,XYLD:30', 'Dividends and calls']]],
+      move: ['If the market moves, what happens to my buffer positions?', 'Pick a move in the S&P 500 and see where every buffer position lands at its period end, blended by weight, beside the same money unbuffered. Arithmetic on the published terms, not a forecast.', [['PJAN:25,PAPR:25,PJUL:25,POCT:25', 'A buffer ladder'], ['VOO:60,PJAN:40', 'Half buffered'], ['UJAN:50,PJAN:50', 'Ultra beside power']]],
+      compare: ['How do these funds look side by side?', 'Up to four tickers from any desk, their cards side by side. For one desk in one table, use that desk\'s own comparison.', [['PJAN,BJAN,FJAN,UJAN', 'Four January buffers'], ['JEPI,SPYI,XYLD,DIVO', 'Four S&P 500 income funds'], ['ARKK,BOTZ,AIQ,IGV', 'Four themes']]]
     };
     const d = doors[S.ptab] || doors.own;
     return `<div class="pf-wrap"><div class="chero"><span class="eyebrow">Portfolio desk</span><h1>${d[0]}</h1><p>${d[1]}</p>${form}
@@ -1972,7 +1980,7 @@ function viewCompare(){
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${CMP_TRY[desk].map(([sp, l]) => `<a href="#/${desk}/compare/${sp}" class="chip">${l}</a>`).join('')}</div>`;
   const h1 = desk === 'buffer' ? 'Which buffer ETF stands where?' : desk === 'income' ? 'Which income ETF paid, and which one earned it?' : 'Which thematic ETF is really different?';
-  const sub = 'Two to four funds from this desk, head to head: the same fields the desk shows, in one table, with the ' + (desk === 'buffer' ? 'bands on one scale.' : desk === 'income' ? 'payout bars on one scale.' : 'difference bars side by side and the overlap between the funds.') + ' Arithmetic on published data, not a recommendation.';
+  const sub = 'Two to four funds from this desk in one table, with the ' + (desk === 'buffer' ? 'bands on one scale.' : desk === 'income' ? 'payout bars on one scale.' : 'difference bars side by side and the overlap between the funds.');
   let body = '';
   if (missing.length) body += `<div class="miss">${missing.map(esc).join(', ')} ${missing.length > 1 ? 'are' : 'is'} not on the ${DESK_NAME[desk].toLowerCase()}. ${missing.map(t => { const d = Object.keys(maps).find(k => k !== desk && maps[k].has(t)); return d ? `<a href="#/${d}/compare/${esc(t)}">${esc(t)} is on the ${DESK_NAME[d].toLowerCase()}</a>` : ''; }).filter(Boolean).join(' · ')}</div>`;
   if (recs.length === 1) body += `<div class="miss">Add a second ticker to compare with <b>${esc(recs[0].ticker)}</b>, for example ${esc(CMP_TRY[desk][0][0].split(',').find(t => t !== recs[0].ticker) || '')}.</div>`;
@@ -2017,7 +2025,7 @@ function viewHome(){
   const tile = (desk, q, visual, num, sample, door) => `<a class="dt ${desk}" href="#/${desk}/check"><div class="lvl">${DESK_NAME[desk]}</div><h2>${q}</h2><div class="vis">${visual}</div><div class="sample">${sample}</div><div class="stat">${num}</div><div class="door">${door} ›</div></a>`;
   const miss = S.homeMiss ? `<div class="miss"><b>${esc(S.homeMiss)}</b> is not on any desk yet. ETFIQ covers ${nb} buffer, ${ni} option-income and ${nt} thematic ETFs. <a href="#/buffer/desk">Browse the buffer desk</a>, <a href="#/income/desk">the income desk</a> or <a href="#/themes/desk">the themes desk</a>.</div>` : '';
   const lines = (S.insights && S.insights.lines || []);
-  return `<div class="home"><div class="chero"><span class="eyebrow">Independent ETF data, in plain words</span><h1>Type what you own. Get the answer.</h1><p>Every buffer ETF on one comparable band. Every option-income ETF against its benchmark. Every thematic ETF by what it actually holds.</p>
+  return `<div class="home"><div class="chero"><span class="eyebrow">Independent ETF data, in plain words</span><h1>Type what you own. Get the answer.</h1><p>Buffer ETFs on one band. Income ETFs against their benchmark. Thematic ETFs by what they hold.</p>
     <form class="cq" id="homeForm" autocomplete="off"><input id="homeQ" list="alltickers" placeholder="Any ETF ticker, for example PJAN, JEPI or ARKK" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="alltickers">${[...S.funds, ...S.income, ...S.themes].map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>${miss}</div>
     <div class="desktiles">
@@ -2025,7 +2033,7 @@ function viewHome(){
       ${tile('income', 'Am I ahead of the benchmark?', vis.income, idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat their benchmark over ${WIN_LABEL[S.window]}` : '', fi ? `${esc(fi.ticker)} on the payout bar` : '', 'Check an income ETF')}
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
-    <a class="pdoor" href="#/portfolio"><div class="lvl">Portfolio desk</div><b>What does my whole portfolio actually own, protect and pay?</b><span>Enter your ETFs with weights or shares. One page: the look-through, the buffer protection, the cash by month, and what happens if the market moves. Nothing to sign up for.</span></a>
+    <a class="pdoor" href="#/portfolio"><div class="lvl">Portfolio desk</div><b>What does my whole portfolio actually own, protect and pay?</b><span>Enter your ETFs. One page: what it really holds, how much is protected, the cash by month, and what happens if the market moves.</span></a>
     ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><div class="chgrid">${['buffer', 'income', 'themes'].map(d => { const ls = lines.filter(l => l.desk === d); return ls.length ? `<div class="chg ${d}"><h3>${DESK_NAME[d]}</h3><ul class="changed">${ls.map(l => `<li class="${d}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div>` : ''}
     ${researchStrip(null)}
     <p class="ind">ETFIQ is an independent publisher, not an issuer, broker or adviser. It makes no recommendations; every list is stated arithmetic on published data. <a href="/research/">ETFIQ Research</a> · <a href="#/standards">Standards and ownership</a> · <a href="#/alerts">Alerts and the weekly note</a></p></div>`;
@@ -2042,9 +2050,9 @@ function viewCheck(){
   const list = desk === 'buffer' ? S.funds : desk === 'income' ? S.income : S.themes;
   const pop = POPULAR[desk].filter(x => here.has(x)).slice(0, 8);
   const h1 = desk === 'buffer' ? 'Where does my buffer ETF stand today?' : desk === 'income' ? 'Am I ahead of the benchmark?' : 'What did I actually buy?';
-  const sub = desk === 'buffer' ? 'Type a ticker. One card says how much it can still gain, how far it can fall before you lose, and how much of the buffer is still below the market.'
-            : desk === 'income' ? 'Type a ticker. One card counts the cash paid, the price change, and whether you came out ahead of the index or stock the fund writes options on.'
-            : 'Type a ticker. One card says how much of the fund is already in the S&P 500, how concentrated it is, and whether it has beaten the plain index.';
+  const sub = desk === 'buffer' ? 'Type a ticker. One card: what it can still gain, how far it can fall before you lose, and how much buffer is left.'
+            : desk === 'income' ? 'Type a ticker. One card: the cash paid, the price change, and whether you finished ahead of the index it writes options on.'
+            : 'Type a ticker. One card: how much of it is already the S&P 500, how concentrated it is, and how it did against the plain index.';
   let result = '';
   if (rec) {
     let h = desk === 'buffer' ? bufferPanel(rec) : desk === 'income' ? incomePanel(rec) : themePanel(rec);
@@ -2067,11 +2075,11 @@ function viewCheck(){
   return `<div class="check"><div class="chero"><span class="eyebrow">${DESK_NAME[desk]} · quick look</span><h1>${h1}</h1><p>${sub}</p>
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${desk === 'buffer' ? 'Ticker, for example PJAN' : desk === 'income' ? 'Ticker, for example JEPI' : 'Ticker, for example ARKK'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
-    <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}<span class="lbl" style="margin-left:8px">Two or more tickers, separated by commas, open the comparison</span></div></div>
-    ${result}${doors}<a class="pdoor" href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds head to head</b><span>${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN: every field in one table, the bands on one scale.' : desk === 'income' ? 'OMAH vs JEPI: cash, price, total return and the gap to the benchmark, side by side, with the payout bars on one scale.' : 'AIS vs AIQ: what each really holds, how much is already the index, and how much the two overlap.'}</span></a><div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
+    <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}<span class="lbl" style="margin-left:8px">Two or more tickers open the comparison</span></div></div>
+    ${result}${doors}<a class="pdoor" href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds head to head</b><span>${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN: every field in one table, the bands on one scale.' : desk === 'income' ? 'OMAH vs JEPI: cash, price, total return and the gap to the benchmark, on one scale.' : 'AIS vs AIQ: what each holds, how much is already the index, and how much the two overlap.'}</span></a><div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
 }
 function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)}</div><div class="asf">Data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
-function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research, one piece per desk'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }
+function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }
 function deskLines(desk){
   const ls = ((S.insights && S.insights.lines) || []).filter(l => l.desk === desk);
   if (!ls.length) return '';
@@ -2234,6 +2242,7 @@ function wire(){
     if (t.closest('#iclear')) { S.ifilters = { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind:S.ifilters.kind }; render(); return; }
     const kd = t.closest('[data-kind]'); if (kd) { S.ifilters.kind = kd.dataset.kind; store.set('etfiq.kind', S.ifilters.kind); computeIncomeScale(); render(); return; }
     const seg = t.closest('.seg button'); if (seg) { S.grouped = seg.dataset.g === '1'; render(); return; }
+    if (t.closest('#allcols')) { S.cols = S.cols === 'key' ? 'all' : 'key'; store.set('etfiq.cols', S.cols); render(); return; }
     if (t.closest('#compact')) { S.compact = !S.compact; store.set('etfiq.compact', S.compact); render(); return; }
     if (t.closest('#csv')) { exportCsv(); return; }
     const mv = t.closest('[data-move]'); if (mv) { S.move = +mv.dataset.move; render(); return; }
