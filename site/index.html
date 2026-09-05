@@ -218,7 +218,11 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .dt .stat{font-size:15px;color:var(--ink-2);line-height:1.4}.dt .stat b{color:var(--ink);font-family:var(--font-mono)}
 .dt .door{margin-top:auto;padding-top:6px;font-weight:600;color:var(--accent)}
 .home .sec.tight{max-width:1080px;margin:28px auto 6px}
-.changed{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:8px 14px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px 18px}
+.chg h3{font:600 11px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line-2)}
+.chg.buffer h3{color:var(--accent)}.chg.income h3{color:var(--protected)}.chg.themes h3{color:var(--themes-ink)}
+.changed{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:8px}
+.check .changed.one{max-width:980px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:8px 14px}
 .changed li{padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 6px 6px 0;font-size:14px;line-height:1.45}
 .changed li.income{border-left-color:var(--protected)}.changed li.themes{border-left-color:var(--themes-ink)}
 .changed li a{color:var(--ink)}
@@ -1683,7 +1687,7 @@ function viewHome(){
   };
   const tile = (desk, q, visual, num, sample, door) => `<a class="dt ${desk}" href="#/${desk}/check"><div class="lvl">${DESK_NAME[desk]}</div><h2>${q}</h2><div class="vis">${visual}</div><div class="sample">${sample}</div><div class="stat">${num}</div><div class="door">${door} ›</div></a>`;
   const miss = S.homeMiss ? `<div class="miss"><b>${esc(S.homeMiss)}</b> is not on any desk yet. ETFIQ covers ${nb} buffer, ${ni} option-income and ${nt} thematic ETFs. <a href="#/buffer/desk">Browse the buffer desk</a>, <a href="#/income/desk">the income desk</a> or <a href="#/themes/desk">the themes desk</a>.</div>` : '';
-  const lines = (S.insights && S.insights.lines || []).slice(0, 8);
+  const lines = (S.insights && S.insights.lines || []);
   return `<div class="home"><div class="chero"><span class="eyebrow">Independent ETF data, in plain words</span><h1>Type what you own. Get the answer.</h1><p>Every buffer ETF on one comparable band. Every option-income ETF against its benchmark. Every thematic ETF by what it actually holds.</p>
     <form class="cq" id="homeForm" autocomplete="off"><input id="homeQ" list="alltickers" placeholder="Any ETF ticker, for example PJAN, JEPI or ARKK" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="alltickers">${[...S.funds, ...S.income, ...S.themes].map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>${miss}</div>
@@ -1692,7 +1696,7 @@ function viewHome(){
       ${tile('income', 'Am I ahead of the benchmark?', vis.income, idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat their benchmark over ${WIN_LABEL[S.window]}` : '', fi ? `${esc(fi.ticker)} on the payout bar` : '', 'Check an income ETF')}
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
-    ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><ul class="changed">${lines.map(l => `<li class="${esc(l.desk)}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul>` : ''}
+    ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><div class="chgrid">${['buffer', 'income', 'themes'].map(d => { const ls = lines.filter(l => l.desk === d); return ls.length ? `<div class="chg ${d}"><h3>${DESK_NAME[d]}</h3><ul class="changed">${ls.map(l => `<li class="${d}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div>` : ''}
     <p class="ind">ETFIQ is an independent publisher, not an issuer, broker or adviser. It makes no recommendations; every list is stated arithmetic on published data. <a href="/research/">ETFIQ Research</a> · <a href="#/standards">Standards and ownership</a> · <a href="#/alerts">Alerts and the weekly note</a></p></div>`;
 }
 
@@ -1733,7 +1737,12 @@ function viewCheck(){
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${desk === 'buffer' ? 'Ticker, for example PJAN' : desk === 'income' ? 'Ticker, for example JEPI' : 'Ticker, for example ARKK'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}</div></div>
-    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}</div>`;
+    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}</div>`;
+}
+function deskLines(desk){
+  const ls = ((S.insights && S.insights.lines) || []).filter(l => l.desk === desk);
+  if (!ls.length) return '';
+  return `<div class="sec tight"><span class="eyebrow">What changed on this desk, as of ${esc(S.insights.asOf || '')}</span></div><ul class="changed one">${ls.map(l => `<li class="${desk}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul>`;
 }
 
 /* ====================== explainer ====================== */
