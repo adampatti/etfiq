@@ -45,13 +45,16 @@ def build():
     qqq = H.index_holdings('QQQ')
     print(f"  index holdings: S&P 500 {len(spy['holdings'])} as of {spy['asOf']}, Nasdaq-100 {len(qqq['holdings'])} as of {qqq['asOf']}", file=sys.stderr)
     bench = {b: income.split_adjust(income.trim_history(income.prices(b, tok))) for b in ('SPY', 'QQQ')}
-    out, missing, no_holdings, held = [], [], [], {}
+    out, missing, no_holdings, held, closed = [], [], [], {}, []
     for i, u in enumerate(universe):
         rows = income.split_adjust(income.trim_history(income.prices(u['ticker'], tok)))
         if len(rows) < 5:
             missing.append(u['ticker'])
             continue
         end = rows[0] and rows[-1]
+        if (TODAY - datetime.date.fromisoformat(end['date'])).days > 12:
+            closed.append(u['ticker'])  # no trade in twelve days: delisted or closed, kept in the snapshot, off the desk
+            continue
         rec = dict(u)
         wins = {}
         for k, d in income.WINDOWS.items():
@@ -73,7 +76,7 @@ def build():
         dd, hi_date = drawdown(rows)
         rec.update({'asOf': end['date'], 'price': end['close'], 'inception': s['date'], 'daysSinceInception': itd['days'], 'windows': wins, 'drawdown': dd, 'highDate': hi_date})
         # holdings and overlap
-        info, h = (H.fund_holdings(u['seriesId']) if u.get('seriesId') else (None, []))
+        info, h = H.fund_holdings(u.get('seriesId') or '', u['name'])
         if h:
             tot = sum(x['weight'] for x in h) or 1.0
             top = h[:10]
@@ -112,7 +115,7 @@ def build():
         r['peers'] = [{'t': t, 'o': v} for v, t in cands[:5] if v >= 10]
     out.sort(key=lambda r: (r['themeName'], r['ticker']))
     meta = {'asOf': max((r['asOf'] for r in out), default=TODAY.isoformat()), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
-            'universe': len(universe), 'shown': len(out), 'withHoldings': len(held), 'missingPrices': missing, 'missingHoldings': no_holdings,
+            'universe': len(universe), 'shown': len(out), 'withHoldings': len(held), 'missingPrices': missing, 'missingHoldings': no_holdings, 'closed': closed,
             'indexHoldingsAsOf': {'SPY': spy['asOf'], 'QQQ': qqq['asOf']}, 'feed': 'Tiingo end-of-day; SEC N-PORT holdings'}
     (ROOT / 'site' / 'data').mkdir(parents=True, exist_ok=True)
     (ROOT / 'site' / 'data' / 'thematic.json').write_text(json.dumps({'funds': out, 'matrix': {'tickers': tickers, 'rows': pairs}}, separators=(',', ':')))
@@ -122,6 +125,7 @@ def build():
     print(json.dumps({k: v for k, v in meta.items() if k not in ('missingPrices', 'missingHoldings')}, indent=1))
     print('no prices:', missing)
     print('no holdings:', no_holdings)
+    print('closed or delisted:', closed)
 
 
 if __name__ == '__main__':

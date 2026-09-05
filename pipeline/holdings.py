@@ -58,14 +58,15 @@ def sec_get(url, params=None):
             raise
 
 
-def latest_nport(series_id):
-    """URL of the latest NPORT-P primary document for an SEC series id, or None."""
-    p = CACHE / f'nport-index-{series_id}-{TODAY.isoformat()}.json'
+def latest_nport(series_id, name=None):
+    """URL of the latest NPORT-P primary document for an SEC series id (or, failing that, an exact fund name), or None."""
+    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', name or '')[:60]
+    p = CACHE / f'nport-index-{key}-{TODAY.isoformat()}.json'
     if p.exists():
         return json.loads(p.read_text())
     out = None
     try:
-        d = json.loads(sec_get('https://efts.sec.gov/LATEST/search-index', {'q': f'"{series_id}"', 'forms': 'NPORT-P', 'dateRange': 'custom',
+        d = json.loads(sec_get('https://efts.sec.gov/LATEST/search-index', {'q': f'"{series_id or name}"', 'forms': 'NPORT-P', 'dateRange': 'custom',
                                                                                 'startdt': (TODAY - datetime.timedelta(days=400)).isoformat(), 'enddt': TODAY.isoformat()}))
         hits = d.get('hits', {}).get('hits', [])
         hits.sort(key=lambda h: h['_source'].get('period_ending') or h['_source'].get('file_date') or '', reverse=True)
@@ -121,18 +122,19 @@ def parse_nport(xml_text):
             continue
         if pct <= 0 or not name:
             continue
-        holdings.append({'name': name, 'cusip': cusip if re.fullmatch(r'[0-9A-Z]{9}', cusip or '') else '', 'isin': isin, 'ticker': ticker, 'weight': pct, 'cat': cat, 'country': txt(sec, 'n:invCountry')})
+        holdings.append({'name': name, 'cusip': cusip if re.fullmatch(r'[0-9A-Z]{9}', cusip or '') and cusip != '000000000' else '', 'isin': isin, 'ticker': ticker, 'weight': pct, 'cat': cat, 'country': txt(sec, 'n:invCountry')})
     holdings.sort(key=lambda h: -h['weight'])
     return info, holdings
 
 
-def fund_holdings(series_id):
-    """Latest N-PORT holdings for a series id, cached per day. Returns (info, holdings) or (None, [])."""
-    p = CACHE / f'nport-{series_id}-{TODAY.isoformat()}.json'
+def fund_holdings(series_id, name=None):
+    """Latest N-PORT holdings for a series id (or an exact fund name when the SEC file has no id), cached per day."""
+    key = series_id or re.sub(r'[^A-Za-z0-9]+', '-', name or '')[:60]
+    p = CACHE / f'nport-{key}-{TODAY.isoformat()}.json'
     if p.exists():
         d = json.loads(p.read_text())
         return d.get('info'), d.get('holdings', [])
-    idx = latest_nport(series_id)
+    idx = latest_nport(series_id, name)
     info, holdings = None, []
     if idx and idx.get('url'):
         try:
@@ -175,7 +177,7 @@ def norm_name(n):
 
 def keyset(h):
     keys = set()
-    if h.get('cusip'):
+    if h.get('cusip') and h['cusip'] != '000000000':
         keys.add('c:' + h['cusip'])
     if h.get('isin'):
         keys.add('i:' + h['isin'])

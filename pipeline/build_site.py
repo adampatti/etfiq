@@ -5,6 +5,7 @@ Blocks filled (each a <script type="application/json"> with an id):
   etfiq-data             site/data/funds.json          buffer desk records
   etfiq-income           site/data/income.json         income desk records (empty array until the feed runs)
   etfiq-income-universe  data/income_universe.json     the income universe, included funds only
+  etfiq-thematic         site/data/thematic.json       themes desk records and the fund-to-fund overlap matrix
 
 CONFIG.asOf comes from site/data/meta.json, CONFIG.incomeAsOf from site/data/income_meta.json.
 Idempotent; run after every snapshot. The page also works from data/*.json when the blocks are absent.
@@ -37,11 +38,17 @@ fill('etfiq-data', funds)
 fill('etfiq-payouts', payouts)
 fill('etfiq-income', income)
 fill('etfiq-income-universe', universe)
+thematic = load('site/data/thematic.json', {'funds': [], 'matrix': None})
+for r in thematic.get('funds', []):
+    for k in ('entity', 'cik', 'why', 'holdingsFiled'):
+        r.pop(k, None)
+fill('etfiq-thematic', thematic)
 meta = load('site/data/meta.json', {})
 imeta = load('site/data/income_meta.json', {})
-for key, val in (('asOf', meta.get('asOf')), ('incomeAsOf', imeta.get('asOf'))):
+tmeta = load('site/data/thematic_meta.json', {})
+for key, val in (('asOf', meta.get('asOf')), ('incomeAsOf', imeta.get('asOf')), ('thematicAsOf', tmeta.get('asOf'))):
     html, n = re.subn(key + r":\s*(?:null|'[^']*'),", key + ': ' + ('null' if not val else repr(val)) + ',', html, count=1)
     if n != 1:
         sys.exit(f'CONFIG.{key} not found')
 html_path.write_text(html)
-print(f'inlined {len(funds)} buffer funds, {len(income)} income funds, {len(universe)} income universe; asOf={meta.get("asOf")}, incomeAsOf={imeta.get("asOf")}')
+print(f'inlined {len(funds)} buffer funds, {len(income)} income funds, {len(universe)} income universe, {len(thematic.get("funds", []))} thematic funds; asOf={meta.get("asOf")}, incomeAsOf={imeta.get("asOf")}, thematicAsOf={tmeta.get("asOf")}')
