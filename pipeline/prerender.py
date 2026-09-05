@@ -348,6 +348,7 @@ def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None
 BUFFER_TOP = ['PJAN', 'PAPR', 'PJUL', 'POCT', 'BJAN', 'BAPR', 'BJUL', 'BOCT', 'UJAN', 'UAPR', 'UJUL', 'UOCT', 'DJAN', 'DAPR', 'DJUL', 'DOCT', 'FJAN', 'FJUL', 'PSEP', 'PNOV']
 INCOME_TOP = ['JEPI', 'JEPQ', 'SPYI', 'QQQI', 'QYLD', 'XYLD', 'RYLD', 'DIVO', 'GPIX', 'GPIQ', 'TSLY', 'NVDY', 'MSTY', 'CONY', 'ULTY', 'YMAX', 'FEPI', 'XDTE', 'QDTE', 'AIPI']
 PAIRS_BY_TICKER = {}
+DESK_HUBS = {}
 
 
 def pair_slug(a, b):
@@ -575,7 +576,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/llms.txt">llms.txt</a></nav></footer></body></html>"""
 
 
-def index_page(desk, rows, as_of, intro):
+def index_page(desk, rows, as_of, intro, hub_nav=''):
     url = f"{BASE}/{desk}/"
     title = {'buffer': 'Every buffer ETF on one comparable band', 'income': 'Every option-income ETF against its benchmark', 'themes': 'Every thematic ETF: what you actually bought'}[desk]
     head = {'buffer': ['Ticker', 'Fund', 'Issuer', 'Index', 'Buffer', 'Period ends', 'Can still gain', 'Fall before buffer', 'State'],
@@ -593,6 +594,7 @@ def index_page(desk, rows, as_of, intro):
 <body>{R.rail(desk)}<main>
 <p class="note">Data as of {fdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
+{hub_nav}
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
 <p class="note">ETFIQ is an independent publisher. It makes no recommendations; every list is stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
@@ -640,6 +642,13 @@ def build():
     top = {'buffer': [t for t in BUFFER_TOP if t in by['buffer']],
            'income': [t for t in INCOME_TOP if t in by['income']],
            'themes': [r['ticker'] for r in sorted(themes, key=lambda r: -(r.get('assets') or 0)) if r.get('vsSPY')][:20]}
+    # the hub links each desk index page carries, worked out before any page is written
+    MONS = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'}
+    theme_keys = sorted({(r['theme'], r['themeName']) for r in themes})
+    month_keys = sorted({f['periodEnd'][5:7] for f in funds})
+    DESK_HUBS['themes'] = ('<h2>Browse by theme</h2><nav class="rel">' + ''.join(f'<a href="/themes/{k}.html">{esc(n)}</a>' for k, n in theme_keys) + '<a href="/issuers/">By issuer</a></nav>')
+    DESK_HUBS['buffer'] = ('<h2>Browse by reset month</h2><nav class="rel">' + ''.join(f'<a href="/buffer/{MONS[m].lower()}.html">{MONS[m]}</a>' for m in month_keys if m in MONS) + '<a href="/issuers/">By issuer</a></nav>')
+    DESK_HUBS['income'] = '<h2>Browse</h2><nav class="rel"><a href="/issuers/">Every issuer</a><a href="/compare/">Head to head</a><a href="/learn/income.html">The vocabulary</a></nav>'
     PAIRS_BY_TICKER.clear()
     for desk, ts in top.items():
         for t in ts:
@@ -667,7 +676,7 @@ def build():
                                      ('themes', t_rows, as_t, f'{len(themes)} thematic ETFs in 27 themes: how much of each is already in the S&P 500, active share, concentration, and returns against the plain index, from SEC holdings filings and exchange prices as of {fdate(as_t)}.')):
         d = SITE / desk
         d.mkdir(exist_ok=True)
-        (d / 'index.html').write_text(index_page(desk, rows, as_of, intro)); urls.append((f'{BASE}/{desk}/', as_of))
+        (d / 'index.html').write_text(index_page(desk, rows, as_of, intro, hub_nav=DESK_HUBS.get(desk, ''))); urls.append((f'{BASE}/{desk}/', as_of))
     # explainers, standards and the old site's paths
     for rel, html_ in learn_pages():
         fp = SITE / rel

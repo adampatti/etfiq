@@ -88,9 +88,10 @@ h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
 .logo .wm{font:700 21px/1 var(--font-display);letter-spacing:-.03em}
 .logo .wm b{color:#7AA2FF;font-weight:700}
 .desks{display:flex;gap:4px;height:52px;margin-left:8px}
-.desks a{display:flex;align-items:center;padding:0 14px;height:100%;font:600 13.5px/1 var(--font-display);letter-spacing:.01em;color:var(--top-muted);border-bottom:3px solid transparent;margin-bottom:-1px}
-.desks a:hover{color:var(--top-ink);text-decoration:none}
-.desks a.on{color:var(--top-ink);border-bottom-color:#7AA2FF}
+.desks{gap:6px;align-items:center}
+.desks a{display:flex;align-items:center;padding:0 13px;height:32px;border-radius:8px;font:600 13.5px/1 var(--font-display);letter-spacing:.01em;color:var(--top-muted);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09)}
+.desks a:hover{color:var(--top-ink);text-decoration:none;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18)}
+.desks a.on{color:#0F1419;background:#F2F4F7;border-color:#F2F4F7}
 .top .right{margin-left:auto;display:flex;align-items:center;gap:10px}
 .top .right a.txt{font:500 13px var(--font-body);color:var(--top-muted)}
 .top .right .btn.ghost{color:var(--top-muted)}.top .right .btn.ghost:hover{background:rgba(255,255,255,.08);color:var(--top-ink)}
@@ -292,6 +293,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 @media (max-width:560px){nav.desks .long{display:none}nav.desks{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}nav.desks::-webkit-scrollbar{display:none}}
 .cmpt{width:100%;table-layout:fixed}.cmpt th{vertical-align:top}.cmpt thead th{text-align:left;padding:12px 14px}.cmpt thead th:first-child{width:186px}.cmpt td{white-space:normal;overflow-wrap:anywhere}.cmpt tr.gr td svg{display:block;width:100%;height:auto}@media (max-width:700px){.cmpt{table-layout:auto}.cmpt thead th{min-width:150px}}.cmpt thead th .fn{font:400 12px/1.35 var(--font);color:var(--muted);margin-top:6px;max-width:220px;text-transform:none;letter-spacing:0;white-space:normal}.cmpt tbody th{text-align:left;font:500 13px/1.3 var(--font);text-transform:none;letter-spacing:0;color:var(--ink-2);white-space:nowrap;padding:10px 14px}
 .cmpt td.num{text-align:left;font-variant-numeric:tabular-nums;padding:10px 14px}.cmpt tr.key th{font-weight:600;color:var(--ink)}.cmpt td.key{background:var(--accent-soft);font-weight:600}.cmpt tr.words td{font-size:13px;line-height:1.45;color:var(--ink-2);max-width:280px}.cmpt tr.gr td{padding:12px 14px}
+dl.qa{margin:0}dl.qa dt{font-weight:600;font-size:13.5px;margin:14px 0 5px;color:var(--ink)}dl.qa dt:first-child{margin-top:0}dl.qa dd{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
 .cmp-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:6px}.cmp-pairs .pair{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:6px}.cmp-pairs .v{font:600 28px/1 var(--font-display);letter-spacing:-.02em;color:var(--themes-ink)}.cmp-pairs .muted{font-size:12.5px;line-height:1.4}
 footer .wm .wmk{height:14.5px;width:auto;color:var(--ink);--iq:var(--accent);display:block}
 .doc table.srcs th{text-align:left;font-weight:600;vertical-align:top;white-space:normal}.doc table.srcs tbody th{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}.doc table.srcs td{vertical-align:top}.doc table.srcs{width:100%}
@@ -610,6 +612,7 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
       <a href="#/income/check" data-d="income">Income<span class="long">&nbsp;desk</span></a>
       <a href="#/themes/check" data-d="themes">Themes<span class="long">&nbsp;desk</span></a>
       <a href="#/portfolio" data-d="portfolio">Portfolio<span class="long">&nbsp;desk</span></a>
+      <a href="#/browse" data-d="browse">Browse</a>
       <a href="/research/" data-d="research">Research</a>
     </nav>
     <div class="right">
@@ -699,7 +702,7 @@ const S = {
   funds: [], byT: new Map(), series: new Map(), scale: [-37, 25],
   income: [], byI: new Map(), universe: [], iscale: [-40, 60],
   desk: 'buffer', view: 'desk',
-  filters: { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'' },
+  filters: { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' },
   ifilters: { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind: store.get('etfiq.kind', 'index') },
   sort: { k:'daysRemaining', dir:'asc' }, isort: { k:'gap', dir:'desc' },
   grouped: true, collapsed: new Set(), compact: store.get('etfiq.compact', false), cols: store.get('etfiq.cols', 'key'),
@@ -948,6 +951,7 @@ function matches(f){
   if (F.ref.size && !F.ref.has(f.refAsset)) return false;
   if (F.buffer.size && !F.buffer.has(f.bufferLabel)) return false;
   if (F.period.size && !F.period.has(String(f.periodMonths))) return false;
+  if (F.month && f.periodEnd.slice(5, 7) !== F.month) return false;
   if (F.days) { const d = F.days; if (d === '180+' ? f.daysRemaining <= 180 : f.daysRemaining > +d) return false; }
   if (F.state && f.state !== F.state) return false;
   return true;
@@ -1346,6 +1350,44 @@ function viewIncomeLearn(){
 }
 
 /* ====================== panels ====================== */
+function qaBlock(pairs){
+  const qs = pairs.filter(x => x && x[1]);
+  if (!qs.length) return '';
+  return `<section><h3>Questions people ask <span class="tag etfiq">ETFIQ</span></h3><dl class="qa">${qs.map(([q, a]) => `<dt>${esc(q)}</dt><dd>${esc(a)}</dd>`).join('')}</dl></section>`;
+}
+function bufferQA(f){
+  const t = f.ticker, ref = f.refAsset;
+  const sb = f.startBuffer, left = f.protectionLeft;
+  return qaBlock([
+    [`How much can ${t} still gain?`, f.isUncapped ? `${t} has no cap, so it takes a share of any further rise in ${ref} this period.`
+      : f.state === 'capped' ? `Nothing more in index terms. ${ref} has already passed the cap of ${fmtPct(f.startCap)} for this period.`
+      : f.remainingCapFund == null ? '' : `About ${fmtPct(f.remainingCapFund, {sign:false})} from today's price before it reaches its cap of ${fmtPct(f.startCap)}.`],
+    [`How far can ${t} fall before the buffer helps?`, `${fmtPct(f.downsideBeforeBuffer, {sign:false})} in fund-price terms, by the issuer's figure. In index terms ${ref} can fall ${fmtPct(f.fallBeforeBufferRef, {sign:false})} from today's level first. Losses until then are yours.`],
+    [`How much of the ${t} buffer is left?`, f.isFloor ? `${t} carries a full floor, so every loss below its buffer start is covered this period.` : `${fmtPct(left, {sign:false})} of the ${fmtPct(sb, {sign:false})} buffer still sits below today's ${ref} level.`],
+    [`When does ${t} reset?`, `The outcome period ends on ${fmtDate(f.periodEnd)}, ${f.daysRemaining} days away. A new cap is set the next day.`],
+    [`What does ${t} cost?`, f.expenseRatio == null ? '' : `${fmtPct(f.expenseRatio, {sign:false, d:2})} a year, from the prospectus.`]
+  ]);
+}
+function incomeQA(r){
+  const t = r.ticker, w = iw(r), full = w && w === r.win(S.window);
+  const roc = r.src && r.src.latest && r.src.latest.roc != null ? r.src.latest.roc : null;
+  return qaBlock([
+    [`How much has ${t} paid?`, !w ? '' : `Over ${full ? WIN_LABEL[S.window] : 'the period since it launched on ' + fmtDate(w.from)}, ${t} paid ${fmtPct(w.cash, {sign:false})} of its starting price in cash, while the price ${w.price < 0 ? 'fell ' + fmtPct(-w.price, {sign:false}) : 'rose ' + fmtPct(w.price, {sign:false})}.`],
+    [`Is ${t} ahead of ${r.benchmark}?`, !w || w.gap == null ? '' : `With distributions reinvested ${t} returned ${fmtPct(w.total)} against ${fmtPct(w.bench)} for ${r.benchmarkName || r.benchmark}, so a holder was ${w.gap > 0.5 ? 'ahead of' : w.gap < -0.5 ? 'behind' : 'about even with'} it by ${Math.abs(w.gap).toFixed(1)} points.`],
+    [`How often does ${t} pay, and how much?`, r.distributionRate == null ? '' : `${t} pays ${r.payoutFrequency || 'on no set schedule'}. The latest distribution annualises to ${fmtPct(r.distributionRate, {sign:false})} at today's price, which is not a promise.`],
+    [`Is the ${t} distribution return of capital?`, roc == null ? '' : `${r.issuer} estimates ${roc.toFixed(0)}% of its latest distribution was return of capital. That is a tax characterisation from the fund's own 19a-1 notice, not a measure of erosion.`],
+    [`What does ${t} cost?`, r.expenseRatio == null ? '' : `${fmtPct(r.expenseRatio, {sign:false, d:2})} a year, from the prospectus.`]
+  ]);
+}
+function themeQA(r){
+  const t = r.ticker, w = tw(r), v = r.vsSPY;
+  return qaBlock([
+    [`How much of ${t} is already in the S&P 500?`, !v ? '' : `${v.inIndex.toFixed(0)}% of ${t} by weight is stocks the index already holds. Its active share is ${v.activeShare.toFixed(0)}%, and that is the part doing something different.`],
+    [`What does ${t} hold?`, !r.holdingsCount ? '' : `${r.holdingsCount} positions as filed for ${fmtDate(r.holdingsAsOf)}, with the top ten at ${fmtPct(r.top10Weight, {sign:false})} of the fund.`],
+    [`Has ${t} beaten the S&P 500?`, !w || w.gap == null ? '' : `Over ${WIN_LABEL[S.window]} it returned ${fmtPct(w.total)} against ${fmtPct(w.bench)} for the S&P 500, ${w.gap > 0.5 ? 'ahead by' : w.gap < -0.5 ? 'behind by' : 'even with it at'} ${Math.abs(w.gap).toFixed(1)} points.`],
+    [`What does ${t} cost?`, r.expenseRatio == null ? '' : `${fmtPct(r.expenseRatio, {sign:false, d:2})} a year${r.activeFee == null ? '' : `, which works out at ${fmtPct(r.activeFee, {sign:false, d:2})} on the part that differs from the index`}.`]
+  ]);
+}
 function bufferPanel(f){
   const kv = (l, v, cls) => `<div><div class="l">${l}</div><div class="v ${cls || ''}">${v}</div></div>`;
   const sc = [Math.floor(Math.min(f.isFloor ? f.bufferStart - 40 : f.bufferEnd, f.refReturn) - 3), Math.ceil(Math.max(f.isUncapped ? Math.max(f.refReturn, 0) + 12 : f.startCap, f.refReturn) + 3)];
@@ -1366,6 +1408,7 @@ function bufferPanel(f){
   <section><h3>Terms <span class="tag">filed</span></h3><div class="kv">
     ${kv(f.isUncapped ? 'Participation' : 'Starting cap', f.isUncapped ? (f.participation != null ? f.participation + '%' : 'uncapped, rate not published') : fmtPct(f.startCap))}${kv('Buffer', f.isFloor ? `${fmtPct(f.bufferStart, {sign:false})} to floor` : `${fmtPct(f.bufferStart, {sign:false})} to ${fmtPct(f.bufferEnd, {sign:false})}`)}${kv('Period start', esc(fmtDate(f.periodStart)))}${kv('Period end', esc(fmtDate(f.periodEnd)))}${kv('Expense ratio', fmtPct(f.expenseRatio, {sign:false, d:2}))}${kv('Index ETF', esc(f.refAsset))}
   </div><div class="timeline"><div class="bar"><i style="width:${elapsedPct}%"></i></div><div class="lbl"><span>${esc(fmtDate(f.periodStart))}</span><span>${elapsedPct}% elapsed · ${f.daysRemaining} days left</span><span>${esc(fmtDate(f.periodEnd))}</span></div></div></section>
+  ${bufferQA(f)}
   <section><h3>Completed outcome periods <span class="tag">coming</span></h3><div class="slot"><b>Every completed period since inception</b> will sit here once the terms table is built from filed prospectus supplements: starting cap, buffer, index return, fund return, whether the cap bound and whether the buffer engaged.</div></section>
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="buffer:${esc(f.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn" type="button" data-ladtoggle="${esc(f.ticker)}">${inLadder ? 'Remove from ladder' : 'Add to ladder'}</button>${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Issuer page</a>` : ''}<a class="btn" href="#/buffer/compare/${esc(f.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="buffer/fund/${esc(f.ticker)}">Copy link</button></div>`;
 }
@@ -1388,6 +1431,7 @@ function incomePanel(r){
   </div>${r.distributions && r.distributions.length ? `<table class="mini"><thead><tr><th>Ex-date</th><th class="num">Cash per share</th></tr></thead><tbody>${r.distributions.slice().reverse().map(d => `<tr><td>${esc(fmtDate(d.date))}</td><td class="num">$${(+d.amount).toFixed(4)}</td></tr>`).join('')}</tbody></table>` : ''}</section>
   ${cashSources(r)}
   <section><h3>Benchmark <span class="tag etfiq">ETFIQ</span></h3><p class="plain" style="font-size:14px">${esc(r.benchmarkName || r.benchmark)}${r.benchmarkKind === 'proxy' ? '. This is a proxy: the closest listed ETF to what the fund actually writes options on.' : r.benchmarkKind === 'stock' ? '. Single-stock fund: the comparison is with simply owning the stock.' : '.'} Total return, dividends reinvested, over the same days.</p></section>
+  ${incomeQA(r)}
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="income:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/income/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="income/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 function cashSources(r){
@@ -1686,6 +1730,7 @@ function themePanel(r){
   <section><h3>Facts <span class="tag">filed</span></h3><div class="kv">
     ${kv('Launched', esc(fmtDate(r.inception)))}${kv('Price', r.price == null ? '·' : '$' + (+r.price).toFixed(2))}${kv('Net assets', fmtAssets(r.assets))}${kv('Holdings filed for', r.holdingsAsOf ? esc(fmtDate(r.holdingsAsOf)) : 'no public filing yet')}${r.holdingsSource ? kv('Source', `<a href="${esc(r.holdingsSource)}" target="_blank" rel="noopener">SEC N-PORT</a>`) : ''}
   </div></section>
+  ${themeQA(r)}
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="themes:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/themes/own/${esc(r.ticker)}">Compare with others</a><a class="btn" href="#/themes/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="themes/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 
@@ -2007,6 +2052,61 @@ function viewCompare(){
     <p class="ind">Every figure is the desk's own, stated arithmetic on published data. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
 }
 
+/* ====================== browse: every issuer, theme, reset month and benchmark ====================== */
+const MONTH_NAME = { '01':'January', '02':'February', '03':'March', '04':'April', '05':'May', '06':'June', '07':'July', '08':'August', '09':'September', '10':'October', '11':'November', '12':'December' };
+function browseCounts(){
+  const iss = new Map();
+  const add = (m, k, desk) => { if (!k) return; const cur = m.get(k) || { buffer:0, income:0, themes:0 }; cur[desk]++; m.set(k, cur); };
+  S.funds.forEach(f => add(iss, f.issuer, 'buffer'));
+  S.income.forEach(r => add(iss, r.issuer, 'income'));
+  S.themes.forEach(r => add(iss, r.issuer, 'themes'));
+  const themes = new Map();
+  S.themes.forEach(r => { const c = themes.get(r.theme) || { name:r.themeName, n:0, ins:[] }; c.n++; if (r.inSPY != null) c.ins.push(r.inSPY); themes.set(r.theme, c); });
+  const months = new Map();
+  S.funds.forEach(f => { const k = f.periodEnd.slice(5, 7); const c = months.get(k) || { n:0, soon:0 }; c.n++; if (f.daysRemaining <= 45) c.soon++; months.set(k, c); });
+  const bench = new Map();
+  S.income.forEach(r => { if (!r.benchmark) return; const c = bench.get(r.benchmark) || { name:r.benchmarkName || r.benchmark, n:0, ahead:0, withW:0 }; c.n++; const w = iwx(r); if (w && w.gap != null) { c.withW++; if (w.gap > 0.5) c.ahead++; } bench.set(r.benchmark, c); });
+  return { iss, themes, months, bench };
+}
+function viewBrowse(){
+  const tab = S.browseTab || 'issuer';
+  const C = browseCounts();
+  const tabs = [['issuer', 'By issuer'], ['theme', 'By theme'], ['month', 'By reset month'], ['bench', 'By benchmark']];
+  const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Every issuer, theme, reset month and benchmark</h1><p>Pick any of these and the desk opens filtered to it, with the same fields and the same sorting. Counts are of the funds ETFIQ covers today.</p></div>
+`;
+  let body = '';
+  if (tab === 'issuer') {
+    const rows = Array.from(C.iss.entries()).map(([name, c]) => ({ name, c, total: c.buffer + c.income + c.themes })).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Issuer</th><th class="num">Funds</th><th>Buffer</th><th>Income</th><th>Themes</th><th>Every fund on one page</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.total}</td>
+        <td>${r.c.buffer ? `<a href="#/buffer/desk/issuer/${encodeURIComponent(r.name)}">${r.c.buffer} buffer</a>` : '<span class="muted">·</span>'}</td>
+        <td>${r.c.income ? `<a href="#/income/desk/issuer/${encodeURIComponent(r.name)}">${r.c.income} income</a>` : '<span class="muted">·</span>'}</td>
+        <td>${r.c.themes ? `<a href="#/themes/desk/issuer/${encodeURIComponent(r.name)}">${r.c.themes} thematic</a>` : '<span class="muted">·</span>'}</td>
+        <td><a href="/issuers/${esc(r.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))}.html">${esc(r.name)} page ›</a></td></tr>`).join('')}
+    </tbody></table></div></div><p class="hint">${rows.length} issuers. The issuer page is a printable list of every fund from that issuer across the desks.</p>`;
+  } else if (tab === 'theme') {
+    const rows = Array.from(C.themes.entries()).map(([k, c]) => ({ k, ...c, med: c.ins.length ? c.ins.slice().sort((a, b) => a - b)[Math.floor(c.ins.length / 2)] : null })).sort((a, b) => b.n - a.n);
+    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Theme</th><th class="num">Funds</th><th class="num">Typical fund already in the S&P 500</th><th>Open</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.n}</td><td class="num">${r.med == null ? '·' : fmtPct(r.med, {sign:false, d:0})}</td>
+        <td><a href="#/themes/desk/theme/${esc(r.k)}">Open on the desk</a> · <a href="/themes/${esc(r.k)}.html">theme page ›</a></td></tr>`).join('')}
+    </tbody></table></div></div><p class="hint">${rows.length} themes. ETFIQ assigns one theme per fund from its name and holdings; the taxonomy is editorial and <a href="#/standards">Standards</a> says so.</p>`;
+  } else if (tab === 'month') {
+    const rows = Object.keys(MONTH_NAME).map(k => ({ k, ...(C.months.get(k) || { n:0, soon:0 }) })).filter(r => r.n);
+    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Outcome period ends in</th><th class="num">Buffer ETFs</th><th class="num">Resetting within 45 days</th><th>Open</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td><b>${MONTH_NAME[r.k]}</b></td><td class="num">${r.n}</td><td class="num">${r.soon || '·'}</td>
+        <td><a href="#/buffer/desk/month/${r.k}">Open on the desk</a> · <a href="/buffer/${MONTH_NAME[r.k].toLowerCase()}.html">${MONTH_NAME[r.k]} page ›</a></td></tr>`).join('')}
+    </tbody></table></div></div><p class="hint">A buffer ETF is at its freshest cap in the days after it resets, and has the least room left just before. <a href="#/buffer/entry">Buying today</a> groups the whole desk that way.</p>`;
+  } else {
+    const rows = Array.from(C.bench.entries()).map(([k, c]) => ({ k, ...c })).sort((a, b) => b.n - a.n);
+    body = `<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr><th>Benchmark</th><th>What it is</th><th class="num">Income ETFs</th><th class="num">Ahead of it over ${WIN_LABEL[S.window]}</th><th>Open</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td><span class="tk">${esc(r.k)}</span></td><td>${esc(r.name)}</td><td class="num">${r.n}</td><td class="num">${r.withW ? `${r.ahead} of ${r.withW}` : '·'}</td>
+        <td><a href="#/income/desk/bench/${encodeURIComponent(r.k)}">Open on the desk</a></td></tr>`).join('')}
+    </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks across ${S.income.length} funds.</p>`;
+  }
+  return `<div class="check">${head}${body}
+    <p class="ind">Counts are of the funds ETFIQ covers, from published data. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
+}
+
 /* ====================== home: one search, three desks, what changed ====================== */
 function viewHome(){
   const nb = S.funds.length, ni = S.income.length, nt = S.themes.length;
@@ -2033,6 +2133,7 @@ function viewHome(){
       ${tile('income', 'Am I ahead of the benchmark?', vis.income, idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat their benchmark over ${WIN_LABEL[S.window]}` : '', fi ? `${esc(fi.ticker)} on the payout bar` : '', 'Check an income ETF')}
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
+    <a class="pdoor" href="#/browse"><div class="lvl">Browse</div><b>Every issuer, theme, reset month and benchmark</b><span>Pick an issuer and see its whole range, a theme and see every fund in it, a month and see what resets then. The desk opens filtered to your choice.</span></a>
     <a class="pdoor" href="#/portfolio"><div class="lvl">Portfolio desk</div><b>What does my whole portfolio actually own, protect and pay?</b><span>Enter your ETFs. One page: what it really holds, how much is protected, the cash by month, and what happens if the market moves.</span></a>
     ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><div class="chgrid">${['buffer', 'income', 'themes'].map(d => { const ls = lines.filter(l => l.desk === d); return ls.length ? `<div class="chg ${d}"><h3>${DESK_NAME[d]}</h3><ul class="changed">${ls.map(l => `<li class="${d}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div>` : ''}
     ${researchStrip(null)}
@@ -2154,11 +2255,12 @@ const DESK_NAME = { buffer: 'Buffer desk', income: 'Income desk', themes: 'Theme
 const NLVL = { q:'Quick', f:'Full data' };
 function staleDays(d){ if (!d) return 0; const a = new Date(d + 'T00:00:00'), b = new Date(); let n = 0; for (let x = new Date(a); x < b; x.setDate(x.getDate() + 1)) { const w = x.getDay(); if (w !== 0 && w !== 6) n++; } return Math.max(0, n - 1); }
 function renderNav(){
-  const docView = S.view === 'standards' || S.view === 'alerts' || S.view === 'home' || S.view === 'portfolio';
-  $$('#desks a').forEach(a => a.classList.toggle('on', a.dataset.d === S.desk && (!docView || S.view === 'portfolio')));
+  const docView = S.view === 'standards' || S.view === 'alerts' || S.view === 'home' || S.view === 'portfolio' || S.view === 'browse';
+  $$('#desks a').forEach(a => a.classList.toggle('on', a.dataset.d === S.desk && (!docView || S.view === 'portfolio' || S.view === 'browse')));
   const sn = $('#subnav');
   sn.style.display = S.view === 'home' ? 'none' : '';
-  if (S.view === 'portfolio') sn.innerHTML = `<span class="deskname">Portfolio desk</span>` + [['own', 'What you own'], ['protect', 'Protection'], ['cash', 'Cash'], ['move', 'If the market moves'], ['compare', 'Compare funds']].map(([k, l]) => `<a href="#/portfolio/${k}/${esc(positionsSpec())}" class="${S.ptab === k ? 'on' : ''}">${l}</a>`).join('');
+  if (S.view === 'browse') sn.innerHTML = `<span class="deskname">Browse</span>` + [['issuer', 'By issuer'], ['theme', 'By theme'], ['month', 'By reset month'], ['bench', 'By benchmark']].map(([k, l]) => `<a href="#/browse/${k}" class="${(S.browseTab || 'issuer') === k ? 'on' : ''}">${l}</a>`).join('');
+  else if (S.view === 'portfolio') sn.innerHTML = `<span class="deskname">Portfolio desk</span>` + [['own', 'What you own'], ['protect', 'Protection'], ['cash', 'Cash'], ['move', 'If the market moves'], ['compare', 'Compare funds']].map(([k, l]) => `<a href="#/portfolio/${k}/${esc(positionsSpec())}" class="${S.ptab === k ? 'on' : ''}">${l}</a>`).join('');
   else if (docView) sn.innerHTML = S.view === 'home' ? '' : `<span class="deskname">ETFIQ</span><a href="#/buffer/check">Buffer desk</a><a href="#/income/check">Income desk</a><a href="#/themes/check">Themes desk</a>`;
   else { let last = null; sn.innerHTML = `<span class="deskname">${DESK_NAME[S.desk]}</span>` + SUBNAV[S.desk].map(([v, l, g]) => { const lab = g && g !== last ? `<span class="nlvl lv-${g}">${NLVL[g]}</span>` : ''; last = g; return lab + `<a href="#/${S.desk}/${v}" class="${S.view === v ? 'on' : ''}">${l}</a>`; }).join(''); }
   const live = S.desk === 'income' ? CONFIG.incomeAsOf : S.desk === 'themes' ? CONFIG.thematicAsOf : CONFIG.asOf;
@@ -2187,6 +2289,7 @@ function render(){
   else if (S.view === 'alerts') html = viewAlerts();
   else if (S.view === 'home') html = viewHome();
   else if (S.view === 'portfolio') html = viewPortfolio();
+  else if (S.view === 'browse') html = viewBrowse();
   else if (S.view === 'check') html = viewCheck();
   else if (S.view === 'compare') html = viewCompare();
   else if (S.desk === 'themes') html = S.view === 'own' ? viewOwn() : S.view === 'themes' ? viewThemeMap() : S.view === 'learn' ? viewThemesLearn() : viewThemesDesk();
@@ -2195,8 +2298,8 @@ function render(){
   v.innerHTML = html;
   const c = $('#count'), t = $('#countText'); if (c && t) c.innerHTML = t.innerHTML;
   if (S.view === 'check' && !S.checkT) { const q = $('#checkQ'); if (q && window.innerWidth > 700) q.focus({preventScroll:true}); }
-  const names = { check:'Check a fund', compare:'Compare funds', own:'What do I really own?', themes:'Theme map', desk:'All funds', entry:'Buying today', ladder:'Ladder builder', learn:'Learn', ahead:'Am I ahead?', calendar:'Payout calendar', standards:'Standards', alerts:'Alerts' };
-  document.title = S.view === 'portfolio' ? 'ETFIQ · Portfolio desk' : S.view === 'home' ? 'ETFIQ · Buffer, income and thematic ETFs in plain words, and the whole portfolio looked through' : 'ETFIQ · ' + (S.view === 'standards' || S.view === 'alerts' ? names[S.view] : DESK_NAME[S.desk] + ' · ' + names[S.view]);
+  const names = { check:'Check a fund', compare:'Compare funds', browse:'Browse', own:'What do I really own?', themes:'Theme map', desk:'All funds', entry:'Buying today', ladder:'Ladder builder', learn:'Learn', ahead:'Am I ahead?', calendar:'Payout calendar', standards:'Standards', alerts:'Alerts' };
+  document.title = S.view === 'browse' ? 'ETFIQ · Browse every issuer, theme and reset month' : S.view === 'portfolio' ? 'ETFIQ · Portfolio desk' : S.view === 'home' ? 'ETFIQ · Buffer, income and thematic ETFs in plain words, and the whole portfolio looked through' : 'ETFIQ · ' + (S.view === 'standards' || S.view === 'alerts' ? names[S.view] : DESK_NAME[S.desk] + ' · ' + names[S.view]);
   window.scrollTo(0, 0);
 }
 function route(){
@@ -2207,9 +2310,17 @@ function route(){
   const parts = h.split('/');
   if (parts[0] === 'portfolio') { S.desk = 'portfolio'; S.view = 'portfolio'; S.ptab = ['own', 'protect', 'cash', 'move', 'compare'].includes(parts[1]) ? parts[1] : (parts[1] && parts[1] !== 'p' ? 'own' : (S.ptab || 'own')); const spec = parts[1] === 'p' ? parts[2] : (['own', 'protect', 'cash', 'move', 'compare'].includes(parts[1]) ? parts[2] : parts[1]); if (spec) S.positions = parsePositions(decodeURIComponent(spec)); if (S.panel) closePanel(false); render(); loadBooksFor(S.positions.map(x => x.t)); return; }
   if (!parts[0] || parts[0] === 'home') { S.view = 'home'; S.homeMiss = parts[1] ? decodeURIComponent(parts[1]).toUpperCase() : null; if (S.panel) closePanel(false); render(); return; }
+  if (parts[0] === 'browse') { S.view = 'browse'; S.desk = 'browse'; S.browseTab = ['issuer', 'theme', 'month', 'bench'].includes(parts[1]) ? parts[1] : 'issuer'; if (S.panel) closePanel(false); render(); return; }
   if (parts[0] === 'standards' || parts[0] === 'alerts') { S.view = parts[0]; if (S.panel) closePanel(false); render(); return; }
   const desk = parts[0] === 'income' ? 'income' : parts[0] === 'themes' ? 'themes' : 'buffer';
   if (desk !== S.desk) { S.desk = desk; S.collapsed = new Set(); }
+  if (parts[1] === 'desk' && parts[2] && parts[3]) {
+    const key = parts[2], val = decodeURIComponent(parts[3]);
+    if (desk === 'buffer') { S.filters = { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' }; if (key === 'issuer') S.filters.issuer = new Set([val]); else if (key === 'month') S.filters.month = val; else if (key === 'ref') S.filters.ref = new Set([val]); }
+    else if (desk === 'income') { S.ifilters = { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind:'all' }; if (key === 'issuer') S.ifilters.issuer = new Set([val]); else if (key === 'bench') S.ifilters.bench = new Set([val]); }
+    else { S.tfilters = { q:'', theme:new Set(), issuer:new Set(), state:'', inidx:'', dd:'' }; if (key === 'issuer') S.tfilters.issuer = new Set([val]); else if (key === 'theme') { const t = S.themes.find(r => r.theme === val || r.themeName === val); if (t) S.tfilters.theme = new Set([t.themeName]); } }
+    S.view = 'desk'; S.collapsed = new Set(); if (S.panel) closePanel(false); render(); return;
+  }
   if (parts[1] === 'check') { S.view = 'check'; S.checkT = parts[2] ? decodeURIComponent(parts[2]).toUpperCase() : null; if (S.panel) closePanel(false); render(); return; }
   if (parts[1] === 'compare') { S.view = 'compare'; S.cmpT = parts[2] ? decodeURIComponent(parts[2]).toUpperCase().split(/[,+]/).map(x => x.trim()).filter(Boolean).slice(0, 4) : []; if (S.panel) closePanel(false); render(); return; }
   if (parts[1] === 'own') { S.view = 'own'; if (parts[2]) S.ownT = decodeURIComponent(parts[2]).toUpperCase().split(',').filter(Boolean); if (S.panel) closePanel(false); render(); return; }
@@ -2239,7 +2350,7 @@ function wire(){
     const th = t.closest('th[data-sort]'); if (th) { const k = th.dataset.sort; if (S.sort.k === k) S.sort.dir = S.sort.dir === 'asc' ? 'desc' : 'asc'; else { S.sort.k = k; S.sort.dir = 'asc'; } render(); return; }
     const tth = t.closest('th[data-tsort]'); if (tth) { const k = tth.dataset.tsort; if (S.tsort.k === k) S.tsort.dir = S.tsort.dir === 'asc' ? 'desc' : 'asc'; else { S.tsort.k = k; S.tsort.dir = ['ticker', 'name', 'themeName', 'issuer', 'inception'].includes(k) ? 'asc' : 'desc'; } render(); return; }
     const ith = t.closest('th[data-isort]'); if (ith) { const k = ith.dataset.isort; if (S.isort.k === k) S.isort.dir = S.isort.dir === 'asc' ? 'desc' : 'asc'; else { S.isort.k = k; S.isort.dir = (k === 'ticker' || k === 'name') ? 'asc' : 'desc'; } render(); return; }
-    if (t.closest('#clear')) { S.filters = { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'' }; render(); return; }
+    if (t.closest('#clear')) { S.filters = { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' }; render(); return; }
     if (t.closest('#iclear')) { S.ifilters = { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind:S.ifilters.kind }; render(); return; }
     const kd = t.closest('[data-kind]'); if (kd) { S.ifilters.kind = kd.dataset.kind; store.set('etfiq.kind', S.ifilters.kind); computeIncomeScale(); render(); return; }
     const seg = t.closest('.seg button'); if (seg) { S.grouped = seg.dataset.g === '1'; render(); return; }
