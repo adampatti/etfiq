@@ -286,12 +286,50 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
   .asof{display:none}
   main{padding:10px}
   .desk-scroll{height:auto;max-height:none}
+  .legend{gap:8px 12px}
+  .vhead p{font-size:13px}
+}
+@media (min-width:701px) and (max-width:900px){
   table.desk.main th:nth-child(n+4):nth-child(-n+9),table.desk.main td:nth-child(n+4):nth-child(-n+9),
   table.desk.main th:nth-child(n+14),table.desk.main td:nth-child(n+14),
   table.desk.entry th:nth-child(3),table.desk.entry td:nth-child(3),table.desk.entry th:nth-child(4),table.desk.entry td:nth-child(4),
   table.desk.entry th:nth-child(n+10),table.desk.entry td:nth-child(n+10){display:none}
   .fname{max-width:150px}
-  .legend{gap:8px 12px}
+}
+/* phones: one card per fund, band full width, the three numbers beneath */
+@media (max-width:700px){
+  table.desk.main,table.desk.entry{display:block;width:100%;min-width:0}
+  table.desk thead{display:none}
+  table.desk tbody{display:block}
+  table.desk tr{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  table.desk tr.grp,table.desk tr.cohort{padding:8px 12px}
+  table.desk td{display:block;height:auto;padding:0;border:0;white-space:normal}
+  table.desk tr.grp td,table.desk tr.cohort td{position:static;flex:1 1 100%}
+  table.desk tr.grp .btn{display:block;margin:6px 0 0}
+  table.desk td[data-l]::before{content:attr(data-l);display:block;font:11px/1.2 var(--font-body);color:var(--muted);margin-bottom:1px}
+  table.desk td.num{text-align:left;font-size:15px}
+  table.desk tr.row td:nth-child(2){flex:1 1 55%;min-width:0}
+  table.desk tr.row td:nth-child(2) .fname{display:block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px}
+  table.desk tr.row td:nth-child(2) .iss{display:none}
+  table.desk tr.row .go{display:none}
+  /* desk columns: 6 days left, 10 band, 11 to 13 numbers, 14 state */
+  table.desk.main tr.row td:nth-child(6){order:2;margin-left:auto;font-size:13px;min-width:70px}
+  table.desk.main tr.row td:nth-child(10){order:5;flex:1 1 100%;margin:6px 0 2px}
+  table.desk.main tr.row td:nth-child(11),table.desk.main tr.row td:nth-child(12),table.desk.main tr.row td:nth-child(13){order:6;flex:1 1 28%}
+  table.desk.main tr.row td:nth-child(14){order:7;flex:1 1 100%;margin-top:4px}
+  table.desk.main tr.row td:nth-child(3),table.desk.main tr.row td:nth-child(4),table.desk.main tr.row td:nth-child(5),table.desk.main tr.row td:nth-child(7),table.desk.main tr.row td:nth-child(8),table.desk.main tr.row td:nth-child(9),table.desk.main tr.row td:nth-child(15),table.desk.main tr.row td:nth-child(16){display:none}
+  /* entry columns: 5 days since, 6 band, 7 to 9 numbers */
+  table.desk.entry tr.row td:nth-child(5){order:2;margin-left:auto;font-size:13px;min-width:90px}
+  table.desk.entry tr.row td:nth-child(6){order:5;flex:1 1 100%;margin:6px 0 2px}
+  table.desk.entry tr.row td:nth-child(7),table.desk.entry tr.row td:nth-child(8),table.desk.entry tr.row td:nth-child(9){order:6;flex:1 1 28%}
+  table.desk.entry tr.row td:nth-child(3),table.desk.entry tr.row td:nth-child(4),table.desk.entry tr.row td:nth-child(10),table.desk.entry tr.row td:nth-child(11),table.desk.entry tr.row td:nth-child(12){display:none}
+  table.desk svg.band{width:100%;height:auto}
+  .cal{grid-template-columns:repeat(4,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .panel .ph .tk{font-size:22px}
+  .kv{grid-template-columns:repeat(2,1fr)}
+  .controls .search input{width:100%}
+  .search{flex:1 1 100%}
 }
 
 /* ---------- motion ---------- */
@@ -565,14 +603,14 @@ function cell(f, c){
     case 'refAsset': return `<td class="mono">${esc(f.refAsset)}</td>`;
     case 'buffer': return `<td class="num">${esc(f.bufferLabel)}</td>`;
     case 'periodEnd': return `<td class="num muted">${esc(fmtDate(f.periodEnd))}</td>`;
-    case 'daysRemaining': return `<td class="num${f.daysRemaining <= 30 ? ' urgent' : ''}">${f.daysRemaining}</td>`;
+    case 'daysRemaining': return `<td class="num${f.daysRemaining <= 30 ? ' urgent' : ''}" data-l="Days left">${f.daysRemaining}</td>`;
     case 'startCap': return `<td class="num">${f.isUncapped ? `<span class="muted">${f.participation != null ? f.participation + '% part.' : 'uncapped'}</span>` : fmtPct(f.startCap)}</td>`;
     case 'refReturn': return `<td class="num">${fmtPct(f.refReturn)}</td>`;
     case 'fundReturn': return `<td class="num">${fmtPct(f.fundReturn)}</td>`;
     case 'band': return `<td>${band(f, { w:220, h:20, scale:S.scale })}</td>`;
-    case 'remainingCapFund': return `<td class="num">${f.isUncapped ? '<span class="muted">uncapped</span>' : fmtPct(f.remainingCapFund, {sign:false})}</td>`;
-    case 'downsideBeforeBuffer': return `<td class="num">${fmtPct(f.downsideBeforeBuffer, {sign:false})}</td>`;
-    case 'remainingBuffer': return `<td class="num">${f.isFloor ? 'floor' : fmtPct(f.remainingBuffer, {sign:false})}</td>`;
+    case 'remainingCapFund': return `<td class="num" data-l="Rem. cap">${f.isUncapped ? '<span class="muted">uncapped</span>' : fmtPct(f.remainingCapFund, {sign:false})}</td>`;
+    case 'downsideBeforeBuffer': return `<td class="num" data-l="Downside before buffer">${fmtPct(f.downsideBeforeBuffer, {sign:false})}</td>`;
+    case 'remainingBuffer': return `<td class="num" data-l="Rem. buffer">${f.isFloor ? 'floor' : fmtPct(f.remainingBuffer, {sign:false})}</td>`;
     case 'state': return `<td><span class="state ${f.state}">${STATE_LABEL[f.state]}</span></td>`;
     case 'expenseRatio': return `<td class="num muted">${fmtPct(f.expenseRatio, {sign:false, d:2})}</td>`;
   }
@@ -673,7 +711,7 @@ function viewEntry(){
   for (const k of order) {
     const g = cohorts.get(k).sort(sorters[S.entrySort]);
     body += `<tr class="cohort"><td colspan="12">Buffer ${k === 'Floor' ? 'full floor' : esc(k)}<span class="n">${g.length} funds</span></td></tr>`;
-    for (const f of g) body += `<tr class="row" data-t="${esc(f.ticker)}" tabindex="0"><td><span class="tk">${esc(f.ticker)}</span></td><td><span class="iss">${esc(f.issuer)}</span><span class="fname" title="${esc(f.name)}">${esc(f.name)}</span></td><td class="mono">${esc(f.refAsset)}</td><td class="num muted">${esc(fmtDate(f.periodStart))}</td><td class="num">${f.daysElapsed}</td><td>${band(f, {w:220, h:20, scale:S.scale})}</td><td class="num">${f.isUncapped ? '<span class="muted">uncapped</span>' : fmtPct(f.remainingCapFund, {sign:false})}</td><td class="num">${fmtPct(f.downsideBeforeBuffer, {sign:false})}</td><td class="num">${f.isFloor ? 'floor' : fmtPct(f.remainingBuffer, {sign:false})}</td><td class="num">${f.isUncapped ? `<span class="muted">${f.participation != null ? f.participation + '% part.' : 'uncapped'}</span>` : fmtPct(f.startCap)}</td><td class="num muted">${fmtPct(f.expenseRatio, {sign:false, d:2})}</td><td><span class="go" aria-hidden="true">›</span></td></tr>`;
+    for (const f of g) body += `<tr class="row" data-t="${esc(f.ticker)}" tabindex="0"><td><span class="tk">${esc(f.ticker)}</span></td><td><span class="iss">${esc(f.issuer)}</span><span class="fname" title="${esc(f.name)}">${esc(f.name)}</span></td><td class="mono">${esc(f.refAsset)}</td><td class="num muted">${esc(fmtDate(f.periodStart))}</td><td class="num" data-l="Days since reset">${f.daysElapsed}</td><td>${band(f, {w:220, h:20, scale:S.scale})}</td><td class="num" data-l="Rem. cap">${f.isUncapped ? '<span class="muted">uncapped</span>' : fmtPct(f.remainingCapFund, {sign:false})}</td><td class="num" data-l="Downside before buffer">${fmtPct(f.downsideBeforeBuffer, {sign:false})}</td><td class="num" data-l="Rem. buffer">${f.isFloor ? 'floor' : fmtPct(f.remainingBuffer, {sign:false})}</td><td class="num">${f.isUncapped ? `<span class="muted">${f.participation != null ? f.participation + '% part.' : 'uncapped'}</span>` : fmtPct(f.startCap)}</td><td class="num muted">${fmtPct(f.expenseRatio, {sign:false, d:2})}</td><td><span class="go" aria-hidden="true">›</span></td></tr>`;
   }
   if (!rows.length) body = `<tr><td colspan="12"><div class="empty">No funds match these filters.</div></td></tr>`;
   return `<div class="vhead"><h1>Entry screen</h1><p>For cash going in today. Funds are grouped by buffer level and, within each group, sorted by <b>${labels[S.entrySort].toLowerCase()}</b>. A fund bought now gets its remaining cap and remaining buffer, not the starting ones. ETFIQ ranks nothing and recommends nothing; the order is the stated sort and you can change it.</p></div>
