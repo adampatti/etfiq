@@ -103,7 +103,7 @@ def build():
         text, err = '', 'no attempt'
         for attempt in range(3):
             try:
-                text = call({'model': model, 'max_tokens': 1400, 'temperature': 0.3, 'system': SYSTEM, 'messages': [{'role': 'user', 'content': user + (f"\n\nYour previous draft was rejected: {err}. Use only figures from the tables and summary." if attempt else '')}]})
+                text = call({'model': model, 'max_tokens': 1400, 'system': SYSTEM, 'messages': [{'role': 'user', 'content': user + (f"\n\nYour previous draft was rejected: {err}. Use only figures from the tables and summary." if attempt else '')}]})
             except Exception as e:
                 err = f'api error {str(e)[:200]}'
                 print(f"  {piece['slug']}: {err}", file=sys.stderr)
