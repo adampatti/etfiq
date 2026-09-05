@@ -1442,7 +1442,7 @@ function bufferPanel(f){
   const url = (ISSUER_URL[f.issuer] || (() => null))(f.ticker);
   return `<div class="ph"><div><div class="tk">${esc(f.ticker)}</div><h2 id="panelTitle">${esc(f.name)}</h2><div class="meta"><span>${esc(f.issuer)}</span><span>${esc(f.refAsset)}</span><span>buffer ${esc(f.bufferLabel)}</span><span>${f.periodMonths}-month period</span><span class="state ${f.state}">${STATE_LABEL[f.state]}</span></div></div><button class="close" type="button" aria-label="Close">×</button></div>
   <section><h3>Outcome band <span class="tag etfiq">ETFIQ</span><span class="sub">index return since ${esc(fmtDate(f.periodStart))}</span></h3>${band(f, {w:560, h:110, scale:sc, labels:true, pad:16, cssW:'100%', cssH:'auto'})}</section>
-  <section><h3>In plain words <span class="tag etfiq">ETFIQ</span></h3><p class="plain">${esc(plainWords(f))}</p></section>
+  ${bufferQA(f)}
   <section><h3>Today <span class="tag">issuer</span><span class="tag etfiq">ETFIQ</span><span class="sub">gain and fall as the issuer publishes them, in fund price; protection left is ETFIQ's, in index points</span></h3><div class="kv">
     ${kv('Can still gain', f.isUncapped ? 'uncapped' : fmtPct(f.remainingCapFund, {sign:false}), 'big' + (f.state === 'capped' ? ' cap' : ''))}${kv('Fall before buffer', fmtPct(f.downsideBeforeBuffer, {sign:false}), 'big')}${kv('Protection left', f.isFloor ? 'full floor' : fmtPct(f.protectionLeft, {sign:false}) + ' of ' + fmtPct(f.startBuffer, {sign:false}), 'big')}
     ${kv('Fund return since start', fmtPct(f.fundReturn), f.fundReturn < 0 ? 'neg' : 'pos')}${kv('Days left in period', String(f.daysRemaining))}${kv('NAV', f.nav == null ? '·' : '$' + (+f.nav).toFixed(2))}
@@ -1454,7 +1454,6 @@ function bufferPanel(f){
   <section><h3>Terms <span class="tag">filed</span></h3><div class="kv">
     ${kv(f.isUncapped ? 'Participation' : 'Starting cap', f.isUncapped ? (f.participation != null ? f.participation + '%' : 'uncapped, rate not published') : fmtPct(f.startCap))}${kv('Buffer', f.isFloor ? `${fmtPct(f.bufferStart, {sign:false})} to floor` : `${fmtPct(f.bufferStart, {sign:false})} to ${fmtPct(f.bufferEnd, {sign:false})}`)}${kv('Period start', esc(fmtDate(f.periodStart)))}${kv('Period end', esc(fmtDate(f.periodEnd)))}${kv('Expense ratio', fmtPct(f.expenseRatio, {sign:false, d:2}))}${kv('Index ETF', esc(f.refAsset))}
   </div><div class="timeline"><div class="bar"><i style="width:${elapsedPct}%"></i></div><div class="lbl"><span>${esc(fmtDate(f.periodStart))}</span><span>${elapsedPct}% elapsed · ${f.daysRemaining} days left</span><span>${esc(fmtDate(f.periodEnd))}</span></div></div></section>
-  ${bufferQA(f)}
   <section><h3>Completed outcome periods <span class="tag">coming</span></h3><div class="slot"><b>Every completed period since inception</b> will sit here once the terms table is built from filed prospectus supplements: starting cap, buffer, index return, fund return, whether the cap bound and whether the buffer engaged.</div></section>
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="buffer:${esc(f.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn" type="button" data-ladtoggle="${esc(f.ticker)}">${inLadder ? 'Remove from ladder' : 'Add to ladder'}</button>${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Issuer page</a>` : ''}<a class="btn" href="#/buffer/compare/${esc(f.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="buffer/fund/${esc(f.ticker)}">Copy link</button></div>`;
 }
@@ -1466,7 +1465,7 @@ function incomePanel(r){
   const inMine = S.mine.income.includes(r.ticker);
   return `<div class="ph"><div><div class="tk">${esc(r.ticker)}</div><h2 id="panelTitle">${esc(r.name)}</h2><div class="meta"><span>${esc(r.issuer)}</span><span>${esc(r.strategy)}</span><span>vs ${esc(r.benchmark)}</span>${r.payoutFrequency ? `<span>pays ${esc(r.payoutFrequency)}</span>` : ''}<span class="state ${istate(r)}">${ISTATE_LABEL[istate(r)]}</span></div></div><button class="close" type="button" aria-label="Close">×</button></div>
   <section><h3>Payout bar <span class="tag etfiq">ETFIQ</span><span class="sub">${WIN_LABEL[S.window]}</span><span class="wins" style="margin-left:auto">${WINDOWS.map(k => `<button type="button" data-win="${k}" class="${S.window === k ? 'on' : ''}"${r.win(k) ? '' : ' disabled'}>${k === 'ITD' ? 'Launch' : k}</button>`).join('')}</span></h3>${w ? paybar(r, {w:560, h:120, scale:sc, labels:true, pad:16, cssW:'100%', cssH:'auto', win:w}) : '<p class="muted">No prices for this window.</p>'}</section>
-  <section><h3>In plain words <span class="tag etfiq">ETFIQ</span></h3><p class="plain">${esc(incomePlain(r))}</p></section>
+  ${incomeQA(r)}
   ${w ? `<section><h3>Over ${WIN_LABEL[S.window]} <span class="tag etfiq">ETFIQ</span><span class="sub">${esc(fmtDate(w.from))} to ${esc(fmtDate(w.to))}</span></h3><div class="kv">
     ${kv('Ahead or behind ' + esc(r.benchmark), w.gap == null ? '·' : fmtPts(w.gap), 'big ' + (w.gap > 0 ? 'pos' : w.gap < 0 ? 'neg' : ''))}${kv('Paid in cash', fmtPct(w.cash, {sign:false}), 'big pos')}${kv('Total return, cash reinvested', fmtPct(w.total), 'big ' + (w.total < 0 ? 'neg' : 'pos'))}
     ${kv('Price change', fmtPct(w.price), w.price < 0 ? 'neg' : '')}${kv((r.benchmark) + ' total return', w.bench == null ? '·' : fmtPct(w.bench), w.bench < 0 ? 'neg' : 'pos')}
@@ -1477,7 +1476,6 @@ function incomePanel(r){
   </div>${r.distributions && r.distributions.length ? `<table class="mini"><thead><tr><th>Ex-date</th><th class="num">Cash per share</th></tr></thead><tbody>${r.distributions.slice().reverse().map(d => `<tr><td>${esc(fmtDate(d.date))}</td><td class="num">$${(+d.amount).toFixed(4)}</td></tr>`).join('')}</tbody></table>` : ''}</section>
   ${cashSources(r)}
   <section><h3>Benchmark <span class="tag etfiq">ETFIQ</span></h3><p class="plain" style="font-size:14px">${esc(r.benchmarkName || r.benchmark)}${r.benchmarkKind === 'proxy' ? '. This is a proxy: the closest listed ETF to what the fund actually writes options on.' : r.benchmarkKind === 'stock' ? '. Single-stock fund: the comparison is with simply owning the stock.' : '.'} Total return, dividends reinvested, over the same days.</p></section>
-  ${incomeQA(r)}
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="income:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/income/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="income/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 function cashSources(r){
@@ -1766,7 +1764,7 @@ function themePanel(r){
     ${kv('Already in the S&P 500', r.inSPY == null ? '·' : fmtPct(r.inSPY, {sign:false}), 'big')}${kv('Active share vs S&P 500', r.asSPY == null ? '·' : fmtPct(r.asSPY, {sign:false}), 'big')}${kv('Top ten holdings', r.top10Weight == null ? '·' : fmtPct(r.top10Weight, {sign:false}), 'big')}
   </div></section>
   <section><h3>Difference bar <span class="tag etfiq">ETFIQ</span><span class="sub">grey is already in the index, violet is different</span></h3>${diffbar(r, {w:560, h:80, labels:true, pad:8, cssW:'100%', cssH:'auto'})}</section>
-  <section><h3>In plain words <span class="tag etfiq">ETFIQ</span></h3><p class="plain">${esc(themePlain(r))}</p></section>
+  ${themeQA(r)}
   <section><h3>Is it working <span class="tag etfiq">ETFIQ</span><span class="sub">${WIN_LABEL[S.window]}</span><span class="wins" style="margin-left:auto">${WINDOWS.map(k => `<button type="button" data-win="${k}" class="${S.window === k ? 'on' : ''}"${r.win(k) ? '' : ' disabled'}>${k === 'ITD' ? 'Launch' : k}</button>`).join('')}</span></h3><div class="kv">
     ${kv('Total return, reinvested', w ? fmtPct(w.total) : '·', 'big ' + (w && w.total < 0 ? 'neg' : 'pos'))}${kv('vs S&P 500', w && w.gap != null ? fmtPts(w.gap) : '·', 'big ' + (w && w.gap > 0 ? 'pos' : w && w.gap < 0 ? 'neg' : ''))}${kv('vs Nasdaq-100', w && w.gapQ != null ? fmtPts(w.gapQ) : '·', w && w.gapQ > 0 ? 'pos' : w && w.gapQ < 0 ? 'neg' : '')}
     ${kv('S&P 500 total return', w && w.bench != null ? fmtPct(w.bench) : '·')}${kv('Below its high', r.drawdown == null ? '·' : fmtPct(r.drawdown), r.drawdown < -30 ? 'neg' : '')}${kv('Since launch vs S&P 500', itd && itd.gap != null ? fmtPts(itd.gap) : '·', itd && itd.gap > 0 ? 'pos' : itd && itd.gap < 0 ? 'neg' : '')}
@@ -1777,7 +1775,6 @@ function themePanel(r){
   <section><h3>Facts <span class="tag">filed</span></h3><div class="kv">
     ${kv('Launched', esc(fmtDate(r.inception)))}${kv('Price', r.price == null ? '·' : '$' + (+r.price).toFixed(2))}${kv('Net assets', fmtAssets(r.assets))}${kv('Holdings filed for', r.holdingsAsOf ? esc(fmtDate(r.holdingsAsOf)) : 'no public filing yet')}${r.holdingsSource ? kv('Source', `<a href="${esc(r.holdingsSource)}" target="_blank" rel="noopener">SEC N-PORT</a>`) : ''}
   </div></section>
-  ${themeQA(r)}
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="themes:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/themes/own/${esc(r.ticker)}">Compare with others</a><a class="btn" href="#/themes/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="themes/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 

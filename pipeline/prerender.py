@@ -407,6 +407,7 @@ def rank_page(slug, title, measure, window, method, desk, columns, rows, as_of, 
               '<p class="note">A ranking is not a recommendation and no order on this site is an opinion. ETFIQ is an independent publisher, not an adviser. '
               '<a href="/standards/">Standards and sources</a></p>'
               + cite_line(f'{title}, ranked by {measure}', as_of, url))
+    RANK_MEASURE[slug] = measure + (', ' + window if window else '')
     return slug, title, doc_page(f'rankings/{slug}.html', title, desc, inner, ld, desk=desk,
                                  crumb=[('Rankings', f'{BASE}/rankings/')], wide=True, short=title if len(title) < 44 else title[:42] + '...')
 
@@ -562,6 +563,9 @@ def rankings(funds, income, themes, core, as_b, as_i, as_t, matrix, sources):
     return [o for o in out if o]
 
 
+RANK_MEASURE = {}
+
+
 def rankings_index(items, as_of):
     groups = {'buffer': [], 'income': [], 'themes': []}
     for slug, title, _ in items:
@@ -571,7 +575,8 @@ def rankings_index(items, as_of):
     for d, label in (('buffer', 'Buffer desk'), ('income', 'Income desk'), ('themes', 'Themes desk')):
         if groups[d]:
             secs += (f'<h2>{label}</h2><nav class="list">'
-                     + ''.join(f'<a href="/rankings/{s}.html"><b>{esc(t)}</b></a>' for s, t in groups[d]) + '</nav>')
+                     + ''.join(f'<a href="/rankings/{s}.html"><span class="lvl">{label}</span><b>{esc(t)}</b>'
+                               f'<span>Ranked by {esc(RANK_MEASURE.get(s, "a single published field"))}.</span></a>' for s, t in groups[d]) + '</nav>')
     inner = (f'<p class="note">Rebuilt every trading night. Figures as of {tdate(as_of)}.</p>'
              '<h1>Rankings</h1>'
              '<p class="lede">Each list is one published field, sorted. The measure is in the title, the method is on the page, and nothing here is a view on any fund. '
@@ -646,16 +651,28 @@ def x_cmp_page(a, b, ka, kb, as_of, matrix, words_a, words_b, related_pairs):
                     crumb=[('Head to head', f'{BASE}/compare/')])
 
 
-def compare_index(pairs_by_desk, as_of):
-    secs = ''
-    for label, items in pairs_by_desk:
-        if not items:
-            continue
-        secs += f'<h2>{esc(label)}</h2><nav class="rel">' + ''.join(f'<a href="{u}">{esc(t)}</a>' for t, u in items[:120]) + '</nav>'
-    inner = ('<h1>Head to head</h1><p class="lede">Any two funds on the fields they both publish: what each returned, what it costs, and what it actually holds. '
-             'Comparisons run within a desk and across desks, and among the plain index funds people already own.</p>'
-             + secs
-             + '<p class="note">A comparison is not a recommendation. <a href="/standards/">Standards and sources</a></p>')
+def compare_index(rows, as_of):
+    """One row per fund, with every comparison it appears in. A filter box narrows it; the rows are all in the
+    HTML, so a crawler and a reader without scripts still see everything."""
+    trs = ''.join(
+        f'<tr data-k="{esc((t + " " + name).lower())}"><td><a href="/funds/{t}.html" class="tk">{esc(t)}</a></td>'
+        f'<td>{esc(name)}</td><td>{esc(where)}</td><td>{"".join(links)}</td></tr>'
+        for t, name, where, links in rows)
+    inner = ('<h1>Head to head</h1>'
+             '<p class="lede">Any two funds on the fields they both publish: what each returned, what it costs, and what it actually holds. '
+             'Comparisons run within a desk and across them, and among the plain index funds people already own.</p>'
+             '<div class="filterbox"><input id="cmpFilter" type="search" placeholder="Filter by ticker or fund name, for example JEPI" aria-label="Filter comparisons"></div>'
+             f'<div style="overflow-x:auto"><table class="hub pairs"><caption>Every fund with a comparison page, as of {fdate(as_of)}. Source: ETFIQ.</caption>'
+             '<thead><tr><th>Ticker</th><th>Fund</th><th>Where it sits</th><th>Compared with</th></tr></thead>'
+             f'<tbody id="cmpRows">{trs}</tbody></table></div>'
+             f'<p class="note" id="cmpCount">{len(rows)} funds with a comparison page.</p>'
+             '<h2>Where to next</h2><nav class="rel"><a href="/rankings/">Rankings</a><a href="/issuers/">Every issuer</a>'
+             '<a href="/portfolio/">Look a portfolio through</a><a href="/questions/">Questions</a></nav>'
+             '<p class="note">A comparison is not a recommendation. <a href="/standards/">Standards and sources</a></p>'
+             '<script>(function(){var i=document.getElementById("cmpFilter"),b=document.getElementById("cmpRows"),c=document.getElementById("cmpCount");'
+             'if(!i||!b)return;var rows=[].slice.call(b.rows);i.addEventListener("input",function(){var q=i.value.trim().toLowerCase(),n=0;'
+             'rows.forEach(function(r){var on=!q||r.getAttribute("data-k").indexOf(q)>-1;r.hidden=!on;if(on)n++;});'
+             'if(c)c.textContent=n+" of "+rows.length+" funds"+(q?" matching "+i.value:"")+".";});})();</script>')
     return doc_page('compare/', 'Head to head: compare any two ETFs on what they publish',
                     'Buffer, option-income, thematic and core index ETFs compared two at a time on return, cost, holdings and overlap with the S&P 500.',
                     inner, wide=True, short='Head to head')
@@ -775,8 +792,20 @@ def question_pages(funds, income, themes, core, as_b, as_i, as_t):
     return out
 
 
+Q_BLURB = {
+    'what-is-a-buffer-etf': 'What a defined outcome fund does, why the cap and the buffer are struck on day one, and what a mid-period buyer actually gets.',
+    'how-does-a-buffer-etf-reset': 'What happens on the last day of an outcome period, why the new cap can differ, and when a fund is at its freshest.',
+    'what-is-return-of-capital': 'What the issuers estimate on a 19a-1 notice, why a high figure is not proof of erosion, and what to read beside it.',
+    'do-covered-call-etfs-lose-value': 'Whether a falling price means losing money, and the test that settles it: total return against what the fund writes options on.',
+    'what-is-active-share': 'How ETFIQ measures the part of a fund that is not the index, and what the fee on that part works out at.',
+    'are-thematic-etfs-worth-it': 'How much of a theme a holder did not already own through the index, measured from filed holdings.',
+    'how-much-do-etfs-cost': 'What these funds charge, read from the prospectus, and what the extra buys.',
+}
+
+
 def questions_index(qs, as_of):
-    links = ''.join(f'<a href="/questions/{slug}.html"><b>{esc(q)}</b></a>' for slug, q in qs)
+    links = ''.join(f'<a href="/questions/{slug}.html"><span class="lvl">Question</span><b>{esc(q)}</b>'
+                    f'<span>{esc(Q_BLURB.get(slug, "Answered from ETFIQ data, rebuilt every trading night."))}</span></a>' for slug, q in qs)
     inner = ('<h1>Questions</h1><p class="lede">The questions people ask about these funds, answered from the data on the desks and rebuilt every trading night.</p>'
              f'<nav class="list">{links}</nav>'
              '<p class="note">Every answer is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
@@ -1309,7 +1338,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + R.FOOTER_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}nav.rel.out a::after{content:' \\2197';color:#5A6472}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + R.FOOTER_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}nav.rel.out a::after{content:' \\2197';color:#5A6472}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:12px;margin:14px 0 20px}nav.list a{display:block;padding:16px 18px;border:1px solid #D9DEE6;border-radius:10px;background:#fff;text-decoration:none;color:#0F1419}nav.list a:hover{border-color:#2457E6}nav.list a .lvl{display:block;font:600 10.5px/1 Geist,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#2457E6;margin-bottom:8px}nav.list a b{display:block;font-size:16px;line-height:1.3;letter-spacing:-.01em;margin-bottom:6px}nav.list a span{display:block;color:#3D4756;font-size:13.5px;line-height:1.45}table.pairs td{white-space:normal}table.pairs td:last-child{display:flex;flex-wrap:wrap;gap:5px}table.pairs td a{display:inline-block;padding:3px 8px;border:1px solid #DCE1E8;border-radius:999px;font-size:12px;white-space:nowrap;text-decoration:none;color:#0F1419;background:#fff}table.pairs td a:hover{border-color:#2457E6}table.pairs td .more{color:#5A6472;font-size:12px;align-self:center}.filterbox{display:flex;gap:8px;max-width:460px;margin:8px 0 16px}.filterbox input{flex:1;padding:10px 12px;border:1px solid #C3CBD6;border-radius:8px;font:14px Geist,system-ui,sans-serif}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def faq_block(faqs):
@@ -1773,13 +1802,32 @@ def build():
         (xdir / f'{pair_slug(ta, tb)}.html').write_text(html_)
         urls.append((f'{BASE}/compare/any/{pair_slug(ta, tb)}.html', max(as_b, as_i, as_t)))
         nx += 1
-    (SITE / 'compare' / 'index.html').write_text(compare_index([
-        ('Index funds people already hold', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if kinds.get(a, ('', ))[0] == 'core' and kinds.get(b, ('', ))[0] == 'core']),
-        ('An income ETF against the plain fund', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'income' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
-        ('A thematic ETF against the index', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'themes' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
-        ('A buffer ETF against the index', [(f'{a} vs {b}', f'/compare/any/{pair_slug(a, b)}.html') for a, b in x_pairs if 'buffer' in (kinds.get(a, ('', ))[0], kinds.get(b, ('', ))[0])]),
-        ('On one desk', [(f'{d}: {t}', f'/compare/{d}/') for d in ('buffer', 'income', 'themes') for t in ['every pair of the thirty most held']][:3]),
-    ], max(as_b, as_i, as_t)))
+    where = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk', 'core': 'Core fund'}
+    cmp_rows_idx = {}
+    for desk, ts in top.items():
+        for i2, ta in enumerate(ts):
+            for tb in ts[i2 + 1:]:
+                for x, y in ((ta, tb), (tb, ta)):
+                    cmp_rows_idx.setdefault(x, []).append((y, f'/compare/{desk}/{pair_slug(x, y)}.html'))
+    for ta, tb in x_pairs:
+        for x, y in ((ta, tb), (tb, ta)):
+            cmp_rows_idx.setdefault(x, []).append((y, f'/compare/any/{pair_slug(x, y)}.html'))
+    idx_rows = []
+    for t in sorted(cmp_rows_idx):
+        k, r = kinds.get(t, (None, None))
+        if not r:
+            continue
+        seen2, links = set(), []
+        for other, u in sorted(cmp_rows_idx[t]):
+            if other in seen2:
+                continue
+            seen2.add(other)
+            links.append(f'<a href="{u}">vs {esc(other)}</a>')
+        shown, rest = links[:12], len(links) - 12
+        if rest > 0:
+            shown.append(f'<span class="more">and {rest} more on <a href="/funds/{t}.html">the {esc(t)} page</a></span>')
+        idx_rows.append((t, r.get('name', ''), where.get(k, ''), shown))
+    (SITE / 'compare' / 'index.html').write_text(compare_index(idx_rows, max(as_b, as_i, as_t)))
     urls.append((f'{BASE}/compare/', max(as_b, as_i, as_t)))
     bidx = load('site/data/books/index.json', {'asOf': max(as_b, as_i, as_t), 'books': {}})
     (SITE / 'portfolio').mkdir(exist_ok=True)
