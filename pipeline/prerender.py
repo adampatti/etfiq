@@ -15,6 +15,9 @@ import json
 import pathlib
 import re
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import rail as R  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 BASE = 'https://etfiq.com'
@@ -187,7 +190,7 @@ def theme_page(r, as_of):
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = """body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}header{background:#0F1419;color:#F2F4F7;padding:14px 20px;font-weight:700;letter-spacing:-.02em}header a{color:#F2F4F7;text-decoration:none}header b{color:#7AA2FF}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{width:44%;color:#3D4756;font-weight:500}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + """body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{width:44%;color:#3D4756;font-weight:500}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method):
@@ -201,7 +204,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
-<body><header><a href="{BASE}/">ETF<b>IQ</b></a> &nbsp;·&nbsp; <a href="/{desk}/">{DESK_NAME[desk]}</a></header><main>
+<body>{R.rail(desk)}<main>
 <p class="note">Data as of {fdate(as_of)}. {esc(method)}</p>
 <h1><span class="tk">{esc(ticker)}</span> · {esc(name)}</h1><p class="lede">{esc(issuer)} · {DESK_NAME[desk]}</p>
 <a class="cta" href="{app_url}">Open the live card on ETFIQ</a>
@@ -222,7 +225,7 @@ def index_page(desk, rows, as_of, intro):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(intro)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}main{{max-width:1100px}}th,td{{white-space:nowrap}}th{{width:auto}}</style></head>
-<body><header><a href="{BASE}/">ETF<b>IQ</b></a> &nbsp;·&nbsp; {DESK_NAME[desk]}</header><main>
+<body>{R.rail(desk)}<main>
 <p class="note">Data as of {fdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
 <div style="overflow-x:auto"><table><thead><tr>{''.join(f'<th>{h}</th>' for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>
