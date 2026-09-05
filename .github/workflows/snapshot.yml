@@ -9,7 +9,7 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: snapshot
   cancel-in-progress: false
 env:
   TIINGO_TOKEN: ${{ secrets.TIINGO_TOKEN }}
