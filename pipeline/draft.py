@@ -69,7 +69,7 @@ def pick_model():
 
 
 def check(text, piece):
-    allowed = numbers(json.dumps(piece['tables'])) | numbers(' '.join(piece['summary'])) | numbers(piece['asOf'] or '') | {'19', '1'}
+    allowed = numbers(json.dumps(piece['tables'], ensure_ascii=False)) | numbers(' '.join(piece['summary'])) | numbers(piece['asOf'] or '') | {'19', '1'}  # ensure_ascii=False: a \\u2212 escape would glue its digits to the figure
     used = numbers(text)
     stray = sorted(u for u in used if u not in allowed and u.rstrip('0').rstrip('.') not in {a.rstrip('0').rstrip('.') for a in allowed})
     if stray:
@@ -99,7 +99,7 @@ def build():
         if hp.exists() and hp.read_text().strip() == digest and pj.with_suffix('.narrative.html').exists():
             print(f"  {piece['slug']}: tables unchanged, narrative kept", file=sys.stderr)
             continue
-        user = f"Piece: {piece['title']} (data as of {piece['asOf']}).\n\nComputed summary:\n" + '\n'.join(piece['summary']) + '\n\nTables (JSON):\n' + json.dumps(piece['tables'], indent=0) + f"\n\nMethod: {piece['method']}\n\nWrite the narrative."
+        user = f"Piece: {piece['title']} (data as of {piece['asOf']}).\n\nComputed summary:\n" + '\n'.join(piece['summary']) + '\n\nTables (JSON):\n' + json.dumps(piece['tables'], indent=0, ensure_ascii=False) + f"\n\nMethod: {piece['method']}\n\nWrite the narrative."
         text, err = '', 'no attempt'
         for attempt in range(3):
             try:
