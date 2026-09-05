@@ -74,7 +74,7 @@ jobs:
         run: |
           git config user.name "etfiq-snapshot"
           git config user.email "snapshot@etfiq.com"
-          DATA="data/snapshots data/income_universe.json data/fees.json data/research site/data site/research pipeline/cache/innovator_pages.json"
+          DATA="data/snapshots data/income_universe.json data/fees.json data/research site/data site/research site/funds site/buffer site/income site/themes site/sitemap.xml site/robots.txt site/llms.txt pipeline/cache/innovator_pages.json"
           git add $DATA site/index.html
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           tar cf /tmp/snapshot-data.tar $DATA
