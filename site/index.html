@@ -299,6 +299,13 @@ dl.qa{margin:0}dl.qa dt{font-weight:600;font-size:13.5px;margin:14px 0 5px;color
 .boot span{width:14px;height:14px;border-radius:50%;border:2px solid var(--line-2);border-top-color:var(--accent);animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.boot span{animation:none}}
+.directory{max-width:1180px;margin:34px auto 0;padding:26px 20px 6px;border-top:1px solid var(--line)}
+.directory h2{font:600 13px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.directory p{max-width:760px;color:var(--ink-2);font-size:14px;line-height:1.6;margin:0 0 20px}
+.dircols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:22px}
+.directory h3{font:600 12.5px/1 var(--font-display);letter-spacing:.04em;color:var(--ink);margin:0 0 9px}
+.directory ul{list-style:none;margin:0;padding:0}
+.directory li{font-size:13.5px;line-height:1.85;color:var(--ink-2)}
 .cmp-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:6px}.cmp-pairs .pair{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:6px}.cmp-pairs .v{font:600 28px/1 var(--font-display);letter-spacing:-.02em;color:var(--themes-ink)}.cmp-pairs .muted{font-size:12.5px;line-height:1.4}
 footer .wm .wmk{height:14.5px;width:auto;color:var(--ink);--iq:var(--accent);display:block}
 .doc table.srcs th{text-align:left;font-weight:600;vertical-align:top;white-space:normal}.doc table.srcs tbody th{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}.doc table.srcs td{vertical-align:top}.doc table.srcs{width:100%}
@@ -629,11 +636,45 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
   <nav class="row2" id="subnav"></nav>
 </header>
 <div class="banner" id="banner" role="status">
-  <span id="bannerText"><b>Sample data.</b> Values below are illustrative and are not live fund figures.</span>
+  <span id="bannerText"><b>Live data</b> as published by issuers on 2026-09-04, and filed with the SEC. Every figure carries its date.</span>
   <span class="ind">ETFIQ is an independent publisher, not an issuer, broker or adviser. It makes no recommendations.</span>
 </div>
 
 <main id="view"></main>
+
+<section class="directory" id="siteDirectory">
+  <h2>ETFIQ, in one place</h2>
+  <p id="dirLede">Independent data on 245 defined outcome (buffer) ETFs, 338 option-income ETFs and 289 thematic ETFs, plus the core index funds the desks measure against. Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices. Every figure carries its date and its source, and ETFIQ makes no recommendations.</p>
+  <div class="dircols">
+    <div><h3>The desks</h3><ul>
+      <li><a href="/buffer/">Every buffer ETF</a></li>
+      <li><a href="/income/">Every option-income ETF</a></li>
+      <li><a href="/themes/">Every thematic ETF</a></li>
+      <li><a href="/core/">Core index funds</a></li>
+      <li><a href="/portfolio/">Portfolio desk</a></li>
+    </ul></div>
+    <div><h3>Find a fund</h3><ul>
+      <li><a href="/issuers/">By issuer</a></li>
+      <li><a href="/compare/">Head to head</a></li>
+      <li><a href="/rankings/">Rankings</a></li>
+      <li><a href="/changed/">What changed today</a></li>
+      <li><a href="/statistics/">ETF statistics</a></li>
+    </ul></div>
+    <div><h3>Understand it</h3><ul>
+      <li><a href="/learn/">Vocabulary</a></li>
+      <li><a href="/questions/">Questions</a></li>
+      <li><a href="/research/">ETFIQ Research</a></li>
+      <li><a href="/data/">Open data</a></li>
+      <li><a href="/standards/">Standards and sources</a></li>
+    </ul></div>
+    <div><h3>Widely held funds</h3><ul id="dirFunds">
+      <li><a href="/funds/JEPI.html">JEPI</a>, <a href="/funds/JEPQ.html">JEPQ</a>, <a href="/funds/SPYI.html">SPYI</a>, <a href="/funds/QYLD.html">QYLD</a></li>
+      <li><a href="/funds/VOO.html">VOO</a>, <a href="/funds/SPY.html">SPY</a>, <a href="/funds/QQQ.html">QQQ</a>, <a href="/funds/SCHD.html">SCHD</a></li>
+      <li><a href="/funds/PJAN.html">PJAN</a>, <a href="/funds/BJUL.html">BJUL</a>, <a href="/funds/DSEP.html">DSEP</a>, <a href="/funds/UOCT.html">UOCT</a></li>
+      <li><a href="/funds/ARKK.html">ARKK</a>, <a href="/funds/SMH.html">SMH</a>, <a href="/funds/BOTZ.html">BOTZ</a>, <a href="/funds/AIQ.html">AIQ</a></li>
+    </ul></div>
+  </div>
+</section>
 
 <footer>
   <span class="wm"><svg class="wmk foot" role="img" aria-label="ETFIQ" viewBox="0 -13.09 3832.17 829.63"><path fill="currentColor" transform="translate(-76.543 686.000) scale(1.000000)" d="M76.54345703125 0.0V-687.0869140625H644.15087890625V-546.740234375H255.998046875V-417.9560546875H594.71630859375V-281.41357421875H255.998046875V-140.3466796875H650.6943359375V0.0Z"/><path fill="currentColor" transform="translate(822.457 686.000) scale(1.000000)" d="M246.71728515625 0.0V-540.3056640625H23.9130859375V-687.0869140625H648.88916015625V-540.3056640625H426.171875V0.0Z"/><path fill="currentColor" transform="translate(1697.457 686.000) scale(1.000000)" d="M74.9130859375 0.0V-687.0869140625H602.15087890625V-546.740234375H254.36767578125V-398.6083984375H560.1728515625V-262.06591796875H254.36767578125V0.0Z"/><path fill="var(--iq, #5A87E5)" transform="translate(2538.457 686.000) scale(1.000000)" d="M74.9130859375 0.0V-687.0869140625H254.36767578125V0.0Z"/><path fill="var(--iq, #5A87E5)" transform="translate(3067.457 686.000) scale(1.000000)" d="M523.8701171875 130.54345703125 413.67431640625 9.36962890625Q407.84814453125 10.36962890625 400.978515625 10.641357421875Q394.10888671875 10.9130859375 387.7392578125 10.9130859375Q281.28271484375 10.9130859375 204.36962890625 -29.21728515625Q127.45654296875 -69.34765625 86.228271484375 -148.619384765625Q45.0 -227.89111328125 45.0 -343.54345703125Q45.0 -462.9130859375 87.858642578125 -541.684814453125Q130.71728515625 -620.45654296875 211.4345703125 -659.771728515625Q292.15185546875 -699.0869140625 404.58642578125 -699.0869140625Q518.02099609375 -699.0869140625 598.510009765625 -659.771728515625Q678.9990234375 -620.45654296875 721.857666015625 -541.684814453125Q764.71630859375 -462.9130859375 764.71630859375 -343.54345703125Q764.71630859375 -221.97802734375 719.574951171875 -142.293212890625Q674.43359375 -62.6083984375 591.06396484375 -23.4345703125L746.23779296875 130.54345703125ZM404.58642578125 -127.89013671875Q447.89111328125 -127.89013671875 480.86962890625 -140.988037109375Q513.84814453125 -154.0859375 536.228759765625 -178.966552734375Q558.609375 -203.84716796875 569.89208984375 -239.73876953125Q581.1748046875 -275.63037109375 581.1748046875 -320.67431640625V-365.49951171875Q581.1748046875 -411.0 569.89208984375 -447.119873046875Q558.609375 -483.23974609375 536.228759765625 -508.120361328125Q513.84814453125 -533.0009765625 480.86962890625 -546.098876953125Q447.89111328125 -559.19677734375 404.58642578125 -559.19677734375Q361.28173828125 -559.19677734375 328.30322265625 -546.098876953125Q295.32470703125 -533.0009765625 273.2158203125 -508.120361328125Q251.10693359375 -483.23974609375 240.052490234375 -447.119873046875Q228.998046875 -411.0 228.998046875 -365.49951171875V-320.67431640625Q228.998046875 -275.63037109375 240.052490234375 -239.73876953125Q251.10693359375 -203.84716796875 273.2158203125 -178.966552734375Q295.32470703125 -154.0859375 328.30322265625 -140.988037109375Q361.28173828125 -127.89013671875 404.58642578125 -127.89013671875Z"/></svg></span>

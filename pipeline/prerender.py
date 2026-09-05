@@ -1794,8 +1794,33 @@ def build():
     for slug, title, _ in ranks[:6]:
         feed_items.append((title, f'{BASE}/rankings/{slug}.html', max(as_b, as_i, as_t), f'{title}, rebuilt every trading night from published data.'))
     (SITE / 'feed.xml').write_text(feed_xml(feed_items, max(as_b, as_i, as_t)))
+    def section(u):
+        r = u.replace(BASE + '/', '')
+        if r.startswith('funds/'):
+            return 'funds'
+        if r.startswith('compare/'):
+            return 'compare'
+        if r.startswith('rankings/'):
+            return 'rankings'
+        if r.startswith('research/'):
+            return 'research'
+        if r.startswith(('issuers/', 'themes/', 'buffer/', 'income/', 'core/')) and r.count('/') == 1 and r != '':
+            return 'hubs'
+        return 'pages'
+    parts = {}
+    parts.setdefault('pages', []).append((f'{BASE}/', max(as_b, as_i, as_t)))
+    for u, d in urls:
+        parts.setdefault(section(u), []).append((u, d))
+    names = []
+    for name, items in sorted(parts.items()):
+        body = ''.join(f'<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in items)
+        (SITE / f'sitemap-{name}.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '</urlset>\n')
+        names.append(name)
+    (SITE / 'sitemap-index.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                            + ''.join(f'<sitemap><loc>{BASE}/sitemap-{x}.xml</loc><lastmod>{max(as_b, as_i, as_t)}</lastmod></sitemap>\n' for x in names)
+                                            + '</sitemapindex>\n')
     (SITE / 'sitemap.xml').write_text(sm)
-    (SITE / 'robots.txt').write_text("User-agent: *\nAllow: /\n\n" + ''.join(f'User-agent: {b}\nAllow: /\n\n' for b in ('GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'Applebot', 'Applebot-Extended', 'CCBot', 'Amazonbot', 'meta-externalagent', 'DuckAssistBot', 'YouBot', 'cohere-ai')) + f'Sitemap: {BASE}/sitemap.xml\n')
+    (SITE / 'robots.txt').write_text("User-agent: *\nAllow: /\n\n" + ''.join(f'User-agent: {b}\nAllow: /\n\n' for b in ('GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Googlebot', 'Bingbot', 'Applebot', 'Applebot-Extended', 'CCBot', 'Amazonbot', 'meta-externalagent', 'DuckAssistBot', 'YouBot', 'cohere-ai')) + f'Sitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap-index.xml\n')
     (SITE / 'llms.txt').write_text(f"""# ETFIQ
 
 > Independent data on exchange-traded funds, in plain words, for retail investors and advisers. Four desks: buffer (defined outcome) ETFs on one comparable band; option-income ETFs against the index or stock they write options on; thematic ETFs measured by how much of them is already in the S&P 500; and a Portfolio desk that looks through a whole portfolio of ETFs to what it really holds, protects and pays. ETFIQ is not an issuer, broker or adviser and makes no recommendations. Sort orders are stated arithmetic on published data.

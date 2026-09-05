@@ -55,7 +55,19 @@ for rp in sorted((ROOT / 'data' / 'research').glob('*.json')):
     research.append({'slug': pc['slug'], 'desk': pc['desk'], 'title': pc['title'], 'asOf': pc.get('asOf'), 'summary': (pc.get('summary') or [''])[0],
                      'narrative': rp.with_suffix('.narrative.html').exists()})
 fill('etfiq-research', research)
+lede = ('Independent data on {nb} defined outcome (buffer) ETFs, {ni} option-income ETFs and {nt} thematic ETFs, plus the core index funds the desks measure against. '
+        'Rebuilt every trading night from issuer disclosures, filings with the SEC and exchange prices. Every figure carries its date and its source, and ETFIQ makes no recommendations.')
+html, k = re.subn(r'<p id="dirLede">.*?</p>',
+                  '<p id="dirLede">' + lede.format(nb=len(funds), ni=len(income), nt=len(thematic.get('funds', []))) + '</p>', html, count=1, flags=re.S)
+if k != 1:
+    sys.exit('site directory lede not found')
 meta = load('site/data/meta.json', {})
+_as = meta.get('asOf')
+banner_default = (f'<b>Live data</b> as published by issuers on {_as}, and filed with the SEC. Every figure carries its date.'
+                  if _as else '<b>Sample data.</b> Values below are illustrative and are not live fund figures.')
+html, k = re.subn(r'(<span id="bannerText">).*?(</span>)', lambda m: m.group(1) + banner_default + m.group(2), html, count=1, flags=re.S)
+if k != 1:
+    sys.exit('banner default not found')
 imeta = load('site/data/income_meta.json', {})
 tmeta = load('site/data/thematic_meta.json', {})
 for key, val in (('asOf', meta.get('asOf')), ('incomeAsOf', imeta.get('asOf')), ('thematicAsOf', tmeta.get('asOf'))):
