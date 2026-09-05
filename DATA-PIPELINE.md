@@ -1,0 +1,66 @@
+# ETFIQ data pipeline
+
+What feeds the desk, where it comes from, what it costs, and what is still to build. Everything here was verified by fetching the sources from this machine on 2026-09-04.
+
+## The short answer
+
+The data lives in two places, and both are free.
+
+1. **Period terms** (cap gross and net, buffer range, period dates) are in the prospectus supplements every fund files with the SEC at each reset, form 497K. EDGAR keeps every one since inception, so the full history of terms is reconstructible at no cost. This is the durable asset: a normalised terms table across every issuer since each fund's first period. Your instinct was right that this is the cheapest source and the most work, because nineteen issuers phrase the same facts differently.
+2. **Daily current values** (fund return, reference return, remaining cap, remaining buffer, downside before buffer, days remaining, NAV) are published by the issuers on their own sites, in plain server-rendered HTML or embedded JSON, and overwritten daily. The three issuers holding about 91 percent of category assets each expose their entire lineup on one page or one page per fund.
+
+Reference asset prices are published by the issuers alongside those values, so no market data subscription is needed for the daily snapshot. A price feed becomes useful only for recomputing history and for the option-implied cap curve.
+
+## Sources, as verified
+
+| Issuer | Share of assets | Source | Shape | Fields |
+|---|---|---|---|---|
+| FT Vest (First Trust) | 48.9% | ftportfolios.com, `EtfList.aspx` then `EtfSummary.aspx?Ticker=` per fund | Server-rendered HTML, one page per fund | Starting cap gross and net, buffer start and end as percent and as reference-asset price levels, period dates, days remaining, fund value and return, reference value and return, remaining cap gross and net, reference return to realize the cap, remaining buffer, downside before buffer, expense ratio, NAV, net assets |
+| Innovator (Goldman Sachs since 2026-04-02) | 36.6% | innovatoretfs.com `/define/etfs/` | One server-rendered table, every fund, dated | Ticker, family, series month, reference asset, fund price and return, reference return, return to cap, remaining cap, remaining buffer, downside before buffer, days remaining, starting cap, period dates, starting reference and fund prices. Per-fund pages add the expense ratio and the buffer range in the issuer's words |
+| AllianzIM | 6.1% | allianzim.com `/product-table/` | `const model = {...}` JSON in the page, keyed by ticker | Everything above, gross and net, as fractions, plus net assets, NAV, participation rate for uncapped funds, period start and end |
+| Everyone else | about 8% | SEC 497K filings, then each issuer's fund page | Prose, varies by issuer | Terms only from EDGAR; current values need one parser per issuer |
+
+The scraper is `pipeline/snapshot.py`. It has no dependencies beyond the Python standard library and runs in about four minutes because it visits one page per FT Vest fund and, once a week, one page per Innovator fund to confirm each fund's buffer range and expense ratio from the issuer's own words rather than from a family map.
+
+## What the snapshot produces
+
+- `data/snapshots/YYYY-MM-DD.json`: every record captured, including structures the band does not draw yet (dual direction, accelerated, income-and-buffer), each with provenance: source page, fund page, as-of date, and whether the buffer geometry came from the issuer page or a family map.
+- `site/data/funds.json`: the records the desk draws, which today means plain buffer and floor structures with current values.
+- `site/data/meta.json`: as-of date, per-source counts, and coverage.
+
+One record carries both spaces and marks which is which. Issuer fields are fund-price space, net of fees, exactly as published. ETFIQ fields are reference-return space, computed from the published terms and the reference return: remaining cap in reference terms, buffer used, unprotected loss taken, loss below the floor, and the state of the band. Net Position is still computed and stored for continuity but is not displayed, for the reason in the assessment.
+
+## Schedule and cost
+
+`.github/workflows/snapshot.yml` runs the scraper on GitHub's free Actions minutes at 22:40 UTC, Monday to Friday, commits the snapshot, rebuilds the page and deploys it. Cost: zero. If the repository is private, the free tier still covers about ten times this usage.
+
+## Universe
+
+The SEC publishes a yearly file of every registered fund series and class with tickers. Filtering its series names for buffer, outcome, protection and floor language gives 298 tickered series across Innovator ETFs Trust, First Trust Exchange-Traded Fund VIII, AIM ETF Products Trust (AllianzIM), PGIM Rock ETF Trust, Listed Funds Trust (TrueShares), iShares Trust, and a tail of smaller trusts. ETF Action counts 487 buffer ETFs, so the name filter misses some and the issuer pages catch the rest. Build the master list once as the union of the SEC file and the issuer pages, then reconcile by hand against the ETF Action league table. `python pipeline/edgar.py universe` prints the SEC side.
+
+## Build order from here
+
+1. **Run the snapshot daily.** It is wired. Set the repository secret `ETFIQ_CONTACT` so EDGAR requests carry a contact, and push.
+2. **Terms table from EDGAR.** `pipeline/edgar.py search --cik 1415726` lists a trust's 497K filings; `terms <url>` parses the period, cap gross and net, fee and buffer range from one filing. Run it across the three trusts back to inception, then extend the parser one issuer at a time. This is the week of work that becomes the asset nobody else has assembled.
+3. **The other sixteen issuers.** PGIM, Calamos, TrueShares, iShares, Pacer, AB and the rest each need a small parser for current values. Their terms already come from step 2. Together they are about 8 percent of assets, so they can follow the launch.
+4. **History pages.** With the terms table and daily snapshots accumulating, the completed-periods slot in the fund panel fills in: every period since inception, cap, buffer, reference return, fund return, whether the cap bound and the buffer engaged. Completed periods before the snapshots began can be reconstructed from terms plus NAV and reference price history from any end-of-day price source (Stooq is free; Tiingo and Polygon start around thirty dollars a month).
+5. **The cap the option market offers.** A daily curve of the cap a fresh period could strike at each buffer level and horizon, from listed option prices, gives every fund's starting cap a benchmark. Needs an options data feed; it is the first paid data in the plan.
+
+## Terms of use
+
+The issuer pages are public, unauthenticated, and built to be read by advisors; the scraper reads them once a day at human speed with an identified user agent. The SEC asks only for a contact in the user agent. No login, no API key and no paid data are involved in anything the desk shows today.
+
+## First run, 2026-09-04
+
+| Source | Rows on the issuer page | Captured | Drawn on the desk | Notes |
+|---|---|---|---|---|
+| Innovator | 160 | 116 | 108 | Rows left out are barrier and accelerated-only products and rows without period dates. Dual direction, accelerated-buffer and premium-income structures are captured but not drawn. |
+| AllianzIM | 59 | 56 | 56 | The three Buffer Allocation funds of funds are excluded. |
+| FT Vest | 106 | 101 | 81 | Five pages did not parse, one of them a Quarterly Dynamic page that returns no fund content. Dual direction, digital return, premium income and enhance structures are captured but not drawn. |
+| Total | 325 | 273 | 245 | |
+
+States on the desk that evening: 87 funds at their cap in reference terms, 113 open, 13 with the buffer engaged, 2 inside the unprotected slice of a deep buffer, 13 full floor, 17 uncapped, none exhausted. The desk groups them into 58 series.
+
+The band draws plain buffer and floor structures. Dual direction, accelerated, digital return and income-and-buffer funds need their own payoff shapes before they are shown; they sit in the snapshot with a `structure` tag so nothing is lost meanwhile.
+
+The FT Vest Max Buffer line turned out not to be a 100 point buffer: the issuer sets "the maximum available buffer" from option prices at each reset, so the twelve monthly funds carry buffer ends between about minus 44 and minus 78 percent, with one at minus 100. The desk's shared scale stops at minus 40 and draws deeper buffers running off its left edge; the fund panel shows each one on its own scale.

@@ -1,0 +1,38 @@
+name: Daily snapshot
+on:
+  schedule:
+    - cron: '40 22 * * 1-5'   # 6:40pm New York during daylight time, after issuer pages update
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt
+      - run: python pipeline/snapshot.py
+        env:
+          ETFIQ_CONTACT: ${{ secrets.ETFIQ_CONTACT }}
+      - run: python pipeline/build_site.py
+      - name: Commit the snapshot
+        run: |
+          git config user.name "etfiq-snapshot"
+          git config user.email "snapshot@etfiq.com"
+          git add data/snapshots site/data site/index.html pipeline/cache/innovator_pages.json
+          git diff --cached --quiet || git commit -m "Snapshot $(date -u +%F)"
+          git push
+      # A push made with GITHUB_TOKEN does not trigger other workflows, so deploy from here as well.
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
