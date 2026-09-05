@@ -281,7 +281,7 @@ def terms_of(html_):
     return [(re.sub(r'<[^>]+>', '', a).strip(), re.sub(r'<[^>]+>', '', b).strip()) for a, b in re.findall(r'<dt>(.*?)</dt><dd>(.*?)</dd>', html_, re.S)]
 
 
-def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wide=False):
+def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wide=False, short=None):
     url = f'{BASE}/{slug}'
     ld = {'@context': 'https://schema.org', '@graph': (ld_extra or []) + [
         crumbs([('ETFIQ', BASE + '/')] + (crumb or []) + [(title, url)]),
@@ -293,6 +293,7 @@ def doc_page(slug, title, desc, inner, ld_extra=None, desk=None, crumb=None, wid
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}.doc dl dt{{font-weight:600;margin:18px 0 6px}}.doc dl dd{{margin:0;color:#3B434F}}.doc h2{{margin-top:28px}}.doc .lede{{font-size:17px;color:#3B434F}}</style></head>
 <body>{R.rail(desk or '')}<main class="doc{' wide' if wide else ''}">
+{crumb_html([('ETFIQ', BASE + '/')] + (crumb or []) + [(short or (title if len(title) < 40 else title[:38] + '...'), url)])}
 {inner}
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a><a href="/learn/">Learn</a><a href="/standards/">Standards</a></nav></footer></body></html>"""
 
@@ -314,7 +315,7 @@ def learn_pages():
             f'<a href="/learn/{k}.html">{LEARN[k][0].split(":")[0]}</a>' for k in LEARN if k != desk) + f'<a href="/{desk}/">All {DESK_NAME[desk].split()[0].lower()} ETFs</a></nav>'
         body = inner + nav + f'<p class="note">Definitions as ETFIQ uses them on the {DESK_NAME[desk].lower()}. Every figure on the site is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>'
         out.append((f'learn/{desk}.html', doc_page(f'learn/{desk}.html', title, desc, body, ld, desk=desk, crumb=[('Learn', f'{BASE}/learn/')])))
-    idx = ('<h1>Learn: the vocabulary of these funds</h1><p class="lede">Three short glossaries, one per desk, in the order the words come up when you read a fund card. No jargon without a gloss.</p>'
+    idx = ('<h1>Vocabulary</h1><p class="lede">Three glossaries, one per desk, in the order the words appear on a fund card.</p>'
            + '<nav class="rel">' + ''.join(f'<a href="/learn/{k}.html">{esc(v[0].split(":")[0])}</a>' for k, v in LEARN.items()) + '</nav>'
            + ''.join(f'<h2><a href="/learn/{k}.html">{esc(v[0])}</a></h2><p>{esc(v[1])}</p>' for k, v in LEARN.items()))
     out.append(('learn/index.html', doc_page('learn/', 'Learn: how to read a buffer, income or thematic ETF', 'Three plain-words glossaries, one per desk, defining every term ETFIQ uses.', idx)))
@@ -331,7 +332,7 @@ def standards_page():
 
 
 # ---------------------------------------------------------------- hub pages: issuer, theme, reset month
-def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None, desk=None, extra=''):
+def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None, desk=None, extra='', short=None):
     url = f'{BASE}/{slug}'
     ld = [{'@type': 'ItemList', 'name': title, 'numberOfItems': len(item_names),
            'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': t, 'url': f'{BASE}/funds/{t}.html'} for i, t in enumerate(item_names[:100])]}]
@@ -339,7 +340,7 @@ def hub_page(slug, title, desc, intro, rows, head, as_of, item_names, crumb=None
     inner = (f'<p class="note">Data as of {fdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>{extra}'
              f'<div style="overflow-x:auto"><table class="hub"><thead><tr>{"".join(f"<th>{h}</th>" for h in head)}</tr></thead><tbody>{trs}</tbody></table></div>'
              '<p class="note">ETFIQ is an independent publisher and makes no recommendations; every figure is stated arithmetic on published data. <a href="/standards/">Standards and sources</a></p>')
-    return doc_page(slug, title, desc, inner, ld, desk=desk, crumb=crumb, wide=True)
+    return doc_page(slug, title, desc, inner, ld, desk=desk, crumb=crumb, wide=True, short=short)
 
 
 # ---------------------------------------------------------------- head to head pages
@@ -371,8 +372,7 @@ def embed_block(desk, ticker, name):
                f'<img src="{BASE}/embed/{desk}/{ticker}.svg" alt="{ticker} {EMBED_LABEL[desk]}, ETFIQ" width="640"></a>\n'
                f'<p><a href="{BASE}/funds/{ticker}.html">{ticker} {EMBED_LABEL[desk]}, updated daily by ETFIQ</a></p>')
     return (f'<h2>Put this on your own page</h2>'
-            f'<p>The {EMBED_LABEL[desk]} for {esc(ticker)} as a picture that redraws itself every trading night, free to use with the credit link. '
-            f'Paste these two lines into any page, newsletter or blog post.</p>'
+            f'<p>The {EMBED_LABEL[desk]} for {esc(ticker)}, redrawn every trading night. Free to use with the credit link; paste these two lines into any page or newsletter.</p>'
             f'<p><img src="/embed/{desk}/{ticker}.svg" alt="{esc(ticker)} {EMBED_LABEL[desk]}, ETFIQ" width="640" loading="lazy" style="max-width:100%;height:auto;border-radius:10px"></p>'
             f'<pre class="embed"><code>{esc(snippet)}</code></pre>')
 
@@ -521,6 +521,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
 <body>{R.rail(desk)}<main>
+{crumb_html([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), ('Head to head', f'{BASE}/compare/'), (f'{ta} vs {tb}', url)])}
 <p class="note">Data as of {fdate(as_of)}. Every figure is the {DESK_NAME[desk].lower()}'s own, on published data.</p>
 <h1>{esc(ta)} vs {esc(tb)}</h1><p class="lede">{esc(a['name'])} and {esc(b['name'])}, side by side on the {DESK_NAME[desk].lower()}.</p>
 {ov}
@@ -536,7 +537,7 @@ def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + """pre.embed{background:#0F1419;color:#E6EAF0;padding:14px 16px;border-radius:10px;overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{color:#3D4756;font-weight:500}table.kv tbody th{width:42%}table.cmp tbody th{width:26%;white-space:normal}table.cmp thead th{width:37%}main.doc.wide{max-width:1120px}nav.crumb{font-size:12.5px;color:#5A6472;margin:2px 0 14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}nav.crumb a{color:#2457E6;text-decoration:none}nav.crumb a:hover{text-decoration:underline}nav.crumb b{color:#C3CBD6;font-weight:400}nav.crumb span{color:#12161C;font-weight:600}table.hub th:first-child,table.hub td:first-child{width:70px;white-space:nowrap}table.hub th:nth-child(3),table.hub td:nth-child(3){width:86px}table.hub td:nth-child(2){min-width:210px}table.hub td,table.hub th{white-space:normal}table.hub .tk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
 def faq_block(faqs):
@@ -546,6 +547,14 @@ def faq_block(faqs):
     html_ = '<h2>Questions people ask</h2><dl class="faq">' + ''.join(f'<dt>{esc(q)}</dt><dd>{esc(a)}</dd>' for q, a in faqs) + '</dl>'
     ld = [{'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]}]
     return html_, ld
+
+
+def crumb_html(items):
+    """The visible trail, from the same list the breadcrumb markup uses."""
+    if not items:
+        return ''
+    parts = [f'<a href="{u}">{esc(nm)}</a>' for nm, u in items[:-1]] + [f'<span>{esc(items[-1][0])}</span>']
+    return '<nav class="crumb">' + ' <b>/</b> '.join(parts) + '</nav>'
 
 
 def crumbs(items):
@@ -565,6 +574,7 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
 <body>{R.rail(desk)}<main>
+{crumb_html([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (ticker, url)])}
 <p class="note">Data as of {fdate(as_of)}. {esc(method)}</p>
 <h1><span class="tk">{esc(ticker)}</span> · {esc(name)}</h1><p class="lede">{esc(issuer)} · {DESK_NAME[desk]}</p>
 <a class="cta" href="{app_url}">Open the live card on ETFIQ</a>
@@ -592,6 +602,7 @@ def index_page(desk, rows, as_of, intro, hub_nav=''):
 <title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(intro)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}main{{max-width:1100px}}th,td{{white-space:nowrap}}th{{width:auto}}</style></head>
 <body>{R.rail(desk)}<main>
+{crumb_html([('ETFIQ', BASE + '/'), (DESK_NAME[desk], url)])}
 <p class="note">Data as of {fdate(as_of)}.</p><h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
 <a class="cta" href="{BASE}/#/{desk}/desk">Open the live desk on ETFIQ</a>
 {hub_nav}
@@ -621,7 +632,7 @@ def portfolio_page(as_of, books):
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(intro[:300])}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}main{{max-width:820px}}</style></head>
 <body>{R.rail('portfolio')}<main>
-<p class="note">Books as of {fdate(as_of)}: {books} funds with filed holdings, from every income and themes desk fund and the core index funds.</p>
+<p class="note">Books as of {fdate(as_of)}: {books} funds with filed holdings.</p>
 <h1>{esc(title)}</h1><p class="lede">{esc(intro)}</p>
 <a class="cta" href="{BASE}/#/portfolio">Open the Portfolio desk on ETFIQ</a>
 <h2>Five views</h2><table class="kv"><tbody>{''.join(f'<tr><th>{esc(a)}</th><td>{esc(b)}</td></tr>' for a, b in views)}</tbody></table>
@@ -723,19 +734,22 @@ def build():
                     detail = esc(r['themeName'])
                     figure = f"{pct(v['inIndex'], sign=False)} already in the S&P 500" if v.get('inIndex') is not None else 'no holdings filing yet'
                 rows.append([f'<a href="/funds/{r["ticker"]}.html" class="tk">{esc(r["ticker"])}</a>', esc(r['name']), DESK_NAME[desk].split()[0], detail, figure])
-        title = f'{issuer} ETFs on ETFIQ: every fund, one page'
-        counts = ', '.join(f'{len(v)} {k}' for k, v in desks.items() if v)
-        intro = f'Every {issuer} fund ETFIQ covers, with the same fields as its desk: {counts}. Figures as published, ETFIQ calculations marked.'
-        desc = f'{issuer}: {total} exchange-traded funds with current figures from ETFIQ ({counts}).'
+        kinds = [k for k in ('buffer', 'income', 'themes') if desks.get(k)]
+        words = {'buffer': 'buffer', 'income': 'income', 'themes': 'thematic'}
+        kind_words = ', '.join(words[k] for k in kinds[:-1]) + (' and ' if len(kinds) > 1 else '') + words[kinds[-1]]
+        title = f'{issuer} {kind_words} ETFs'
+        counts = ', '.join(f'{len(desks[k])} {words[k]}' for k in kinds)
+        intro = f'{counts}, on the same fields as their desks. ETFIQ covers buffer, option-income and thematic ETFs; an issuer\'s other funds are not here.'
+        desc = f'{issuer}: the {total} {kind_words} ETFs ETFIQ covers ({counts}), with current figures.'
         (SITE / 'issuers' / f'{slug}.html').write_text(hub_page(f'issuers/{slug}.html', title, desc, intro, rows,
                                                                ['Ticker', 'Fund', 'Desk', 'What it is', 'Where it stands'], max(as_b, as_i, as_t), names,
-                                                               crumb=[('Issuers', f'{BASE}/issuers/')]))
+                                                               crumb=[('Browse', f'{BASE}/#/browse'), ('Issuers', f'{BASE}/issuers/')], short=issuer))
         urls.append((f'{BASE}/issuers/{slug}.html', max(as_b, as_i, as_t)))
         issuer_rows.append([f'<a href="/issuers/{slug}.html">{esc(issuer)}</a>', str(total), counts])
         hubs += 1
     (SITE / 'issuers' / 'index.html').write_text(hub_page('issuers/', 'Every ETF issuer ETFIQ covers',
-                                                          'Buffer, option-income and thematic ETF issuers covered by ETFIQ, with the number of funds on each desk.',
-                                                          f'{len(issuer_rows)} issuers, every fund treated identically on its desk.', sorted(issuer_rows, key=lambda r: -int(r[1])),
+                                                          'Buffer, option-income and thematic ETF issuers covered by ETFIQ, with fund counts per desk.',
+                                                          f'{len(issuer_rows)} issuers. Every fund is treated identically on its desk.', sorted(issuer_rows, key=lambda r: -int(r[1])),
                                                           ['Issuer', 'Funds', 'Desks'], max(as_b, as_i, as_t), []))
     urls.append((f'{BASE}/issuers/', max(as_b, as_i, as_t)))
     # theme hubs
@@ -752,12 +766,12 @@ def build():
                  pct(((r.get('windows') or {}).get('1Y') or {}).get('total')), pts(((r.get('windows') or {}).get('1Y') or {}).get('gap')),
                  pct(r.get('expenseRatio'), sign=False, d=2)] for r in rs]
         title = f'{name} ETFs: what each one actually holds'
-        intro = (f'{len(rs)} {name.lower()} ETFs, measured by what they hold rather than what they are called'
-                 + (f'. The typical fund in this theme has {med:.0f}% of its weight in stocks the S&P 500 already holds.' if med is not None else '.'))
+        intro = (f'{len(rs)} funds, measured by holdings rather than by name'
+                 + (f'. The typical fund carries {med:.0f}% of its weight in S&P 500 names.' if med is not None else '.'))
         desc = f'{len(rs)} {name.lower()} ETFs compared by holdings overlap with the S&P 500, active share, one-year return and fee.'
         (SITE / 'themes' / f'{key}.html').write_text(hub_page(f'themes/{key}.html', title, desc, intro, rows,
                                                               ['Ticker', 'Fund', 'Issuer', 'In the S&P 500', 'Active share', 'Total return 1Y', 'vs S&P 500', 'Fee'], as_t, names,
-                                                              crumb=[('Themes desk', f'{BASE}/themes/')], desk='themes'))
+                                                              crumb=[('Browse', f'{BASE}/#/browse/theme'), ('Themes desk', f'{BASE}/themes/')], desk='themes', short=name))
         urls.append((f'{BASE}/themes/{key}.html', as_t))
         hubs += 1
     # buffer reset month hubs
@@ -772,12 +786,11 @@ def build():
                  fdate(f['periodEnd']), 'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False), pct(f.get('downsideBeforeBuffer'), sign=False),
                  STATE_LABEL[buffer_state(f)]] for f in fs]
         title = f'Buffer ETFs that reset in {MON[mm]}'
-        intro = (f'{len(fs)} defined outcome ETFs whose outcome period ends in {MON[mm]}, when the options expire and a new cap is struck. '
-                 'A fund is at its freshest cap in the days after it resets, and has the least room left just before.')
+        intro = f'{len(fs)} defined outcome ETFs whose period ends in {MON[mm]}, when the options expire and a new cap is struck.'
         desc = f'{len(fs)} buffer ETFs with a {MON[mm]} reset: current cap room, fall before the buffer and state today, every issuer on one page.'
         (SITE / 'buffer' / f'{MON[mm].lower()}.html').write_text(hub_page(f'buffer/{MON[mm].lower()}.html', title, desc, intro, rows,
                                                                          ['Ticker', 'Fund', 'Issuer', 'Index', 'Buffer', 'Period ends', 'Can still gain', 'Fall before buffer', 'State'], as_b, names,
-                                                                         crumb=[('Buffer desk', f'{BASE}/buffer/')], desk='buffer'))
+                                                                         crumb=[('Browse', f'{BASE}/#/browse/month'), ('Buffer desk', f'{BASE}/buffer/')], desk='buffer', short=f'{MON[mm]} resets'))
         urls.append((f'{BASE}/buffer/{MON[mm].lower()}.html', as_b))
         hubs += 1
     # what changed today
@@ -793,7 +806,7 @@ def build():
                'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': l['text']} for i, l in enumerate(lines)]}]
         inner = (f'<p class="note">Computed from the desks\' own files on {fdate(ins.get("asOf"))}. Rebuilt every trading night.</p>'
                  f'<h1>What changed, {fdate(ins.get("asOf"))}</h1>'
-                 '<p class="lede">Every line here is counted from the published data that morning, not written by hand. No line is a view on any fund.</p>'
+                 '<p class="lede">Every line is counted from the published data that morning. None is a view on any fund.</p>'
                  + secs + '<h2>Go deeper</h2><nav class="rel"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/research/">ETFIQ Research</a></nav>')
         (SITE / 'changed').mkdir(exist_ok=True)
         (SITE / 'changed' / 'index.html').write_text(doc_page('changed/', f'What changed in buffer, income and thematic ETFs, {fdate(ins.get("asOf"))}',

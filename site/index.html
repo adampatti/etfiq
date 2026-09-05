@@ -2093,20 +2093,20 @@ function viewBrowse(){
   const q = (S.bq || '').toLowerCase();
   const find = `<form class="cq slim" id="browseForm" autocomplete="off" onsubmit="return false"><input id="browseQ" type="search" placeholder="${tab === 'issuer' ? 'Find an issuer, for example Innovator' : tab === 'theme' ? 'Find a theme, for example robotics' : tab === 'bench' ? 'Find a benchmark, for example QQQ' : 'Find a month'}" value="${esc(S.bq || '')}" aria-label="Find"></form>`;
   const tabs = [['issuer', 'By issuer'], ['theme', 'By theme'], ['month', 'By reset month'], ['bench', 'By benchmark']];
-  const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Every issuer, theme, reset month and benchmark</h1><p>Pick any of these and the desk opens filtered to it, with the same fields and the same sorting. Counts are of the funds ETFIQ covers today.</p></div>
+  const head = `<div class="chero small"><span class="eyebrow">Browse</span><h1>Every issuer, theme, reset month and benchmark</h1><p>Pick one and the desk opens filtered to it. Counts are of the funds ETFIQ covers today.</p></div>
 `;
   let body = '';
   if (tab === 'issuer') {
     let rows = Array.from(C.iss.entries()).map(([name, c]) => ({ name, c, total: c.buffer + c.income + c.themes, buffer: c.buffer, income: c.income, themes: c.themes }));
     if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
     rows = bsorted('issuer', rows);
-    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('issuer', 'name', 'Issuer')}${bth('issuer', 'total', 'Funds', true)}${bth('issuer', 'buffer', 'Buffer', true)}${bth('issuer', 'income', 'Income', true)}${bth('issuer', 'themes', 'Themes', true)}<th>Every fund on one page</th></tr></thead><tbody>
+    body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('issuer', 'name', 'Issuer')}${bth('issuer', 'total', 'Funds', true)}${bth('issuer', 'buffer', 'Buffer', true)}${bth('issuer', 'income', 'Income', true)}${bth('issuer', 'themes', 'Themes', true)}<th>Issuer page</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.total}</td>
         <td>${r.c.buffer ? `<a href="#/buffer/desk/issuer/${encodeURIComponent(r.name)}">${r.c.buffer} buffer</a>` : '<span class="muted">·</span>'}</td>
         <td>${r.c.income ? `<a href="#/income/desk/issuer/${encodeURIComponent(r.name)}">${r.c.income} income</a>` : '<span class="muted">·</span>'}</td>
         <td>${r.c.themes ? `<a href="#/themes/desk/issuer/${encodeURIComponent(r.name)}">${r.c.themes} thematic</a>` : '<span class="muted">·</span>'}</td>
         <td><a href="/issuers/${esc(r.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))}.html">${esc(r.name)} page ›</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">${rows.length} issuers${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. The issuer page is a printable list of every fund from that issuer across the desks.</p>`;
+    </tbody></table></div></div><p class="hint">${rows.length} issuers${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. ETFIQ covers buffer, option-income and thematic ETFs, so an issuer's other funds are not counted here.</p>`;
   } else if (tab === 'theme') {
     let rows = Array.from(C.themes.entries()).map(([k, c]) => ({ k, ...c, med: c.ins.length ? c.ins.slice().sort((a, b) => a - b)[Math.floor(c.ins.length / 2)] : null }));
     if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
@@ -2114,7 +2114,7 @@ function viewBrowse(){
     body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('theme', 'name', 'Theme')}${bth('theme', 'n', 'Funds', true)}${bth('theme', 'med', 'Typical fund already in the S&P 500', true)}<th>Open</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${esc(r.name)}</b></td><td class="num">${r.n}</td><td class="num">${r.med == null ? '·' : fmtPct(r.med, {sign:false, d:0})}</td>
         <td><a href="#/themes/desk/theme/${esc(r.k)}">Open on the desk</a> · <a href="/themes/${esc(r.k)}.html">theme page ›</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">${rows.length} themes${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. ETFIQ assigns one theme per fund from its name and holdings; the taxonomy is editorial and <a href="#/standards">Standards</a> says so.</p>`;
+    </tbody></table></div></div><p class="hint">${rows.length} themes${q ? ' matching ' + esc(S.bq) : ''}. Click any heading to sort. One theme per fund, assigned from name and holdings; the taxonomy is editorial, as <a href="#/standards">Standards</a> states.</p>`;
   } else if (tab === 'month') {
     let rows = Object.keys(MONTH_NAME).map(k => ({ k, order: +k, name: MONTH_NAME[k], ...(C.months.get(k) || { n:0, soon:0 }) })).filter(r => r.n);
     if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
@@ -2122,7 +2122,7 @@ function viewBrowse(){
     body = `${find}<div class="deskwrap"><div class="desk-scroll"><table class="tm"><thead><tr>${bth('month', 'order', 'Outcome period ends in')}${bth('month', 'n', 'Buffer ETFs', true)}${bth('month', 'soon', 'Resetting within 45 days', true)}<th>Open</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${MONTH_NAME[r.k]}</b></td><td class="num">${r.n}</td><td class="num">${r.soon || '·'}</td>
         <td><a href="#/buffer/desk/month/${r.k}">Open on the desk</a> · <a href="/buffer/${MONTH_NAME[r.k].toLowerCase()}.html">${MONTH_NAME[r.k]} page ›</a></td></tr>`).join('')}
-    </tbody></table></div></div><p class="hint">A buffer ETF is at its freshest cap in the days after it resets, and has the least room left just before. <a href="#/buffer/entry">Buying today</a> groups the whole desk that way.</p>`;
+    </tbody></table></div></div><p class="hint">A fund carries its freshest cap in the days after it resets, and the least room just before. <a href="#/buffer/entry">Buying today</a> groups the desk that way.</p>`;
   } else {
     let rows = Array.from(C.bench.entries()).map(([k, c]) => ({ k, ...c }));
     if (q) rows = rows.filter(r => r.k.toLowerCase().includes(q) || (r.name || '').toLowerCase().includes(q));
@@ -2133,7 +2133,7 @@ function viewBrowse(){
     </tbody></table></div></div><p class="hint">Every income ETF is measured against the index or stock it writes options on. ${rows.length} benchmarks${q ? ' matching ' + esc(S.bq) : ''} across ${S.income.length} funds. Click any heading to sort.</p>`;
   }
   return `<div class="check">${head}${body}
-    <p class="ind">Counts are of the funds ETFIQ covers, from published data. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
+    <p class="ind">Counts are of the funds ETFIQ covers. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
 }
 
 /* ====================== home: one search, three desks, what changed ====================== */
@@ -2162,7 +2162,7 @@ function viewHome(){
       ${tile('income', 'Am I ahead of the benchmark?', vis.income, idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat their benchmark over ${WIN_LABEL[S.window]}` : '', fi ? `${esc(fi.ticker)} on the payout bar` : '', 'Check an income ETF')}
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
-    <a class="pdoor" href="#/browse"><div class="lvl">Browse</div><b>Every issuer, theme, reset month and benchmark</b><span>Pick an issuer and see its whole range, a theme and see every fund in it, a month and see what resets then. The desk opens filtered to your choice.</span></a>
+    <a class="pdoor" href="#/browse"><div class="lvl">Browse</div><b>Every issuer, theme, reset month and benchmark</b><span>An issuer's range, a theme's funds, or the month a buffer resets. The desk opens filtered to your choice.</span></a>
     <a class="pdoor" href="#/portfolio"><div class="lvl">Portfolio desk</div><b>What does my whole portfolio actually own, protect and pay?</b><span>Enter your ETFs. One page: what it really holds, how much is protected, the cash by month, and what happens if the market moves.</span></a>
     ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><div class="chgrid">${['buffer', 'income', 'themes'].map(d => { const ls = lines.filter(l => l.desk === d); return ls.length ? `<div class="chg ${d}"><h3>${DESK_NAME[d]}</h3><ul class="changed">${ls.map(l => `<li class="${d}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div>` : ''}
     ${researchStrip(null)}
