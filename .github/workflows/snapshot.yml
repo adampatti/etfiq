@@ -38,6 +38,10 @@ jobs:
         if: ${{ env.TIINGO_TOKEN != '' }}
         continue-on-error: true
         run: python pipeline/payouts.py
+      - name: Income desk sources of distributions (19a-1)
+        id: sources
+        continue-on-error: true
+        run: python pipeline/sources.py
       - name: Themes desk holdings and returns
         id: themes
         if: ${{ env.TIINGO_TOKEN != '' }}
@@ -78,6 +82,7 @@ jobs:
           echo "income desk: ${{ steps.income.outcome }}" >> $GITHUB_STEP_SUMMARY
           echo "payout calendar: ${{ steps.payouts.outcome }}" >> $GITHUB_STEP_SUMMARY
           echo "themes desk: ${{ steps.themes.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "cash sources: ${{ steps.sources.outcome }}" >> $GITHUB_STEP_SUMMARY
           echo "buffer as of: $(python -c 'import json;print(json.load(open("site/data/meta.json")).get("asOf"))')" >> $GITHUB_STEP_SUMMARY
           echo "income as of: $(python -c 'import json;print(json.load(open("site/data/income_meta.json")).get("asOf"))')" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.snapshot.outcome }}" = "failure" ] || [ "${{ steps.income.outcome }}" = "failure" ] || [ "${{ steps.payouts.outcome }}" = "failure" ] || [ "${{ steps.themes.outcome }}" = "failure" ]; then echo "a data step failed; the site deployed with the last good data for that desk"; exit 1; fi
