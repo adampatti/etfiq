@@ -90,14 +90,29 @@ def build():
         info, h = (None, [])
         if refresh:
             info, h = H.issuer_daily(u['ticker'], u.get('issuer'))  # the issuer's own daily file where one exists
-            if not h:
-                info, h = H.fund_holdings(u.get('seriesId') or '', u['name'])
+            if not h or info.get('partial'):
+                info2, h2 = H.fund_holdings(u.get('seriesId') or '', u['name'])
+                if h2:  # a full filed book beats a partial daily one; keep the daily fee and assets
+                    for k in ('expenseRatio', 'netAssets'):
+                        if info and info.get(k) is not None and info2.get(k) is None:
+                            info2[k] = info[k]
+                    info, h = info2, h2
         if not h and u['ticker'] in prev_by and prev_by[u['ticker']].get('vsSPY'):
             rec.update({k: prev_by[u['ticker']].get(k) for k in HOLD_KEYS})
             out.append(rec)
             continue
         if h and info.get('netAssets') is None and u['ticker'] in prev_by:
             info['netAssets'] = prev_by[u['ticker']].get('assets')
+        if h and info.get('expenseRatio') is not None and u['ticker'] not in fees:
+            fees[u['ticker']] = {'expenseRatio': info['expenseRatio'], 'source': info.get('source')}
+        if h and info.get('partial'):
+            # a partial book (the issuer's top ten): show it, but no overlap until the first full filing
+            top = h[:10]
+            rec.update({'holdingsAsOf': info.get('period'), 'holdingsFiled': info.get('filed'), 'holdingsSource': info.get('source'), 'holdingsDaily': True, 'holdingsCount': None,
+                        'top10Weight': round(sum(x['weight'] for x in top), 1), 'assets': info.get('netAssets'),
+                        'top': [{'t': x['ticker'], 'n': x['name'][:48], 'w': round(x['weight'], 2)} for x in top], 'vsSPY': None, 'vsQQQ': None, 'peers': []})
+            out.append(rec)
+            continue
         if h:
             tot = sum(x['weight'] for x in h) or 1.0
             top = h[:10]

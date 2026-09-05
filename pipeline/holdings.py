@@ -202,17 +202,52 @@ def first_trust_daily(ticker):
     return rows, asof
 
 
+def vistashares_daily(ticker):
+    """VistaShares fund pages carry the ten largest holdings with weights, net assets and the fee (a partial book)."""
+    import html as htmlmod
+    raw = get(f'https://www.vistashares.com/etf/{ticker.lower()}/', headers={'User-Agent': BROWSER}).decode('utf-8', errors='replace')
+    rows, facts = [], {}
+    for tb in re.findall(r'<table[^>]*>(.*?)</table>', raw, re.S):
+        trs = re.findall(r'<tr[^>]*>(.*?)</tr>', tb, re.S)
+        cells = [[htmlmod.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S)] for tr in trs]
+        for c in cells:
+            if len(c) == 2 and c[0] in ('Expense Ratio', 'Net Assets', 'Inception Date'):
+                facts[c[0]] = c[1]
+        if cells and 'Weightings' in cells[0]:
+            it = cells[0].index('Ticker'); iw = cells[0].index('Weightings')
+            for c in cells[1:]:
+                if len(c) <= iw:
+                    continue
+                try:
+                    w = float(c[iw].replace('%', '').replace(',', ''))
+                except ValueError:
+                    continue
+                tk = c[it].strip().upper()
+                name = re.sub(re.escape(c[it]) + r'$', '', c[0]).strip() or c[0]
+                rows.append({'name': name, 'cusip': '', 'isin': '', 'ticker': tk.split(' ')[0] if re.fullmatch(r'[A-Z.]{1,6}', tk.split(' ')[0]) else '', 'weight': w, 'cat': 'EC', 'country': ''})
+    def money(x):
+        try:
+            return float(re.sub(r'[^\d.]', '', x))
+        except ValueError:
+            return None
+    fee = money(facts.get('Expense Ratio', '')) if facts.get('Expense Ratio') else None
+    return rows, {'netAssets': money(facts.get('Net Assets', '')) if facts.get('Net Assets') else None, 'expenseRatio': fee}
+
+
 def issuer_daily(ticker, issuer=None):
-    """Daily holdings straight from the issuer where a stable file exists (ARK and First Trust today). Returns (info, holdings) or (None, [])."""
-    if ticker not in ARK_FILES and issuer != 'First Trust':
+    """Daily holdings straight from the issuer where a stable file exists (ARK, First Trust; VistaShares top ten). Returns (info, holdings) or (None, [])."""
+    if ticker not in ARK_FILES and issuer not in ('First Trust', 'VistaShares'):
         return None, []
     p = CACHE / f'daily-{ticker}-{TODAY.isoformat()}.json'
     if p.exists():
         d = json.loads(p.read_text())
         return d['info'], d['holdings']
-    rows, asof = [], None
+    rows, asof, extra = [], None, {}
     try:
-        if issuer == 'First Trust' and ticker not in ARK_FILES:
+        if issuer == 'VistaShares' and ticker not in ARK_FILES:
+            rows, extra = vistashares_daily(ticker)
+            src = f'https://www.vistashares.com/etf/{ticker.lower()}/'
+        elif issuer == 'First Trust' and ticker not in ARK_FILES:
             rows, asof = first_trust_daily(ticker)
             src = f'https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker={ticker}'
         else:
@@ -229,7 +264,8 @@ def issuer_daily(ticker, issuer=None):
         asof = datetime.datetime.strptime(asof, '%m/%d/%Y').date().isoformat()
     except Exception:
         asof = TODAY.isoformat()
-    info = {'seriesId': '', 'period': asof, 'netAssets': None, 'filed': asof, 'source': src, 'daily': True}
+    partial = sum(h['weight'] for h in rows) < 90
+    info = {'seriesId': '', 'period': asof, 'netAssets': extra.get('netAssets'), 'expenseRatio': extra.get('expenseRatio'), 'filed': asof, 'source': src, 'daily': True, 'partial': partial}
     CACHE.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps({'info': info, 'holdings': rows}))
     return info, rows

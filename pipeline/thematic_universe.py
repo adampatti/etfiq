@@ -98,6 +98,56 @@ FORCE = [  # thematic funds whose names carry no theme word in the SEC file
     ('HELX', 'Franklin Genomic Advancements ETF', 'genomics'), ('LNGR', 'Global X Longevity Thematic ETF', 'longevity'), ('KROP', 'Global X AgTech & Food Innovation ETF', 'food'), ('NERD', 'Roundhill Video Games ETF', 'gaming'),
     ('MJ', 'Amplify Alternative Harvest ETF', 'cannabis'), ('PSI', 'Invesco Semiconductors ETF', 'semis'), ('FTXL', 'First Trust Nasdaq Semiconductor ETF', 'semis'), ('SOXQ', 'Invesco PHLX Semiconductor ETF', 'semis'),
 ]
+# listed and trading per Tiingo's ticker list but absent from the SEC series file (swept 2026-09-05); holdings arrive with each fund's first N-PORT
+TIINGO_EXTRA = [
+    ('AIEQ', 'Amplify AI Powered Equity ETF', 'ai'),
+    ('AIHY', 'Defiance AI Hyperscale Leaders ETF', 'ai'),
+    ('AINF', 'Defiance Inference AI Chip ETF', 'ai'),
+    ('AIX', 'Defiance US 100 Tech AI Moat ETF', 'ai'),
+    ('ANTW', 'Anthropic AI Lab Ecosystem ETF', 'ai'),
+    ('BAI', 'iShares A.I. Innovation and Tech Active ETF', 'ai'),
+    ('CAPA', 'Defiance AI Capacitors Leaders ETF', 'ai'),
+    ('CGPT', 'VegaShares AI Inference ETF', 'ai'),
+    ('COOL', 'VegaShares AI Thermal Cooling & Power Management ETF', 'ai'),
+    ('DEPW', 'Google DeepMind AI Lab Ecosystem ETF', 'ai'),
+    ('HIAI', 'Ai Funds High Conviction US Equity AI-Managed ETF', 'ai'),
+    ('HLTH', 'Tema Healthcare AI ETF', 'ai'),
+    ('KAIT', 'KraneShares Asia AI Technology ETF', 'ai'),
+    ('MTAW', 'Meta AI Lab Ecosystem ETF', 'ai'),
+    ('PBOT', 'Pictet AI & Automation ETF', 'ai'),
+    ('PHOX', 'Aura AI Photonics ETF', 'ai'),
+    ('TGRZ', 'China AI Tigers LLM ETF', 'ai'),
+    ('RAYS', 'Global X Solar ETF', 'clean-energy'),
+    ('WNDY', 'Global X Wind Energy ETF', 'clean-energy'),
+    ('XIGV', 'Defiance US 100 Tech Ex Software ETF', 'cloud'),
+    ('AMMO', 'VistaShares Defense Supercycle ETF', 'defense'),
+    ('IDEF', 'iShares Defense Industrials Active ETF', 'defense'),
+    ('TSSD', 'Truth Social American Security & Defense ETF', 'defense'),
+    ('BYTE', 'Roundhill IO Digital Infrastructure ETF', 'digital-infra'),
+    ('COPJ', 'Sprott Junior Copper Miners ETF', 'electrification'),
+    ('COPP', 'Sprott Copper Miners ETF', 'electrification'),
+    ('ELFY', 'ALPS Electrification Infrastructure ETF', 'electrification'),
+    ('KWH', 'GMO Power Infrastructure ETF', 'electrification'),
+    ('PWRZ', 'TrueShares Eagle Global Next Gen Power Infrastructure ETF', 'electrification'),
+    ('CABZ', 'Roundhill Robotaxi Autonomous Vehicles & Technology ETF', 'ev'),
+    ('LITP', 'Sprott Lithium Miners ETF', 'ev'),
+    ('GAMR', 'Amplify Video Game Tech ETF', 'gaming'),
+    ('XDNA', 'Kelly CRISPR & Gene Editing Technology ETF', 'genomics'),
+    ('THNR', 'Amplify Weight Loss Drug & Treatment ETF', 'health-innovation'),
+    ('INFR', 'ClearBridge Sustainable Infrastructure ETF', 'infrastructure'),
+    ('BMED', 'BlackRock Future Health ETF', 'innovation'),
+    ('KGRO', 'KraneShares China Innovation ETF', 'innovation'),
+    ('QQJG', 'Invesco ESG NASDAQ Next Gen 100 ETF', 'innovation'),
+    ('EWEB', 'Global X Emerging Markets Internet & E-commerce ETF', 'internet'),
+    ('TNUK', 'Tortoise Nuclear Renaissance ETF', 'nuclear'),
+    ('URNJ', 'Sprott Junior Uranium Miners ETF', 'nuclear'),
+    ('AWAY', 'Amplify Travel Tech ETF', 'pets'),
+    ('CROB', 'Defiance China Robotics ETF', 'robotics'),
+    ('RTOO', 'VistaShares Robotics Supercycle ETF', 'robotics'),
+    ('FSPC', 'First Trust Bloomberg Space Economy ETF', 'space'),
+    ('GALX', 'VistaShares Space Supercycle ETF', 'space'),
+    ('WSPC', 'WisdomTree Space Economy Fund', 'space'),
+]
 THEME_NAME = {k: n for k, n, _ in THEMES}
 
 
@@ -142,6 +192,12 @@ def build():
         out.append({'ticker': tk, 'name': (row['Class Name'].strip() if row else name), 'issuer': iu.issuer_of(name, row['Entity Name'] if row else ''),
                     'entity': (row['Entity Name'].strip() if row else ''), 'cik': (str(int(row['CIK Number'])) if row else ''), 'seriesId': ((row.get('Series ID') or '').strip() if row else ''),
                     'theme': theme, 'themeName': THEME_NAME[theme], 'include': True, 'why': 'forced: thematic fund with no theme word in the name'})
+    for tk, name, theme in TIINGO_EXTRA:
+        if tk in seen:
+            continue
+        seen.add(tk)
+        out.append({'ticker': tk, 'name': name, 'issuer': iu.issuer_of(name, ''), 'entity': '', 'cik': '', 'seriesId': '', 'theme': theme, 'themeName': THEME_NAME[theme], 'include': True,
+                    'why': 'listed per Tiingo, absent from the SEC series file'})
     out.sort(key=lambda r: (r['themeName'], r['issuer'], r['ticker']))
     (ROOT / 'data').mkdir(exist_ok=True)
     (ROOT / 'data' / 'thematic_universe.json').write_text(json.dumps(out, indent=1))
