@@ -140,7 +140,15 @@ main{padding:12px 16px 24px}
 .intro.data .head{margin:6px 0 0;font-size:16px}
 .intro.data .rugwrap{padding:8px 12px 4px}
 .read.slim{gap:8px;margin:0 0 8px}
-.read.slim .rt{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;padding:7px 14px;border-top-width:3px;border-radius:5px}
+.read.slim .rt{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;padding:7px 14px;border-top-width:3px;border-radius:5px;font:inherit;color:var(--ink);text-align:left;cursor:pointer;width:100%}
+.read.slim .rt:hover{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.read.slim .rt .go{margin-left:auto;color:var(--faint);font-size:18px;line-height:1}
+.check .read.slim{max-width:980px;margin:8px auto 0}
+.check .sec.tight{max-width:980px;margin:22px auto 6px}
+table.desk th:first-child,table.desk td:first-child{position:sticky;left:0;z-index:2;background:var(--surface)}
+table.desk th:first-child{z-index:4}
+table.desk tr.row:hover td:first-child{background:var(--surface-2)}
+@media print{.top,.banner,footer,.chero,.doors,.chips,.cq,.sec,.read,.acts,#backdrop,#panel:not(.inline),.legend .lnk{display:none!important}.panel.inline{box-shadow:none;border:0;max-width:none}body{background:#fff}}
 .read.slim .v{font-size:22px}
 .read.slim .l{margin:0;font-size:13px}
 .read.slim .s{display:none}
@@ -935,6 +943,7 @@ function bufferControls(){
     <span class="spacer"></span><span class="count" id="count"></span>
     <div class="seg" role="group" aria-label="Layout"><button type="button" data-g="1" class="${S.grouped ? 'on' : ''}">By series</button><button type="button" data-g="0" class="${S.grouped ? '' : 'on'}">Flat</button></div>
     <button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
+    <button class="btn" type="button" id="csv" title="Download the rows and columns shown as a CSV file">Export CSV</button>
   </div>`;
 }
 function viewBufferDesk(){
@@ -962,7 +971,7 @@ function viewBufferDesk(){
   const nSeries = new Set(all.map(f => f.seriesKey)).size;
   const atCap = S.funds.filter(f => f.state === 'capped').length, working = S.funds.filter(f => f.state === 'engaged' || f.state === 'exhausted').length, soon = S.funds.filter(f => f.daysRemaining <= 30).length;
   return `<div class="intro buffer data"><div class="txt"><h1>All buffer ETFs</h1><p class="head">Today <b>${atCap} of ${S.funds.length}</b> have already hit their cap.</p></div>${bufferRug()}</div>
-    <div class="read slim"><div class="rt a"><div class="v">${atCap}</div><div class="l">At their cap</div><div class="s">No more upside this period in index terms</div></div><div class="rt t"><div class="v">${working}</div><div class="l">Buffers working</div><div class="s">The index is inside the protected range</div></div><div class="rt b"><div class="v">${soon}</div><div class="l">Reset within 30 days</div><div class="s">A new cap is set when the period ends</div></div></div>
+    ${bufferPulse()}
     <div class="strips slim">${mineStrip('buffer', S.byT)}</div>
     ${bufferControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk main"><thead>${headRow(COLS, S.sort)}</thead><tbody>${body}</tbody></table></div>${legendBuffer()}</div>
     <template id="countText"><b>${all.length}</b> of ${S.funds.length} funds · ${nSeries} series</template>`;
@@ -1114,6 +1123,7 @@ function incomeControls(){
     <span class="spacer"></span><span class="count" id="count"></span>
     <div class="seg" role="group" aria-label="Layout"><button type="button" data-g="1" class="${S.grouped ? 'on' : ''}">By benchmark</button><button type="button" data-g="0" class="${S.grouped ? '' : 'on'}">Flat</button></div>
     <button class="btn ${S.compact ? 'primary' : ''}" type="button" id="compact" title="Compact rows hide the plain-words line for a denser table">Compact</button>
+    <button class="btn" type="button" id="csv" title="Download the rows and columns shown as a CSV file">Export CSV</button>
   </div>`;
 }
 function feedNotice(){
@@ -1148,7 +1158,7 @@ function viewIncomeDesk(){
   const withW = pool.filter(r => iw(r) && iw(r).gap != null), aheadN = withW.filter(r => iw(r).gap > 0.5).length, fell = withW.filter(r => iw(r).price < 0).length, fat = withW.filter(r => iw(r).cash >= 10).length;
   const kindWord = S.ifilters.kind === 'stock' ? 'single-stock income' : S.ifilters.kind === 'all' ? 'option-income' : 'index income';
   return `<div class="intro income data"><div class="txt"><h1>All income ETFs</h1><p class="head">Over ${WIN_LABEL[S.window]}, <b>${aheadN} of ${withW.length}</b> ${kindWord} ETFs finished ahead of their benchmark.</p></div>${incomeRug()}</div>
-    <div class="read slim"><div class="rt t"><div class="v">${fat}</div><div class="l">Paid 10% or more in cash</div><div class="s">Over ${WIN_LABEL[S.window]}, as a share of starting value</div></div><div class="rt c"><div class="v">${fell}</div><div class="l">Price fell</div><div class="s">Principal shrank while distributions were paid</div></div><div class="rt b"><div class="v">${aheadN}</div><div class="l">Ahead of their benchmark</div><div class="s">Total return with cash reinvested, minus the index</div></div></div>
+    ${incomePulse()}
     <div class="strips slim">${mineStrip('income', S.byI)}</div>
     ${incomeControls()}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk income"><thead>${iheadRow()}</thead><tbody>${body}</tbody></table></div>${legendIncome()}</div>
     <template id="countText"><b>${all.length}</b> of ${S.income.length} funds · ${new Set(all.map(r => r.groupKey)).size} benchmarks</template>`;
@@ -1271,6 +1281,36 @@ function closePanel(fix){
   if (S.lastFocus && S.lastFocus.focus) S.lastFocus.focus();
 }
 
+/* ====================== pulse tiles: the desk in three numbers, each one a filter ====================== */
+function bufferPulse(){
+  const atCap = S.funds.filter(f => f.state === 'capped').length, working = S.funds.filter(f => f.state === 'engaged' || f.state === 'exhausted').length, soon = S.funds.filter(f => f.daysRemaining <= 30).length;
+  const tile = (cls, v, l, key, title) => `<button type="button" class="rt ${cls}" data-tile="buffer:${key}" title="${esc(title)}"><span class="v">${v}</span><span class="l">${l}</span><span class="go">›</span></button>`;
+  return `<div class="read slim">${tile('a', atCap, 'At their cap', 'state=capped', 'Show only funds at their cap')}${tile('t', working, 'Buffers working', 'state=engaged', 'Show only funds whose buffer is absorbing losses')}${tile('b', soon, 'Reset within 30 days', 'days=30', 'Show only funds that reset within 30 days')}</div>`;
+}
+function incomePulse(){
+  const pool = S.income.filter(imatches), withW = pool.filter(r => iw(r) && iw(r).gap != null);
+  const aheadN = withW.filter(r => iw(r).gap > 0.5).length, fell = withW.filter(r => iw(r).price < 0).length, fat = withW.filter(r => iw(r).cash >= 10).length;
+  const tile = (cls, v, l, key, title) => `<button type="button" class="rt ${cls}" data-tile="income:${key}" title="${esc(title)}"><span class="v">${v}</span><span class="l">${l}</span><span class="go">›</span></button>`;
+  return `<div class="read slim">${tile('t', fat, 'Paid 10% or more in cash', 'sort=cash', 'Sort by cash paid, largest first')}${tile('c', fell, 'Price fell', 'sort=price', 'Sort by price change, worst first')}${tile('b', aheadN, 'Ahead of their benchmark', 'state=ahead', 'Show only funds ahead of their benchmark')}</div>`;
+}
+function applyTile(spec){
+  const [desk, kv] = spec.split(':'); const [k, v] = kv.split('=');
+  if (desk === 'buffer') { S.filters.q = ''; S.filters.state = ''; S.filters.days = ''; if (k === 'state') S.filters.state = v; if (k === 'days') S.filters.days = v; }
+  else { S.ifilters.q = ''; S.ifilters.state = ''; if (k === 'state') S.ifilters.state = v; if (k === 'sort') S.isort = { k: v, dir: v === 'price' ? 'asc' : 'desc' }; }
+  if (S.desk === desk && S.view === 'desk') render(); else location.hash = `#/${desk}/desk`;
+}
+function exportCsv(){
+  const isB = S.desk === 'buffer';
+  const cols = (isB ? COLS : ICOLS).filter(c => c.v);
+  const rows = isB ? sortRows(S.funds.filter(matches), COLS, S.sort) : sortRows(S.income.filter(imatches), ICOLS, S.isort);
+  const cell = x => { if (x == null) return ''; const t = String(x); return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+  const head = cols.map(c => cell(c.l + (c.etfiq || c.src === 'etfiq' ? ' (ETFIQ)' : ''))).join(',');
+  const body = rows.map(r => cols.map(c => cell(c.v(r))).join(',')).join('\n');
+  const note = `# ETFIQ ${isB ? 'buffer' : 'income'} desk, data as of ${isB ? CONFIG.asOf : CONFIG.incomeAsOf}${isB ? '' : ', window ' + S.window}. Independent publisher, no recommendations. https://etfiq.com`;
+  const blob = new Blob([note + '\n' + head + '\n' + body], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `etfiq-${isB ? 'buffer' : 'income'}-${isB ? CONFIG.asOf : CONFIG.incomeAsOf}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+
 /* ====================== check a fund: the easy layer ====================== */
 const POPULAR = { buffer: ['BJUL', 'PJAN', 'BOCT', 'POCT', 'DNOV', 'FJUL', 'UOCT', 'PAPR', 'XJUL', 'SIXH', 'TJUL', 'BALT'], income: ['JEPI', 'JEPQ', 'SPYI', 'QYLD', 'XYLD', 'DIVO', 'QQQI', 'GPIX', 'GPIQ', 'ISPY', 'FEPI', 'JEPY'] };
 function viewCheck(){
@@ -1299,7 +1339,7 @@ function viewCheck(){
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${isB ? 'Ticker, for example PJAN' : 'Ticker, for example JEPI'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${S.desk}/check/${x}">${x}</a>`).join('')}</div></div>
-    ${result}${doors}</div>`;
+    ${result}${doors}<div class="sec tight"><span class="eyebrow">${isB ? 'The buffer desk today' : 'The income desk over ' + WIN_LABEL[S.window]}</span></div>${isB ? bufferPulse() : incomePulse()}</div>`;
 }
 
 /* ====================== explainer ====================== */
@@ -1436,6 +1476,8 @@ function wire(){
     const kd = t.closest('[data-kind]'); if (kd) { S.ifilters.kind = kd.dataset.kind; store.set('etfiq.kind', S.ifilters.kind); computeIncomeScale(); render(); return; }
     const seg = t.closest('.seg button'); if (seg) { S.grouped = seg.dataset.g === '1'; render(); return; }
     if (t.closest('#compact')) { S.compact = !S.compact; store.set('etfiq.compact', S.compact); render(); return; }
+    if (t.closest('#csv')) { exportCsv(); return; }
+    const tl = t.closest('[data-tile]'); if (tl) { applyTile(tl.dataset.tile); return; }
     const win = t.closest('[data-win]'); if (win && !win.disabled) { S.window = win.dataset.win; store.set('etfiq.window', S.window); computeIncomeScale(); if (S.panel && S.panel.kind === 'income') { $('#panel').innerHTML = incomePanel(S.byI.get(S.panel.t)); } else render(); return; }
     const lad = t.closest('[data-ladder]'); if (lad) { const s = S.series.get(lad.dataset.ladder); if (s) { S.ladder = s.funds.map(f => f.ticker); saveLadder(); location.hash = '#/buffer/ladder'; } return; }
     const lt = t.closest('[data-ladtoggle]'); if (lt) { const k = lt.dataset.ladtoggle; if (S.ladder.includes(k)) S.ladder = S.ladder.filter(x => x !== k); else S.ladder.push(k); saveLadder(); lt.textContent = S.ladder.includes(k) ? 'Remove from ladder' : 'Add to ladder'; return; }
