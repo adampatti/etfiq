@@ -69,12 +69,16 @@ jobs:
         run: python pipeline/draft.py && python pipeline/research.py
       - name: Build the page
         run: python pipeline/build_site.py
+      - name: Embeddable graphics
+        id: embed
+        continue-on-error: true
+        run: python pipeline/embed.py
       - name: Static pages for crawlers
         run: python pipeline/prerender.py
       - name: Accuracy census (every number recomputed from the raw sources)
         id: census
         continue-on-error: true
-        run: python pipeline/census.py income buffer themes payouts books research pages compare faqs
+        run: python pipeline/census.py income buffer themes payouts books research pages compare faqs embeds docs
       - name: No em dashes anywhere on the site
         run: |
           if grep -rl $'\xe2\x80\x94' site --include='*.html' --include='*.txt' --include='*.json' --include='*.xml'; then echo "em dash found"; exit 1; fi
@@ -82,7 +86,7 @@ jobs:
         run: |
           git config user.name "etfiq-snapshot"
           git config user.email "snapshot@etfiq.com"
-          DATA="data/snapshots data/income_universe.json data/fees.json data/research data/census site/data site/research site/portfolio site/compare site/funds site/buffer site/income site/themes site/sitemap.xml site/robots.txt site/llms.txt pipeline/cache/innovator_pages.json"
+          DATA="data/snapshots data/income_universe.json data/fees.json data/research data/census site/data site/research site/portfolio site/compare site/embed site/learn site/standards site/issuers site/changed site/about site/contact site/blog site/services site/hello-world site/funds site/buffer site/income site/themes site/sitemap.xml site/robots.txt site/llms.txt pipeline/cache/innovator_pages.json"
           git add $DATA site/index.html
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           tar cf /tmp/snapshot-data.tar $DATA

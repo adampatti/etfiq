@@ -707,11 +707,12 @@ def page_text(path):
 
 
 def shows(body, v, d=1, sign=False):
-    """Is a figure printed on the page, in the site's own format?"""
+    """Is a figure printed on the page, in the site's own format? Matched on a digit boundary, so 0.8% never
+    stands in for 8%."""
     if v is None:
         return True
-    forms = {f'{abs(v):.{d}f}%', f'{v:+.{d}f}%'.replace('+-', '-'), f'{abs(v):.{d}f} pts', f'{v:+.{d}f} pts'.replace('+-', '-'), f'{abs(v):.0f}%'}
-    return any(f in body for f in forms)
+    forms = {f'{abs(v):.{d}f}%', f'{abs(v):.{d}f} pts'}
+    return any(re.search(r'(?<![\d.])' + re.escape(f), body) for f in forms)
 
 
 def stage_compare():
@@ -847,6 +848,97 @@ def stage_faqs():
     tally('faqs', n)
 
 
+def stage_embeds():
+    """Every embeddable graphic carries the fund's own figures, so a card on someone else's page cannot drift
+    from the desk it came from."""
+    root = ROOT / 'site' / 'embed'
+    if not root.exists():
+        note('embeds', 'site/embed', 'directory', None, None, 'no embeddable graphics built')
+        return
+    data = {'buffer': {f['ticker']: f for f in load('site/data/funds.json') or []},
+            'income': {r['ticker']: r for r in load('site/data/income.json') or []},
+            'themes': {r['ticker']: r for r in (load('site/data/thematic.json') or {}).get('funds', [])}}
+    n = 0
+    for desk, by in data.items():
+        d = root / desk
+        if not d.exists():
+            note('embeds', desk, 'directory', None, None, 'no graphics for this desk')
+            continue
+        for f in sorted(d.glob('*.svg')):
+            t = f.stem
+            r = by.get(t)
+            if not r:
+                note('embeds', t, 'fund', None, None, f'graphic for a fund not on the {desk} desk')
+                continue
+            n += 1
+            body = re.sub(r'<[^>]+>', ' ', f.read_text()).replace('\u2212', '-')
+            body = re.sub(r'\s+', ' ', html.unescape(body))
+            if t not in body:
+                note('embeds', t, 'ticker', None, None, 'ticker not printed on the card')
+            if desk == 'buffer':
+                checks = [('fall before buffer', r.get('downsideBeforeBuffer'), 1)]
+                if not r.get('isUncapped'):
+                    checks.append(('can still gain', r.get('remainingCapFund'), 1))
+                checks.append(('reference return', r.get('refReturn'), 1))
+            elif desk == 'income':
+                w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+                checks = [('cash paid', w.get('cash'), 1), ('total return', w.get('total'), 1)]
+            else:
+                v = r.get('vsSPY') or {}
+                checks = [('in the S&P 500', v.get('inIndex'), 0), ('active share', v.get('activeShare'), 0)]
+            for label, val, dg in checks:
+                if not shows(body, val, dg):
+                    note('embeds', t, label, val, None, 'figure not printed on the card')
+            if 'etfiq.com' not in body:
+                note('embeds', t, 'credit', None, None, 'no credit on the card')
+    tally('embeds', n)
+
+
+def stage_docs():
+    """The static explainer, standards and hub pages exist and carry what they claim."""
+    want = ['standards/index.html', 'learn/index.html', 'learn/buffer.html', 'learn/income.html', 'learn/themes.html', 'changed/index.html', 'issuers/index.html']
+    n = 0
+    for rel in want:
+        p = ROOT / 'site' / rel
+        if not p.exists():
+            note('docs', rel, 'file', None, None, 'page missing')
+            continue
+        n += 1
+        body = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', re.sub(r'<style[^>]*>.*?</style>|<script[^>]*>.*?</script>', ' ', p.read_text(), flags=re.S))))
+        if len(body) < 900:
+            note('docs', rel, 'length', len(body), '>900', 'page looks empty')
+        if 'standards' in rel and 'independent publisher' not in body:
+            note('docs', rel, 'independence', None, None, 'the independence statement is missing')
+        if rel.startswith('learn/') and rel != 'learn/index.html' and body.count('.') < 20:
+            note('docs', rel, 'terms', None, None, 'the glossary looks short')
+    # the insight lines on the changed page agree with the desk files
+    ins = load('site/data/insights.json') or {}
+    p = ROOT / 'site' / 'changed' / 'index.html'
+    if p.exists():
+        body = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', p.read_text())))
+        for line in (ins.get('lines') or []):
+            if re.sub(r'\s+', ' ', line['text']) not in body:
+                note('docs', 'changed', 'line', line['text'][:60], None, 'insight line not on the page')
+    # every hub lists only funds that are on that desk
+    funds = {f['ticker'] for f in load('site/data/funds.json') or []}
+    themes = {r['ticker'] for r in (load('site/data/thematic.json') or {}).get('funds', [])}
+    for p in sorted((ROOT / 'site' / 'buffer').glob('*.html')):
+        if p.name == 'index.html':
+            continue
+        n += 1
+        for t in set(re.findall(r'/funds/([A-Z0-9.]+)\.html', p.read_text())):
+            if t not in funds:
+                note('docs', p.name, 'fund', t, None, 'listed on a buffer hub but not on the buffer desk')
+    for p in sorted((ROOT / 'site' / 'themes').glob('*.html')):
+        if p.name == 'index.html':
+            continue
+        n += 1
+        for t in set(re.findall(r'/funds/([A-Z0-9.]+)\.html', p.read_text())):
+            if t not in themes:
+                note('docs', p.name, 'fund', t, None, 'listed on a theme hub but not on the themes desk')
+    tally('docs', n)
+
+
 # ---------------------------------------------------------------- report
 def report(stages):
     out = {'asOf': TODAY.isoformat(), 'stages': stages, 'counts': COUNTS, 'findings': FINDINGS}
@@ -870,7 +962,7 @@ def report(stages):
 
 
 if __name__ == '__main__':
-    stages = sys.argv[1:] or ['income', 'buffer', 'live', 'themes', 'payouts', 'books', 'research', 'pages', 'compare', 'faqs']
+    stages = sys.argv[1:] or ['income', 'buffer', 'live', 'themes', 'payouts', 'books', 'research', 'pages', 'compare', 'faqs', 'embeds', 'docs']
     funds = None
     if 'income' in stages:
         stage_income()
@@ -892,5 +984,9 @@ if __name__ == '__main__':
         stage_compare()
     if 'faqs' in stages:
         stage_faqs()
+    if 'embeds' in stages:
+        stage_embeds()
+    if 'docs' in stages:
+        stage_docs()
     report(stages)
     sys.exit(1 if FINDINGS else 0)
