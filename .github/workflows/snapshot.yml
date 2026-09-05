@@ -44,9 +44,22 @@ jobs:
         run: |
           git config user.name "etfiq-snapshot"
           git config user.email "snapshot@etfiq.com"
-          git add data/snapshots data/income_universe.json site/data site/index.html pipeline/cache/innovator_pages.json
-          git diff --cached --quiet || git commit -m "Snapshot $(date -u +%F)"
-          git push
+          DATA="data/snapshots data/income_universe.json site/data pipeline/cache/innovator_pages.json"
+          git add $DATA site/index.html
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          tar cf /tmp/snapshot-data.tar $DATA
+          git commit -m "Snapshot $(date -u +%F)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "main moved while this run was working; rebuilding the page on the newest code"
+            git fetch origin main
+            git reset --hard origin/main
+            tar xf /tmp/snapshot-data.tar
+            python pipeline/build_site.py
+            git add $DATA site/index.html
+            git diff --cached --quiet || git commit -m "Snapshot $(date -u +%F)"
+          done
+          exit 1
       # A push made with GITHUB_TOKEN does not trigger other workflows, so deploy from here as well.
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
