@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:ft="http://www.ftportfolios.com/20260327"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ft-20260327.xsd" xlink:type="simple"/>
+    <context id="D_27Mar2026_27Mar2026">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_C000272279">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ft:C000272279Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_RiskNotInsuredDepositoryInstitutionMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredDepositoryInstitutionMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_AbsenceOfAnActiveMarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:AbsenceOfAnActiveMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_ConcentratedInvestmentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:ConcentratedInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_ConflictOfInterestRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:ConflictOfInterestRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_CounterpartyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:CounterpartyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_CurrentMarketConditionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:CurrentMarketConditionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_CyberSecurityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:CyberSecurityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_FlexOptionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:FlexOptionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_FlexOptionsValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:FlexOptionsValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_IndexOrModelConstituentRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:IndexOrModelConstituentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_InformationTechnologyCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:InformationTechnologyCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_LargeCapitalizationCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:LargeCapitalizationCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_ManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:ManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_RiskNondiversifiedMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:RiskNondiversifiedMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_OperationalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:OperationalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_OptionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:OptionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_PortfolioTurnoverRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:PortfolioTurnoverRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_PremiumDiscountRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:PremiumDiscountRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_SignificantExposureRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:SignificantExposureRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_SPYEquityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:SPYEquityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_SpyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:SpyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_TargetOutcomePeriodRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:TargetOutcomePeriodRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_TaxRiskFromInvestmentInOtherInvestmentCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:TaxRiskFromInvestmentInOtherInvestmentCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_TradingIssuesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:TradingIssuesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_UnderlyingETFConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:UnderlyingETFConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_UnderlyingETFExposureRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:UnderlyingETFExposureRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_UnderlyingETFRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:UnderlyingETFRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <context id="S000101906_UpsideRateofReturnRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001667919</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ft:S000101906Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ft:UpsideRateofReturnRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-03-27</startDate>
+            <endDate>2026-03-27</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_27Mar2026_27Mar2026" id="apid_1">2026-03-27</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_27Mar2026_27Mar2026" id="apid_2">0001667919</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_27Mar2026_27Mar2026" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_27Mar2026_27Mar2026" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_27Mar2026_27Mar2026"
+      id="a181e23d-47ac-4d14-8232-6f2903a9b63a">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_27Mar2026_27Mar2026"
+      id="apid_353bd96c-66fc-40d7-a5d6-9084fe2d1ea4">First Trust Exchange-Traded Fund VIII</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_27Mar2026_27Mar2026"
+      id="apid_7f3e4170-e6dc-4250-80b5-01a0834fd204">2026-03-30</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000101906"
+      id="x_4317b0c1-c617-435a-9e79-ff2ae64c4bc3">&lt;span style="color:#000000;font-family:Arial;font-size:12.60pt;font-weight:bold;"&gt;FT Vest Laddered U.S. Equity Uncapped Accelerator ETF (BFXU)&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000101906"
+      id="x_587abf6a-b696-4d59-8572-90efe58853c9">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000101906"
+      id="x_897f841c-00c0-48a0-93e1-57413bccd9cd">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The investment objective of the FT Vest Laddered U.S. Equity Uncapped Accelerator ETF (the &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Fund&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;) is to seek to provide investors with capital appreciation.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000101906"
+      id="x_25049d36-1f0f-40c7-8845-2e09ec755ef0">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000101906"
+      id="b003224d-5b32-44d9-9857-6c17f298ddf8">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The following table describes the fees and expenses you may pay if you buy, hold and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Investors may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;the table and example below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000101906"
+      id="x_47c34a41-6a70-4365-b094-6e9eb54c5301">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Annual Fund Operating Expenses&lt;/span&gt;
+&lt;br/&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;(expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000101906_C000272279"
+      decimals="4"
+      id="x_85b6f7a3-d0ac-4794-8fed-386c2becd6ab"
+      unitRef="pure">0.0010</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000101906_C000272279"
+      decimals="4"
+      id="x_136b630b-ab59-44f7-9799-46922cd1c502"
+      unitRef="pure">0.0000</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000101906_C000272279"
+      decimals="4"
+      id="x_4b0a0e2f-2569-40d0-a2a2-53326dcbb314"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:AcquiredFundFeesAndExpensesOverAssets
+      contextRef="S000101906_C000272279"
+      decimals="4"
+      id="x_5fa68314-fa9e-4e1f-9d01-4e53c524e35c"
+      unitRef="pure">0.0085</oef:AcquiredFundFeesAndExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000101906_C000272279"
+      decimals="4"
+      id="fc6592c4-5529-4f31-8fd0-7cb6cedeac2d"
+      unitRef="pure">0.0095</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000101906"
+      id="f16b3fae-a16e-4385-a570-26588adb98d6">&lt;span style="color:#000000;font-family:Arial;font-size:8.10pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; is an estimate based on the expenses the Fund expects to incur for the current fiscal year.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="S000101906"
+      id="f6623ba6-1cbe-497b-94fb-1d71ea0a0e0a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;font-weight:bold;"&gt;Example&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNoRedemptionNarrativeTextBlock
+      contextRef="S000101906"
+      id="bbc54deb-1a14-4fd4-b809-63ae51c88b83">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The example below is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The example assumes that you invest $10,000 in the Fund for the time periods indicated and then hold or sell all of your shares at the end of those periods. The example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain at current levels. Although your actual costs may be higher or lower, based on these &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;assumptions your costs would be:&lt;/span&gt;</oef:ExpenseExampleNoRedemptionNarrativeTextBlock>
+    <oef:ExpenseExampleNoRedemptionYear01
+      contextRef="S000101906_C000272279"
+      decimals="INF"
+      id="x_158f5d7a-c40e-45ec-99b4-8de9990fe012"
+      unitRef="USD">97</oef:ExpenseExampleNoRedemptionYear01>
+    <oef:ExpenseExampleNoRedemptionYear03
+      contextRef="S000101906_C000272279"
+      decimals="INF"
+      id="x_04feb013-f854-43f4-a7ee-8850740edf1b"
+      unitRef="USD">303</oef:ExpenseExampleNoRedemptionYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000101906"
+      id="x_595cc9c6-7039-42e0-9cd7-00aa7b54b411">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000101906"
+      id="ccb5f10a-f64a-426c-9c7d-c25feca724e0">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;performance. The Fund has no operational history and therefore no historical turnover rate.&lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000101906"
+      id="x_14c935bc-5dd2-4d32-aaeb-ccbb43e2d5c7">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Principal Investment Strategies&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000101906"
+      id="x_829ebc68-abd7-41ae-9c4b-5e7848760875">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund seeks to achieve its investment objective by providing investors with US large-cap equity market exposure with potential for accelerated returns through a laddered portfolio of four FT Vest U.S .Equity Uncapped Accelerator ETFs (the &#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Underlying ETFs&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;). Under normal conditions, the Fund will invest at least 80% of its net assets (plus any investment borrowings) &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;in investments that provide exposure to equity securities issued by U.S. companies. The term &#x201c;accelerated returns&#x201d; refers to the potential to achieve a rate of return that exceeds the positive price return of the State Street&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; SPDR&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; S&amp;amp;P 500&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; ETF Trust &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;ETF Trust (&#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;SPY&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;), as discussed further below. The term "laddered portfolio" refers to the Fund's investment in multiple &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Underlying ETFs that have target outcome period expiration dates which occur on a rolling, or periodic, basis. See below for a discussion of "target outcome periods" and their meaning within the strategies of the Underlying ETFs. The rolling or &#x201c;laddered&#x201d; nature of the Fund&#x2019;s investments in the Underlying ETFs diversifies the timing of the Fund&#x2019;s exposure by allocating investments across multiple target outcome periods, instead of acquiring or disposing of a single Underlying ETF at one time. This approach is intended to mitigate the risk that unfavorable investment timing or reference asset pricing prevents the Fund from benefiting from the accelerated returns of any one Underlying ETF. The Fund's laddered approach is intended to give the Fund the opportunity to continue to benefit from increases in the value of SPY at any given time. The Fund invests in the Underlying ETFs in a laddered manner. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;Unlike the Underlying ETFs, the Fund itself does not pursue a target outcome &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;strategy. The Upside Rate of Return is only provided by the Underlying ETFs and the Fund could have limited upside &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;potential. The Underlying ETFs will not participate in gains of SPY unless SPY appreciates above the Target Upside Deductible at the end of the applicable Target Outcome Period, and any such gains are subject to the applicable Upside Rate of Return. The Fund&#x2019;s returns may be limited by the Upside Rates of Return of the Underlying ETFs and the Fund &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;itself does not provide any Upside Rate of Return.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;In order to understand the Fund&#x2019;s strategy and risks, it is important to understand the strategies and risks of the Underlying ETFs. See &#x201c;Additional Information on the Fund's Investment Objective and Strategies&#x201d; for a discussion of the principal investment &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;strategies of the Underlying ETFs.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Under normal market conditions, the Fund will invest substantially all of its assets in the Underlying ETFs, which seek to provide investors with the potential for rates of return (before fees and expenses) that outperform the positive price return of SPY if SPY experiences at least 2.0% of positive returns over a defined one year period. The Fund is designed to provide investors with the ability to participate in the potential accelerated returns that the Underlying ETFs may provide. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;However, because &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;the Fund's laddered approach means it may acquire and dispose of Underlying ETF shares at various points within their Target Outcome Periods rather than holding them through the entire period, the Fund may not realize the full Upside Rate of Return that would only be achieved if the Target Upside Deductible is exceeded at the end of a Target Outcome Period.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; It is anticipated that the Fund will benefit from some level of accelerated return, but the amount will depend on various &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;factors including Underlying ETF performance and the Fund's trading activity. The Fund will not engage in any principal transactions with the Underlying ETFs. The Fund and each Underlying ETF are advised by First Trust Advisors L.P. (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;First Trust&#x201d;  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Advisor&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) and sub-advised by Vest Financial LLC (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Vest&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; or the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Sub-Advisor&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;). PDR Services, LLC (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;PDR&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) serves as &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;SPY&#x2019;s sponsor. The investment objective of SPY is to seek to provide investment results that, before expenses, correspond generally to the price and yield performance of the S&amp;amp;P 500&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Index. See "State Street&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; SPDR&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; S&amp;amp;P 500&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; ETF Trust" below for more information.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Underlying ETFs invest substantially all of their assets in FLexible EXchange&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:6.5pt;position:relative;top:-2.75pt;"&gt;&#xae;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Options (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;FLEX&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;line-height:9.84pt;"&gt;  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;Options&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;) that utilize SPY &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;as the reference asset. FLEX Options are customizable exchange-traded option contracts guaranteed for settlement by the Options Clearing Corporation. Each Underlying ETF uses FLEX Options to employ a &#x201c;target outcome strategy.&#x201d; Target outcome strategies seek to produce pre-determined investment outcomes based upon the performance of an underlying security or index (in this case, SPY). The pre-determined outcomes sought by the Underlying ETFs, which include one-to-one participation in losses of SPY and a target rate of return that is greater than the price return increase of SPY (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;"Upside Rate of Return"&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;), &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;are based on the price return of SPY over an approximate one-year period beginning on the third Friday in the month for which each Underlying ETF is named and ending on the third Friday of the same month in the following year (each, a &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Target Outcome &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;margin-left:0%;"&gt;Period&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;). Each Underlying ETF will only participate in the full Upside Rate of Return if SPY appreciates at the end of a target &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;outcome period at a level above 102% of the price of SPY on the first day of a target outcome period (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;Target Upside &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;margin-left:0%;"&gt;Deductible&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;). If SPY appreciates at the end of the Target Outcome Period, but at a level below the Target Upside Deductible, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Underlying ETF will not participate in any of the gains experienced by the price return of SPY. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;The Underlying ETF will &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;only experience gains if SPY's price return increases above the Target Upside Deductible at the end of the Target Outcome Period.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Each Underlying ETF establishes a new Upside Rate of Return annually at the beginning of each Target Outcome Period. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;The Fund is designed to provide investors with the ability to participate in potential accelerated returns, but the Fund may not realize the specific Upside Rate of Return described for the Underlying ETFs.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Instead, the Fund may benefit from &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;varying levels of accelerated return depending on market conditions and timing. See &#x201c;Upside Rate of Return&#x201d; below under &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201c;Additional Information on the Fund&#x2019;s Investment Objective and Strategies.&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Each Underlying ETF&#x2019;s strategy has been specifically designed to produce the outcomes (before fees and expenses) based upon SPY&#x2019;s price returns over the duration of a Target Outcome Period. At the end of each Target Outcome Period, an Underlying ETF&#x2019;s FLEX Options are generally allowed to expire or sold at or near their expiration, and the proceeds are used to purchase (or roll into) a new set of FLEX Options expiring in approximately one year. This means that each of the Underlying ETFs will undergo a &#x201c;reset&#x201d; of its Upside Rate of Return annually. Each Underlying ETF will undergo such reset in a different quarter of the calendar year. The rolling or &#x201c;laddered&#x201d; nature of the investments in the Underlying ETFs creates diversification of investment time period and market level (meaning the price of SPY at any given time) compared to the risk of acquiring or disposing of any one Underlying ETF at any one time. Because the Fund typically will not acquire shares of the Underlying ETFs on the first day of a Target Outcome Period and may dispose of shares of the Underlying ETFs before the end of the Target Outcome Period the Fund may experience investment returns that are very different from those that the Underlying ETFs seek to provide. If an Underlying ETF has experienced certain levels of either gains or losses since the beginning of its current Target Outcome Period, there may be little to no ability for the Fund to achieve gains for the remainder of the Target &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Outcome Period.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;When an investor purchases shares of a single Underlying ETF, his or her potential outcomes are dependent upon the Underlying ETF&#x2019;s Target Upside Deductible being exceeded and are limited by the Underlying ETF&#x2019;s stated Upside Rate of Return over a defined time period (depending on when the shares were purchased). The Fund's ability to benefit from accelerated returns depends on the Underlying ETFs' performance. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;If an Underlying ETF does not appreciate above the Target Upside &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;Deductible at the end of its Target Outcome Period, the Fund will not receive the full intended Upside Rate of Return from that Underlying ETF.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Because the Fund may dispose of Underlying ETF shares prior to the end of a Target Outcome &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Period, the Fund's returns may differ from the specific outcomes the Underlying ETFs seek to provide for investors holding through complete Target Outcome Periods. The level of accelerated return realized by the Fund will vary based on the performance of the Underlying ETFs and the timing of the Fund's transactions. Because the Underlying ETFs only participate in accelerated returns after SPY&#x2019;s price return exceeds the Target Upside Deductible, the Fund will forgo returns of SPY below the Target Upside Deductible. As a result, the price return of SPY may need to materially exceed the Target Upside Deductible before the Fund recoups these forgone returns. The point at which the Underlying ETF&#x2019;s positive accelerated returns may exceed SPY&#x2019;s price returns is referred to as the &#x201c;Hypothetical Payoff Point.&#x201d; Therefore, the rate of return that an investor receives may be less than the price return of SPY even if the Target Upside Deductible is exceeded at the end of the Target Outcome Period, unless SPY&#x2019;s returns exceed the Hypothetical Payoff Point. See the table set forth in the section entitled &#x201c;Upside Rate of Return&#x201d; for more information. Alternatively, the Fund&#x2019;s laddered approach provides a diversified exposure to all of the Underlying ETFs in a single investment. By owning a laddered portfolio of Underlying ETFs, the Fund has the opportunity to continue to benefit from increases in the value of SPY as each of the Underlying ETFs will reset its Upside Rate of Return annually based on the price of SPY at the time of the reset. In other words, the continual and periodic refreshing of the Underlying ETF Upside Rates of Return at current SPY prices is intended to give the Fund the opportunity to continue to benefit from increases in the value of SPY. Annually, each of the Underlying ETFs will undergo a reset of its Upside Rate of Return, meaning that investors may have the ability to benefit from any appreciation in SPY for future periods up to the respective Upside Rates of Return of the Underlying ETFs but only if the Target Upside Deductible is achieved at the end of the Target Outcome Period. A laddered portfolio can diversify timing risk, similar to how laddered bond portfolios seek to manage timing risks for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fixed-income investors.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund intends to generally rebalance its portfolio to equal weight among the Underlying ETFs quarterly. The Fund also will acquire and dispose of Underlying ETFs in connection with the creation and redemption of Creation Units between quarterly rebalances. When the Fund acquires and disposes of shares of the Underlying ETFs in between quarterly rebalances in connection with the creation and redemption of Creation Units, it will acquire such shares pro rata based on the then current weightings of the Underlying ETFs in the Fund&#x2019;s portfolio. The Fund does not seek to optimize investment returns by allocating to Underlying ETFs with the greatest upside potential. This approach is consistent with the Fund&#x2019;s laddered strategy, which is designed to diversify the timing of the Fund&#x2019;s exposure by allocating investments across multiple Target Outcome Periods. As a result, when the Fund acquires or disposes of Underlying ETF shares in connection with creation and redemption activity, the Fund will not take into account the time remaining until the end of the Target Outcome Period for any Underlying ETF or the value of each Underlying ETF relative to the Target Upside Deductible. This approach may result in the Fund acquiring shares of Underlying ETFs that have limited remaining value relative to the Target Upside Deductible for the current Target Outcome Period, or disposing of shares of Underlying ETFs that have significant remaining value relative to the Target Upside Deductible. Consequently, the Fund&#x2019;s returns may differ from the returns an investor could achieve by selecting specific Underlying ETFs based on their individual investment characteristics at any given time. In between such rebalances, market movements in the prices of the Underlying ETFs may result in the Fund having temporary larger exposures to certain Underlying ETFs compared to others. Under such circumstances, the Fund&#x2019;s returns would be more greatly influenced by the returns of the Underlying ETFs with the larger exposures. If an over-weighted Underlying ETF underperforms the other Underlying ETFs, the Fund will experience returns that are inferior to those that would have been achieved if the Underlying ETFs were equally &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;weighted. See Significant Exposure Risk below.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund&#x2019;s portfolio consists of four Underlying ETFs: FT Vest U.S. Equity Uncapped Accelerator ETF &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:2.5pt;"&gt;&#x2013; January (UXJA), FT &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Vest U.S. Equity Uncapped Accelerator ETF &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:2.5pt;"&gt;&#x2013; April (UXAP), FT Vest U.S. Equity Uncapped Accelerator ETF &#x2013; July (UXJL), &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;and FT Vest U.S. Equity Uncapped Accelerator ETF &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:2.5pt;"&gt;&#x2013; October (UXOC). The current list of Underlying ETFs in the Fund's portfolio &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;can also be found at&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;line-height:10.80pt;"&gt;&#x2009;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; http://www.ftportfolios.com/retail/etf/EtfSummary.aspx?Ticker=BFXU.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;The Fund's website will provide, on a daily basis, the proportion of the Fund's assets invested in each Underlying ETF at any given time. Each Underlying ETF&#x2019;s website provides important information (including Target Outcome Period start and end dates, the Upside Rate of Return and the value of the Underlying ETF relative to the Target Upside Deductible at the start of the Underlying ETF's Target Outcome Period and on any particular day relative to the end of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;the Target Outcome Period).&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;Although this website information may be useful in understanding the investment strategies of the Underlying ETFs, it is of limited use in providing an investor of the Fund with all of the risks and potential outcomes associated with an investment by the Fund in the Underlying ETFs. For example, it does not provide a direct example of your potential investment return in the Fund because of the Fund&#x2019;s laddered exposure to the Underlying ETFs in which each one of the Underlying ETFs will reset its Upside Rate of Return annually based on prevailing market conditions. Further, the Fund typically will not acquire Underlying ETF shares on the first day of a Target Outcome Period. Because the Underlying ETF shares held by the Fund will have a different value relative to the Target Upside Deductible than at the start of the Target Outcome Period, the Fund&#x2019;s investment returns are likely to differ from those the Underlying ETFs seek to provide. Given the Fund&#x2019;s investment in multiple Underlying ETFs with staggered Target Outcome Periods, each with its own Upside Rate of Return and position relative to the Target Upside Deductible, it may be difficult for an investor to predict &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;the potential outcomes associated with an investment in the Underlying ETFs at any given time.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund&#x2019;s investment strategy may include active and frequent trading. The Fund is classified as &#x201c;non-diversified&#x201d; under the Investment Company Act of 1940, as amended (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;&#x201c;1940 Act&#x201d;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;). The Fund may not invest 25% or more of the value of its &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;total assets in securities of issuers in any one industry or group of industries except to the extent that the underlying referenced &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;index of the Underlying ETFs invests more than 25% of its assets in an industry or group of industries.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;As of February 27, 2026, SPY had significant investments in information technology companies, although this may change &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;from time to time.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="S000101906"
+      id="x_4f22218b-fae2-4cff-95d7-72a6f9413327">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;As of February 27, 2026, SPY had significant investments in information technology companies, although this may change &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;from time to time.&lt;/span&gt;</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="S000101906_RiskLoseMoneyMember"
+      id="x_06523de6-2dbd-49d0-a1b9-09d922ae5498">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;You could lose money by investing in the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_RiskNotInsuredDepositoryInstitutionMember"
+      id="x_58cdb704-09e4-4190-8700-63c6519fb426">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;An investment in the Fund is not a deposit of a bank and is not insured or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;guaranteed by the Federal Deposit Insurance Corporation or any other governmental agency.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_AbsenceOfAnActiveMarketRiskMember"
+      id="x_40a776ef-32dc-46e4-8358-94295db07784">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;ABSENCE OF AN ACTIVE MARKET RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund faces numerous market trading risks, including the potential lack of an &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;active market for Fund shares due to a limited number of market makers or authorized participants. The Fund may rely on a small number of third-party market makers to provide a market for the purchase and sale of shares and market makers are under no obligation to make a market in the Fund&#x2019;s shares. Additionally, only a limited number of institutions act as authorized participants for the Fund and only an authorized participant may engage in creation or redemption transactions directly with the Fund and are not obligated to submit purchase or redemption orders for Creation Units. Decisions by market makers or authorized participants to reduce their role or step away from these activities in times of market stress could inhibit the effectiveness of the arbitrage process in maintaining the relationship between the underlying values of the Fund&#x2019;s portfolio securities and the Fund&#x2019;s market price. Any trading halt or other problem relating to the trading activity of these market makers or any issues disrupting the authorized participants&#x2019; ability to proceed with creation and/or redemption orders could result in a dramatic change in the spread between the Fund&#x2019;s net asset value and the price at which the Fund&#x2019;s shares are trading on the Exchange, which could result in a decrease in value of the Fund&#x2019;s shares. This reduced effectiveness could result in Fund shares trading at a premium or discount to net asset value and also in greater than normal intraday bid-ask spreads for &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Fund shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906"
+      id="x_0ed4ef33-118f-4583-8ec1-1600e8ef924a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;ACCELERATED RETURN RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; There can be no guarantee that an Underlying ETF will be successful in its strategy to provide &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Upside Rate of Return during market conditions where SPY is increasing in value. While the Fund is designed to provide investors with the ability to participate in the accelerated returns of the Underlying ETFs, the Fund may realize returns that differ from, and may be less than, the full Upside Rate of Return associated with holding an Underlying ETF through the entire Target Outcome Period. It is anticipated that the Fund will benefit from some level of accelerated return, but the actual accelerated return realized by the Fund will depend on multiple factors including the performance of the Underlying ETF and the specific timing of the Fund's purchases and sales of Underlying ETF shares. Additionally, if SPY does not increase in value above the Target Upside Deductible and remains above the Target Upside at the end of a Target Outcome Period, the Underlying ETF will not provide investors, like the Fund, with the intended accelerated returns. In the event an investor purchases shares after the first day of a Target Outcome Period or sells shares prior to the end of a Target Outcome Period, the rate of return that the Underlying ETF seeks to provide will likely not be available. In the event an investor sells shares prior to the end of a Target Outcome Period, the investor may not receive the intended accelerated return even if the Underlying ETF&#x2019;s performance has exceeded the Target Upside Deductible at the time of sale. This is because the Upside Rate of Return will only be fully realized if shares of the Underlying ETF are held until the end of the Target Outcome Period and SPY increases in value above the Target Upside Deductible at the end of the Target Outcome Period. If SPY increases above the Target Upside Deductible during a Target Outcome Period but falls below the Target Upside Deductible by the end of the Target Outcome Period, the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Underlying ETF will likely not experience the intended accelerated returns. Accordingly, if an investor, like the Fund, disposes of shares prior to the end of a Target Outcome Period, the Fund may not benefit from the intended accelerated returns that the Underlying ETF would otherwise seek to provide, regardless of the Underlying ETF&#x2019;s value relative to the Target Upside Deductible at the time of sale. An investor, like the Fund, that holds shares through multiple Target Outcome Periods may fail to experience gains comparable to those of SPY over time because investors will not participate in the positive price returns of SPY in a Target Outcome Period if SPY does not appreciate to a level above the Target Upside Deductible. This may also make it difficult to recoup any losses from prior Target Outcome Periods. The Upside Rate of Return will only be realized if SPY increases in value above the Target Upside Deductible at the end of a Target Outcome Period. If SPY increases above the Target Upside Deductible during a Target Outcome Period but fails to remain above the Target Upside Deductible at the end of a Target Outcome Period, the Underlying ETF will not experience any accelerated returns. Because any positive returns will not commence until the Target Upside Deductible is achieved, the Upside Rate of Return that the Fund may receive above the Target Upside Deductible may be less than an investment in a fund that does not have a Target Upside Deductible or Upside Rate of Return. If the Fund purchases Shares after a Target Outcome Period has begun and the Underlying ETF has risen in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;value to a level above the Target Upside Deductible, the Fund may experience more losses than SPY experiences.  &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Underlying ETF seeks to provide outcomes for an entire Target Outcome Period and does not seek to provide outcomes on a daily or other short-term basis, which is an attribute of other types of exchange-traded funds that provide a daily, multiple exposure to a reference index (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;, a &#x201c;daily leveraged ETF&#x201d;). The value of the FLEX Options held by the Underlying ETF is &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;ultimately derived from the price performance of SPY for the entire Target Outcome Period. As a result, it is very unlikely that, on any given day during which SPY share price increases in value, the Underlying ETF&#x2019;s share price will increase at the same rate as the rate of return sought by the Underlying ETF (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;, the Upside Rate of Return), which is designed for an entire Target &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Outcome Period. Additionally, because of the way the FLEX Options are structured there are certain time periods where the value of the Underlying ETF may fall faster than the value of SPY. For example, this could occur if the value of SPY has risen &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;since the first day of a Target Outcome Period then falls back to its value on the first day of a Target Outcome Period.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The returns with respect to the Underlying ETF for a Target Outcome Period may be lower than the price return of SPY or an investment in a fund that does not utilize a Target Upside Deductible or an Upside Rate of Return. This is because the Underlying ETF will forgo any positive returns unless the Target Upside Deductible is surpassed at the end of a Target Outcome Period. In this regard, the price return of SPY may need to materially exceed the Target Upside Deductible before the Underlying ETF recoups these forgone returns with an Upside Rate of Return. The returns that an investor like the Fund receives may therefore be less than the price return of SPY even if the Target Upside Deductible is exceeded at the end of a Target Outcome Period. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;If SPY&#x2019;s share price increases in value above the Target Upside Deductible and remains above the Target Upside Deductible at the end of a Target Outcome Period, the Underlying ETF seeks to provide for an increase in value at a higher rate than the share price increase experienced by SPY. Likewise, there are situations during a Target Outcome Period in which the Underlying ETF may decrease in value at a higher rate than an associated decrease in SPY. If the Upside Rate of Return is experienced during a Target Outcome Period, the Underlying ETF may be subject to the possibility of losses that exceed the losses of SPY &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;for the remainder of a Target Outcome Period.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_ConcentratedInvestmentRiskMember"
+      id="b87bd8ce-558c-497e-96e2-ce070d225734">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CONCENTRATED INVESTMENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund will invest a significant percentage of its assets in a small number of ETFs. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;In addition to subjecting the Fund to the risks of investing in such ETFs as described in this prospectus, this subjects the Fund to the risk that a decline in the value of one or more ETFs could have a significant negative impact on the Fund's net asset value and your investment. In addition, the overall performance of the Fund will be largely dependent on the performance of this small number of ETFs, and if any of those ETFs experiences negative performance or fails to achieve its investment objective, the Fund and your investment could be significantly negatively impacted. Additionally, if the Fund owns a significant percentage of the outstanding shares of an ETF, large purchases and sales of the ETF's shares by the Fund may create a number of risks for the ETF and its shareholders (including the Fund), including impacts to the ETF's size, market price, liquidity, bid/ask spreads, portfolio turnover and transaction costs, tax efficiency and ability to trade underlying securities advantageously. These &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;risks may be exacerbated for newer ETFs.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_ConflictOfInterestRiskMember"
+      id="fc87229d-1c17-4c16-b589-672dad5d5330">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CONFLICT OF INTEREST RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund invests in other ETFs that are also advised by, or are otherwise affiliated with, the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Advisor. Because the Fund pays management fees in connection with its investments in other ETFs, the Advisor has a financial incentive to cause the Fund to invest in ETFs for which it also serves as investment advisor. The Advisor may invest in an affiliated &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;ETF even in circumstances where an unaffiliated ETF may have lower fees or better performance over certain time periods.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_CounterpartyRiskMember"
+      id="e89e16a0-71a4-4bb5-9f4b-ed59249f590c">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;COUNTERPARTY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Underlying ETF transactions involving a counterparty are subject to the risk that the counterparty &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;will not fulfill its obligation to the Underlying ETF. Counterparty risk may arise because of the counterparty&#x2019;s financial condition (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;, financial difficulties, bankruptcy, or insolvency), market activities and developments, or other reasons, whether foreseen &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;or not. A counterparty&#x2019;s inability to fulfill its obligation may result in significant financial loss to the Fund. An Underlying ETF may be unable to recover its investment from the counterparty or may obtain a limited recovery, and/or recovery may be delayed. The OCC acts as guarantor and central counterparty with respect to the FLEX Options. As a result, the ability of an Underlying ETF to meet its objective depends on the OCC being able to meet its obligations. In the unlikely event that the OCC becomes insolvent or is otherwise unable to meet its settlement obligations, an Underlying ETF and, in turn, the Fund &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;could suffer significant losses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_CurrentMarketConditionsRiskMember"
+      id="x_090fa429-92e0-4aee-9f0b-4d33ac78baf4">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CURRENT MARKET CONDITIONS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Current market conditions risk is the risk that a particular investment, or shares of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund in general, may fall in value due to current market conditions. As a means to fight inflation, the Federal Reserve and certain foreign central banks have raised interest rates; however, the Federal Reserve has begun to lower interest rates and may continue to do so. U.S. regulators have proposed several changes to market and issuer regulations which would directly impact the Fund, and any regulatory changes could adversely impact the Fund&#x2019;s ability to achieve its investment strategies or make certain investments. Potential future bank failures could result in disruption to the broader banking industry or markets generally and reduce confidence in financial institutions and the economy as a whole, which may also heighten market volatility and reduce liquidity. Additionally, challenges in commercial real estate markets, including high interest rates, declining valuations and elevated vacancies, could have a broader impact on financial markets. The ongoing adversarial political climate in the United States, as well as political and diplomatic events both domestic and abroad, have and may continue to have an adverse impact the U.S. regulatory landscape, markets and investor behavior, which could have a negative impact on the Fund&#x2019;s investments and operations. The change in administration resulting from the 2024 United States national elections could result in significant impacts to international trade relations, tax and immigration policies, and other aspects of the national and international political and financial landscape, which could affect, among other things, inflation and the securities markets generally. Other unexpected political, regulatory and diplomatic events within the U.S. and abroad may affect investor and consumer confidence and may adversely impact financial markets and the broader economy. For example, ongoing armed conflicts between Russia and Ukraine in Europe and among Israel, Iran, Hamas and other militant groups in the Middle East, have caused and could continue to cause significant market disruptions and volatility within the markets in Russia, Europe, the Middle East and the United States. The hostilities and sanctions resulting from those hostilities have and could continue to have a significant impact on certain Fund investments as well as Fund performance and liquidity. The economies of the United States and its trading partners, as well as the financial markets generally, may be adversely impacted by trade disputes, including the imposition of tariffs, and other matters. For example, the United States has imposed trade barriers and restrictions on China. In addition, the Chinese government is engaged in a longstanding dispute with Taiwan, continually threatening an invasion. If the political climate between the United States and China does not improve or continues to deteriorate, if China were to attempt invading Taiwan, or if other geopolitical conflicts develop or worsen, economies, markets and individual securities may be adversely affected, and the value of the Fund&#x2019;s assets may go down. A public health crisis and the ensuing policies enacted by governments and central banks may cause significant volatility and uncertainty in global financial markets, negatively impacting global growth prospects. As the COVID-19 global pandemic illustrated, such events may affect certain geographic regions, countries, sectors and industries more significantly than others. Advancements in technology may also adversely impact markets and the overall performance of the Fund. For instance, the economy may be significantly impacted by the advanced development and increased regulation of artificial intelligence. Additionally, cyber security breaches of both government and non-government entities could have negative impacts on infrastructure and the ability of such entities, including the Fund, to operate properly. These events, and any other future events, may adversely affect the prices and liquidity &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the Fund&#x2019;s portfolio investments and could result in disruptions in the trading markets.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_CyberSecurityRiskMember"
+      id="c88757ac-ba47-4512-ac41-a995125a9e50">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;CYBER SECURITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is susceptible to operational, information security and related risks through breaches in &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;cyber security. A breach in cyber security refers to both intentional and unintentional events that may cause the Fund to lose proprietary information, suffer data corruption or lose operational capacity, any of which could result in a material adverse effect on the Fund or its shareholders. Such events could cause the Fund to incur regulatory penalties, reputational damage, additional compliance costs associated with corrective measures and/or financial loss. Cyber security breaches may involve unauthorized access to the Fund&#x2019;s digital information systems through &#x201c;hacking&#x201d; or malicious software coding but may also result from outside attacks such as denial-of-service attacks through efforts to make network services unavailable to intended users. Emerging threats like ransomware or zero-day exploits could also cause disruptions to Fund operations. In addition, cyber security breaches of the issuers of securities in which the Fund invests or the Fund&#x2019;s third-party service providers, such as its administrator, transfer agent, custodian, or sub-advisor, as applicable, among many other third-party service providers, can also subject the Fund to many of the same risks associated with direct cyber security breaches. Further, errors, misconduct, or compromise of accounts of employees of the Fund or its third-party service providers can also create material cybersecurity risks. Although the Fund has established risk management systems designed to reduce the risks associated with cyber security, there is no guarantee that such efforts will succeed, especially because the Fund does not directly control the cyber security &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;systems of issuers or third-party service providers. Cyber security incidents may also trigger Fund obligations under data privacy laws, potentially increasing notification and compliance burdens. Cyber security incidents affecting issuers in whose securities the Fund invests may also have a negative impact on the value of the securities of such issuers, and in turn, the value of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_FlexOptionsRiskMember"
+      id="c7d9f9f1-67a5-4008-b23e-ba36456def31">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;FLEX OPTIONS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Underlying ETFs invest in FLEX Options. Trading FLEX Options involves risks different from, or &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;possibly greater than, the risks associated with investing directly in securities. The Underlying ETFs may experience substantial downside from specific FLEX Option positions and certain FLEX Option positions may expire worthless. The FLEX Options are listed on an exchange; however, no one can guarantee that a liquid secondary trading market will exist for the FLEX Options. In the event that trading in the FLEX Options is limited or absent, the value of the Underlying ETFs' FLEX Options may decrease. In a less liquid market for the FLEX Options, liquidating the FLEX Options may require the payment of a premium (for written FLEX Options) or acceptance of a discounted price (for purchased FLEX Options) and may take longer to complete. A less liquid trading market may adversely impact the value of the FLEX Options and Underlying ETFs&#x2019; shares and result in the Underlying ETFs and, in turn, the Fund being unable to achieve their investment objective. Less liquidity in the trading of the Underlying ETF&#x2019;s FLEX Options could have an impact on the prices paid or received by the Underlying ETFs for the FLEX Options in connection with creations and redemptions of the Underlying ETF&#x2019;s shares. Depending on the nature of this impact to pricing, an Underlying ETF may be forced to pay more for redemptions (or receive less for creations) than the price at which it currently values the FLEX Options. Such overpayment or under collection may impact the value of the Underlying ETF and whether the Underlying ETF can satisfy its investment objective. Additionally, in a less liquid market for the FLEX Options, the liquidation of a large number of options may more significantly impact the price. A less liquid trading market may adversely impact the value of the FLEX Options and the value of the Underlying ETFs. The trading in FLEX Options may be less deep and liquid &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;than the market for certain other exchange-traded options, non-customized options or other securities.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_FlexOptionsValuationRiskMember"
+      id="e4bdcd02-e191-4bbd-8769-37a6be468766">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;FLEX OPTIONS VALUATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The FLEX Options held by the Underlying ETFs will be exercisable at the strike price only &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;on their expiration date. Prior to the expiration date, the value of the FLEX Options will be determined based upon market quotations or using other recognized pricing methods. The FLEX Options are also subject to correlation risk, meaning the value of the FLEX Options does not increase or decrease at the same rate as SPY (although they generally move in the same direction) or its underlying securities. The value of the FLEX Options prior to the expiration date may vary because of factors other than the value of SPY, such as interest rate changes, changing supply and demand, decreased liquidity of the FLEX Options, a change in the actual and perceived volatility of the stock market and SPY and the remaining time to expiration. FLEX Option prices may also be highly volatile and may fluctuate substantially during a short period of time. During periods of reduced market liquidity or in the absence of readily available market quotations for the holdings of the Underlying ETFs, the ability of the Underlying ETFs to value the FLEX Options becomes more difficult and the judgment of the Underlying ETFs' investment adviser (employing the fair value procedures approved by the Board of Trustees of the Trust) may play a greater role in the valuation of the Underlying ETFs' holdings due to reduced availability of reliable objective pricing data. Consequently, while such determinations may be made in good faith, it may nevertheless be more difficult for the Underlying ETFs to accurately assign a daily value. Under those circumstances, the value of the FLEX Options will require more reliance on the investment adviser&#x2019;s judgment than that required for securities for which there is an active trading market. This creates a risk of mispricing &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;or improper valuation of the FLEX Options which could impact the value paid for shares of the Underlying ETFs.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_IndexOrModelConstituentRiskMember"
+      id="x_68f46b6b-2333-432e-a216-d3d55d9bf45e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INDEX OR MODEL CONSTITUENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund may be a constituent of one or more indices or ETF models. As a result, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Fund may be included in one or more index-tracking exchange-traded funds or mutual funds. Being a component security of such a vehicle could greatly affect the trading activity involving the Fund&#x2019;s shares, the size of the Fund and the market volatility of the Fund. Inclusion in an index could increase demand for the Fund and removal from an index could result in outsized selling activity in a relatively short period of time. As a result, the Fund&#x2019;s net asset value could be negatively impacted and the Fund&#x2019;s market price may be below the Fund&#x2019;s net asset value during certain periods. In addition, index rebalances may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;potentially result in increased trading activity in the Fund's shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_InformationTechnologyCompaniesRiskMember"
+      id="x_4b590ad9-8969-43ec-bafb-c56d2b33608e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;INFORMATION TECHNOLOGY COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; SPY invests significantly in information technology companies. Information &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;technology companies produce and provide hardware, software and information technology systems and services. These companies may be adversely affected by rapidly changing technologies, short product life cycles, fierce competition, aggressive pricing and reduced profit margins, the loss of patent, copyright and trademark protections, cyclical market patterns, evolving industry standards and frequent new product introductions. In addition, information technology companies are particularly vulnerable to federal, state and local government regulation, and competition and consolidation, both domestically and internationally, including competition from foreign competitors with lower production costs. Information technology companies &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;also heavily rely on intellectual property rights and may be adversely affected by the loss or impairment of those rights.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_LargeCapitalizationCompaniesRiskMember"
+      id="x_83bcfb0e-4ebf-45b8-a1d3-b42f232e912a">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;LARGE CAPITALIZATION COMPANIES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; SPY invests in the securities of large capitalization companies. Large capitalization &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;companies may grow at a slower rate and be less able to adapt to changing market conditions than smaller capitalization companies. Thus, the return on investment in securities of large capitalization companies may be less than the return on investment in securities of small and/or mid capitalization companies. The performance of large capitalization companies also &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;tends to trail the overall market during different market cycles.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_ManagementRiskMember"
+      id="x_7d7dc942-b4bf-498f-8bda-82c1bbc3faef">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MANAGEMENT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is subject to management risk because it is an actively managed portfolio. In managing the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s investment portfolio, the portfolio managers will apply investment techniques and risk analyses, including through the use of technology, automated processes, algorithms, or other management systems, that may not operate as intended &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;or produce the desired result. There can be no guarantee that the Fund will meet its investment objective.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_MarketRiskMember"
+      id="x_92e39018-c338-4da9-8bab-3212025fd603">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;MARKET RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Market risk is the risk that a particular investment, or shares of the Fund in general, may fall in value. Securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;are subject to market fluctuations caused by real or perceived adverse economic, political, and regulatory factors or market developments, changes in interest rates and perceived trends in securities prices. Shares of the Fund could decline in value or underperform other investments. In addition, local, regional or global events such as war, acts of terrorism, market manipulation, government defaults, government shutdowns, regulatory actions, political changes, diplomatic developments, the imposition of sanctions and other similar measures, spread of infectious diseases or other public health issues, recessions, natural disasters, or other events could have a significant negative impact on the Fund and its investments. Any of such circumstances could have a materially negative impact on the value of the Fund&#x2019;s shares, the liquidity of an investment, and may result in increased market volatility. During any such events, the Fund&#x2019;s shares may trade at increased premiums or discounts to their net asset value, the bid/ask spread on the Fund&#x2019;s shares may widen and the returns on investment may &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;fluctuate.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_NewFundRiskMember"
+      id="aa2d97f6-85b4-4bbc-ac26-4c706c1e10fb">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NEW FUND RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is new and has no performance history or assets as of the date of this prospectus. The Fund expects &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;to have fewer assets than larger funds. Like other new funds, large inflows and outflows may impact the Fund&#x2019;s market exposure, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;and in turn, the Fund&#x2019;s returns for limited periods of time.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_RiskNondiversifiedMember"
+      id="x_178b2afc-2d51-4f1a-9066-938c87b7442e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;NON-DIVERSIFICATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is classified as &#x201c;non-diversified&#x201d; under the 1940 Act. As a result, the Fund is only &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;limited as to the percentage of its assets which may be invested in the securities of any one issuer by the diversification requirements imposed by the Internal Revenue Code of 1986, as amended (the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;"Code"&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;). The Fund may invest a relatively high &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;percentage of its assets in a limited number of issuers. As a result, the Fund may be more susceptible to a single adverse economic or regulatory occurrence affecting one or more of these issuers, experience increased volatility and be highly invested &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;in certain issuers.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_OperationalRiskMember"
+      id="x_9fc9e2cc-ad11-460b-b051-32434d25ad96">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;OPERATIONAL RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund is subject to risks arising from various operational factors, including, but not limited to, human &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;error, processing and communication errors, errors of the Fund&#x2019;s service providers, counterparties or other third-parties, failed or inadequate processes and technology or systems failures. These errors or failures may adversely affect the Fund&#x2019;s operations, including its ability to execute its investment process, calculate or disseminate its NAV or intraday indicative optimized portfolio value in a timely manner, and process creations or redemptions. The Fund relies on third-parties for a range of services, including custody, valuation, administration, transfer services, securities lending and accounting, among many others. Any delay or failure relating to engaging or maintaining such service providers may affect the Fund&#x2019;s ability to meet its investment objective. Although the Fund and the Fund's investment advisor seek to reduce these operational risks through controls and procedures, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;there is no way to completely protect against such risks.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_OptionsRiskMember"
+      id="a9c0f4b6-453b-4ce5-a244-be8391d6fd83">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;OPTIONS RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The use of options involves investment strategies and risks different from those associated with ordinary &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;portfolio securities transactions and depends on the ability of the Underlying ETFs' portfolio managers to forecast market movements correctly. The prices of options are volatile and are influenced by, among other things, actual and anticipated changes in the value of the underlying instrument, or in interest or currency exchange rates, including the anticipated volatility, which in turn are affected by fiscal and monetary policies and by national and international political and economic events. The effective use of options also depends on the Underlying ETFs' ability to terminate option positions at times deemed desirable to do so. There is no assurance that the Underlying ETFs will be able to effect closing transactions at any particular time or at an acceptable price. In addition, there may at times be an imperfect correlation between the movement in values &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of options and their underlying securities and there may at times not be a liquid secondary market for certain options.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_PortfolioTurnoverRiskMember"
+      id="x_5b617942-ea64-497a-895d-7b164075baf8">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PORTFOLIO TURNOVER RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; High portfolio turnover may result in the Fund paying higher levels of transaction costs and &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;may generate greater tax liabilities for shareholders. Portfolio turnover risk may cause the Fund&#x2019;s performance to be less than &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;expected.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_PremiumDiscountRiskMember"
+      id="x_173292ed-fcb5-4d6e-b36a-0b00facf6f79">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;PREMIUM/DISCOUNT RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The market price of the Fund&#x2019;s shares will generally fluctuate in accordance with changes in the &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Fund&#x2019;s net asset value as well as the relative supply of and demand for shares on the Exchange. The Fund&#x2019;s investment advisor cannot predict whether shares will trade below, at or above their net asset value because the shares trade on the Exchange at market prices and not at net asset value. Price differences may be due, in large part, to the fact that supply and demand forces at work in the secondary trading market for shares will be closely related, but not identical, to the same forces influencing the prices of the holdings of the Fund trading individually or in the aggregate at any point in time. However, given that shares can only be purchased and redeemed in Creation Units, and only to and from broker-dealers and large institutional investors that have entered into participation agreements (unlike shares of closed-end funds, which frequently trade at appreciable discounts from, and sometimes at premiums to, their net asset value), the Fund&#x2019;s investment advisor believes that large discounts or premiums to the net asset value of shares should not be sustained. During stressed market conditions, the market for the Fund&#x2019;s shares may become less liquid in response to deteriorating liquidity in the market for the Fund&#x2019;s underlying portfolio holdings, which could in turn lead to differences between the market price of the Fund&#x2019;s shares and their net asset &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;value and the bid/ask spread on the Fund&#x2019;s shares may widen.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_SignificantExposureRiskMember"
+      id="x_6f688af9-51c0-4b42-b812-24f0b06aede7">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;SIGNIFICANT EXPOSURE RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund intends to generally rebalance its portfolio to equal weight quarterly. The Fund &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;also will acquire and dispose of Underlying ETFs in connection with the creation and redemption of Creation Units between quarterly rebalances. These intra-quarter acquisitions and dispositions will reflect the composition of the Fund&#x2019;s portfolio at the time of the acquisition or disposition. Accordingly, the weight of each Underlying ETF will likely have drifted away from the strict equal weight assigned to it at the prior Index rebalance. The Advisor does not seek to maintain equal weighting of the Underlying ETFs between quarterly rebalances. In between such rebalances, market movements in the prices of the Underlying ETFs may result in the Fund having temporary larger exposures to certain Underlying ETFs compared to others. Under such circumstances, the Fund&#x2019;s returns would be more greatly influenced by the returns of the Underlying ETFs with &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;the larger exposures.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_SPYEquityRiskMember"
+      id="eb05f4cc-a397-49a6-8eef-b227a87ab6e7">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;SPY EQUITY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Because each Underlying ETF holds FLEX Options that reference SPY, each Underlying ETF has exposure &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;to the equity securities markets. Equity securities prices fluctuate for several reasons, including changes in investors&#x2019; perceptions of the financial condition of an issuer or the general condition of the relevant equity market, such as market volatility, or when political or economic events affecting an issuer occur. Common stock prices may be particularly sensitive to rising interest rates, as the cost of capital rises and borrowing costs increase. Equity securities may decline significantly in price over short or extended periods of time, and such declines may occur in the equity market as a whole, or they may occur in only a particular &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;country, company, industry or sector of the market.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_SpyRiskMember"
+      id="x_8098f601-49e0-4d8b-9cf3-3915fb555a6f">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;SPY RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Each Underlying ETF invests in FLEX Options that reference SPY, which subjects the Underlying ETFs to certain of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the risks of owning shares of an ETF as well as the types of instruments in which SPY invests. The value of SPY will fluctuate over time based on fluctuations in the values of the securities held by SPY, which may be affected by changes in general economic conditions, expectations for future growth and profits, interest rates and the supply and demand for those securities. In addition, ETFs are subject to absence of an active market risk, premium/discount risk and trading issues risk. Brokerage, tax and other expenses may negatively impact the performance of the Underlying ETF and, in turn, the value of the Fund&#x2019;s shares. An ETF that tracks an index may not exactly match the performance of the index due to cash drag, differences between the portfolio &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the ETF and the components of the index, expenses and other factors.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_TargetOutcomePeriodRiskMember"
+      id="dee0714c-f16f-4a55-b681-b6fb206313cf">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;TARGET OUTCOME PERIOD RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Each Underlying ETF&#x2019;s investment strategy is designed to deliver the potential for rates &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;of return (before fees and expenses) that outperform the positive price return of SPY if SPY experiences at least 2.0% of positive returns at the end of the Target Outcome Period if shares are bought on the day on which the Underlying ETF enters into the FLEX Options (&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;, the first day of a Target Outcome Period) and held until those FLEX Options expire at the end of &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;the Target Outcome Period. Because the Fund will acquire shares of the Underlying ETFs in connection with creations of new shares of the Fund and during each quarterly rebalance, the Fund typically will not acquire Underlying ETF shares on the first day of a Target Outcome Period. Likewise, the Fund will dispose of shares of the Underlying ETFs in connection with redemptions of shares of the Fund and during each quarterly rebalance, and such disposals typically will not occur on the last day of a Target Outcome Period. In the event the Fund acquires shares after the first day of a Target Outcome Period or disposes of shares prior to the expiration of the Target Outcome Period, the value of the Fund&#x2019;s investment in Underlying ETF shares will likely &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;not experience the outcomes that the Underlying ETF seeks to provide.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_TaxRiskFromInvestmentInOtherInvestmentCompaniesRiskMember"
+      id="x_6ee4d25f-a51f-42b7-ac02-e65a4bd20f80">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;TAX RISK FROM INVESTMENT IN OTHER INVESTMENT COMPANIES.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund has based its analysis of its qualification as &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;a &#x201c;regulated investment company&#x201d; (&#x201c;&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-style:italic;"&gt;RIC&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;&#x201d;) as defined by the Code on the belief that its portfolio funds are themselves RICs. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;If a portfolio fund were to lose its status as a RIC for purposes of the Code, the Fund may fail its requirement to have a diversified portfolio, and, thus, lose its own RIC status. If the Fund did not qualify as a RIC for any taxable year and certain relief provisions &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;were not available, the Fund&#x2019;s taxable income would be subject to tax at the Fund level and to a further tax at the shareholder level when such income is distributed. In such event, in order to re-qualify for taxation as a RIC, the Fund might be required to recognize unrealized gains, pay substantial taxes and interest and make certain distributions. This would cause investors to incur higher tax liabilities than they otherwise would have incurred and would have a negative impact on Fund returns. In such event, the Fund&#x2019;s Board of Trustees may determine to reorganize or close the Fund or materially change the Fund&#x2019;s investment objective and strategies. In the event that the Fund fails to qualify as a RIC, the Fund will promptly notify shareholders &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;of the implications of that failure.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_TradingIssuesRiskMember"
+      id="x_67be66f1-d826-4708-ab32-7848f84be4c4">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;TRADING ISSUES RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Trading in Fund shares on the Exchange may be halted due to market conditions or for reasons that, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;in the view of the Exchange, make trading in shares inadvisable. In addition, trading in Fund shares on the Exchange is subject to trading halts caused by extraordinary market volatility pursuant to the Exchange&#x2019;s &#x201c;circuit breaker&#x201d; rules. There can be no assurance that the requirements of the Exchange necessary to maintain the listing of the Fund will continue to be met or will remain unchanged. The Fund may have difficulty maintaining its listing on the Exchange in the event the Fund&#x2019;s assets are &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;small, the Fund does not have enough shareholders, or if the Fund is unable to proceed with creation and/or redemption orders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_UnderlyingETFConcentrationRiskMember"
+      id="c24b8dcc-42b5-4645-bc02-2483dd00d61e">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;UNDERLYING ETF CONCENTRATION RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; An Underlying ETF may be susceptible to an increased risk of loss, including losses &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;due to adverse events that affect the Underlying ETF's investments more than the market as a whole, to the extent that the Underlying ETF's investments are concentrated in the securities and/or other assets of a particular issuer or issuers, country, &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;group of countries, region, market, industry, group of industries, sector, market segment or asset class.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_UnderlyingETFExposureRiskMember"
+      id="x_6c06bf86-a22c-4e04-b55d-f44affb1073c">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;UNDERLYING ETF EXPOSURE RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; An investment in the Fund may provide returns that are lower than the returns that an &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;investor could achieve by investing in one or more of the Underlying ETFs alone. Additionally, if one or more of the Underlying ETFs has not appreciated to a level above the Target Upside Deductible at the time that you invest in the Fund, you may derive no benefit from the Fund&#x2019;s investment in that Underlying ETF if the Underlying ETF does not remain above the Target Upside Deductible at the end of the applicable Target Outcome Period. Likewise, each Underlying ETF will experience all losses on a one-to-one basis and does not provide any protection against SPY losses. The Fund does not provide protection against Underlying ETF losses or SPY losses. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;"&gt;The Fund does not itself pursue a target outcome strategy and does not provide any protection against Underlying ETF losses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_UnderlyingETFRiskMember"
+      id="x_58cce2d6-d0dc-4da7-9a75-7a6df48dc29b">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;UNDERLYING ETF RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; The Fund&#x2019;s investment in shares of the Underlying ETFs subjects it to the risks of owning the securities &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;held by the Underlying the ETF, as well as the same structural risks faced by an investor purchasing shares of the Fund, including absence of an active market risk, premium/discount risk and trading issues risk. As a shareholder in another ETF, the Fund &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;bears its proportionate share of the ETF&#x2019;s expenses, subjecting Fund shareholders to duplicative expenses.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000101906_UpsideRateofReturnRiskMember"
+      id="x_3908238c-d823-478a-a089-a38dc1911e47">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;font-weight:bold;margin-left:0%;"&gt;UPSIDE RATE OF RETURN RISK.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; A new Upside Rate of Return for each Underlying ETF is established at the beginning of each &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;Target Outcome Period and is dependent on prevailing market conditions. As a result, the Upside Rate of Return may rise or fall from one Target Outcome Period to the next and is unlikely to remain the same for consecutive Target Outcome Periods. Additionally, the price return of SPY may need to materially exceed the Target Upside Deductible before an Underlying ETF &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;recoups foregone returns with an Upside Rate of Return.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000101906"
+      id="b8ceb25f-da06-48a5-96e8-cd447cb5fa3a">&lt;span style="color:#000000;font-family:Arial;font-size:9.90pt;font-weight:bold;"&gt;Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000101906"
+      id="x_823998cc-1502-4dba-aad0-f24f64ae0b04">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund does not have a performance history.&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt; Once available, the Fund&#x2019;s performance information, and information that &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;gives some indication of the risks of an investment in the Fund by comparing the Fund&#x2019;s performance with a broad measure of market performance, will be available on the Fund&#x2019;s website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;. &lt;/span&gt;&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000101906"
+      id="x_533a5efa-69a0-4bef-ab3f-a9cad89f2228">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;margin-left:0%;"&gt;The Fund does not have a performance history.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000101906"
+      id="x_0897ca0a-f970-483b-9b06-67864e38a97d">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;http://www.ftportfolios.com&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000101906"
+      id="ef01a082-0644-47ec-aab9-30fd0b2432cb">&lt;span style="color:#000000;font-family:Arial;font-size:9.00pt;"&gt;The Fund&#x2019;s past performance (before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#x_4b0a0e2f-2569-40d0-a2a2-53326dcbb314"
+          xlink:label="x_4b0a0e2f-2569-40d0-a2a2-53326dcbb314"
+          xlink:type="locator"/>
+        <link:footnote id="x_0001pm_bebd85db-fee5-4e69-8d9c-52dc7104f496" xlink:label="x_0001pm_bebd85db-fee5-4e69-8d9c-52dc7104f496" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Arial;font-size:8.10pt;font-style:italic;">&#x201c;Other Expenses&#x201d; is an estimate based on the expenses the Fund expects to incur for the current fiscal year.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_4b0a0e2f-2569-40d0-a2a2-53326dcbb314"
+          xlink:to="x_0001pm_bebd85db-fee5-4e69-8d9c-52dc7104f496"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

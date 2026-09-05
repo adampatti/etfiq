@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:fmr="http://www.fidelity.com/20260130"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="fmr-20260130.xsd" xlink:type="simple"/>
+    <context id="Trust">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_Cid_C000269152">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">fmr:C000269152Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CollateralizedLoanObligationsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:CollateralizedLoanObligationsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_MezzanineCloRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:MezzanineCloRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CloManagerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:CloManagerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ImpairmentOfCollateralMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:ImpairmentOfCollateralMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_FloatingRateLoanLiquidityMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:FloatingRateLoanLiquidityMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_InterestRateChangesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:InterestRateChangesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ForeignExposureMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:ForeignExposureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ForeignCurrencyTransactionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:ForeignCurrencyTransactionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_PrepaymentMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:PrepaymentMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_IssuerSpecificChangesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:IssuerSpecificChangesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_FluctuationOfNetAssetValueAndSharePriceMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:FluctuationOfNetAssetValueAndSharePriceMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_TradingIssuesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:TradingIssuesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_LeverageRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:LeverageRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CashTransactionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">fmr:CashTransactionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskNotInsuredDepositoryInstitutionMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredDepositoryInstitutionMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <context id="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000945908</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:DocumentInformationDocumentAxis">fmr:FidelityCLOETF-PROMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">fmr:S000099376Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-30</startDate>
+            <endDate>2026-01-30</endDate>
+        </period>
+    </context>
+    <unit id="usd">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <dei:DocumentType contextRef="Trust" id="ixv-7301">485BPOS</dei:DocumentType>
+    <dei:DocumentPeriodEndDate contextRef="Trust" id="ixv-7302">2026-01-30</dei:DocumentPeriodEndDate>
+    <dei:AmendmentFlag contextRef="Trust" id="ixv-7303">false</dei:AmendmentFlag>
+    <dei:EntityCentralIndexKey contextRef="Trust" id="ixv-7304">0000945908</dei:EntityCentralIndexKey>
+    <dei:EntityInvCompanyType contextRef="Trust" id="ixv-7305">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName contextRef="Trust" id="ixv-7306">Fidelity Covington Trust</dei:EntityRegistrantName>
+    <oef:RiskReturnHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-203">
+
+
+     Fund Summary
+
+     Fund:
+     Fidelity&#xae; CLO ETF
+
+
+   </oef:RiskReturnHeading>
+    <oef:ObjectiveHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-215">
+
+
+     Investment Objective
+
+
+   </oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-221">
+
+
+     Fidelity
+     &#xae; CLO ETF seeks to generate income.
+
+
+   </oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-227">
+
+
+     Fee Table
+
+
+   </oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-233">
+
+
+     The following table describes the fees and expenses that may be incurred when you buy, hold, and sell shares of the fund. You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the tables and examples below.
+
+   </oef:ExpenseNarrativeTextBlock>
+    <oef:ShareholderFeesCaption contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-244">
+
+
+     Shareholder fees
+
+
+   </oef:ShareholderFeesCaption>
+    <oef:ShareholderFeeOther
+      contextRef="Pid_S000099376_contentCd_CLO-PRO"
+      decimals="0"
+      id="ixv-7513"
+      unitRef="usd">0</oef:ShareholderFeeOther>
+    <oef:OperatingExpensesCaption contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-259">
+
+
+     Annual Operating Expenses
+
+
+   </oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="ixv-7514"
+      unitRef="pure">0.0045</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="ixv-7515"
+      unitRef="pure">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="footnoteS000099376CLO-PROAOE_AC000269152_OE"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="ixv-7517"
+      unitRef="pure">0.0045</oef:ExpensesOverAssets>
+    <oef:FeeWaiverOrReimbursementOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="footnoteS000099376CLO-PROAOE_BC000269152_FW"
+      unitRef="pure">-0.0045</oef:FeeWaiverOrReimbursementOverAssets>
+    <oef:NetExpensesOverAssets
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="6"
+      id="ixv-7519"
+      unitRef="pure">0.0000</oef:NetExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-334">
+
+      Based on estimated amounts for the current fiscal year.
+
+     </oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-346">
+
+      January 31, 2027.
+
+     </oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination>
+    <oef:ExpenseExampleNarrativeTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-353">
+
+
+     This
+     example
+
+     helps compare the cost of investing in the fund with the cost of investing in other funds.
+
+     Let's say, hypothetically, that the annual return for shares of the fund is 5% and that the fees and the annual operating expenses for shares of the fund are exactly as described in the fee table. This example illustrates the effect of fees and expenses, but is not meant to suggest actual or expected fees and expenses or returns, all of which may vary. For every $10,000 you invested, here's how much you would pay in total expenses if you sell all of your shares at the end of each time period indicated:
+
+   </oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="0"
+      id="ixv-7520"
+      unitRef="usd">0</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="Pid_S000099376_Cid_C000269152"
+      decimals="0"
+      id="ixv-7521"
+      unitRef="usd">99</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-393">
+
+
+     Portfolio Turnover
+
+
+   </oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-398">
+
+
+     The fund pays transaction costs, such as commissions, when it buys and sells securities (or "turns over" its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when fund shares are held in a taxable account. These costs, which are not reflected in annual operating expenses or in the example, affect the fund's performance.
+
+
+   </oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-403">
+
+
+     Principal Investment Strategies
+
+
+   </oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-408">
+
+
+
+      Normally investing at least 80% of assets in collateralized loan obligations (CLOs).
+
+     CLOs are a type of asset-backed security. A CLO is typically collateralized by a pool of loans, which may include domestic and foreign senior secured loans, senior unsecured loans, and subordinate corporate loans, including loans that may be rated below investment grade or equivalent unrated loans, and including "covenant lite" loans, which have few or no financial maintenance covenants. CLOs may charge management fees and other expenses. Cash flows from the CLO are split into two or more portions, called tranches, which can vary in risk and yield. A CLO's more senior tranches are partially protected from defaults, typically have higher ratings and lower yields than their underlying securities and can be rated investment grade. More junior tranches offer the potential for higher yield but are more exposed to loss and have lower ratings.
+
+       Derivative instruments that provide investment exposure to the investments above or exposure to one or more market risk factors associated with such investments are included in the fund's 80% policy, consistent with the fund's investment policies and limitations with respect to investments in derivatives.
+
+      Investing a majority of the fund's assets in CLOs rated from BBB+ to B- or the equivalent by at least one nationally recognized statistical ratings organization (NRSRO), or, if unrated, determined by the Adviser to be of comparable quality.
+      Investing up to 30% of the fund's assets in CLOs rated above BBB+.
+      Purchasing CLOs in both the primary market and the secondary market.
+      Investing no more than 10% of assets in fixed-rate CLOs.
+      Investing up to 25% in non-U.S. dollar-denominated CLOs and, from time to time, hedging the fund's foreign currency exposures utilizing forward foreign currency exchange contracts.
+      Investing in cash or other short-term instruments, such as money market instruments or money market funds, while seeking to deploy new capital, or for liquidity management purposes, managing redemptions, or for defensive purposes, including navigating unusual market conditions.
+      Investing up to 20% of the fund's net assets in securities that have a leveraging effect on the fund, including investments in derivatives - such as swaps (interest rate, total return, and credit default), options, and futures contracts - to adjust the fund's risk exposure - as well as forward foreign currency exchange contracts for both hedging and non-hedging purposes.
+
+
+   </oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CollateralizedLoanObligationsRiskMember"
+      id="ixv-437">
+
+
+
+      Collateralized Loan Obligations Risk.
+
+     The risks of investing in a CLO can be generally summarized as a combination of economic risks of the underlying loans and the risks associated with the CLO structure governing the priority of payments. The risks of investing in CLOs depend largely on the type of the collateral securities and the tranche of the CLO. In stressed market conditions, it is possible that even senior CLO debt tranches could experience losses due to actual defaults, downgrades of the underlying collateral by rating agencies, forced liquidation of the collateral pool due to a failure of coverage tests, increased sensitivity to defaults due to collateral default and the disappearance of protecting tranches, market anticipation of defaults as well as investor aversion to CLO securities as an asset class. To the extent that the fund invests in unrated CLO tranches, the fund's ability to achieve its investment objective will be more dependent on the Adviser's credit analysis than would be the case when the fund invests in rated CLO tranches. The Adviser may not be able to accurately predict how specific CLOs or the portfolio of underlying loans for such CLOs will react to changes or stresses in the market, including changes in interest rates.
+     CLOs, and their underlying loan obligations, are typically not registered for sale to the public and therefore are subject to certain restrictions on transfer and sale, potentially making them less liquid than other types of securities. Because there may be relatively few potential purchasers for such securities, especially under adverse market or economic conditions or in the event of adverse changes in the financial condition of the issuer, the fund may find it more difficult to sell such securities when it may be advisable to do so or it may be able to sell such securities only at prices lower than if such securities were more widely held and traded. At times, it also may be more difficult to determine the fair value of such securities for purposes of computing the fund's net asset value due to the absence of an active trading market. &#160;
+     Additionally, newly issued CLO securities purchased in the primary market typically experience delayed or extended settlement periods, possibly longer than seven days.
+       In the period following a purchase of CLO securities in the primary market and prior to settlement, these CLO securities may be considered less liquid than similar CLOs available in the secondary market. In such circumstances the fund bears a risk of loss if the value of the CLO declines before the settlement date or if the fund is required to sell the CLO security prior to settlement. There is also the risk that the security will not be issued or that the counterparty will not meet its obligation, resulting in a loss of the investment opportunity. The proceeds from the sale of CLO securities may not be readily available to make additional investments or to meet the fund's redemption obligations.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_MezzanineCloRiskMember"
+      id="ixv-454">
+
+
+
+      Mezzanine CLO Risk.
+
+     CLO tranches rated from BBB+ to B- are often subordinate to higher-rated tranches in terms of payment priority. Subordinated (i.e., mezzanine) CLO tranches are subject to higher credit risk and liquidity risk relative to more senior CLO tranches. To the extent a CLO or its underlying loans experience default or are having difficulty making principal and/or interest payments, such subordinate CLO tranches will be more likely to experience adverse impacts, and such impacts will be more severe, relative to more senior and/or higher-rated CLO securities, which in turn will adversely affect the performance of the fund.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CloManagerRiskMember"
+      id="ixv-463">
+
+
+
+      CLO Manager Risk.
+
+     The CLOs in which the fund invests are managed by investment advisers independent of the Adviser. CLO managers are responsible for selecting, managing and replacing the underlying bank loans or bonds within a CLO. CLO managers may have limited operating histories and may be subject to conflicts of interests, including managing the assets of other clients or other investment vehicles, or receiving fees that incentivize maximizing the yield, and indirectly the risk, of a CLO. Adverse developments with respect to a CLO manager, such as personnel and resource constraints, regulatory issues or other developments that may impact the ability and/or performance of the CLO manager, may adversely impact the performance of the CLO securities in which the fund invests.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ImpairmentOfCollateralMember"
+      id="ixv-472">
+
+
+
+      Impairment of Collateral.
+
+     A floating rate loan may not be fully collateralized which may cause the floating rate loan to decline significantly in value.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_FloatingRateLoanLiquidityMember"
+      id="ixv-481">
+
+
+
+      Floating Rate Loan Liquidity.
+
+     Floating rate loans generally are subject to restrictions on resale. Floating rate loans sometimes trade infrequently in the secondary market. As a result, valuing a floating rate loan can be more difficult, and buying and selling a floating rate loan at an acceptable price can be more difficult or delayed, including extended trade settlement periods. Difficulty in selling a floating rate loan can result in a loss.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_InterestRateChangesMember"
+      id="ixv-490">
+
+
+
+      Interest Rate Changes.
+
+     Interest rate increases can cause the price of a debt security to decrease.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ForeignExposureMember"
+      id="ixv-499">
+
+
+
+      Foreign Exposure.
+
+     Foreign markets can be more volatile than the U.S. market due to increased risks of adverse issuer, political, regulatory, market, or economic developments and can perform differently from the U.S. market.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_ForeignCurrencyTransactionsMember"
+      id="ixv-508">
+
+
+
+      Foreign Currency Transactions.
+
+     Although a forward foreign currency exchange contract is used to reduce or hedge a fund's exposure to changes in the value of the currency, suitable hedging transactions may not be available in all circumstances, may not be successful, and may eliminate any chance for the fund to benefit from favorable fluctuations in relevant foreign currencies.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_PrepaymentMember"
+      id="ixv-517">
+
+
+
+      Prepayment.
+
+     The ability of an issuer of a debt security to repay principal prior to a security's maturity can cause greater price volatility if interest rates change and can limit the potential for gains when the credit quality of the issuer improves.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_IssuerSpecificChangesMember"
+      id="ixv-526">
+
+
+
+      Issuer-Specific Changes.
+
+     The value of an individual security or particular type of security can be more volatile than, and can perform differently from, the market as a whole.
+     A decline in the credit quality of an issuer or a provider of credit support (such as guarantees) or a maturity-shortening structure (such as demand and put features) for a security can cause the price of a security to decrease.
+     Lower-quality debt securities (those of less than investment-grade quality, also referred to as high yield debt securities or junk bonds) and certain types of other securities involve greater risk of default or price changes due to changes in the credit quality of the issuer.
+     The value of lower-quality debt securities and certain types of other securities can be more volatile due to increased sensitivity to adverse issuer, political, regulatory, market, or economic developments and can be difficult to resell.
+     Investments in covenant-lite loans carry more risk than traditional loans as they allow issuers to engage in activities that would otherwise be difficult or impossible under a traditional loan agreement. In the event of default, covenant-lite obligations have lower recovery values as the lender may not have the opportunity to negotiate with the borrower prior to default.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_FluctuationOfNetAssetValueAndSharePriceMember"
+      id="ixv-543">
+
+
+
+      Fluctuation of Net Asset Value and Share Price.
+
+     The net asset value per share (NAV) of the fund will generally fluctuate with changes in the market value of the fund's holdings. The fund's shares can be bought and sold in the secondary market at market prices. Disruptions to creations and redemptions, the existence of extreme market volatility or potential lack of an active trading market for the fund's shares may result in the fund's shares trading significantly above (at a premium) or below (at a discount) to NAV.
+     Given the nature of the relevant markets for certain of the fund's securities, shares may trade at a larger premium or discount to the NAV than shares of other ETFs.
+     In addition, in stressed market conditions or periods of market disruption or volatility,&#160;the market for shares may become less liquid in response to deteriorating liquidity in the markets for the fund's underlying portfolio holdings.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_TradingIssuesMember"
+      id="ixv-558">
+
+
+
+      Trading Issues.
+
+     There can be no assurance that an active trading market will be maintained. Market makers and Authorized Participants are not obligated to make a market in the fund's shares or to submit purchase and redemption orders for creation units. Decisions by market makers or Authorized Participants to reduce their role with respect to market making or creation and redemption activities during times of market stress, or a decline in the number of Authorized Participants due to decisions to exit the business, bankruptcy, or other factors, could inhibit the effectiveness of the arbitrage process in maintaining the relationship between the underlying value of the fund's portfolio securities and the market price of fund shares. In addition, trading may be halted, for example, due to market conditions.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_LeverageRiskMember"
+      id="ixv-567">
+
+
+
+      Leverage Risk.
+
+     Leverage can increase market exposure, magnify investment risks, and cause losses to be realized more quickly.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_CashTransactionsRiskMember"
+      id="ixv-576">
+
+
+
+      Cash Transactions Risk.
+
+     Unlike certain ETFs, the fund may effect some or all creations and redemptions using cash, rather than in-kind securities. As a result, an investment in the fund may be less tax-efficient than an investment in an ETF that distributes portfolio securities entirely in-kind.
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskNondiversifiedStatusMember"
+      id="ixv-585">
+
+
+     In addition, the fund is classified as non-diversified under the Investment Company Act of 1940 (1940 Act), which means that it has the ability to invest a greater portion of assets in securities of a smaller number of individual issuers than a diversified fund. As a result, changes in the market value of a single investment could cause greater fluctuations in share price than would occur in a more diversified fund.
+
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskNotInsuredDepositoryInstitutionMember"
+      id="ixv-590">
+
+
+     An investment in the fund is not a deposit of a bank and is not insured or guaranteed by the Federal Deposit Insurance Corporation or any other government agency
+
+     .
+
+
+   </oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="Pid_S000099376_contentCd_CLO-PRO_RiskMember_RiskLoseMoneyMember"
+      id="ixv-598">
+
+
+     &#160;
+
+     You could lose money by investing in the fund.
+
+
+   </oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-607">
+
+
+     Performance
+
+
+   </oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-612">
+
+
+
+
+      Performance history will be available for the fund after the fund has been in operation for one calendar year.
+
+
+
+   </oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess contextRef="Pid_S000099376_contentCd_CLO-PRO" id="ixv-615">
+
+      Performance history will be available for the fund after the fund has been in operation for one calendar year.
+
+     </oef:PerformanceOneYearOrLess>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#footnoteS000099376CLO-PROAOE_AC000269152_OE"
+          xlink:label="footnoteS000099376CLO-PROAOE_AC000269152_OE"
+          xlink:type="locator"/>
+        <link:footnote id="footnoteS000099376CLO-PROAOE_A" xlink:label="footnoteS000099376CLO-PROAOE_A" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:div style="padding:2px"><xhtml:span> </xhtml:span><xhtml:span style="font-family:Arial; font-size:4.5pt; vertical-align:3pt">A</xhtml:span><xhtml:span> </xhtml:span><xhtml:span> </xhtml:span><xhtml:span style="font-family:Arial; font-size:8.5pt">Based on estimated amounts for the current fiscal year.</xhtml:span><xhtml:span> </xhtml:span><xhtml:span> </xhtml:span></xhtml:div></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="footnoteS000099376CLO-PROAOE_AC000269152_OE"
+          xlink:to="footnoteS000099376CLO-PROAOE_A"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#footnoteS000099376CLO-PROAOE_BC000269152_FW"
+          xlink:label="footnoteS000099376CLO-PROAOE_BC000269152_FW"
+          xlink:type="locator"/>
+        <link:footnote id="footnoteS000099376CLO-PROAOE_B" xlink:label="footnoteS000099376CLO-PROAOE_B" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:div style="padding:2px"><xhtml:span> </xhtml:span><xhtml:span
+      class="redlineClass"
+      style="font-family:Arial; font-size:4.5pt; vertical-align:3pt; ">B</xhtml:span><xhtml:span> </xhtml:span><xhtml:span
+      class="redlineClass"
+      style="font-family:Arial; font-size:8.5pt; font-style:italic; ">Fidelity Management &amp; Research Company LLC (FMR) has contractually agreed to waive the fund's management fee. This arrangement will remain in effect through</xhtml:span><xhtml:span> </xhtml:span><xhtml:span> </xhtml:span><xhtml:span
+      class="redlineClass"
+      style="font-family:Arial; font-size:8.5pt; font-style:italic; ">January 31, 2027.</xhtml:span><xhtml:span> </xhtml:span><xhtml:span> </xhtml:span><xhtml:span
+      class="redlineClass"
+      style="font-family:Arial; font-size:8.5pt; font-style:italic; ">FMR may not terminate this arrangement before the expiration date without the approval of the Board of Trustees and may extend it in its discretion after that date.</xhtml:span><xhtml:span> </xhtml:span></xhtml:div></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="footnoteS000099376CLO-PROAOE_BC000269152_FW"
+          xlink:to="footnoteS000099376CLO-PROAOE_B"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

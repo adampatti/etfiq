@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2024"
+  xmlns:hetf="http://www.harborfunds.com/20251208"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2024q3"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="hetf-20251208.xsd" xlink:type="simple"/>
+    <context id="D_08Dec2025_08Dec2025">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_C000267209">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">hetf:C000267209Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_ArtificialIntelligenceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:ArtificialIntelligenceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_EquityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:EquityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_AuthorizedParticipantConcentrationTradingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:AuthorizedParticipantConcentrationTradingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_PremiumDiscountRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:PremiumDiscountRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_CashTransactionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:CashTransactionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_ConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:ConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_IndustrialSectorRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:IndustrialSectorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_InformationTechnologySectorRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:InformationTechnologySectorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_DepositaryReceiptsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:DepositaryReceiptsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_EmergingMarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:EmergingMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_ESGFactorsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:ESGFactorsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_ForeignSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:ForeignSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_IssuerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:IssuerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_MarketCapitalizationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:MarketCapitalizationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <context id="S000097720_UnrelatedBusinessRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000097720Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:UnrelatedBusinessRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-12-08</startDate>
+            <endDate>2025-12-08</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_08Dec2025_08Dec2025" id="apid_1">2025-12-08</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_08Dec2025_08Dec2025" id="apid_2">0001860434</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_08Dec2025_08Dec2025" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_08Dec2025_08Dec2025" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_08Dec2025_08Dec2025"
+      id="apid_abd59fe5-773f-4e98-bed1-9736df21d96b">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_08Dec2025_08Dec2025"
+      id="apid_1150b339-0474-4559-886e-6b04ea5b1ac3">HARBOR ETF TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_08Dec2025_08Dec2025"
+      id="apid_f84aad50-0cbe-43c4-b85e-7022814c9e92">2025-12-08</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000097720"
+      id="a15f8e8d-b741-4c80-a5f3-66ccaa046aa5">&lt;span style="color:#FFFFFF;font-family:Times New Roman;font-size:18pt;"&gt;Harbor AI Inflection Strategy ETF&lt;/span&gt;&lt;span style="color:#FFFFFF;font-family:Arial;font-size:16pt;font-weight:bold;"&gt;Fund Summary&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000097720"
+      id="x_61a98d5c-b810-4602-a995-02cf47050deb">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000097720"
+      id="b6ab709b-2416-4e50-9186-455a16647494">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The Fund seeks long-term total return.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000097720"
+      id="f552364d-9759-4326-8eba-5163ac4a2001">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000097720"
+      id="x_50e916ef-ca5e-42ed-933e-db1ca9ec211d">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;This table describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;"&gt;You may pay other &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and example &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;"&gt;below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000097720"
+      id="ce7e11d9-5c2c-480a-ac94-8419a8498a75">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Annual Fund Operating Expenses&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;"&gt; (expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000097720_C000267209"
+      decimals="4"
+      id="x_2493d244-c5de-4ae5-bfdc-9725a7f60fdd"
+      unitRef="pure">0.0088</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000097720_C000267209"
+      decimals="4"
+      id="x_0ab8ec9c-d492-4332-a107-f4954d8c5a49"
+      unitRef="pure">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000097720_C000267209"
+      decimals="4"
+      id="c419d0ee-a913-4f3a-9399-b5ab075cdad1"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000097720_C000267209"
+      decimals="4"
+      id="x_532bee08-34f1-44d2-baa7-c687df13aea9"
+      unitRef="pure">0.0088</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000097720"
+      id="x_46faf875-a9f8-47b5-81a8-421c4e73bbe4">&lt;span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; are estimated for the current fiscal year.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="S000097720"
+      id="x_09949eaa-77ba-426b-8dee-9fb869ae1890">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:3pt;"&gt;Expense Example&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000097720"
+      id="x_5beddfaa-340b-40e7-9a28-6790ddfb2d14">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;This Expense Example is intended to help you compare the cost of investing in the Fund with the cost of investing in other exchange-traded funds. The Expense Example assumes that you invest $10,000 in the Fund for the time periods indicated. The Expense Example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the same. Although your actual costs may be higher or lower, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;under these assumptions, your costs would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000097720_C000267209"
+      decimals="INF"
+      id="x_736d5853-15a7-4635-a8f0-9be01e9f16a4"
+      unitRef="USD">90</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000097720_C000267209"
+      decimals="INF"
+      id="a8684c7c-391d-421b-ab05-14a714f03b26"
+      unitRef="USD">281</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000097720"
+      id="e5732d45-e042-4520-a591-fcd9aca2da55">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:3pt;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000097720"
+      id="x_20e48fe8-4694-4172-8820-559b4e078b5c">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover may indicate higher transaction costs and may result in higher taxes when shares of the Fund are held in a taxable account. These costs, which are not reflected in the Annual Fund Operating Expenses or in the Expense Example, do affect the Fund&#x2019;s performance. The Fund had not commenced operations as of the date of this Prospectus and no portfolio turnover rate &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;existed at the time of this publication. &lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000097720"
+      id="a0dcf8c9-3397-4848-8e69-37b0f159edc3">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Principal Investment Strategy&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000097720"
+      id="x_7ed8e550-f797-42dc-90bd-ec56d99ab540">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Under normal circumstances, the Fund invests at least 80% of its net assets, plus any borrowings for investment purposes, in common stocks and other equity securities of companies for which the Subadvisor believes the enablement and/or adoption of artificial intelligence (AI) may play a material role in driving performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;(&#x201c;AI Companies&#x201d;). AI Companies include the following:&lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Infrastructure enablers (e.g., companies involved in data center real estate and construction, power generation and cooling systems, computing power, networking and storage) &lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Middleware platforms (e.g., cloud service providers, AI platforms and tools, and enterprise software integrators) &lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Adopters (companies using AI to enhance operations, reduce costs or create new revenue streams across industries, e.g., healthcare and life sciences, financial services, industrial and manufacturing, technology and internet, and consumer and retail)&lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Second-order beneficiaries (those who may benefit indirectly from the growth of AI, e.g., energy and utility companies, professional services, training and consulting firms, and cybersecurity providers)&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The mix of companies in the portfolio will shift over time as new technologies supporting AI growth emerge (e.g., novel chip architecture, quantum hardware or next-generation cooling solutions), as market leaders in the AI ecosystem change and as various segments (for example, data center construction versus energy supply) grow or decline in importance depending on industry &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;trends. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund may invest in issuers of any market capitalization and may hold securities of both U.S. and non-U.S. companies, including those located in emerging markets. The Fund may also invest in depositary receipts representing such securities. The Fund will &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;invest no more than 20% of the portfolio in non-U.S. companies.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Subadvisor employs a disciplined investment approach that seeks to identify companies that, in the Subadvisor&#x2019;s view, demonstrate strong business fundamentals, such as revenue growth, strong profit margins, manageable debt and strong cash flow, and earnings prospects that are not recognized by the market as a whole and therefore not reflected in the companies&#x2019; current market valuations. The Subadvisor uses a bottom-up investment process, employing fundamental and qualitative criteria to identify individual &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;companies for potential investment in the Fund&#x2019;s portfolio. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Subadvisor uses statistical analysis designed to identify and manage specific risks in the Fund&#x2019;s portfolio by measuring factors like value, earnings growth, volatility, and sector weightings, seeking to minimize unexpected losses and improve risk-adjusted returns. The Subadvisor may incorporate environmental, social and governance considerations as a component of its risk analysis. Any attempts to limit risk are not guaranteed to be successful. The Fund&#x2019;s sector weightings are an outgrowth of individual stock &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;selection. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Subadvisor may sell a stock if one of the following situations &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;arises:&lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The company&#x2019;s stock performs in line with the Subadvisor&#x2019;s expectations and reaches or exceeds a price projected by the Subadvisor; &lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The investment process identifies a company the Subadvisor believes has superior return and risk characteristics. In this &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0.00%;"&gt;situation, the more attractive stock would force them to sell the less attractive stock so that they continue to own only &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;their best investment ideas; or &lt;/span&gt;&lt;span style="color:#004DD6;font-family:Times New Roman;font-size:9pt;"&gt;&#x25a0;&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The company&#x2019;s prospects deteriorate as a result of poor business plan execution, new competitors, management changes, a souring business environment or other adverse effects.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund&#x2019;s portfolio is expected to consist of approximately 30-50 companies. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The Fund concentrates its investments (i.e., holds more &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;than 25% of its total assets) in the groups of industries that comprise the information technology and industrials sectors.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Fund is &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;classified as non-diversified, which means the Fund may invest in the securities of a smaller number of issuers than a diversified &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;fund.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="S000097720"
+      id="ef64ed1b-cf7b-42ae-91a4-5fb7af893de7">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The Fund concentrates its investments (i.e., holds more &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;than 25% of its total assets) in the groups of industries that comprise the information technology and industrials sectors.&lt;/span&gt;</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="S000097720_RiskLoseMoneyMember"
+      id="x_5df9190b-7f2d-44a9-bc94-cded8338b7b3">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;This means that you could &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;lose money on your investment in the Fund or the Fund may not perform as well as other investment options.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_ArtificialIntelligenceRiskMember"
+      id="cb391327-aa47-4127-acf5-7449d33c42a5">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Artificial Intelligence Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Companies that the Subadvisor believes &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;have the potential for growth tied to AI may not in fact be successful. Companies seeking to enable and/or adopt AI may fail to do so successfully. Issuers engaged in AI typically have high research and capital expenditures and, as a result, their profitability can vary widely, if they are profitable at all. The space in which they are engaged is highly competitive and issuers&#x2019; products and services may become obsolete. Further, many companies involved in, or exposed to, AI-related businesses may be substantially exposed to the market and business risks of other industries or sectors, and the Fund may be adversely affected by negative developments impacting those companies, industries or sectors. These companies are heavily dependent on intellectual property rights and may be adversely affected by loss or impairment of those rights. A failure in an issuer&#x2019;s product or even questions about the safety of the product could be devastating to the issuer, especially if it is the marquee product of the issuer. It can be difficult to accurately capture what qualifies as an AI company. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;The issuers are also &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;subject to legal, regulatory and political changes that may have a large impact on their profitability. AI technology could face increasing regulatory scrutiny in the future, which may limit the development of this technology and impede the growth of companies that develop and/or utilize this technology. Similarly, the collection of data from consumers and other sources could face increased scrutiny as regulators consider how the data is collected, stored, safeguarded and used. AI companies may face regulatory fines and penalties, including potential forced break-ups, that could hinder the ability of the companies to operate on an ongoing basis. Country, government, and/or region-specific regulations or restrictions could have an impact on AI and big &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;data companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_MarketRiskMember"
+      id="x_876be2d3-aa30-4c95-a9d3-c42df58d94e8">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Market Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Securities markets are volatile and can decline &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;significantly in response to adverse market, economic, political, regulatory or other developments, which may lower the value of securities held by the Fund, sometimes rapidly or unpredictably. Events such as war, acts of terrorism, social unrest, natural disasters, recessions, inflation, rapid interest rate changes, supply chain disruptions, sanctions, the spread of infectious illness or other public health threats could also significantly impact the Fund and &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;its investments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_EquityRiskMember"
+      id="c3a9f072-1688-4ab2-9284-b128e3db7516">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Equity Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The values of equity or equity-related securities may &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;decline due to general market conditions that are not specifically related to a particular company, such as real or perceived adverse economic conditions, changes in the general outlook for corporate earnings, changes in interest or currency rates or adverse investor sentiment generally. They may also decline due to factors that affect a particular industry or industries, such as labor shortages or increased production costs and competitive conditions within an industry. Equity securities generally have greater price volatility &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;than fixed income securities.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_AuthorizedParticipantConcentrationTradingRiskMember"
+      id="ae81e383-f257-46a5-89b4-b48e05b15f00">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Authorized Participant Concentration/Trading Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Only &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;authorized participants (&#x201c;APs&#x201d;) may engage in creation or redemption transactions directly with the Fund. The Fund has a limited number of institutions that may act as APs and such APs have no obligation to submit creation or redemption orders. Consequently, there is no assurance that APs will establish or maintain an active trading market for the shares. This risk may be heightened to the extent that securities held by the Fund are traded outside a collateralized settlement system. In that case, APs may be required to post collateral on certain trades on an agency basis (i.e., on behalf of other market participants), which only a limited number of APs may be able to do. In addition, to the extent that APs exit the business or are unable to proceed with creation and/or redemption orders with respect to the Fund and no other AP is able to step forward to create or redeem Creation Units (as defined below), this may result in a significantly diminished trading market for shares, and shares may be more likely to trade at a premium or discount to the Fund&#x2019;s net asset value and to face trading halts and/or delisting. This risk may be heightened &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;during periods of volatility or market disruptions.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_PremiumDiscountRiskMember"
+      id="x_2188abfd-40c5-48f1-a515-f646841a3b43">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Premium/Discount Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The market price of the Fund&#x2019;s shares &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;will generally fluctuate in accordance with changes in the Fund&#x2019;s net asset value as well as the relative supply of and demand for shares on the Exchange. The Advisor cannot predict whether shares will trade below, at or above their net asset value because the shares trade on the Exchange at market prices and not at net asset value. Price differences may be due, in large part, to the fact that supply and demand forces at work in the secondary trading market for shares will be closely related, but not identical, to the same forces influencing the prices of the holdings of the Fund trading individually or in the aggregate at any point in time. This may result in the Fund&#x2019;s shares trading significantly above (premium) or below (discount) the Fund&#x2019;s net asset value, which will be reflected in the intraday bid/ask spreads and/or the closing price of shares as compared to net asset value. During stressed market conditions, the market for the Fund&#x2019;s shares may become less liquid in response to deteriorating liquidity in the market for the Fund&#x2019;s underlying portfolio holdings, which could in turn lead to differences between &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;the market price of the Fund&#x2019;s shares and their net asset value.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_CashTransactionsRiskMember"
+      id="x_384345c4-f447-4837-a5b8-942b2511258f">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Cash Transactions Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Fund may effect some or all of its &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;creations and redemptions for cash rather than in-kind. As a result, an investment in the Fund may be less tax-efficient than an investment in an ETF that effects all of its creations and redemptions in-kind. Because the Fund may effect redemptions for cash, it may be required to sell portfolio securities in order to obtain the cash needed to distribute redemption proceeds. A sale of portfolio securities may result in capital gains or losses and may also result in higher brokerage costs. To the extent costs are not offset by transaction fees charged by the Fund to APs, the costs of cash &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;transactions will be borne by the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_ConcentrationRiskMember"
+      id="x_6b8a6f9f-1961-4d05-be8a-8610ab4c845f">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Concentration Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; To the extent that the Fund concentrates &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;in an industry or group of industries, it will be subject to the risk that economic, political, or other conditions that have a negative effect on that industry or group of industries will negatively impact &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;the Fund to a greater extent than if its assets were invested in a &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;wider variety of industries.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_IndustrialSectorRiskMember"
+      id="fa680183-e458-4a45-b1a7-6a59501a9e57">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Industrial Sector Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Companies in the industrial sector face &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;a variety of risks, including commodity price volatility, supply chain disruptions, potential obsolescence of technologies, economic downturns, and increasing competition. The sector is also under pressure to address climate change and transition to a low-carbon &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;economy, which creates transition risk.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_InformationTechnologySectorRiskMember"
+      id="x_38e2b2a5-e5cc-4f72-87fb-2d98ad8a941e">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Information Technology Sector Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Companies in the information &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;technology sector can be significantly affected by short product cycles, obsolescence of existing technology, impairment or loss of intellectual property rights, falling prices and profits, competition &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;from new market entrants, government regulation and other factors.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_DepositaryReceiptsRiskMember"
+      id="x_57c15a8e-1e36-4118-a2b3-a01e638b86cd">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Depository Receipts &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;"&gt;Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Depositary receipts are certificates &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;evidencing ownership of shares of a foreign issuer. These certificates are issued by depository banks and generally trade on an established market in the U.S.&#160;or elsewhere. The underlying shares are held in trust by a custodian bank or similar financial institution. The depository bank may not have physical custody of the underlying securities at all times and may charge fees for various services, including forwarding dividends and interest and corporate actions. Depositary receipts are alternatives to directly purchasing the underlying foreign securities in their national markets and currencies. The issuers of depositary receipts may discontinue issuing new depositary receipts and withdraw existing depositary receipts at any time, which may result in costs and delays in the distribution of the underlying assets to the Fund and may negatively impact the Fund&#x2019;s performance. Depositary receipts are subject to the risks associated with investing directly in foreign securities, which include heightened political and economic risks, greater volatility, currency fluctuations, higher transaction costs, delayed settlement, possible foreign controls on investment, possible sanctions by governmental bodies of other countries and less stringent investor protection and disclosure standards of foreign &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;markets.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_EmergingMarketRiskMember"
+      id="x_5d755d86-1316-482e-9dca-0e74b6eaa73f">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Emerging Market Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Foreign securities risks are more significant &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;in emerging market countries. These countries may have relatively unstable governments and less-established market economies than developed countries. Emerging markets may face greater social, economic, regulatory and political uncertainties. These risks make emerging market securities more volatile and less liquid than securities issued in more developed countries. Securities exchanges in emerging markets may suspend listed securities from trading for substantially longer periods of time than exchanges in developed markets, including for periods of a year or longer. If the Fund is holding a suspended security, that security would become completely illiquid as the Fund would not be able to dispose of the security until the suspension is lifted. In such instances, it can also be difficult to determine an appropriate valuation for the security because &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;of a lack of trading and uncertainty as to when trading may resume.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_ESGFactorsRiskMember"
+      id="fd400d10-f21d-4bc7-a89c-8f5a0435ecf1">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;ESG Factors Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Subadvisor may incorporate environmental, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;social and governance considerations as a component of its risk analysis.&#160;The consideration of ESG factors by the Advisor could cause the Fund to perform differently than other funds. ESG factors are not the only consideration used by the Advisor in making investment decisions for the Fund and the Fund may invest in a company that scores poorly on ESG factors if it scores well on other criteria. ESG factors may not be considered for every &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;investment decision.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_ForeignSecuritiesRiskMember"
+      id="x_60ee6e14-5bec-4c39-a771-34fe4bfff39b">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Foreign Securities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; An investment in the Fund is subject &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;to special risks in addition to those of U.S. securities. These risks include heightened political and economic risks, greater volatility, currency fluctuations, higher transaction costs, delayed settlement, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;possible foreign controls on investment, possible sanctions by governmental bodies of other countries and less stringent investor protection and disclosure standards of foreign markets. Foreign securities are sometimes less liquid and harder to value than securities of U.S. issuers. The securities markets of many foreign countries are relatively small, with a limited number of companies representing a small number of industries. If foreign securities are denominated and traded in a foreign currency, the value of the Fund&#x2019;s foreign holdings can be affected by currency exchange rates and exchange control regulations. The Fund&#x2019;s investments in foreign securities may also be subject to foreign withholding &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;taxes.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Global economies and financial markets are becoming increasingly interconnected, and conditions and events in one country, region or financial market may adversely impact issuers in a different &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;country, region or financial market.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_IssuerRiskMember"
+      id="x_4999b3ed-b314-4827-ad9e-f331271f9ce5">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Issuer Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; An adverse event affecting a particular issuer in which &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;the Fund is invested, such as an unfavorable earnings report, may depress the value of that issuer&#x2019;s securities, sometimes rapidly or &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;unpredictably.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_MarketCapitalizationRiskMember"
+      id="x_1c16158f-ab68-418a-a7f1-df0fb1262316">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Market Capitalization Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Fund may invest in companies &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;of any market capitalization. Securities of smaller companies are usually less stable in price and less liquid than those of larger, more established companies. Smaller companies may have limited product lines, markets and financial resources. Additionally, small- and mid-cap stocks may fall out of favor relative to large cap stocks, which may cause the Fund to underperform other equity funds that focus on larger capitalized companies. Likewise, large cap stocks may fall out of favor relative to small- and mid-cap stocks, which may cause the Fund to underperform other equity funds &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;that focus on smaller capitalized companies.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_NewFundRiskMember"
+      id="d695d310-18d4-49e1-9552-79af85811939">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;New Fund Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; There can be no assurance that the Fund will &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;grow to or maintain an economically viable size, in which case the Board of Trustees may determine to liquidate the Fund. The Board of Trustees may liquidate the Fund at any time in accordance with the Declaration of Trust and governing law. As a result, the &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;timing of the Fund&#x2019;s liquidation may not be favorable.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_RiskNondiversifiedStatusMember"
+      id="x_9c15f947-1f4f-47f0-90e4-ebf2de917648">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Non-Diversification Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Because the Fund is non-diversified &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;and may invest a greater percentage of its assets in securities of a single issuer, and/or invest in a relatively small number of issuers, it is more susceptible to risks associated with a single economic, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;political or regulatory occurrence than a more diversified portfolio.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000097720_UnrelatedBusinessRiskMember"
+      id="x_1e2643d7-9683-4830-a449-d081ff3103e3">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Unrelated Business Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Many of the companies in which the &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Fund will invest have other business lines unrelated to one of the thematic categories. These other lines of business could adversely affect those firms&#x2019; operating results and, in turn, hurt the Fund&#x2019;s performance. The operating results of companies with other business lines may fluctuate independently of the fluctuations in the relevant thematic category businesses. In addition, a particular company&#x2019;s ability to engage in new business activities may expose it to additional risks for which it has less experience than its existing business lines. Despite a company&#x2019;s possible success in activities linked to its use of one or more of the thematic categories, there can be no assurance that its other lines of business will not adversely affect the company&#x2019;s business, financial condition, or market value. In addition, a particular company&#x2019;s unrelated businesses may impact the Fund&#x2019;s investment returns and it may be difficult to isolate &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;thematic category-related returns from other return sources.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000097720"
+      id="b5642223-2f83-41d6-83f9-3c42189c3997">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000097720"
+      id="x_8d4178eb-ce55-45b8-bafd-62297b01e466">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Because the Fund is newly organized and does not yet have a complete calendar year of performance history, the bar chart and total return tables are not provided. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Once the Fund has operated &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;for at least one calendar year, a bar chart and performance table will be included in the prospectus to show the performance of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;When such information is included, this section will &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;provide some indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance history from year to year and showing how the Fund&#x2019;s average annual total returns compare with those of a broad measure of market performance and an additional index.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Please note that the Fund&#x2019;s past performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;(before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; To obtain performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;information, please visit the Fund&#x2019;s website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-style:italic;"&gt;harborcapital.com&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;or call &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;800-422-1050&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000097720"
+      id="x_3c1f15ab-767f-4056-b0c9-3658b7b0e3dc">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Because the Fund is newly organized and does not yet have a complete calendar year of performance history, the bar chart and total return tables are not provided. &lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="S000097720"
+      id="x_7b5d311e-1b18-4c7b-b2b6-451cf3ef0fd3">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;When such information is included, this section will &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;provide some indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance history from year to year and showing how the Fund&#x2019;s average annual total returns compare with those of a broad measure of market performance and an additional index.&lt;/span&gt;</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000097720"
+      id="x_806ad543-c4f9-41f3-b7e8-36f675372da9">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;Please note that the Fund&#x2019;s past performance &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;(before and after taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000097720"
+      id="x_95a97704-703d-417f-99ee-a05576f87deb">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-style:italic;"&gt;harborcapital.com&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="S000097720"
+      id="aefa21f3-619c-4868-9d6c-a0a2c6863c6c">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;800-422-1050&lt;/span&gt;</oef:PerformanceAvailabilityPhone>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#c419d0ee-a913-4f3a-9399-b5ab075cdad1"
+          xlink:label="c419d0ee-a913-4f3a-9399-b5ab075cdad1"
+          xlink:type="locator"/>
+        <link:footnote id="x_000038_96c78697-54a9-4961-8922-f7e6ca305e14" xlink:label="x_000038_96c78697-54a9-4961-8922-f7e6ca305e14" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;">Pursuant to the Investment Advisory Agreement, the Advisor pays all of the operating expenses of the Fund, except for (i) the fee payment under the Investment Advisory Agreement; (ii) payments under the Fund&#x2019;s 12b-1 plan (if any); (iii) the costs of borrowing, including interest and dividend expenses; (iv) taxes and governmental fees; (v) acquired fund fees and expenses; (vi) brokers&#x2019; commissions and any other transaction-related expenses and fees arising out of transactions effected on behalf of the Fund; (vii) costs of holding shareholder meetings; and (viii) litigation and indemnification expenses and other extraordinary expenses not incurred in the ordinary course of the Fund&#x2019;s business.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="c419d0ee-a913-4f3a-9399-b5ab075cdad1"
+          xlink:to="x_000038_96c78697-54a9-4961-8922-f7e6ca305e14"
+          xlink:type="arc"/>
+        <link:footnote id="x_000039_96c78697-54a9-4961-8922-f7e6ca305e14" xlink:label="x_000039_96c78697-54a9-4961-8922-f7e6ca305e14" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;">&#x201c;Other Expenses&#x201d; are estimated for the current fiscal year.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="c419d0ee-a913-4f3a-9399-b5ab075cdad1"
+          xlink:to="x_000039_96c78697-54a9-4961-8922-f7e6ca305e14"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

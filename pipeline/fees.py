@@ -78,6 +78,8 @@ def parse(xml):
             v = round(float(val) * 100, 2)
         except ValueError:
             continue
+        if v <= 0 or v > 5:  # a filing error or a stray value, never an ETF fee
+            continue
         rec = out.setdefault(cls, {'gross': None, 'net': None})
         rec['net' if name.startswith('Net') else 'gross'] = v
     return out
@@ -104,7 +106,7 @@ def build():
     fees = {}  # class id -> {gross, net, filed, source}
     for i, cik in enumerate(ciks):
         try:
-            filings = [f for f in submissions(cik) if f['date'] >= cutoff][:40]
+            filings = [f for f in submissions(cik) if f['date'] >= cutoff][:400]
         except Exception as e:
             print(f'  submissions {cik}: {str(e)[:80]}', file=sys.stderr)
             continue

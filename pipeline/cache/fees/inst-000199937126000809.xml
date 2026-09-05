@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2025"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2025"
+  xmlns:rex="http://rexshares.com/20260114"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2025"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="rex-20260114.xsd" xlink:type="simple"/>
+    <context id="AsOf2026-01-14">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_C000270192Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">rex:C000270192Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_ActiveManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:ActiveManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_AuthorizedParticipantsMarketMakersAndLiquidityProvidersLimitationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:AuthorizedParticipantsMarketMakersAndLiquidityProvidersLimitationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_CashTransactionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:CashTransactionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_CostsOfBuyingAndSellingFundSharesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:CostsOfBuyingAndSellingFundSharesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_CyberSecurityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:CyberSecurityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_DebtSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:DebtSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_DistributionRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:DistributionRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_DistributionTaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:DistributionTaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_HighPortfolioTurnoverRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:HighPortfolioTurnoverRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_IncomeRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:IncomeRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_InflationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:InflationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_us-gaap_InterestRateRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:InterestRateRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_MarketMakerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:MarketMakerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_MoneyMarketshorttermSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:MoneyMarketshorttermSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_OperationalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:OperationalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_PremiumdiscountRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:PremiumdiscountRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_SignificantExposureRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:SignificantExposureRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_TradingIssuesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:TradingIssuesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_custom_USGovernmentSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">rex:USGovernmentSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <context id="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskNotInsuredMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0002043954</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">rex:S000100368Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-14</startDate>
+            <endDate>2026-01-14</endDate>
+        </period>
+    </context>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <unit id="Ratio">
+        <measure>pure</measure>
+    </unit>
+    <dei:AmendmentFlag contextRef="AsOf2026-01-14" id="Fact000003">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="AsOf2026-01-14" id="Fact000004">485BPOS</dei:DocumentType>
+    <dei:EntityCentralIndexKey contextRef="AsOf2026-01-14" id="Fact000005">0002043954</dei:EntityCentralIndexKey>
+    <dei:DocumentPeriodEndDate contextRef="AsOf2026-01-14" id="Fact000011">2026-01-14</dei:DocumentPeriodEndDate>
+    <dei:EntityInvCompanyType contextRef="AsOf2026-01-14" id="Fact000012">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName contextRef="AsOf2026-01-14" id="Fact000013">REX ETF Trust</dei:EntityRegistrantName>
+    <oef:ProspectusDate contextRef="AsOf2026-01-14" id="Fact000014">2026-01-14</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000015">The Laddered T-Bill ETF</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000016">Investment Objective</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000017">&lt;p id="xdx_A8C_eoef--ObjectivePrimaryTextBlock_zXUDpUu1SJD4" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;The Fund seeks current income, consistent
+with preservation of capital and daily liquidity.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000018">Fees and Expenses of the Fund</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000019">&lt;p id="xdx_A83_eoef--ExpenseNarrativeTextBlock_zoqaLHsI7Fdl" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;The table below describes the fees and
+expenses that you may pay if you buy, hold and sell shares of the Fund (&#x201c;Fund Shares&#x201d;). &lt;b&gt;You may pay other fees,
+such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and Example below.&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;div&gt;&lt;/div&gt;
+</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000020">Annual Fund Operating Expenses(expenses that you pay each year as a percentage of the value of your investment)</oef:OperatingExpensesCaption>
+    <oef:AnnualFundOperatingExpensesTableTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000021">&lt;p id="xdx_A80_eoef--AnnualFundOperatingExpensesTableTextBlock_zsJUgGrjZplh" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; border-collapse: collapse"&gt;
+&lt;tr style="vertical-align: top"&gt;
+    &lt;td style="border-top: black 1pt solid; border-bottom: black 1pt solid; width: 86%; padding-top: 4pt; padding-bottom: 4pt; padding-left: 0.125in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;b&gt;Management Fees&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-top: black 1pt solid; border-bottom: black 1pt solid; padding: 4pt 8pt 4pt -0.125in; width: 14%; text-align: right"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_90D_eoef--ManagementFeesOverAssets_pip0_dpn_c20260114__20260114__oef--ClassAxis__custom--C000270192Member_zyBsiUzKhbjd"&gt;0.20%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="vertical-align: top"&gt;
+    &lt;td style="border-bottom: black 1pt solid; padding-top: 4pt; padding-bottom: 4pt; padding-left: 0.125in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;b&gt;Distribution and Service (12b-1) Fees&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: black 1pt solid; padding-top: 4pt; padding-bottom: 4pt; text-align: right; padding-right: 8pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_904_eoef--DistributionAndService12b1FeesOverAssets_pip0_dpn_c20260114__20260114__oef--ClassAxis__custom--C000270192Member_zMg0WlHguvR6"&gt;0.00%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="vertical-align: top"&gt;
+    &lt;td style="border-bottom: black 4.5pt double; padding-top: 4pt; padding-bottom: 4pt; padding-left: 0.125in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;b&gt;Other Expenses&lt;sup&gt;(1)&lt;/sup&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: black 4.5pt double; padding-top: 4pt; padding-bottom: 4pt; text-align: right; padding-right: 8pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_905_eoef--OtherExpensesOverAssets_pip0_dpn_c20260114__20260114__oef--ClassAxis__custom--C000270192Member_fKDEp_z1MImoTatLak"&gt;0.00%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="vertical-align: top"&gt;
+    &lt;td style="border-bottom: black 1pt solid; padding-top: 4pt; padding-bottom: 4pt; padding-left: 0.125in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;b&gt;Total Annual Fund Operating Expenses&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: black 1pt solid; padding-top: 4pt; padding-bottom: 4pt; text-align: right; padding-right: 8pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_900_eoef--ExpensesOverAssets_pip0_dpn_c20260114__20260114__oef--ClassAxis__custom--C000270192Member_z000brnlD089"&gt;0.20%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 6pt; width: 100%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td id="xdx_F0C_ze5aTdpOy4g2" style="width: 15pt; text-align: right"&gt;(1)&lt;/td&gt;&lt;td style="width: 5pt"&gt;&lt;/td&gt;&lt;td id="xdx_F19_zRE9uhmeeTIf" style="text-align: justify"&gt;&lt;span id="xdx_905_eoef--OtherExpensesNewFundBasedOnEstimates_c20260114__20260114__dei--LegalEntityAxis__custom--S000100368Member_zoN1p1T420Tg"&gt;&#x201c;Other Expenses&#x201d; are estimates based on the expenses the Fund expects to incur
+for the current fiscal year.&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+</oef:AnnualFundOperatingExpensesTableTextBlock>
+    <oef:ManagementFeesOverAssets
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="INF"
+      id="Fact000022"
+      unitRef="Ratio">0.0020</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="INF"
+      id="Fact000023"
+      unitRef="Ratio">0.0000</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="INF"
+      id="Fact000024"
+      unitRef="Ratio">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="INF"
+      id="Fact000025"
+      unitRef="Ratio">0.0020</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000027">&#x201c;Other Expenses&#x201d; are estimates based on the expenses the Fund expects to incur
+for the current fiscal year.</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000028">Example</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000029">&lt;p id="xdx_A86_eoef--ExpenseExampleNarrativeTextBlock_zR3vVvZUZYY9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;This Example is intended
+to help you compare the cost of investing in the Fund with the cost of investing in other funds. The Example assumes that you invest
+$10,000 in the Fund for the time periods indicated and then hold or redeem all of your Fund Shares at the end of those periods.
+The Example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the
+same. The Example does not take into account brokerage commissions that you may pay on your purchases and sales of Fund Shares.
+Although your actual costs may be higher or lower, based on these assumptions your costs would be:&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleWithRedemptionTableTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000030">&lt;div id="xdx_A88_eoef--ExpenseExampleWithRedemptionTableTextBlock_zPXM11tTUCl6"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A52_dU_z4UvlrO53jnh" style="font: 10pt Times New Roman, Times, Serif; margin-left: auto; width: 40%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Expense Example"&gt;
+&lt;tr style="vertical-align: top"&gt;
+    &lt;td id="xdx_486_eoef--ExpenseExampleYear01_zVdNwGZ6IZBg" style="border-bottom: black 1pt solid; width: 51%; padding-top: 12pt; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center; text-indent: 0in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif"&gt;&lt;b&gt;1 Year&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_481_eoef--ExpenseExampleYear03_zrriJ6eqB8nc" style="border-bottom: black 1pt solid; width: 49%; padding-top: 12pt; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center; text-indent: 0in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif"&gt;&lt;b&gt;3 Years&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_41D_20260114__20260114__oef--ClassAxis__custom--C000270192Member_zBaxocZRh018" style="vertical-align: top"&gt;
+    &lt;td style="padding: 12pt 5.4pt 6pt; text-align: center; text-indent: 0in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif"&gt;$21&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="padding: 12pt 5.4pt 6pt; text-align: center; text-indent: 0in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif"&gt;$66&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</oef:ExpenseExampleWithRedemptionTableTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="0"
+      id="Fact000031"
+      unitRef="USD">21</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="From2026-01-142026-01-14_custom_C000270192Member"
+      decimals="0"
+      id="Fact000032"
+      unitRef="USD">66</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000033">Portfolio Turnover</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000034">&lt;p id="xdx_A8D_eoef--PortfolioTurnoverTextBlock_zjugXDPCamJd" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;The Fund pays transaction
+costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover
+rate may indicate higher transaction costs and may result in higher taxes when Fund Shares are held in a taxable account. These
+costs, which are not reflected in total annual fund operating expenses or in the expense example above, affect the Fund&#x2019;s
+performance. Because the Fund is newly organized, portfolio turnover information is not yet available.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000035">Principal Investment Strategies</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000036">&lt;p id="xdx_A81_eoef--StrategyNarrativeTextBlock_zR7WO5vsAsy1" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-weight: normal"&gt;The Fund
+is an actively managed exchange-traded fund (&#x201c;ETF&#x201d;) that seeks to provide current income, consistent with preservation
+of capital and daily liquidity, by investing primarily in U.S. Treasury bills (&#x201c;T-Bills&#x201d;). &lt;span id="xdx_90C_eoef--StrategyPortfolioConcentration_c20260114__20260114__dei--LegalEntityAxis__custom--S000100368Member_zxV44bxMpmEa"&gt;The Fund, under normal market
+conditions, will invest at least 80% of its net assets (plus any borrowings for investment purposes) in T-Bills with remaining
+maturities of six months or less.&lt;/span&gt; The Fund may also invest in cash, cash equivalents, and money market instruments that utilize
+T-Bills as the underlying securities. REX Advisers, LLC (the &#x201c;Adviser&#x201d;) serves as the investment adviser to the Fund.
+The Fund&#x2019;s investment sub-adviser is Tuttle Capital Management, LLC (the &#x201c;Sub-Adviser&#x201d;).&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-weight: normal"&gt;The Sub-Adviser
+employs a laddered maturity structure whereby the Fund invests in T-Bills with different short-term maturity dates designed to
+maintain a target dollar-weighted average maturity (&#x201c;WAM&#x201d;) of approximately 60 days. As the T-bills mature, the Fund
+reinvests the proceeds into new T-bills at current market interest rates, a practice referred to as &#x201c;rolling.&#x201d; This
+continuous rolling process helps the Fund take advantage of changing interest rates and maintain liquidity as securities mature.
+The Sub-Adviser actively manages both the Fund&#x2019;s laddered positioning and reinvestment timing to optimize yield across the
+front end of the U.S. Treasury curve.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-weight: normal"&gt;The Sub-Adviser
+may, in its discretion, extend the portfolio&#x2019;s WAM beyond the 60-day target if the Sub-Adviser identifies opportunities for
+higher returns by holding T-Bills with slightly longer maturities (such as when short-term interest rates are high compared to
+longer-term rates), when there are disruptions in short-term funding markets or when market expectations for future rate cuts cause
+slightly longer maturities economically advantageous. Conversely, the Sub-Adviser may reduce the portfolio&#x2019;s WAM to 30 days
+or less to preserve liquidity or reduce the risk from interest rate changes. &lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-weight: normal"&gt;This
+Fund&#x2019;s laddered maturity and practice of rolling may result in high portfolio turnover for the Fund. The Fund is classified
+as &#x201c;non-diversified&#x201d; under the Investment Company Act of 1940, as amended (the &#x201c;1940 Act&#x201d;).&lt;/span&gt;&lt;/p&gt;
+
+</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000037">The Fund, under normal market
+conditions, will invest at least 80% of its net assets (plus any borrowings for investment purposes) in T-Bills with remaining
+maturities of six months or less.</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskLoseMoneyMember"
+      id="Fact000038">Fund Shares will change in value, and you could lose money by investing in the
+Fund.</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskNotInsuredMember"
+      id="Fact000039">An investment in the Fund is not insured or guaranteed by the Federal Deposit Insurance Corporation or any other government
+agency.</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_ActiveManagementRiskMember"
+      id="Fact000040">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--ActiveManagementRiskMember_zxuCGXApdjji" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;ACTIVE MANAGEMENT
+RISK.&lt;/b&gt; The Fund is actively-managed and its performance reflects investment decisions that the Sub-Adviser makes for the Fund.
+In managing the Fund&#x2019;s investment portfolio, the portfolio managers will apply investment techniques and risk analyses, including
+through the use of technology, automated processes, algorithms, or other management systems, that may not operate as intended or
+produce the desired result. Such judgments about the Fund&#x2019;s investments may prove to be incorrect. If the investments selected
+and the strategies employed by the Fund fail to produce the intended results, the Fund could underperform as compared to other
+funds with similar investment objectives and/or strategies, or could have negative returns.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_AuthorizedParticipantsMarketMakersAndLiquidityProvidersLimitationRiskMember"
+      id="Fact000041">&lt;p id="xdx_A85_eoef--RiskTextBlock_hoef--RiskAxis__custom--AuthorizedParticipantsMarketMakersAndLiquidityProvidersLimitationRiskMember_zfmxEmFK4uX6" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;AUTHORIZED PARTICIPANTS,
+MARKET MAKERS, AND LIQUIDITY PROVIDERS LIMITATION RISK.&lt;/b&gt; The Fund has a limited number of financial institutions that may act
+as Authorized Participants (&#x201c;APs&#x201d;). In addition, there may be a limited number of market makers and/or liquidity providers
+in the marketplace. To the extent either of the following events occur, Fund Shares may trade at a material discount to NAV and
+possibly face delisting: (i) APs exit the business or otherwise become unable to process creation and/or redemption orders and
+no other APs step forward to perform these services, or (ii) market makers and/or liquidity providers exit the business or significantly
+reduce their business activities and no other entities step forward to perform their functions.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_CashTransactionsRiskMember"
+      id="Fact000042">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--CashTransactionsRiskMember_zD2WmEthnyd8" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;b&gt;CASH TRANSACTIONS RISK.&lt;/b&gt; The Fund
+currently expects to effect a significant portion of its creations and redemptions for cash, rather than in-kind securities. Paying
+redemption proceeds in cash rather than through in-kind delivery of portfolio securities may require the Fund to dispose of or
+sell portfolio securities or other assets at an inopportune time to obtain the cash needed to meet redemption orders. This may
+cause the Fund to sell a security and recognize a capital gain or loss that might not have been incurred if it had made a redemption
+in-kind. As a result, the Fund may pay out higher or lower annual capital gains distributions than ETFs that redeem in-kind. The
+use of cash creations and redemptions may also cause Fund Shares to trade in the market at greater bid-ask spreads or greater premiums
+or discounts to the Fund&#x2019;s NAV. Furthermore, the Fund may not be able to execute cash transactions for creation and redemption
+purposes at the same price used to determine the Fund&#x2019;s NAV.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_CostsOfBuyingAndSellingFundSharesMember"
+      id="Fact000043">&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--CostsOfBuyingAndSellingFundSharesMember_z58qO6jk9GD" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;b&gt;COSTS OF BUYING AND SELLING FUND SHARES.&lt;/b&gt; Due to the costs
+of buying or selling Fund Shares, including brokerage commissions imposed by brokers and bid/ask spreads, frequent trading of Fund
+Shares may significantly reduce investment results and an investment in Fund Shares may not be advisable for investors who anticipate
+regularly making small investments.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_CyberSecurityRiskMember"
+      id="Fact000044">&lt;p id="xdx_A88_eoef--RiskTextBlock_hoef--RiskAxis__custom--CyberSecurityRiskMember_zoQzhnM2UIaa" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;span style="text-transform: uppercase"&gt;&lt;b&gt;Cyber
+security Risk&lt;/b&gt;&lt;/span&gt;&lt;b&gt;. &lt;/b&gt;The Fund is susceptible to operational risks through breaches in cyber security. A breach in cyber
+security refers to both intentional and unintentional events that may cause the Fund to lose proprietary information, suffer data
+corruption or lose operational capacity. Such events could cause the Fund to incur regulatory penalties, reputational damage, additional
+compliance costs associated with corrective measures and/or financial loss. Cyber security breaches may involve unauthorized access
+to the Fund&#x2019;s digital information systems through &#x201c;hacking&#x201d; or malicious software coding but may also result
+from outside attacks such as denial-of-service attacks through efforts to make network services unavailable to intended users.
+In addition, cyber security breaches of the issuers of securities in which the Fund invests or the Fund&#x2019;s third-party service
+providers, such as its administrator, transfer agent, custodian, or sub-adviser, as applicable, can also subject the Fund to many
+of the same risks associated with direct cyber security breaches. Although the Fund has established risk management systems designed
+to reduce the risks associated with cyber security, there is no guarantee that such efforts will succeed, especially because the
+Fund does not directly control the cyber security systems of issuers or third-party service providers.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_DebtSecuritiesRiskMember"
+      id="Fact000045">&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--DebtSecuritiesRiskMember_zLvmHV1OjjF8" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;DEBT SECURITIES RISK.&lt;/b&gt;&#160;
+Investments in debt securities subject the holder to the&#160;credit risk&#160;of the issuer.&#160;Credit risk&#160;refers to the
+possibility that the issuer or other obligor of a security will not be able or willing to make payments of interest and principal
+when due. Generally, the value of debt securities will change inversely with changes in interest rates. To the extent that interest
+rates rise, certain underlying obligations may be paid off substantially slower than originally anticipated and the value of those
+securities may fall sharply. During periods of falling interest rates, the income received by the Fund may decline. If the principal
+on a debt security is prepaid before expected, the prepayments of principal may have to be reinvested in obligations paying interest
+at lower rates. Debt securities generally do not trade on a securities exchange making them generally less liquid and more difficult
+to value than common stock.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_DistributionRiskMember"
+      id="Fact000046">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--DistributionRiskMember_zrEUMX77pwyc" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;DISTRIBUTION RISK.
+&lt;/b&gt;As part of the Fund&#x2019;s investment objectives, the Fund seeks to provide current income. There is no assurance that the
+Fund will make a distribution at any given time. If the Fund does make distributions, the amounts of such distributions will likely
+vary greatly from one distribution to the next. Additionally, the distributions, if any, may consist of returns of capital, which
+would decrease the Fund&#x2019;s NAV and trading price over time. As a result, an investor may suffer significant losses to their
+investment.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_DistributionTaxRiskMember"
+      id="Fact000047">&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--DistributionTaxRiskMember_z69Kb5VzGOd9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;DISTRIBUTION TAX RISK.
+&lt;/b&gt;The Fund currently expects to make distributions on a regular basis. While the Fund will normally pay its income as distributions,
+the Fund&#x2019;s distributions may exceed the Fund&#x2019;s income and gains for the Fund&#x2019;s taxable year. The Fund may be
+required to reduce its distributions if it has insufficient income. Additionally, there may be times the Fund needs to sell securities
+when it would not otherwise do so and could cause the distributions from that sale to constitute return of capital. Distributions
+in excess of the Fund&#x2019;s current and accumulated earnings and profits will be treated as a return of capital. Return of capital
+distributions do not represent income or gains generated by the Fund&#x2019;s investment activities and should not be interpreted
+by shareholders as such. Distributions in excess of the Fund&#x2019;s minimum distribution requirements, but not in excess of the
+Fund&#x2019;s earnings and profits, will be taxable to Fund shareholders and will not constitute nontaxable returns of capital.
+A return of capital distribution generally will not be taxable but will reduce the shareholder&#x2019;s cost basis and will result
+in a higher capital gain or lower capital loss when those Fund shares on which the distribution was received are sold. Once a Fund
+shareholder&#x2019;s cost basis is reduced to zero, further distributions will be treated as capital gain, if the Fund shareholder
+holds shares of the Fund as capital assets. Additionally, any capital returned through distributions will be distributed after
+payment of Fund fees and expenses. Because the Fund&#x2019;s distributions may consist of return of capital, the Fund may not be
+an appropriate investment for investors who do not want their principal investment in the Fund to decrease over time or who do
+not wish to receive return of capital in a given period. In the event that a shareholder purchases shares of the Fund shortly before
+a distribution by the Fund, the entire distribution may be taxable to the shareholder even though a portion of the distribution
+effectively represents a return of the purchase price.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_HighPortfolioTurnoverRiskMember"
+      id="Fact000048">&lt;p id="xdx_A86_eoef--RiskTextBlock_hoef--RiskAxis__custom--HighPortfolioTurnoverRiskMember_zujNsMtPbLS5" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;HIGH PORTFOLIO TURNOVER
+RISK. &lt;/b&gt;The Fund may actively and frequently trade all or a significant portion of the Fund&#x2019;s holdings. A high portfolio
+turnover rate increases transaction costs, which may increase the Fund&#x2019;s expenses. Frequent trading may also cause adverse
+tax consequences for investors in the Fund due to an increase in short-term capital gains.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_IncomeRiskMember"
+      id="Fact000049">&lt;p id="xdx_A82_eoef--RiskTextBlock_hoef--RiskAxis__custom--IncomeRiskMember_zUQfzkyYPgXc" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;INCOME RISK.&lt;/b&gt;&#160;The
+Fund&#x2019;s income may decline when interest rates fall or if there are defaults in its portfolio. This decline can occur because
+the Fund may subsequently invest in lower-yielding securities as debt securities in its portfolio mature, are near maturity or
+are called, or the Fund otherwise needs to purchase additional debt securities.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_InflationRiskMember"
+      id="Fact000050">&lt;p id="xdx_A8D_eoef--RiskTextBlock_hoef--RiskAxis__custom--InflationRiskMember_z2QANFdDYpAh" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;INFLATION&#160;RISK.&lt;/b&gt;&#160;Inflation
+risk&#160;is the risk that the value of assets or income from investments will be less in the future as inflation decreases the
+value of money. As inflation increases, the present value of the Fund&#x2019;s assets and distributions may decline. This risk is
+more prevalent with respect to fixed income securities held by the Fund.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_us-gaap_InterestRateRiskMember"
+      id="Fact000051">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__us-gaap--InterestRateRiskMember_zk2J0gVItEX9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;INTEREST RATE RISK.&lt;/b&gt;
+Interest rate risk&#160;is the risk that the value of the debt securities in the Fund&#x2019;s portfolio will decline because of
+rising market interest rates.&#160;Interest rate risk&#160;is generally lower for shorter term debt securities and higher for longer-term
+debt securities. Duration is a reasonably accurate measure of a debt security&#x2019;s price sensitivity to changes in interest
+rates and a common measure of&#160;interest rate risk. Duration measures a debt security&#x2019;s expected life on a present value
+basis, taking into account the debt security&#x2019;s yield, interest payments and final maturity. In general, duration represents
+the expected percentage change in the value of a security for an immediate 1% change in interest rates. For example, the price
+of a debt security with a three-year duration would be expected to drop by approximately 3% in response to a 1% increase in interest
+rates. Therefore, prices of debt securities with shorter durations tend to be less sensitive to interest rate changes than debt
+securities with longer durations. As the value of a debt security changes over time, so will its duration.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_MarketMakerRiskMember"
+      id="Fact000052">&lt;p id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketMakerRiskMember_zUqj7xyUNSxj" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;span style="text-transform: uppercase"&gt;&lt;b&gt;market
+maker Risk&lt;/b&gt;&lt;/span&gt;&lt;b&gt;. &lt;/b&gt;The Fund faces numerous market trading risks, including the potential lack of an active market for
+Fund Shares due to a limited number of market markers. Decisions by market makers or authorized participants to reduce their role
+or step away from these activities in times of market stress could inhibit the effectiveness of the arbitrage process in maintaining
+the relationship between the underlying values of the Fund&#x2019;s portfolio securities and the Fund Share price. The Fund may
+rely on a small number of third-party market makers to provide a market for the purchase and sale of Fund Shares. Any trading halt
+or other problem relating to the trading activity of these market makers could result in a dramatic change in the spread between
+the Fund&#x2019;s NAV and the price at which the Fund Shares are trading on the Exchange, which could result in a decrease in value
+of Fund Shares. This reduced effectiveness could result in Fund Shares trading at a discount to NAV and also in greater than normal
+intraday bid-ask spreads for Fund Shares.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_MarketRiskMember"
+      id="Fact000053">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketRiskMember_zxfgR1UFQdri" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;span style="text-transform: uppercase"&gt;&lt;b&gt;Market
+Risk&lt;/b&gt;&lt;/span&gt;&lt;b&gt;. &lt;/b&gt;Market risk is the risk that a particular investment, or Fund Shares in general, may fall in value. Securities
+are subject to market fluctuations caused by real or perceived adverse economic, political, and regulatory factors or market developments,
+changes in interest rates and perceived trends in securities prices. Fund Shares could decline in value or underperform other investments.
+In addition, local, regional or global events such as war, acts of terrorism, market manipulation, government defaults, government
+shutdowns, regulatory actions, political changes, diplomatic developments, the imposition of sanctions and other similar measures,
+spread of infectious diseases or other public health issues, recessions, natural disasters, or other events could have a significant
+negative impact on the Fund and its investments. Any of such circumstances could have a materially negative impact on the value
+of the Fund Shares, the liquidity of an investment, and may result in increased market volatility. During any such events, Fund
+Shares may trade at increased premiums or discounts to their NAV, the bid/ask spread on Fund Shares may widen and the returns on
+investment may fluctuate.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_MoneyMarketshorttermSecuritiesRiskMember"
+      id="Fact000054">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--MoneyMarketshorttermSecuritiesRiskMember_zuWZsSdqK5x4" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;MONEY MARKET/SHORT-TERM
+SECURITIES RISK.&lt;/b&gt; To the extent that the Fund invests in money market or short-term securities, the Fund may be subject to certain
+risks associated with such investments. An investment in a money market fund or short-term securities is not a bank deposit and
+is not insured or guaranteed by any bank, the Federal Deposit Insurance Corporation or any other government agency. It is possible
+for the Fund to lose money by investing in money market funds. A money market fund may not achieve its investment objective. Changes
+in government regulations may affect the value of an investment in a money market fund.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_NewFundRiskMember"
+      id="Fact000055">&lt;p id="xdx_A86_eoef--RiskTextBlock_hoef--RiskAxis__custom--NewFundRiskMember_zpulpqUYQhCf" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;NEW FUND RISK. &lt;/b&gt;The
+Fund is a recently organized management investment company with no operating history. As a result, prospective investors do not
+have a track record or history on which to base their investment decisions.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_oef_RiskNondiversifiedStatusMember"
+      id="Fact000056">&lt;p id="xdx_A8B_eoef--RiskTextBlock_hoef--RiskAxis__oef--RiskNondiversifiedStatusMember_zxQ5QTtNmVx8" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;NON-DIVERSIFICATION
+RISK. &lt;/b&gt;The Fund is classified as &#x201c;non-diversified&#x201d; under the 1940 Act. As a result, the Fund is only limited as
+to the percentage of its assets which may be invested in the securities of any one issuer by the diversification requirements imposed
+by the Internal Revenue Code of 1986, as amended. The Fund may invest a relatively high percentage of its assets in a limited number
+of issuers. As a result, the Fund may be more susceptible to a single adverse economic or regulatory occurrence affecting one or
+more of these issuers, experience increased volatility and be highly invested in certain issuers.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_OperationalRiskMember"
+      id="Fact000057">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--OperationalRiskMember_zftOHWVjL45j" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;b&gt;OPERATIONAL RISK.&lt;/b&gt; The Fund is subject
+to risks arising from various operational factors, including, but not limited to, human error, processing and communication errors,
+errors of the Fund&#x2019;s service providers, counterparties or other third-parties, failed or inadequate processes and technology
+or systems failures. The Fund relies on third-parties for a range of services, including custody. Any delay or failure relating
+to engaging or maintaining such service providers may affect the Fund&#x2019;s ability to meet its investment objective. Although
+the Fund, Adviser and Sub-Adviser seek to reduce these operational risks through controls and procedures, there is no way to completely
+protect against such risks.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_PremiumdiscountRiskMember"
+      id="Fact000058">&lt;p id="xdx_A83_eoef--RiskTextBlock_hoef--RiskAxis__custom--PremiumdiscountRiskMember_zJ6LA186Qhzc" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;PREMIUM/DISCOUNT RISK.&lt;/b&gt;
+As with all ETFs, Fund Shares may be bought and sold in the secondary market at market prices. Although it is expected that the
+market price of Fund Shares will approximate the Fund&#x2019;s NAV, there may be times when the market price of Fund Shares is more
+than the NAV intraday (premium) or less than the NAV intraday (discount) due to supply and demand of Fund Shares or during periods
+of market volatility. This risk is heightened in times of market volatility and volatility in the Fund&#x2019;s portfolio holdings,
+periods of steep market declines, and periods when there is limited trading activity for Fund Shares in the secondary market, in
+which case such premiums or discounts may be significant. If an investor purchases Fund Shares at a time when the market price
+is at a premium to the NAV of Fund Shares or sells at a time when the market price is at a discount to the NAV of Fund Shares,
+then the investor may sustain losses that are in addition to any losses caused by a decrease in NAV.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_SignificantExposureRiskMember"
+      id="Fact000059">&lt;p id="xdx_A89_eoef--RiskTextBlock_hoef--RiskAxis__custom--SignificantExposureRiskMember_zqgiQZSXjGn5" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;SIGNIFICANT EXPOSURE
+RISK.&lt;/b&gt;&#160;To the extent that the Fund invests a significant percentage of its assets in a single asset class or the securities
+of issuers within the same country, state, region, industry or sector, an adverse economic, business or political development may
+affect the value of the Fund&#x2019;s investments more than if the Fund were more broadly diversified. A significant exposure makes
+the Fund more susceptible to any single occurrence and may subject the Fund to greater market risk than a fund that is more broadly
+diversified.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_TradingIssuesRiskMember"
+      id="Fact000060">&lt;p id="xdx_A89_eoef--RiskTextBlock_hoef--RiskAxis__custom--TradingIssuesRiskMember_zbna0sjp2Kch" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;TRADING ISSUES RISK.&lt;/b&gt;
+Although Fund Shares are listed for trading on a national securities exchange, and may be traded on other U.S. exchanges, there
+can be no assurance that Fund Shares will trade with any volume, or at all, on any stock exchange. In stressed market conditions,
+the liquidity of Shares may begin to mirror the liquidity of the Fund&#x2019;s underlying portfolio holdings, which can be significantly
+less liquid than Fund Shares.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member_custom_USGovernmentSecuritiesRiskMember"
+      id="Fact000061">&lt;p id="xdx_A8B_eoef--RiskTextBlock_hoef--RiskAxis__custom--USGovernmentSecuritiesRiskMember_zdnP7XJX81g9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;b&gt;U.S. GOVERNMENT SECURITIES
+RISK.&lt;/b&gt; U.S. government securities are subject to interest rate risk but generally do not involve the credit risks associated
+with investments in other types of debt securities. As a result, the yields available from U.S. government securities are generally
+lower than the yields available from other debt securities. U.S. government securities are guaranteed only as to the timely payment
+of interest and the payment of principal when held to maturity.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000062">Performance</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000063">&lt;p id="xdx_A82_eoef--PerformanceNarrativeTextBlock_zPcx5yblD5s7" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&lt;span id="xdx_901_eoef--PerformanceOneYearOrLess_c20260114__20260114__dei--LegalEntityAxis__custom--S000100368Member_zfykwsx6Fv26"&gt;As of the date of this
+prospectus, the Fund has not yet commenced operations and therefore does not have a performance history.&lt;/span&gt; Once available, the Fund&#x2019;s
+performance information will be accessible on the Fund&#x2019;s website at &lt;span id="xdx_90E_eoef--PerformanceAvailabilityWebSiteAddress_c20260114__20260114__dei--LegalEntityAxis__custom--S000100368Member_z0CGcL17k0R9"&gt;https://www.rexshares.com/tldr&lt;/span&gt; and will provide some
+indication of the risks of investing in the Fund.&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify; text-indent: 0in"&gt;&#160;&lt;/p&gt;
+
+</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000064">As of the date of this
+prospectus, the Fund has not yet commenced operations and therefore does not have a performance history.</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="From2026-01-142026-01-14_custom_S000100368Member"
+      id="Fact000065">https://www.rexshares.com/tldr</oef:PerformanceAvailabilityWebSiteAddress>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#Fact000024"
+          xlink:label="Fact000024"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000026" xlink:label="Footnote000026" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">&#x201c;Other Expenses&#x201d; are estimates based on the expenses the Fund expects to incur
+for the current fiscal year.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000024"
+          xlink:to="Footnote000026"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

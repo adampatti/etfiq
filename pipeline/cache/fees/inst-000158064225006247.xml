@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2025"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:nlfiv="http://nlfiv/20250926"
+  xmlns:oef="http://xbrl.sec.gov/oef/2025"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2025"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="nlfiv-20250926.xsd" xlink:type="simple"/>
+    <context id="AsOf2025-09-26">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_CreditRisksMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:CreditRisksMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_EquityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:EquityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_ExtensionRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:ExtensionRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_FixedIncomeRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:FixedIncomeRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_FundOfFundsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:FundOfFundsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_MortgageBackedSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:MortgageBackedSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_USTreasuryRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:USTreasuryRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_us-gaap_InterestRateRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:InterestRateRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_InverseFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:InverseFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_LeverageRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:LeverageRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_ManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:ManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_MarketRiskAndGeopoliticalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:MarketRiskAndGeopoliticalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_MoneyMarketFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:MoneyMarketFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_PortfolioTurnoverRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">nlfiv:PortfolioTurnoverRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-09-26</startDate>
+            <endDate>2025-09-26</endDate>
+        </period>
+    </context>
+    <context id="From2018-01-012018-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2018-01-01</startDate>
+            <endDate>2018-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2019-01-012019-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2019-01-01</startDate>
+            <endDate>2019-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012020-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2020-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2021-01-012021-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-01-01</startDate>
+            <endDate>2021-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2022-01-012022-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-01-01</startDate>
+            <endDate>2022-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2023-01-012023-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-01-01</startDate>
+            <endDate>2023-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-06-12</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-06-12</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">nlfiv:C000172959Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">oef:AfterTaxesOnDistributionsAndSalesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-06-12</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000054990Member_custom_SAndP500IndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:SAndP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012024-12-31_custom_S000054990Member_custom_SAndP500IndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:SAndP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-06-122024-12-31_custom_S000054990Member_custom_SAndP500IndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:SAndP500IndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-06-12</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2024-01-012024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:BloombergGlobalAggregateIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2020-01-012024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:BloombergGlobalAggregateIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-01-01</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <context id="From2017-06-122024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001644419</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">nlfiv:S000054990Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:PerformanceMeasureAxis">nlfiv:BloombergGlobalAggregateIndexMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2017-06-12</startDate>
+            <endDate>2024-12-31</endDate>
+        </period>
+    </context>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <unit id="Shares">
+        <measure>shares</measure>
+    </unit>
+    <unit id="USDPShares">
+        <divide>
+            <unitNumerator>
+                <measure>iso4217:USD</measure>
+            </unitNumerator>
+            <unitDenominator>
+                <measure>shares</measure>
+            </unitDenominator>
+        </divide>
+    </unit>
+    <unit id="Ratio">
+        <measure>pure</measure>
+    </unit>
+    <dei:AmendmentFlag contextRef="AsOf2025-09-26" id="Fact000003">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="AsOf2025-09-26" id="Fact000004">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType contextRef="AsOf2025-09-26" id="Fact000005">N-1A</dei:EntityInvCompanyType>
+    <dei:DocumentPeriodEndDate contextRef="AsOf2025-09-26" id="Fact000006">2025-05-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="AsOf2025-09-26" id="Fact000007">0001644419</dei:EntityCentralIndexKey>
+    <oef:BarChartHighestQuarterlyReturnDate
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000128">2019-03-31</oef:BarChartHighestQuarterlyReturnDate>
+    <oef:BarChartLowestQuarterlyReturnDate
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000131">2020-03-31</oef:BarChartLowestQuarterlyReturnDate>
+    <dei:DocumentCreationDate contextRef="AsOf2025-09-26" id="Fact000013">2025-09-26</dei:DocumentCreationDate>
+    <dei:EntityRegistrantName contextRef="AsOf2025-09-26" id="Fact000014">Northern Lights Fund Trust IV</dei:EntityRegistrantName>
+    <dei:DocumentEffectiveDate contextRef="AsOf2025-09-26" id="Fact000015">2025-09-29</dei:DocumentEffectiveDate>
+    <oef:ProspectusDate contextRef="AsOf2025-09-26" id="Fact000016">2025-09-29</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000017">FUND
+SUMMARY &#x2013; LGM Risk Managed Total Return Fund</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000018">Investment
+Objectives:</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000019">&lt;p id="xdx_A82_eoef--ObjectivePrimaryTextBlock_zF9RVjDUTIb1" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;The Fund seeks to provide total return from capital appreciation and income with lower volatility than the S&amp;amp;P 500
+Index,&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ObjectivePrimaryTextBlock>
+    <oef:ObjectiveSecondaryTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000020">&lt;p id="xdx_A86_eoef--ObjectiveSecondaryTextBlock_zJbI72lMvvpj" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;with a secondary objective of limiting risk during unfavorable or declining market conditions.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ObjectiveSecondaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000021">Fees
+and Expenses of the Fund:</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000022">&lt;p id="xdx_A8A_eoef--ExpenseNarrativeTextBlock_zQDd5rx6Ur37" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;This table describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund.
+&lt;b&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the tables
+and examples below&lt;/b&gt;. More information about these fees and expenses is available from your financial intermediary and in &lt;b&gt;How to
+Purchase Shares&lt;/b&gt; on page 11 of the Fund&#x92;s Prospectus.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ExpenseNarrativeTextBlock>
+    <oef:ShareholderFeesCaption
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000023">Shareholder Fees (fees paid directly from your investment)</oef:ShareholderFeesCaption>
+    <oef:ShareholderFeesTableTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000024">&lt;div id="xdx_A8E_eoef--ShareholderFeesTableTextBlock_zVZ02tTbnT29"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A54_dU_zGCHJMIRqHce" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 90%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Shareholder Fees"&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; background-color: #E0E0E0"&gt;
+    &lt;td style="border: Black 1pt solid; white-space: nowrap; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; width: 80%; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;span style="text-decoration: underline"&gt;&lt;br/&gt;
+    &lt;/span&gt;Shareholder Fees&lt;br/&gt;
+    &lt;/b&gt;(fees paid directly from your investment)&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_49E_20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_z60oTWLBGps6" style="border-top: Black 1pt solid; white-space: nowrap; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; width: 10%; border-right: Black 1pt solid; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;Institutional&lt;br/&gt;
+    Class&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_404_eoef--MaximumSalesChargeImposedOnPurchasesOverOfferingPrice_dpn_zIzXtorwCKp8" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Maximum
+    Sales Charge (Load) Imposed on Purchases&lt;br/&gt;
+    (as a percentage of offering price)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;None&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_402_eoef--MaximumDeferredSalesChargeOverOfferingPrice_dpn_zWBTlyiFCaj7" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Maximum
+    Deferred Sales Charge (Load)&lt;br/&gt;
+    (as a percentage of offering price)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;None&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_403_eoef--MaximumSalesChargeOnReinvestedDividendsAndDistributionsOverOther_dpn_zjLbgyEnbO4j" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Maximum
+    Sales Charge (Load) Imposed on Reinvested Dividends and other Distributions&lt;br/&gt;
+    (as a percentage of offering price)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;None&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_401_eoef--RedemptionFeeOverRedemption_iN_dpin_zf1W6HtPN2n8" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Redemption
+    Fee&lt;br/&gt;
+    (as a % of amount redeemed on shares held less than 90 days)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;2.00%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+</oef:ShareholderFeesTableTextBlock>
+    <oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000026"
+      unitRef="Ratio">0</oef:MaximumSalesChargeImposedOnPurchasesOverOfferingPrice>
+    <oef:MaximumDeferredSalesChargeOverOfferingPrice
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000028"
+      unitRef="Ratio">0</oef:MaximumDeferredSalesChargeOverOfferingPrice>
+    <oef:MaximumSalesChargeOnReinvestedDividendsAndDistributionsOverOther
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000030"
+      unitRef="Ratio">0</oef:MaximumSalesChargeOnReinvestedDividendsAndDistributionsOverOther>
+    <oef:RedemptionFeeOverRedemption
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000032"
+      unitRef="Ratio">-0.0200</oef:RedemptionFeeOverRedemption>
+    <oef:OperatingExpensesCaption
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000033">Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment)</oef:OperatingExpensesCaption>
+    <oef:AnnualFundOperatingExpensesTableTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000034">&lt;div id="xdx_A8A_eoef--AnnualFundOperatingExpensesTableTextBlock_zNJr4IdvOmc9"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A56_dU_zMHX1CQdFm2k" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 90%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Annual Fund Operating Expenses"&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; background-color: #E0E0E0"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char; width: 80%"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;Annual
+    Fund Operating Expenses&lt;br/&gt;
+    &lt;/b&gt;(expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_49E_20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_zOK4MSrqL2S9" style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char; width: 10%"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_40D_eoef--ManagementFeesOverAssets_dp_zXl85d8IBihh" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Management
+    Fees&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1.00%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_407_eoef--OtherExpensesOverAssets_dp_zXHSN4vSNMIa" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Other
+    Expenses&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1.68%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_40A_eoef--AcquiredFundFeesAndExpensesOverAssets_dp_ziNhAyYTMNa1" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Acquired
+    Fund Fees and Expenses&lt;sup id="xdx_F46_zAah834UxL04"&gt;(1)&lt;/sup&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;0.11%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_400_eoef--ExpensesOverAssets_dp_zMHGeRJNBH8j" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Total
+    Annual Fund Operating Expenses&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;2.79%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_402_eoef--FeeWaiverOrReimbursementOverAssets_dp_zYv1JfGnylg8" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Fee
+    Waiver and/or Expense Reimbursement&lt;sup id="xdx_F4E_zecMLHC16NE8"&gt;(2)&lt;/sup&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;(0.20)%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_40D_eoef--NetExpensesOverAssets_dp_zBrU2IYlz4ib" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; text-align: left; layout-grid-mode: char"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Total
+    Annual Fund Operating Expenses After Fee Waiver and/or Expense Reimbursement&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; padding: 1pt 5pt; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; border-bottom: Black 1pt solid; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;2.59%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0.65in; text-align: justify; text-indent: -0.25in"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0.65in; text-align: justify; text-indent: -0.25in"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt auto; width: 90%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td style="width: 0in"&gt;&lt;/td&gt;&lt;td style="width: 0.25in; text-align: left"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F02_zpysmT3v29R3" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt"&gt;(1)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F18_zCwUwG4kU5e3" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt"&gt;Acquired
+                                            Fund Fees and Expenses are the indirect costs of investing in other investment companies.
+                                            &lt;span id="xdx_909_eoef--ExpensesNotCorrelatedToRatioDueToAcquiredFundFees_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zxZ4ZWZHvG2a"&gt;The operating expenses in this fee table will not correlate to the expense ratio in the Fund&#x92;s
+                                            financial highlights because the financial statements include only the direct operating expenses
+                                            incurred by the Fund, not the indirect costs of investment companies.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt auto; width: 90%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td style="width: 0in"&gt;&lt;/td&gt;&lt;td style="width: 0.25in; text-align: left"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F00_zdJ2BaSeJtd9" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt"&gt;(2)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F1C_z8UTVmlpng1f" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt"&gt;The
+                                            Fund&#x92;s adviser has contractually agreed to reduce its fees and/or absorb expenses of
+                                            the Fund, until at least &lt;span id="xdx_902_eoef--FeeWaiverOrReimbursementOverAssetsDateOfTermination_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_za88HqLWz2kb"&gt;October 1, 2026&lt;/span&gt;, to ensure that total annual fund operating expenses
+                                            after fee waiver and/or reimbursement (exclusive of (i) any front-end or contingent deferred
+                                            loads; (ii) brokerage fees and commissions; (iii) acquired fund fees and expenses&#x92;
+                                            (iv) fees and expenses associated with investments in other collective investment vehicles
+                                            or derivative instruments (including for example option and swap fees and expenses); (v)
+                                            borrowing costs (such as interest and dividend expense on securities sold short); (vi) taxes;
+                                            (vii) and extraordinary expenses, such as litigation expenses (which may include indemnification
+                                            of Fund officers and Trustees, and contractual indemnification of Fund service providers
+                                            (other than the adviser)) will not exceed 2.48% of the Fund&#x92;s net assets. These fee
+                                            waivers and expense reimbursements are subject to possible recoupment from the Fund in future
+                                            years (within the three years from the date the fees have been waived or reimbursed) if such
+                                            recoupment can be achieved within the lesser of the foregoing expense limits or those in
+                                            place at the time of recapture after the recoupment is taken into account. This agreement
+                                            may be terminated by the Trust&#x92;s Board of Trustees only on 60 days&#x92; written notice
+                                            to the Fund&#x92;s adviser.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:AnnualFundOperatingExpensesTableTextBlock>
+    <oef:ManagementFeesOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000036"
+      unitRef="Ratio">0.0100</oef:ManagementFeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000038"
+      unitRef="Ratio">0.0168</oef:OtherExpensesOverAssets>
+    <oef:AcquiredFundFeesAndExpensesOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000040"
+      unitRef="Ratio">0.0011</oef:AcquiredFundFeesAndExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000042"
+      unitRef="Ratio">0.0279</oef:ExpensesOverAssets>
+    <oef:FeeWaiverOrReimbursementOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000044"
+      unitRef="Ratio">-0.0020</oef:FeeWaiverOrReimbursementOverAssets>
+    <oef:NetExpensesOverAssets
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000046"
+      unitRef="Ratio">0.0259</oef:NetExpensesOverAssets>
+    <oef:ExpensesNotCorrelatedToRatioDueToAcquiredFundFees
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000048">The operating expenses in this fee table will not correlate to the expense ratio in the Fund&#x92;s
+                                            financial highlights because the financial statements include only the direct operating expenses
+                                            incurred by the Fund, not the indirect costs of investment companies.</oef:ExpensesNotCorrelatedToRatioDueToAcquiredFundFees>
+    <oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000050">October 1, 2026</oef:FeeWaiverOrReimbursementOverAssetsDateOfTermination>
+    <oef:ExpenseExampleHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000051">Example:</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000052">&lt;p id="xdx_A86_eoef--ExpenseExampleNarrativeTextBlock_ziCSqo2bksm2" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;This Example is intended to help you compare the cost of investing in the Fund with the cost of investing in other mutual funds.&lt;/span&gt;&lt;/p&gt;
+
+</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleByYearCaption
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000053">The Example assumes that you invest $10,000 in the Fund for the time periods indicated and then redeem all of your shares at the end
+of those periods. The Example also assumes that your investment has a 5% return each year and that the Fund&#x92;s operating expenses
+remain the same.
+
+&#160;
+
+Although
+your actual costs may be higher or lower, based upon these assumptions your costs would be:
+
+&#160;</oef:ExpenseExampleByYearCaption>
+    <oef:ExpenseExampleWithRedemptionTableTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000054">&lt;div id="xdx_A89_eoef--ExpenseExampleWithRedemptionTableTextBlock_zgy3KHM0fsZd"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A56_dU_zl3QA8AE0ghi" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 68%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Expense Example"&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 20%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_489_eoef--ExpenseExampleYear01_zGci0D6frRKa" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 12%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;span style="text-decoration: underline"&gt;1
+    Year&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_48A_eoef--ExpenseExampleYear03_zJywXwFDSNO2" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 12%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;span style="text-decoration: underline"&gt;3
+    Years&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_489_eoef--ExpenseExampleYear05_zcWoCB5lfbfh" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 12%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;span style="text-decoration: underline"&gt;5
+    Years&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_489_eoef--ExpenseExampleYear10_z26Ntxc225M1" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 12%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;span style="text-decoration: underline"&gt;10
+    Years&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_411_20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_zIityiTSuwJd" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; padding-right: 5.4pt; padding-left: 5.4pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Institutional
+    Class&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;$822&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;$1,373&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;$1,949&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;$3,503&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; padding-right: 5.4pt; padding-left: 5.4pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+</oef:ExpenseExampleWithRedemptionTableTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="0"
+      id="Fact000055"
+      unitRef="USD">822</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="0"
+      id="Fact000056"
+      unitRef="USD">1373</oef:ExpenseExampleYear03>
+    <oef:ExpenseExampleYear05
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="0"
+      id="Fact000057"
+      unitRef="USD">1949</oef:ExpenseExampleYear05>
+    <oef:ExpenseExampleYear10
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_C000172959Member"
+      decimals="0"
+      id="Fact000058"
+      unitRef="USD">3503</oef:ExpenseExampleYear10>
+    <oef:PortfolioTurnoverHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000059">Portfolio
+Turnover:</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000060">&lt;p id="xdx_A85_eoef--PortfolioTurnoverTextBlock_z8zdOVqx2Wvh" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x93;turns over&#x94;
+its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund shares
+are held in a taxable account. During the fiscal year ended May 31, 2025, the Fund&#x92;s portfolio rate was &lt;span id="xdx_90D_eoef--PortfolioTurnoverRate_dp_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zankYrObQop8"&gt;169%&lt;/span&gt; of the average value
+of its portfolio.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+
+
+</oef:PortfolioTurnoverTextBlock>
+    <oef:PortfolioTurnoverRate
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      decimals="INF"
+      id="Fact000061"
+      unitRef="Ratio">1.69</oef:PortfolioTurnoverRate>
+    <oef:StrategyHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000062">Principal
+Investment Strategies:</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000063">&lt;p id="xdx_A80_eoef--StrategyNarrativeTextBlock_zmdniOtyyCl9" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;The Fund is a &#x93;fund of funds,&#x94; which means it invests primarily in other funds, including but
+not limited, to exchange-traded funds (&#x93;ETFs&#x94;) and mutual funds. The Fund seeks to achieve its investment objectives by
+investing in (or allocating to) unaffiliated equity funds (&#x93;Equity Funds&#x94;), leveraged funds or inverse funds designed to
+track U.S. equity indices, U.S. money markets, and unaffiliated fixed income funds (&#x93;Bond Funds&#x94;) designed to track major
+U.S. fixed-income indices and/or benchmark bonds whose indices or benchmarks may include U.S. investment-grade bonds, U.S.
+Treasuries, and mortgage-backed securities of all maturities. The adviser&#x92;s investment decisions are based on
+the adviser&#x92;s technical research and analysis, including monitoring price movements and price trends of equity markets. The
+adviser&#x92;s strategy of investing in inverse funds, Bond Funds or money market funds is intended to provide income or protect
+principal by reducing risks associated with equity markets, and lower volatility during unfavorable or declining market conditions.
+The adviser may invest all or a portion of the Fund&#x92;s assets in the securities described above at any given time, depending on
+its assessment of market trends and other factors. A market trend is the movement of a financial market in a particular direction
+over time.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+</oef:StrategyNarrativeTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000093">&lt;p id="xdx_A84_eoef--RiskTextBlock_gRBRTB-KHOZEU_zaRmEDabAbCk" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;&lt;i&gt;As with all mutual funds, there is the risk that you could lose money through your investment in the Fund.&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--CreditRisksMember_zwlmyOngYLJa" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Credit
+Risk: &lt;/i&gt;Credit risk is the risk that an issuer of a security will fail to pay principal and interest in a timely manner, reducing the
+Fund&#x92;s total return. The price of a fixed income security tends to drop if the rating of the underlying issuer drops and the probability
+of the failure to pay principal and interest increases. Credit risk may be substantial for the Fund.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--EquityRiskMember_z3rfUskOVKo9" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Equity
+Risk: &lt;/i&gt;Equity securities are susceptible to general stock market fluctuations and to volatile increases and decreases in value. The
+equity securities held by the Fund may experience sudden, unpredictable drops in value or long periods of decline in value. This may
+occur because of factors affecting securities markets generally, the equity securities of a particular sector, or a particular company.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A88_eoef--RiskTextBlock_hoef--RiskAxis__custom--ExtensionRiskMember_zfnB6VkZYsS8" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Extension
+Risk: &lt;/i&gt;Refers to the risk that if interest rates rise, repayments of principal on certain debt securities may occur at a slower rate
+than expected and the expected maturity of those securities could lengthen as a result. Securities that are subject to extension risk
+generally have a greater potential for loss when prevailing interest rates rise, which could cause their values to fall sharply.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--FixedIncomeRiskMember_zV4xJGFnVU3g" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Fixed
+Income Risk: &lt;/i&gt;The Fund may invest in fixed income securities through ETFs and mutual funds. The credit quality rating of securities
+may be lowered if an issuer&#x92;s financial condition deteriorates and issuers may default on their interest and or principal payments.
+Typically, a rise in interest rates causes a decline in the value of fixed income securities.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A83_eoef--RiskTextBlock_hoef--RiskAxis__custom--FundOfFundsRiskMember_gRBRTB-IOPLE_zuVL62iVMiK4" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Fund
+of Funds Risk: &lt;/i&gt;The ETFs, mutual funds and money market funds in which the Fund invests (&#x93;Underlying Funds&#x94;) are subject
+to investment advisory and other expenses, which are paid indirectly by the Fund. As a result, the cost of investing in the Fund is higher
+than the cost of investing directly in the Underlying Funds and may be higher than other mutual funds that invest directly in stocks
+and bonds. Each of the Underlying Funds is subject to its own specific risks. The ability of the Fund to meet its investment objectives
+is directly related to the ability of the funds in which it invests and their respective investment managers, to meet their investment
+objectives.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C03_gRBRTB-IOPLE_zeAjhYobBOBa"&gt;&lt;div id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--MortgageBackedSecuritiesRiskMember_zUbSpFKYTyui"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Mortgage-Backed
+                                            Securities Risk: &lt;/i&gt;The Underlying Funds held by the Fund may invest in mortgage-backed
+                                            securities (&#x93;MBS&#x94;) issued or guaranteed by the U.S. government or one of its agencies
+                                            or sponsored entities, some of which may not be backed by the full faith and credit of the
+                                            U.S. government. MBS represent interests in &#x93;pools&#x94; of mortgages and are subject
+                                            to interest rate, prepayment, and extension risk. MBS react differently to changes in interest
+                                            rates than other bonds, and the prices of MBS may reflect adverse economic and market conditions.
+                                            Small movements in interest rates (both increases and decreases) may quickly and significantly
+                                            reduce the value of certain MBS. MBS are also subject to the risk of default on the underlying
+                                            mortgage loans, particularly during periods of economic downturn.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C08_gRBRTB-IOPLE_zSn5mUNCNG6f"&gt;&lt;div id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--USTreasuryRiskMember_zWGQT8Yk2Dw"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;U.S.
+                                            Treasury Risk: &lt;/i&gt;The Underlying Funds held by the Fund may hold U.S. Treasury obligations
+                                            that are backed by the &#x93;full faith and credit&#x94; of the U.S. government and generally
+                                            have negligible credit risk. Securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises may or may not be backed by
+                                            the full faith and credit of the U.S. government. The Fund may be subject to such risk to
+                                            the extent it invests in securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p id="xdx_A9F_z2SDl9ABf8j5" style="margin-top: 0; margin-bottom: 0"&gt;&#160;&lt;/p&gt;&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--InterestRateRiskMember_zxj77cAqbg85" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Interest
+Rate Risk: &lt;/i&gt;Interest rate risk is the risk that bond prices overall, including the prices of securities held by the Fund, will decline
+over short or even long periods of time due to rising interest rates. Bonds with longer maturities tend to be more sensitive to interest
+rates than bonds with shorter maturities. For example, if interest rates go up by 1.0%, the price of a 4% coupon bond will decrease by
+approximately 1.0% for a bond with 1 year to maturity and approximately 4.4% for a bond with 5 years to maturity. An increase in interest
+rates may result in a decline in the value of the bond investments held by the Fund.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--InverseFundRiskMember_zCkVckY0SAIi" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Inverse
+Fund Risk&lt;/i&gt;: Inverse funds seek to provide investment results that will match a certain percentage of the inverse of the performance
+of a specific benchmark on a daily basis. Because they reset daily there may be significant volatility associated with inverse funds.
+The inverse funds in which the Fund invests may not be able to replicate exactly the inverse of the performance of the indices they track.
+Inverse funds fall in price when stock prices are rising. Additionally, inverse funds may employ leverage which magnifies the changes
+in the underlying stock index upon which they are based. Investments in inverse funds will prevent the Fund from participating in market-wide
+or sector-wide gains and may not prove to be an effective hedge. During periods of increased volatility, inverse funds may not perform
+in the manner they are designed. Investments in inverse funds are intended to be short-term in nature and may, therefore, lead to increased
+turnover and transaction costs to the Fund.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--LeverageRiskMember_zzhKhaJXP4P9" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Leverage
+Risk&lt;/i&gt;: Leveraging may exaggerate the effect on net asset value (&#x93;NAV&#x94;) of any increase
+or decrease in the market value of the Fund&#x92;s portfolio.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A86_eoef--RiskTextBlock_hoef--RiskAxis__custom--ManagementRiskMember_ziMRyUVWXjQ" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Management
+Risk: &lt;/i&gt;The adviser&#x92;s judgments about the attractiveness, value and potential appreciation of a particular security in which
+the Fund invests or sells may prove to be incorrect and may not produce the desired results.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8B_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketRiskAndGeopoliticalRiskMember_z2Md7LTrdOSh" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Market
+Risk and Geopolitical Risk: &lt;/i&gt;The increasing interconnectivity between global economies and financial markets increases the likelihood
+that events or conditions in one region or financial market may adversely impact issuers in a different country, region or financial
+market. Securities in the Fund&#x92;s portfolio may underperform due to inflation (or expectations for inflation), interest rates, global
+demand for particular products or resources, natural disasters, climate-change and climate related events, pandemics, epidemics, terrorism,
+international conflicts, regulatory events, tariffs or trade wars and governmental or quasi-governmental actions. The occurrence of global
+events similar to those in recent years&#160;may result in market volatility and may have long term effects on both the U.S. and global
+financial markets.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Overall
+market risks may also affect the value of the Fund. The NAV of the Fund will fluctuate based on changes in the value of the underlying
+stocks comprising the funds held by the Fund. Factors such as domestic and international economic growth and market conditions, interest
+rate levels and political events affect the securities markets and stock prices.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--MoneyMarketFundRiskMember_zfRvZ8h3mYG1" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Money
+Market Fund Risk: &lt;/i&gt;The Fund&#x92;s investment in a money market fund is not a deposit of any bank and is not insured or guaranteed
+by the FDIC or any other government agency. Certain money market funds seek to preserve the value of their shares at $1.00 per share,
+although there can be no assurance that they will do so, and it is possible to lose money by investing in such a money market fund. A
+major or unexpected change in interest rates or a decline in the credit quality of an issuer or entity providing credit support, an inactive
+trading market for money market instruments, or adverse market, economic, industry, political, regulatory, geopolitical, and other conditions
+could cause the share price of such a money market fund to fall below $1.00. Other money market funds price and transact at a &#x93;floating&#x94;
+NAV that will fluctuate along with changes in the market-based value of fund assets. Shares sold utilizing a floating NAV may be worth
+more or less than their original purchase price.&lt;/span&gt;&lt;/p&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--PortfolioTurnoverRiskMember_zjS2Dvp1Od7i" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Portfolio
+Turnover Risk: &lt;/i&gt;The Fund&#x92;s movement into and out of ETFs leads to high portfolio turnover. A higher portfolio turnover will
+result in higher transactional and brokerage costs.&lt;/span&gt;&lt;/p&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_CreditRisksMember"
+      id="Fact000094">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--CreditRisksMember_zwlmyOngYLJa" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Credit
+Risk: &lt;/i&gt;Credit risk is the risk that an issuer of a security will fail to pay principal and interest in a timely manner, reducing the
+Fund&#x92;s total return. The price of a fixed income security tends to drop if the rating of the underlying issuer drops and the probability
+of the failure to pay principal and interest increases. Credit risk may be substantial for the Fund.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C08_gRBRTB-KHOZEU_zYJekTGTXkW6"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_EquityRiskMember"
+      id="Fact000095">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--EquityRiskMember_z3rfUskOVKo9" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Equity
+Risk: &lt;/i&gt;Equity securities are susceptible to general stock market fluctuations and to volatile increases and decreases in value. The
+equity securities held by the Fund may experience sudden, unpredictable drops in value or long periods of decline in value. This may
+occur because of factors affecting securities markets generally, the equity securities of a particular sector, or a particular company.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C09_gRBRTB-KHOZEU_zhnsiyAN8Pve"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_ExtensionRiskMember"
+      id="Fact000096">&lt;p id="xdx_A88_eoef--RiskTextBlock_hoef--RiskAxis__custom--ExtensionRiskMember_zfnB6VkZYsS8" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Extension
+Risk: &lt;/i&gt;Refers to the risk that if interest rates rise, repayments of principal on certain debt securities may occur at a slower rate
+than expected and the expected maturity of those securities could lengthen as a result. Securities that are subject to extension risk
+generally have a greater potential for loss when prevailing interest rates rise, which could cause their values to fall sharply.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C0E_gRBRTB-KHOZEU_zUKa8X4aMt92"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_FixedIncomeRiskMember"
+      id="Fact000097">&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--FixedIncomeRiskMember_zV4xJGFnVU3g" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Fixed
+Income Risk: &lt;/i&gt;The Fund may invest in fixed income securities through ETFs and mutual funds. The credit quality rating of securities
+may be lowered if an issuer&#x92;s financial condition deteriorates and issuers may default on their interest and or principal payments.
+Typically, a rise in interest rates causes a decline in the value of fixed income securities.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C03_gRBRTB-KHOZEU_zVUnUDRDqOdc"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_FundOfFundsRiskMember"
+      id="Fact000101">&lt;p id="xdx_A83_eoef--RiskTextBlock_hoef--RiskAxis__custom--FundOfFundsRiskMember_gRBRTB-IOPLE_zuVL62iVMiK4" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Fund
+of Funds Risk: &lt;/i&gt;The ETFs, mutual funds and money market funds in which the Fund invests (&#x93;Underlying Funds&#x94;) are subject
+to investment advisory and other expenses, which are paid indirectly by the Fund. As a result, the cost of investing in the Fund is higher
+than the cost of investing directly in the Underlying Funds and may be higher than other mutual funds that invest directly in stocks
+and bonds. Each of the Underlying Funds is subject to its own specific risks. The ability of the Fund to meet its investment objectives
+is directly related to the ability of the funds in which it invests and their respective investment managers, to meet their investment
+objectives.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C04_gRBRTB-KHOZEU_zjk9yg6E7MAj"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--MortgageBackedSecuritiesRiskMember_zUbSpFKYTyui"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Mortgage-Backed
+                                            Securities Risk: &lt;/i&gt;The Underlying Funds held by the Fund may invest in mortgage-backed
+                                            securities (&#x93;MBS&#x94;) issued or guaranteed by the U.S. government or one of its agencies
+                                            or sponsored entities, some of which may not be backed by the full faith and credit of the
+                                            U.S. government. MBS represent interests in &#x93;pools&#x94; of mortgages and are subject
+                                            to interest rate, prepayment, and extension risk. MBS react differently to changes in interest
+                                            rates than other bonds, and the prices of MBS may reflect adverse economic and market conditions.
+                                            Small movements in interest rates (both increases and decreases) may quickly and significantly
+                                            reduce the value of certain MBS. MBS are also subject to the risk of default on the underlying
+                                            mortgage loans, particularly during periods of economic downturn.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;div id="xdx_C08_gRBRTB-KHOZEU_zpX1MjIisa67"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;div id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--USTreasuryRiskMember_zWGQT8Yk2Dw"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;U.S.
+                                            Treasury Risk: &lt;/i&gt;The Underlying Funds held by the Fund may hold U.S. Treasury obligations
+                                            that are backed by the &#x93;full faith and credit&#x94; of the U.S. government and generally
+                                            have negligible credit risk. Securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises may or may not be backed by
+                                            the full faith and credit of the U.S. government. The Fund may be subject to such risk to
+                                            the extent it invests in securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_MortgageBackedSecuritiesRiskMember"
+      id="Fact000102">&lt;div id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--MortgageBackedSecuritiesRiskMember_zUbSpFKYTyui"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Mortgage-Backed
+                                            Securities Risk: &lt;/i&gt;The Underlying Funds held by the Fund may invest in mortgage-backed
+                                            securities (&#x93;MBS&#x94;) issued or guaranteed by the U.S. government or one of its agencies
+                                            or sponsored entities, some of which may not be backed by the full faith and credit of the
+                                            U.S. government. MBS represent interests in &#x93;pools&#x94; of mortgages and are subject
+                                            to interest rate, prepayment, and extension risk. MBS react differently to changes in interest
+                                            rates than other bonds, and the prices of MBS may reflect adverse economic and market conditions.
+                                            Small movements in interest rates (both increases and decreases) may quickly and significantly
+                                            reduce the value of certain MBS. MBS are also subject to the risk of default on the underlying
+                                            mortgage loans, particularly during periods of economic downturn.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;div id="xdx_C06_gRBRTB-IOPLE_zURFQ87HPgL8"&gt;&lt;div id="xdx_C08_gRBRTB-KHOZEU_zpX1MjIisa67"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_USTreasuryRiskMember"
+      id="Fact000103">&lt;div id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--USTreasuryRiskMember_zWGQT8Yk2Dw"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; width: 0.25in"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;U.S.
+                                            Treasury Risk: &lt;/i&gt;The Underlying Funds held by the Fund may hold U.S. Treasury obligations
+                                            that are backed by the &#x93;full faith and credit&#x94; of the U.S. government and generally
+                                            have negligible credit risk. Securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises may or may not be backed by
+                                            the full faith and credit of the U.S. government. The Fund may be subject to such risk to
+                                            the extent it invests in securities issued or guaranteed by federal agencies or authorities
+                                            and U.S. government-sponsored instrumentalities or enterprises.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_us-gaap_InterestRateRiskMember"
+      id="Fact000104">&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--InterestRateRiskMember_zxj77cAqbg85" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Interest
+Rate Risk: &lt;/i&gt;Interest rate risk is the risk that bond prices overall, including the prices of securities held by the Fund, will decline
+over short or even long periods of time due to rising interest rates. Bonds with longer maturities tend to be more sensitive to interest
+rates than bonds with shorter maturities. For example, if interest rates go up by 1.0%, the price of a 4% coupon bond will decrease by
+approximately 1.0% for a bond with 1 year to maturity and approximately 4.4% for a bond with 5 years to maturity. An increase in interest
+rates may result in a decline in the value of the bond investments held by the Fund.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C04_gRBRTB-KHOZEU_zOhArhN4431a"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_InverseFundRiskMember"
+      id="Fact000105">&lt;p id="xdx_A8A_eoef--RiskTextBlock_hoef--RiskAxis__custom--InverseFundRiskMember_zCkVckY0SAIi" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Inverse
+Fund Risk&lt;/i&gt;: Inverse funds seek to provide investment results that will match a certain percentage of the inverse of the performance
+of a specific benchmark on a daily basis. Because they reset daily there may be significant volatility associated with inverse funds.
+The inverse funds in which the Fund invests may not be able to replicate exactly the inverse of the performance of the indices they track.
+Inverse funds fall in price when stock prices are rising. Additionally, inverse funds may employ leverage which magnifies the changes
+in the underlying stock index upon which they are based. Investments in inverse funds will prevent the Fund from participating in market-wide
+or sector-wide gains and may not prove to be an effective hedge. During periods of increased volatility, inverse funds may not perform
+in the manner they are designed. Investments in inverse funds are intended to be short-term in nature and may, therefore, lead to increased
+turnover and transaction costs to the Fund.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C03_gRBRTB-KHOZEU_zgYmrGS47rtg"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_LeverageRiskMember"
+      id="Fact000106">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--LeverageRiskMember_zzhKhaJXP4P9" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Leverage
+Risk&lt;/i&gt;: Leveraging may exaggerate the effect on net asset value (&#x93;NAV&#x94;) of any increase
+or decrease in the market value of the Fund&#x92;s portfolio.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C0B_gRBRTB-KHOZEU_zsnEAVvQaeX5"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_ManagementRiskMember"
+      id="Fact000107">&lt;p id="xdx_A86_eoef--RiskTextBlock_hoef--RiskAxis__custom--ManagementRiskMember_ziMRyUVWXjQ" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Management
+Risk: &lt;/i&gt;The adviser&#x92;s judgments about the attractiveness, value and potential appreciation of a particular security in which
+the Fund invests or sells may prove to be incorrect and may not produce the desired results.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C01_gRBRTB-KHOZEU_z8AekR2M4jA9"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_MarketRiskAndGeopoliticalRiskMember"
+      id="Fact000108">&lt;p id="xdx_A8B_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketRiskAndGeopoliticalRiskMember_z2Md7LTrdOSh" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Market
+Risk and Geopolitical Risk: &lt;/i&gt;The increasing interconnectivity between global economies and financial markets increases the likelihood
+that events or conditions in one region or financial market may adversely impact issuers in a different country, region or financial
+market. Securities in the Fund&#x92;s portfolio may underperform due to inflation (or expectations for inflation), interest rates, global
+demand for particular products or resources, natural disasters, climate-change and climate related events, pandemics, epidemics, terrorism,
+international conflicts, regulatory events, tariffs or trade wars and governmental or quasi-governmental actions. The occurrence of global
+events similar to those in recent years&#160;may result in market volatility and may have long term effects on both the U.S. and global
+financial markets.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C09_gRBRTB-KHOZEU_zem59AUAXhBk"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div id="xdx_C01_gRBRTB-KHOZEU_zwGtz1vW7Hv2"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Overall
+market risks may also affect the value of the Fund. The NAV of the Fund will fluctuate based on changes in the value of the underlying
+stocks comprising the funds held by the Fund. Factors such as domestic and international economic growth and market conditions, interest
+rate levels and political events affect the securities markets and stock prices.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div id="xdx_C0E_gRBRTB-KHOZEU_z4ZEQsTXqH45"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_MoneyMarketFundRiskMember"
+      id="Fact000109">&lt;p id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--MoneyMarketFundRiskMember_zfRvZ8h3mYG1" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Money
+Market Fund Risk: &lt;/i&gt;The Fund&#x92;s investment in a money market fund is not a deposit of any bank and is not insured or guaranteed
+by the FDIC or any other government agency. Certain money market funds seek to preserve the value of their shares at $1.00 per share,
+although there can be no assurance that they will do so, and it is possible to lose money by investing in such a money market fund. A
+major or unexpected change in interest rates or a decline in the credit quality of an issuer or entity providing credit support, an inactive
+trading market for money market instruments, or adverse market, economic, industry, political, regulatory, geopolitical, and other conditions
+could cause the share price of such a money market fund to fall below $1.00. Other money market funds price and transact at a &#x93;floating&#x94;
+NAV that will fluctuate along with changes in the market-based value of fund assets. Shares sold utilizing a floating NAV may be worth
+more or less than their original purchase price.&lt;/span&gt;&lt;/p&gt;&lt;div id="xdx_C0F_gRBRTB-KHOZEU_zJUKAlDcAZUa"&gt;&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member_custom_PortfolioTurnoverRiskMember"
+      id="Fact000110">&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--PortfolioTurnoverRiskMember_zjS2Dvp1Od7i" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;i&gt;Portfolio
+Turnover Risk: &lt;/i&gt;The Fund&#x92;s movement into and out of ETFs leads to high portfolio turnover. A higher portfolio turnover will
+result in higher transactional and brokerage costs.&lt;/span&gt;&lt;/p&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000111">Performance:</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000112">&lt;p id="xdx_A87_eoef--PerformanceNarrativeTextBlock_z8FtLbp90I95" style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;span id="xdx_90F_eoef--PerformanceInformationIllustratesVariabilityOfReturns_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zzgZVwYf1ani"&gt;The bar chart and performance table below show the variability of the Fund&#x92;s returns, which is some indication of the risks
+of investing in the Fund. The bar chart shows performance of the Fund&#x92;s Institutional Class shares for each full calendar year
+since the Fund&#x92;s inception.&lt;/span&gt; The performance table compares the performance of the Fund&#x92;s Institutional Class shares over
+time to the performance of a broad-based securities market index and a supplemental index. &lt;span id="xdx_903_eoef--PerformancePastDoesNotIndicateFuture_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zRwyUrQ4hRcc"&gt;You should be aware that the Fund&#x92;s
+past performance (before and after taxes) may not be an indication of how the Fund will perform in the future.&lt;/span&gt; Updated performance information
+is available at no cost by calling &lt;span id="xdx_90F_eoef--PerformanceAvailabilityPhone_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zJe0rOZFiEF9"&gt;1-844-655-9371&lt;/span&gt;.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000113">The bar chart and performance table below show the variability of the Fund&#x92;s returns, which is some indication of the risks
+of investing in the Fund. The bar chart shows performance of the Fund&#x92;s Institutional Class shares for each full calendar year
+since the Fund&#x92;s inception.</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000114">You should be aware that the Fund&#x92;s
+past performance (before and after taxes) may not be an indication of how the Fund will perform in the future.</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000115">1-844-655-9371</oef:PerformanceAvailabilityPhone>
+    <oef:BarChartHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000116">Performance
+Bar Chart Institutional Class
+Calendar Year Ended December 31</oef:BarChartHeading>
+    <oef:BarChartTableTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000117">&lt;div id="xdx_A88_eoef--BarChartTableTextBlock_zKHrpXKILLjl"&gt;&lt;/div&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: center"&gt;&lt;img alt="(BAR CHAT)" src="nl001_v1.jpg"/&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A55_dU_zPpYbEpdhrB2" style="font: 10pt Arial, Helvetica, Sans-Serif; border-collapse: collapse; width: 100%; display: none" summary="xdx: Disclosure - Annual Total Returns"&gt;
+&lt;tr style="vertical-align: top; text-align: left"&gt;
+  &lt;td style="width: 16%"&gt;&#160;&lt;/td&gt;
+  &lt;td id="xdx_49B_20180101__20181231_z831knWVsoih" style="width: 12%"&gt;2018&lt;/td&gt;
+  &lt;td id="xdx_49B_20190101__20191231_zLzqh5O3zsp3" style="width: 12%"&gt;2019&lt;/td&gt;
+  &lt;td id="xdx_49B_20200101__20201231_zOqKAkSSIpl" style="width: 12%"&gt;2020&lt;/td&gt;
+  &lt;td id="xdx_49B_20210101__20211231_zCJXti7qJFsd" style="width: 12%"&gt;2021&lt;/td&gt;
+  &lt;td id="xdx_49B_20220101__20221231_zNo0KGzdyOC1" style="width: 12%"&gt;2022&lt;/td&gt;
+  &lt;td id="xdx_49B_20230101__20231231_zn2mHNmdr0Y" style="width: 12%"&gt;2023&lt;/td&gt;
+  &lt;td id="xdx_49B_20240101__20241231_zvvZ3H8ztj01" style="width: 12%"&gt;2024&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_40A_eoef--AnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_zqChkGOcaEj4" style="vertical-align: top; text-align: left"&gt;
+  &lt;td&gt;&#160;&lt;/td&gt;
+  &lt;td&gt;0.25%&lt;/td&gt;
+  &lt;td&gt;14.53%&lt;/td&gt;
+  &lt;td&gt;-11.05%&lt;/td&gt;
+  &lt;td&gt;3.85%&lt;/td&gt;
+  &lt;td&gt;-1.48%&lt;/td&gt;
+  &lt;td&gt;9.45%&lt;/td&gt;
+  &lt;td&gt;11.80%&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+</oef:BarChartTableTextBlock>
+    <oef:AnnlRtrPct
+      contextRef="From2018-01-012018-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000119"
+      unitRef="Ratio">0.0025</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2019-01-012019-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000120"
+      unitRef="Ratio">0.1453</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2020-01-012020-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000121"
+      unitRef="Ratio">-0.1105</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2021-01-012021-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000122"
+      unitRef="Ratio">0.0385</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2022-01-012022-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000123"
+      unitRef="Ratio">-0.0148</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2023-01-012023-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000124"
+      unitRef="Ratio">0.0945</oef:AnnlRtrPct>
+    <oef:AnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000125"
+      unitRef="Ratio">0.1180</oef:AnnlRtrPct>
+    <oef:BarChartClosingTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000126">&lt;div id="xdx_A88_eoef--BarChartClosingTextBlock_zQpBZKsAZri8"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 55%; border-collapse: collapse; margin-right: auto"&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td id="xdx_98B_eoef--HighestQuarterlyReturnLabel_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zh9Kx5EO6QB5" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 20%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Best
+    Quarter:&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_98D_eoef--BarChartHighestQuarterlyReturnDate_dxH_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zkvLg1boqWs1" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 20%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center" title="::XDX::2019-03-31"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1&lt;sup&gt;st
+    &lt;/sup&gt;Quarter 2019&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_98E_eoef--BarChartHighestQuarterlyReturn_dp_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zxEVug3qcU67" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; width: 15%; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;7.51%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td id="xdx_989_eoef--LowestQuarterlyReturnLabel_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zt1sNTtyitba" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Worst
+    Quarter:&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_98D_eoef--BarChartLowestQuarterlyReturnDate_dxH_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zgfUdlEvi744" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center" title="::XDX::2020-03-31"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1&lt;sup&gt;st&lt;/sup&gt;
+    Quarter 2020&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_98F_eoef--BarChartLowestQuarterlyReturn_dp_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zWMkA5ggE4wj" style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;(10.31)%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; padding-right: 5.4pt; padding-left: 5.4pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;span id="xdx_906_eoef--YearToDateReturnLabel_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zaNWPskpCFLi"&gt;The
+Fund&#x92;s Institutional Class year-to-date return as of the most recent quarter&lt;/span&gt;, which ended &lt;span id="xdx_900_eoef--BarChartYearToDateReturnDate_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zrvLnfrAQEoe"&gt;June 30, 2025&lt;/span&gt;, was &lt;span id="xdx_900_eoef--BarChartYearToDateReturn_dp_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_z2Sob1wdwCS6"&gt;0.00%&lt;/span&gt;. The adviser
+seeks to produce returns over a complete market cycle with lower volatility, or &#x93;beta&#x94; than the S&amp;amp;P 500 index.
+Volatility is a measure of how widely returns vary over a period of time. Beta is a measurement of market risk or volatility. A beta
+of 1 represents the volatility of the S&amp;amp;P 500, against which other mutual funds and their betas are measured. A beta greater
+than 1 indicates a mutual funds tends to be more volatile than the S&amp;amp;P 500, and a beta less than 1 means it tends to be less
+volatile than the S&amp;amp;P 500.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify; margin: 0pt 0pt 0pt 0"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;For
+the year-ended June, 30, 2025, the beta of the Institutional Class was approximately 0.38 versus 1.0 for the S&amp;amp;P 500 Index.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; text-align: justify; margin: 0pt 0pt 0pt 0"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Since
+inception (6/12/17) through June 30, 2025, the beta of the Institutional Class was approximately 0.36 versus 1.0 for the S&amp;amp;P 500
+Index.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0pt 0pt 0"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+</oef:BarChartClosingTextBlock>
+    <oef:HighestQuarterlyReturnLabel
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000127">Best
+    Quarter:</oef:HighestQuarterlyReturnLabel>
+    <oef:BarChartHighestQuarterlyReturn
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      decimals="INF"
+      id="Fact000129"
+      unitRef="Ratio">0.0751</oef:BarChartHighestQuarterlyReturn>
+    <oef:LowestQuarterlyReturnLabel
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000130">Worst
+    Quarter:</oef:LowestQuarterlyReturnLabel>
+    <oef:BarChartLowestQuarterlyReturn
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      decimals="INF"
+      id="Fact000132"
+      unitRef="Ratio">-0.1031</oef:BarChartLowestQuarterlyReturn>
+    <oef:YearToDateReturnLabel
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000133">The
+Fund&#x92;s Institutional Class year-to-date return as of the most recent quarter</oef:YearToDateReturnLabel>
+    <oef:BarChartYearToDateReturnDate
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000134">2025-06-30</oef:BarChartYearToDateReturnDate>
+    <oef:BarChartYearToDateReturn
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      decimals="INF"
+      id="Fact000135"
+      unitRef="Ratio">0.0000</oef:BarChartYearToDateReturn>
+    <oef:PerformanceTableHeading
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000136">Performance
+Table
+Average Annualized Total Returns
+(For periods ended December 31, 2024)</oef:PerformanceTableHeading>
+    <oef:PerformanceTableTextBlock
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000137">&lt;div id="xdx_A83_eoef--PerformanceTableTextBlock_zINVilkVf2p9"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A5B_dU_zNdqVQAyWOLf" style="font: 10pt Arial, Helvetica, Sans-Serif; width: 100%; border-collapse: collapse" summary="xdx: Disclosure - Average Annual Total Returns"&gt;
+  &lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; background-color: #D9D9D9"&gt;
+    &lt;td style="border: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; width: 56%; padding-right: 2.9pt; padding-left: 2.9pt; text-align: justify"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_497_20240101__20241231_zFKkp1VHy8p6" style="border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; width: 14%; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;One
+    Year&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_49A_20200101__20241231_zyqPBUhHwUYk" style="border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; width: 14%; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;Five
+    Years&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_49D_20170612__20241231_zpzc1B0X0Q6b" style="border-top: Black 1pt solid; border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; width: 16%; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&lt;b&gt;Since
+    Inception&lt;br/&gt;
+    of the Fund&lt;br/&gt;
+    (&lt;span id="xdx_90E_eoef--PerfInceptionDate_c20240101__20241231__dei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_z6QETpcdDuVf"&gt;06-12-17&lt;/span&gt;)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_401_eoef--AvgAnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_znpoL1OIqvi8" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 2.9pt; padding-left: 2.9pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Institutional Class &lt;span id="xdx_90A_eoef--AverageAnnualReturnLabel_c20240101__20241231__dei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member_zFLU5hiTN7oi"&gt;Return before taxes&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;11.80%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; white-space: nowrap; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;2.18%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;4.07%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_402_eoef--AvgAnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member__oef--PerformanceMeasureAxis__oef--AfterTaxesOnDistributionsMember_zlwbZni3DCO6" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 2.9pt; padding-left: 2.9pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Institutional Class &lt;span id="xdx_91F_eoef--AfterTaxesOnDistributionsMember_zbNxOskuvAcb"&gt;Return after taxes on distributions&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;11.48%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; white-space: nowrap; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1.63%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;3.11%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_406_eoef--AvgAnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--ClassAxis__custom--C000172959Member__oef--PerformanceMeasureAxis__oef--AfterTaxesOnDistributionsAndSalesMember_zwjtl1wMTe18" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 2.9pt; padding-left: 2.9pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Institutional Class &lt;span id="xdx_911_eoef--AfterTaxesOnDistributionsAndSalesMember_zexhmxFyh3q3"&gt;Return after taxes on distributions and sale of Fund shares&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;7.07%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; white-space: nowrap; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;1.42%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;2.74%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_40D_eoef--AvgAnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--PerformanceMeasureAxis__custom--SAndP500IndexMember_zwQKZG8MI7vi" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 2.9pt; padding-left: 2.9pt"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Index
+    &#x2013; S&amp;amp;P 500 Index&lt;span id="xdx_F41_zCkPBdzCYR9l"&gt;*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt; &lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;25.02%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; white-space: nowrap; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;14.53%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;14.36%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr id="xdx_40D_eoef--AvgAnnlRtrPct_dp_hdei--LegalEntityAxis__custom--S000054990Member__oef--PerformanceMeasureAxis__custom--BloombergGlobalAggregateIndexMember_z07MZYSECHqi" style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-right: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: top; border-bottom: Black 1pt solid; border-left: Black 1pt solid; padding-right: 2.9pt; padding-left: 2.9pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;Index
+    &#x2013; Bloomberg Global Aggregate Index&lt;span id="xdx_F49_zwPbPtVGG713"&gt;**&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;(1.69)%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; white-space: nowrap; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;(1.96)%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: Black 1pt solid; border-bottom: Black 1pt solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; vertical-align: bottom; padding-right: 5pt; padding-left: 5pt; text-align: center"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;(0.24)%&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;p style="margin-top: 0; margin-bottom: 0"&gt;&#160;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-top: 0pt; margin-bottom: 0pt; width: 100%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td style="width: 0in"&gt;&lt;/td&gt;&lt;td style="width: 0.25in; text-align: left"&gt;&lt;span id="xdx_F0B_z7GBravZZ54f" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt; background-color: white"&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify"&gt;&lt;span id="xdx_F17_ze150yvCOdWj" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt; background-color: white"&gt;The
+                                            S&amp;amp;P 500 Index is an unmanaged free-float capitalization-weighted index which measures
+                                            the performance of 500 large-cap common stocks actively traded in the United States. Index
+                                            returns assume reinvestment of dividends. Investors may not invest in the index directly;
+                                            unlike the Fund&#x92;s returns, the &lt;span id="xdx_907_eoef--IndexNoDeductionForFeesExpensesTaxes_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zW57UhD2ISNj"&gt;index does not reflect any fees or expenses.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin-right: 0pt; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Arial, Helvetica, Sans-Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-top: 0pt; margin-bottom: 0pt; width: 100%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td style="width: 0in"&gt;&lt;/td&gt;&lt;td style="width: 0.25in; text-align: left"&gt;&lt;span id="xdx_F03_zxtEaz1pINW6" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt; background-color: white"&gt;**&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify"&gt;&lt;span id="xdx_F12_zOQhNmvWTi71" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt; background-color: white"&gt;The
+                                            Bloomberg Global Aggregate Index is a multi-currency benchmark that includes investment grade
+                                            debt from local currency markets worldwide. Index returns assume reinvestment of dividends.
+                                            Investors may not invest in the index directly; unlike the Fund&#x92;s returns, the &lt;span id="xdx_90C_eoef--IndexNoDeductionForFeesExpensesTaxes_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zlfBZBdjI1zi"&gt;index does not reflect any fees or expenses.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+</oef:PerformanceTableTextBlock>
+    <oef:PerfInceptionDate
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member"
+      id="Fact000138">2017-06-12</oef:PerfInceptionDate>
+    <oef:AverageAnnualReturnLabel
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member"
+      id="Fact000143">Return before taxes</oef:AverageAnnualReturnLabel>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000140"
+      unitRef="Ratio">0.1180</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000141"
+      unitRef="Ratio">0.0218</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member"
+      decimals="INF"
+      id="Fact000142"
+      unitRef="Ratio">0.0407</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000145"
+      unitRef="Ratio">0.1148</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000146"
+      unitRef="Ratio">0.0163</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsMember"
+      decimals="INF"
+      id="Fact000147"
+      unitRef="Ratio">0.0311</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000150"
+      unitRef="Ratio">0.0707</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2020-01-012024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000151"
+      unitRef="Ratio">0.0142</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2017-06-122024-12-31_custom_S000054990Member_custom_C000172959Member_oef_AfterTaxesOnDistributionsAndSalesMember"
+      decimals="INF"
+      id="Fact000152"
+      unitRef="Ratio">0.0274</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_SAndP500IndexMember"
+      decimals="INF"
+      id="Fact000155"
+      unitRef="Ratio">0.2502</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2020-01-012024-12-31_custom_S000054990Member_custom_SAndP500IndexMember"
+      decimals="INF"
+      id="Fact000156"
+      unitRef="Ratio">0.1453</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2017-06-122024-12-31_custom_S000054990Member_custom_SAndP500IndexMember"
+      decimals="INF"
+      id="Fact000157"
+      unitRef="Ratio">0.1436</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2024-01-012024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember"
+      decimals="INF"
+      id="Fact000159"
+      unitRef="Ratio">-0.0169</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2020-01-012024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember"
+      decimals="INF"
+      id="Fact000160"
+      unitRef="Ratio">-0.0196</oef:AvgAnnlRtrPct>
+    <oef:AvgAnnlRtrPct
+      contextRef="From2017-06-122024-12-31_custom_S000054990Member_custom_BloombergGlobalAggregateIndexMember"
+      decimals="INF"
+      id="Fact000161"
+      unitRef="Ratio">-0.0024</oef:AvgAnnlRtrPct>
+    <oef:IndexNoDeductionForFeesExpensesTaxes
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000163">index does not reflect any fees or expenses.</oef:IndexNoDeductionForFeesExpensesTaxes>
+    <oef:IndexNoDeductionForFeesExpensesTaxes
+      contextRef="From2025-09-262025-09-26_custom_S000054990Member"
+      id="Fact000165">index does not reflect any fees or expenses.</oef:IndexNoDeductionForFeesExpensesTaxes>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#Fact000040"
+          xlink:label="Fact000040"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000047" xlink:label="Footnote000047" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Acquired
+                                            Fund Fees and Expenses are the indirect costs of investing in other investment companies.
+                                            <xhtml:span id="xdx_909_eoef--ExpensesNotCorrelatedToRatioDueToAcquiredFundFees_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zxZ4ZWZHvG2a">The operating expenses in this fee table will not correlate to the expense ratio in the Fund&#x92;s
+                                            financial highlights because the financial statements include only the direct operating expenses
+                                            incurred by the Fund, not the indirect costs of investment companies.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000040"
+          xlink:to="Footnote000047"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000044"
+          xlink:label="Fact000044"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000049" xlink:label="Footnote000049" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">The
+                                            Fund&#x92;s adviser has contractually agreed to reduce its fees and/or absorb expenses of
+                                            the Fund, until at least <xhtml:span id="xdx_902_eoef--FeeWaiverOrReimbursementOverAssetsDateOfTermination_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_za88HqLWz2kb">October 1, 2026</xhtml:span>, to ensure that total annual fund operating expenses
+                                            after fee waiver and/or reimbursement (exclusive of (i) any front-end or contingent deferred
+                                            loads; (ii) brokerage fees and commissions; (iii) acquired fund fees and expenses&#x92;
+                                            (iv) fees and expenses associated with investments in other collective investment vehicles
+                                            or derivative instruments (including for example option and swap fees and expenses); (v)
+                                            borrowing costs (such as interest and dividend expense on securities sold short); (vi) taxes;
+                                            (vii) and extraordinary expenses, such as litigation expenses (which may include indemnification
+                                            of Fund officers and Trustees, and contractual indemnification of Fund service providers
+                                            (other than the adviser)) will not exceed 2.48% of the Fund&#x92;s net assets. These fee
+                                            waivers and expense reimbursements are subject to possible recoupment from the Fund in future
+                                            years (within the three years from the date the fees have been waived or reimbursed) if such
+                                            recoupment can be achieved within the lesser of the foregoing expense limits or those in
+                                            place at the time of recapture after the recoupment is taken into account. This agreement
+                                            may be terminated by the Trust&#x92;s Board of Trustees only on 60 days&#x92; written notice
+                                            to the Fund&#x92;s adviser.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000044"
+          xlink:to="Footnote000049"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000155"
+          xlink:label="Fact000155"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000162" xlink:label="Footnote000162" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">The
+                                            S&amp;P 500 Index is an unmanaged free-float capitalization-weighted index which measures
+                                            the performance of 500 large-cap common stocks actively traded in the United States. Index
+                                            returns assume reinvestment of dividends. Investors may not invest in the index directly;
+                                            unlike the Fund&#x92;s returns, the <xhtml:span id="xdx_907_eoef--IndexNoDeductionForFeesExpensesTaxes_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zW57UhD2ISNj">index does not reflect any fees or expenses.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000155"
+          xlink:to="Footnote000162"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000156"
+          xlink:label="Fact000156"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000156"
+          xlink:to="Footnote000162"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000157"
+          xlink:label="Fact000157"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000157"
+          xlink:to="Footnote000162"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000159"
+          xlink:label="Fact000159"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000164" xlink:label="Footnote000164" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">The
+                                            Bloomberg Global Aggregate Index is a multi-currency benchmark that includes investment grade
+                                            debt from local currency markets worldwide. Index returns assume reinvestment of dividends.
+                                            Investors may not invest in the index directly; unlike the Fund&#x92;s returns, the <xhtml:span id="xdx_90C_eoef--IndexNoDeductionForFeesExpensesTaxes_c20250926__20250926__dei--LegalEntityAxis__custom--S000054990Member_zlfBZBdjI1zi">index does not reflect any fees or expenses.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000159"
+          xlink:to="Footnote000164"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000160"
+          xlink:label="Fact000160"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000160"
+          xlink:to="Footnote000164"
+          xlink:type="arc"/>
+        <link:loc
+          xlink:href="#Fact000161"
+          xlink:label="Fact000161"
+          xlink:type="locator"/>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000161"
+          xlink:to="Footnote000164"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

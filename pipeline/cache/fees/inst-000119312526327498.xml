@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2026"
+  xmlns:fnd="http://xbrl.sec.gov/fnd/2026"
+  xmlns:hetf="http://www.harborfunds.com/20260731"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2026"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2026"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="hetf-20260731.xsd" xlink:type="simple"/>
+    <context id="D_31Jul2026_31Jul2026">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_C000277919">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">hetf:C000277919Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_USTreasuryObligationsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:USTreasuryObligationsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_CreditRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:CreditRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_InflationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:InflationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_InterestRateRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">us-gaap:InterestRateRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_MarketRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:MarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_RisksAssociatedwithExchangeTradedFundsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:RisksAssociatedwithExchangeTradedFundsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_HighPortfolioTurnoverRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:HighPortfolioTurnoverRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_InvestmentinOtherInvestmentCompaniesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:InvestmentinOtherInvestmentCompaniesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_IssuerRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:IssuerRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_RepurchaseAgreementsandReverseRepurchaseAgreementsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:RepurchaseAgreementsandReverseRepurchaseAgreementsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_SecuritiesLendingRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:SecuritiesLendingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_SelectionRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:SelectionRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <context id="S000107033_USGovernmentSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001860434</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">hetf:S000107033Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">hetf:USGovernmentSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-07-31</startDate>
+            <endDate>2026-07-31</endDate>
+        </period>
+    </context>
+    <unit id="pure">
+        <measure>pure</measure>
+    </unit>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentPeriodEndDate contextRef="D_31Jul2026_31Jul2026" id="apid_1">2026-07-31</dei:DocumentPeriodEndDate>
+    <dei:EntityCentralIndexKey contextRef="D_31Jul2026_31Jul2026" id="apid_2">0001860434</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="D_31Jul2026_31Jul2026" id="apid_3">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="D_31Jul2026_31Jul2026" id="apid_4">485BPOS</dei:DocumentType>
+    <dei:EntityInvCompanyType
+      contextRef="D_31Jul2026_31Jul2026"
+      id="apid_255a823d-6198-4c83-b17d-40fb1ef45def">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName
+      contextRef="D_31Jul2026_31Jul2026"
+      id="apid_35665fd3-11a6-488d-8791-53dc08dc274c">HARBOR ETF TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate
+      contextRef="D_31Jul2026_31Jul2026"
+      id="apid_cb08a75b-56ea-47aa-baea-1f39339a9596">2026-08-02</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="S000107033"
+      id="x_46047966-9e10-4db6-8907-ba18a13be7fa">&lt;span style="color:#FFFFFF;font-family:Times New Roman;font-size:18pt;"&gt;Harbor Short Term Treasury ETF&lt;/span&gt;&lt;span style="color:#FFFFFF;font-family:Arial;font-size:16pt;font-weight:bold;"&gt;Fund Summary&lt;/span&gt;</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="S000107033"
+      id="c6f578e8-d592-4259-bbd5-7931295888d6">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Investment Objective&lt;/span&gt;</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="S000107033"
+      id="x_1f2dcaea-f725-4262-9e8c-fdd0fb73462f">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund seeks to provide exposure, before fees and expenses, generally consistent with the price and yield performance of the &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;3-month U.S. Treasury bill market.&lt;/span&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="S000107033"
+      id="d40d0dfc-8d4f-40ac-a675-5556fc80a726">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Fees and Expenses of the Fund&lt;/span&gt;</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="S000107033"
+      id="x_1eb1a66a-81c6-422a-8c5a-38c049492671">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;This table describes the fees and expenses that you may pay if you buy, hold and sell shares of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;"&gt;You may pay other &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and example &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;"&gt;below.&lt;/span&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="S000107033"
+      id="cb6e6a1d-4375-4a80-a03a-fb390149e31f">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;"&gt;Annual Fund Operating Expenses&lt;/span&gt;&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;"&gt; (expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="S000107033_C000277919"
+      decimals="4"
+      id="c0aa00b1-f523-4795-8488-0603efcd4648"
+      unitRef="pure">0.0010</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="S000107033_C000277919"
+      decimals="4"
+      id="ff4d7051-54c6-4cc6-87b7-cdfbcccc0f1c"
+      unitRef="pure">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="S000107033_C000277919"
+      decimals="4"
+      id="x_197351cd-02a8-4db1-afc5-1014ceb31095"
+      unitRef="pure">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="S000107033_C000277919"
+      decimals="4"
+      id="x_098d2b27-f45f-4e19-8cbb-b57b366c7660"
+      unitRef="pure">0.0010</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="S000107033"
+      id="c95efcba-acbb-4366-8cb2-5b3719a3fffb">&lt;span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;"&gt;&#x201c;Other Expenses&#x201d; are estimated for the current fiscal year.&lt;/span&gt;</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="S000107033"
+      id="x_68e3190d-3796-4658-bede-07d31602061b">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:3pt;"&gt;Expense Example&lt;/span&gt;</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="S000107033"
+      id="x_48002603-f61e-4412-aa68-651e514e3a80">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;This Expense Example is intended to help you compare the cost of investing in the Fund with the cost of investing in other exchange-traded funds. The Expense Example assumes that you invest $10,000 in the Fund for the time periods indicated. The Expense Example also assumes that your investment has a 5% return each year and that the Fund&#x2019;s operating expenses remain the same. Although your actual costs may be higher or lower, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;under these assumptions, your costs would be:&lt;/span&gt;</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="S000107033_C000277919"
+      decimals="INF"
+      id="x_1f4b06f5-62e7-4679-95ea-f6747744f3f0"
+      unitRef="USD">10</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="S000107033_C000277919"
+      decimals="INF"
+      id="x_10f3778c-8bba-49b6-9bc4-01fd5d3a26da"
+      unitRef="USD">32</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="S000107033"
+      id="d59dec05-942f-4982-8ffa-03df80075abd">&lt;span style="color:#000000;font-family:Arial Narrow;font-size:9pt;font-weight:bold;margin-left:3pt;"&gt;Portfolio Turnover&lt;/span&gt;</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="S000107033"
+      id="d12e3a7a-6ba1-4e67-b450-0270934852ce">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover may indicate higher transaction costs and may result in higher taxes when shares of the Fund are held in a taxable account. These costs, which are not reflected in the Annual Fund Operating Expenses or in the Expense Example, do affect the Fund&#x2019;s performance. The Fund had not commenced operations as of the date of this Prospectus and no portfolio turnover rate &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;existed at the time of this publication. &lt;/span&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="S000107033"
+      id="x_7c70eb13-f2a5-40da-9f7b-e7bb2a7eb9d1">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Principal Investment Strategy&lt;/span&gt;</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="S000107033"
+      id="c7582952-8b77-4501-b94c-58afadf0f34e">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Under normal circumstances, the Fund invests at least 80% of its net assets, plus borrowings for investment purposes, in U.S. Treasury bills.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Under normal circumstances, the Fund expects &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;to maintain a dollar-weighted average portfolio maturity of &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;approximately 90 days or less although the Fund&#x2019;s dollar-weighted average portfolio maturity may modestly exceed 90 days from time to time due to U.S. Treasury auction schedules, settlement timing, weekends, holidays, market conventions, fund flows, or &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;other portfolio management considerations.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;U.S. Treasury bills are securities with maturities of one year or less issued by the U.S. Department of the Treasury and backed by the full faith and credit of the U.S. Government. U.S. Treasury bills are sold at a discount to their face value, do not pay periodic &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;interest, and mature at face value.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund may invest up to 20% of its total assets in other instruments intended to help the Fund pursue its investment objective, manage liquidity, facilitate creations and redemptions, reduce transaction costs, manage collateral, or seek additional income. Such instruments may include cash, cash equivalents, repurchase agreements, reverse repurchase agreements, money market funds, U.S. Treasury floating rate notes, other short-term U.S. Treasury or U.S. government securities, and shares of affiliated or unaffiliated investment companies, including exchange-traded funds registered under the Investment Company Act of 1940, as &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;amended, that invest primarily in Fund-eligible investments.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund may lend portfolio securities to seek additional income. These loans will be secured by collateral, which may include cash, U.S. government securities, irrevocable letters of credit, or other collateral permitted by applicable law, maintained in an amount at least equal to 100% of the market value, determined daily, of the loaned securities. Cash collateral received in connection with securities lending may be invested in short-term investments, including money market funds, repurchase agreements, reverse repurchase agreements, or other high-quality short-term instruments. Any reverse repurchase agreements entered into by the Fund will not exceed one-third of the Fund&#x2019;s total assets, including the amount &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;borrowed.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund is not a money market fund and does not seek to maintain &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;a stable net asset value of $1.00 per share.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;The Fund may at times engage in active and frequent trading to &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;achieve its principal investment strategies.&lt;/span&gt;</oef:StrategyNarrativeTextBlock>
+    <fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock
+      contextRef="S000107033"
+      id="x_16cdbb38-22ba-42f4-9b87-9bb5704bb916">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Under normal circumstances, the Fund invests at least 80% of its net assets, plus borrowings for investment purposes, in U.S. Treasury bills.&lt;/span&gt;</fnd:NmRule35d1EightyPctInvstmntPlcyTextBlock>
+    <fnd:NmRule35d1TermDfnSmryTextBlock
+      contextRef="S000107033"
+      id="x_8df62a61-15a3-4c5e-8a6e-ff3261a455b0">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;U.S. Treasury bills are securities with maturities of one year or less issued by the U.S. Department of the Treasury and backed by the full faith and credit of the U.S. Government. U.S. Treasury bills are sold at a discount to their face value, do not pay periodic &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;interest, and mature at face value.&lt;/span&gt;</fnd:NmRule35d1TermDfnSmryTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_RiskLoseMoneyMember"
+      id="df536ffc-6ada-4573-a7fe-9e9adbdd2a18">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;This means &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;that you could lose money on your investment in the Fund or the Fund may not perform as well as other possible investments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_USTreasuryObligationsRiskMember"
+      id="x_9536db7c-d871-446c-8748-ab76726a2299">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;U.S. Treasury Obligations Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; U.S. Treasury obligations, such &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;as U.S. Treasury bills, are subject to fluctuations in interest rates, which may cause their market value to vary, and may provide lower returns than other securities. In addition, changes in economic conditions, market perceptions, or the financial condition or credit rating of the U.S. government may cause the value of such obligations to decline in value. Although backed by the full faith and credit of the U.S. government, these securities remain subject &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;to market and credit risk.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_CreditRiskMember"
+      id="x_307c0d0c-c1f5-4b00-9e86-9292d960d1e6">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Credit Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The issuer or guarantor of a security owned by the &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Fund could default on its obligation to pay principal or interest &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;or its credit rating could be downgraded.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_InflationRiskMember"
+      id="x_6e4d61a3-b16c-442e-bb31-3acac1ae64b1">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Inflation Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; As inflation rises, the value of assets of or income, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;from the Fund&#x2019;s investments may be worth less, as inflation decreases the value of payments at future dates. As a result, the real value &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;of the Fund&#x2019;s portfolio could decline.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_InterestRateRiskMember"
+      id="d6c3be55-4557-4bf8-b4c0-2c401c1d49fa">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Interest Rate Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; As interest rates rise, the values of fixed income &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;securities held by the Fund are likely to decrease and reduce the value of the Fund&#x2019;s portfolio. Rising interest rates may lead to increased redemptions, increased volatility and decreased liquidity in the fixed income markets, making it more difficult for the Fund to sell its fixed income securities when the Advisor may wish to sell or must sell to meet redemptions. During periods when interest rates are low or there are negative interest rates, the Fund&#x2019;s yield (and total return) also may be low or the Fund may be unable to maintain positive returns or minimize the volatility of the Fund&#x2019;s net asset value per share. Changing interest rates may have unpredictable effects on the markets, may result in heightened market volatility and may detract from Fund performance. In addition, changes in monetary policy may exacerbate the risks &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;associated with changing interest rates.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_MarketRiskMember"
+      id="a0bc26b2-16a8-458d-93aa-b1d90ecef140">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Market Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Securities markets are volatile and can decline &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;significantly in response to adverse market, economic, political, regulatory or other developments, which may lower the value of securities held by the Fund, sometimes rapidly or unpredictably. Events such as war, military conflict, geopolitical disputes, acts of terrorism, social or political unrest, natural disasters, recessions, inflation, rapid interest rate changes, supply chain disruptions, tariffs and other restrictions on trade, sanctions, the spread of infectious illness or other public health threats, or the threat or potential of one or more such events and developments, could &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;also significantly impact the Fund and its investments.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_RisksAssociatedwithExchangeTradedFundsMember"
+      id="ce69a92d-4c5a-4d79-b58b-3ee4deb85f5a">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Risks Associated with Exchange-Traded Funds:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; As an ETF, the Fund is subject to the following risks:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;text-decoration:underline;"&gt;Authorized Participant Concentration/Trading Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;: Only &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;authorized participants (&#x201c;APs&#x201d;) may engage in creation or redemption transactions directly with the Fund. The Fund has a limited number of institutions that may act as APs and such APs have no obligation to submit creation or redemption orders. Consequently, there is no assurance that APs will establish or maintain an active trading market for the shares. This risk may be heightened to the extent that securities held by the Fund are traded outside a collateralized settlement system. In that case, APs may be required to post collateral on certain trades on an agency basis (i.e., on behalf of other market participants), which only a limited number of APs may be able to do. In addition, to the extent that APs exit the business or are unable to proceed with creation and/or redemption orders with respect to the Fund and no other AP is able to step forward to create or redeem Creation Units (as defined below), this may result in a significantly diminished trading market for shares, and shares may be more likely to trade at a premium or discount to the Fund&#x2019;s net asset value and to face trading halts and/or delisting. This risk may be heightened &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;during periods of volatility or market disruptions.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;text-decoration:underline;"&gt;Cash Transactions Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;: The Fund may effect some or all of its &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;creations and redemptions for cash rather than in-kind. As a result, an investment in the Fund may be less tax-efficient than an investment in an ETF that effects all of its creations and redemptions in-kind. Because the Fund may effect redemptions for cash, it may be required to sell portfolio securities in order to obtain the cash needed to distribute redemption proceeds. A sale of portfolio securities may result in capital gains or losses and may also result in higher brokerage costs. To the extent costs are not offset by transaction fees charged by the Fund to APs, the costs of cash &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;transactions will be borne by the Fund.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;text-decoration:underline;"&gt;Large Shareholder Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;&#160;Certain large shareholders, including APs, &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;may from time to time own a substantial amount of the Fund&#x2019;s shares. There is no requirement that these shareholders maintain their investment in the Fund. There is a risk that such large shareholders or that the Fund&#x2019;s shareholders generally may redeem all or a substantial portion of their investments in the Fund in a short period of time, which could have a significant negative impact on the Fund&#x2019;s NAV, liquidity, and brokerage costs. Large redemptions could also result in tax consequences to shareholders and impact the Fund&#x2019;s ability to implement its investment strategy. In addition, transactions by large shareholders may account for a large percentage of the trading volume on the listing exchange and may, therefore, have a material upward or downward effect &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;on the market price of the shares.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;text-decoration:underline;"&gt;Premium/Discount Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;: The market price of the Fund&#x2019;s shares &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;will generally fluctuate in accordance with changes in the Fund&#x2019;s net asset value as well as the relative supply of and demand for shares on the Exchange. The Advisor cannot predict whether shares will trade below, at or above their net asset value because the shares trade on the Exchange at market prices and not at net asset value. Price differences may be due, in large part, to the fact that supply and demand forces at work in the secondary trading market for shares will be closely related, but not identical, to the same forces influencing the prices of the holdings of the Fund trading individually or in the aggregate at any point in time. This may result in the Fund&#x2019;s shares trading significantly above (premium) or below (discount) the Fund&#x2019;s net asset value, which will be reflected in the intraday bid/ask spreads and/or the closing price of shares as compared to net asset value. During stressed market conditions, the market for the Fund&#x2019;s shares may become less liquid in response to deteriorating liquidity in the market for the Fund&#x2019;s underlying portfolio holdings, which could in turn lead to differences between &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;the market price of the Fund&#x2019;s shares and their net asset value.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_HighPortfolioTurnoverRiskMember"
+      id="x_52401aff-db38-4fb4-b14b-bfb721d3c1e9">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;High Portfolio Turnover Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Higher portfolio turnover may &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;adversely affect Fund performance by increasing Fund transaction costs and may lead to the realization and distribution to shareholders of higher capital gains, which may increase a shareholder&#x2019;s tax &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;liability.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_InvestmentinOtherInvestmentCompaniesRiskMember"
+      id="x_7996267b-2a47-4cbd-a7c8-a8519d075509">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Investment in Other Investment Companies Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Investments &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;in other investment companies (including money market funds and ETFs) are subject to market and selection risk. In addition, if the Fund acquires shares of investment companies, shareholders bear both their proportionate share of expenses in the Fund and, indirectly, the expenses of the investment companies. The Fund&#x2019;s investment in shares of ETFs subjects it to the risks of owning the securities underlying the ETF, as well as the same structural risks faced by an investor purchasing shares of the Fund, including &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;premium/discount risk and trading issues risk.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_IssuerRiskMember"
+      id="x_0e5c583d-181a-4efd-9895-7e0573d592ba">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Issuer Risk&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;: An adverse event affecting a particular issuer in which &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;the Fund is invested, such as an unfavorable earnings report, may depress the value of that issuer&#x2019;s securities, sometimes rapidly or &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;unpredictably.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_NewFundRiskMember"
+      id="x_3a207131-3abb-424b-8741-a6558347a2ad">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;New Fund Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; There can be no assurance that the Fund will &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;grow to or maintain an economically viable size, in which case the Board of Trustees may determine to liquidate the Fund. The Board of Trustees may liquidate the Fund at any time in accordance with the Declaration of Trust and governing law. As a result, the &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;timing of the Fund&#x2019;s liquidation may not be favorable.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_RepurchaseAgreementsandReverseRepurchaseAgreementsRiskMember"
+      id="b7d31af9-dfa4-42fc-a3f4-eec0da6a33cb">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Repurchase Agreements and Reverse Repurchase Agreements Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Fund may enter into repurchase agreements and reverse &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;repurchase agreements. The Fund may lose money if the counterparty to a repurchase agreement defaults on its obligation to repurchase the securities or if the value of the collateral declines. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Reverse repurchase agreements involve borrowing and expose the Fund to counterparty and leverage risk, which could increase the volatility of the Fund&#x2019;s returns. The Fund could lose money if the counterparty defaults on its obligations under a reverse repurchase agreement or if the value of the collateral, including investments made with the proceeds of the transaction, is less &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;than the value of the securities or the repurchase price.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_SecuritiesLendingRiskMember"
+      id="b37f22d6-b738-485a-bf41-fcbf173e9f60">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Securities Lending Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Fund may engage in securities lending. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Securities lending involves the risk that the Fund may lose money because the borrower of the loaned securities fails to return the securities in a timely manner or at all. The Fund could also lose money in the event of a decline in the value of collateral provided for loaned securities or a decline in the value of any investments made with cash collateral. These events could also trigger adverse &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;tax consequences for the Fund.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_SelectionRiskMember"
+      id="x_97a24115-3828-4b21-80b0-3578b22bc279">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;Selection Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; The Advisor potentially will be prevented from &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;executing investment decisions at an advantageous time or price as a result of domestic or global market disruptions, particularly disruptions causing heightened market volatility and reduced market liquidity, as well as increased or changing regulations.&#160; Thus, investments that the Advisor believes represent an attractive opportunity or in which the Fund seeks to obtain exposure may be unavailable entirely or in the specific quantities or prices sought by the Advisor and the Fund may need to forgo the investment &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;at the time.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="S000107033_USGovernmentSecuritiesRiskMember"
+      id="x_88e65645-a63f-4dbf-b076-bc65a8158c98">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;font-weight:bold;margin-left:0%;"&gt;U.S. Government Securities Risk:&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Securities issued or guaranteed &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;by U.S. government agencies or government-sponsored entities may not be backed by the full faith and credit of the U.S. government. As a result, no assurance can be given that the U.S. government will provide financial support to these securities or issuers (such as securities issued by the Federal National Mortgage Association, or the Federal Home Loan Mortgage Corporation). Although certain government securities are backed by the full faith and credit of the U.S. government (such as securities issued by the Government National Mortgage Association), circumstances could arise that would delay or prevent the payment of interest or principal. It is possible that issuers of U.S. government securities will not have the funds to meet their payment obligations in the future and, in &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;these circumstances, the Fund&#x2019;s returns may be adversely affected.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="S000107033"
+      id="x_15f3bda7-19b1-4cae-8ca5-5508fcf0d98e">&lt;span style="color:#004DD6;font-family:Arial Narrow;font-size:14pt;font-weight:bold;"&gt;Performance&lt;/span&gt;</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="S000107033"
+      id="x_5f9d557c-8cfa-42fa-ae44-1ca80161500b">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Because the Fund is newly organized, the Fund has no reportable performance history.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; Once the Fund has operated for at least one &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;calendar year, a bar chart and performance table will be included in the prospectus to show the performance of the Fund. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;When &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;such information is included, this section will provide some indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance history from year to year and showing how the Fund&#x2019;s average annual total returns compare with those of a broad measure of market performance and an additional index. &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Please note that the Fund&#x2019;s past performance (before and after &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; To obtain performance information, please visit the Fund&#x2019;s website at &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;harborcapital.com&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt; or call &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;800-422-1050&lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;.&lt;/span&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="S000107033"
+      id="x_00873366-0545-41c7-bc57-15f2db6188f3">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Because the Fund is newly organized, the Fund has no reportable performance history.&lt;/span&gt;</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceInformationIllustratesVariabilityOfReturns
+      contextRef="S000107033"
+      id="x_981dfeee-3718-419c-a655-924873c5b7dc">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;When &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;such information is included, this section will provide some indication of the risks of investing in the Fund by showing changes in the Fund&#x2019;s performance history from year to year and showing how the Fund&#x2019;s average annual total returns compare with those of a broad measure of market performance and an additional index. &lt;/span&gt;</oef:PerformanceInformationIllustratesVariabilityOfReturns>
+    <oef:PerformancePastDoesNotIndicateFuture
+      contextRef="S000107033"
+      id="ef0abf5d-fe9a-47ab-8407-f9714185afbe">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;Please note that the Fund&#x2019;s past performance (before and after &lt;/span&gt;&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;margin-left:0%;"&gt;taxes) is not necessarily an indication of how the Fund will perform in the future.&lt;/span&gt;</oef:PerformancePastDoesNotIndicateFuture>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="S000107033"
+      id="x_008f1b1b-8b81-40e7-aed3-794059c16564">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;harborcapital.com&lt;/span&gt;</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformanceAvailabilityPhone
+      contextRef="S000107033"
+      id="a1cc5f37-2cf9-4ed8-b10a-3e73627686e8">&lt;span style="color:#000000;font-family:Times New Roman;font-size:9pt;"&gt;800-422-1050&lt;/span&gt;</oef:PerformanceAvailabilityPhone>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#x_197351cd-02a8-4db1-afc5-1014ceb31095"
+          xlink:label="x_197351cd-02a8-4db1-afc5-1014ceb31095"
+          xlink:type="locator"/>
+        <link:footnote id="x_000038_aa59852a-50d2-47b2-9bf4-0d352a8bab1d" xlink:label="x_000038_aa59852a-50d2-47b2-9bf4-0d352a8bab1d" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;">Pursuant to the Investment Advisory Agreement, the Advisor pays all of the operating expenses of the Fund, except for (i) the fee payment under the Investment Advisory Agreement; (ii) payments under the Fund&#x2019;s 12b-1 plan (if any); (iii) the costs of borrowing, including interest and dividend expenses; (iv) taxes and governmental fees; (v) acquired fund fees and expenses; (vi) brokers&#x2019; commissions and any other transaction-related expenses and fees arising out of transactions effected on behalf of the Fund; (vii) costs of holding shareholder meetings; and (viii) litigation and indemnification expenses and other extraordinary expenses not incurred in the ordinary course of the Fund&#x2019;s business.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_197351cd-02a8-4db1-afc5-1014ceb31095"
+          xlink:to="x_000038_aa59852a-50d2-47b2-9bf4-0d352a8bab1d"
+          xlink:type="arc"/>
+        <link:footnote id="x_000039_aa59852a-50d2-47b2-9bf4-0d352a8bab1d" xlink:label="x_000039_aa59852a-50d2-47b2-9bf4-0d352a8bab1d" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span style="color:#000000;font-family:Times New Roman;font-size:8pt;font-style:italic;">&#x201c;Other Expenses&#x201d; are estimated for the current fiscal year.</xhtml:span></link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="x_197351cd-02a8-4db1-afc5-1014ceb31095"
+          xlink:to="x_000039_aa59852a-50d2-47b2-9bf4-0d352a8bab1d"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

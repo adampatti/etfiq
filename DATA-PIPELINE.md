@@ -123,3 +123,11 @@ The three answers on the buffer desk are not all the same kind of number:
 ## Where the cash came from (2026-09-05)
 
 `pipeline/sources.py` collects issuers' Rule 19a-1 estimates of the sources of each distribution: net investment income, realised gains and return of capital. One parser per issuer: YieldMax (the fund page's distribution table carries a return-of-capital percent for every distribution, so a trailing twelve-month, amount-weighted share is computed), Global X (the latest Form 19a notice as a Word document, current and fiscal-year-to-date), NEOS (the latest 19a-1 PDF from the fund page) and Defiance (one PDF per pay date covering every fund, parsed per ticker block). Output `site/data/sources.json`, inlined as `etfiq-sources`. The card section and the Return of capital column show the issuer's latest estimate with the fiscal-year and trailing figures where published, and always next to the price change, because the estimate is a tax characterisation, not a measure of erosion. JPMorgan, Roundhill, Amplify, Kurv, REX and GraniteShares are not captured yet.
+
+## Expense ratios (2026-09-05)
+
+`pipeline/fees.py` reads the risk/return XBRL inside each trust's 485BPOS prospectus filings (the `oef` taxonomy since 2025, `rr` before): `ExpensesOverAssets` is the total annual fund operating expense ratio and `NetExpensesOverAssets` the figure after waivers, tagged by share class; the SEC series and class file maps class ids to tickers. Output `data/fees.json`, refreshed on Saturdays or with `FEES_REFRESH=1`; instances are cached for good in `pipeline/cache/fees/`. The themes desk derives the active expense ratio, fee divided by active share against the S&P 500, and calls it "Fee for the difference". The income desk carries the fee as an Expense column. Buffer desk fees still come from issuer pages.
+
+## Being found (2026-09-05)
+
+`pipeline/prerender.py` writes the static pages, sitemap, robots.txt and llms.txt; `pipeline/indexnow.py` pushes every sitemap URL to IndexNow (Bing, Yandex, Naver, Seznam) after each deploy, with the key served from the site root. Google takes no push: submit the sitemap in Search Console. Cash sources come from `pipeline/sources.py`: YieldMax, Global X, NEOS, Defiance, Kurv, REX and GraniteShares are parsed; Roundhill, Amplify and JPMorgan do not expose notices in static HTML and are not captured.

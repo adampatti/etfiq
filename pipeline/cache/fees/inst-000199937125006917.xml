@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:dei="http://xbrl.sec.gov/dei/2025"
+  xmlns:iaui="http://Neosfunds.com/20250530"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2025"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="iaui-20250530.xsd" xlink:type="simple"/>
+    <context id="AsOf2025-05-30">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_C000260363Member">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">iaui:C000260363Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskLoseMoneyMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskNotInsuredMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNotInsuredMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_GoldRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:GoldRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_GoldTaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:GoldTaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_ExchangeTradedProductETPRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:ExchangeTradedProductETPRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_OptionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:OptionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_DerivativesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:DerivativesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_ActiveManagementRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:ActiveManagementRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_ConcentrationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:ConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_CounterpartyRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:CounterpartyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_ExchangeTradedFundsETFsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:ExchangeTradedFundsETFsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_NotIndividuallyRedeemableMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:NotIndividuallyRedeemableMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_TradingIssuesMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:TradingIssuesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_MarketPriceVarianceRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:MarketPriceVarianceRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_AuthorizedParticipantRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:AuthorizedParticipantRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_FixedIncomeRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:FixedIncomeRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_FLEXOptionsRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:FLEXOptionsRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_LeverageRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:LeverageRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_LiquidityRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:LiquidityRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_MarketAndGeopoliticalRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:MarketAndGeopoliticalRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_NewFundRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskNondiversifiedStatusMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_RollingOptionsContractRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:RollingOptionsContractRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_TaxRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:TaxRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_USGovernmentSecuritiesRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:USGovernmentSecuritiesRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_ValuationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:ValuationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_WhollyOwnedSubsidiaryRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:WhollyOwnedSubsidiaryRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <context id="From2025-05-302025-05-30_custom_S000092389Member_custom_TaxationRiskMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001848758</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">iaui:S000092389Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">iaui:TaxationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2025-05-30</startDate>
+            <endDate>2025-05-30</endDate>
+        </period>
+    </context>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <unit id="Shares">
+        <measure>shares</measure>
+    </unit>
+    <unit id="USDPShares">
+        <divide>
+            <unitNumerator>
+                <measure>iso4217:USD</measure>
+            </unitNumerator>
+            <unitDenominator>
+                <measure>shares</measure>
+            </unitDenominator>
+        </divide>
+    </unit>
+    <unit id="Ratio">
+        <measure>pure</measure>
+    </unit>
+    <dei:AmendmentFlag contextRef="AsOf2025-05-30" id="Fact000003">false</dei:AmendmentFlag>
+    <dei:DocumentType contextRef="AsOf2025-05-30" id="Fact000004">485BPOS</dei:DocumentType>
+    <dei:EntityCentralIndexKey contextRef="AsOf2025-05-30" id="Fact000005">0001848758</dei:EntityCentralIndexKey>
+    <dei:DocumentPeriodEndDate contextRef="AsOf2025-05-30" id="Fact000011">2025-05-30</dei:DocumentPeriodEndDate>
+    <dei:EntityInvCompanyType contextRef="AsOf2025-05-30" id="Fact000012">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName contextRef="AsOf2025-05-30" id="Fact000013">NEOS ETF TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate contextRef="AsOf2025-05-30" id="Fact000014">2025-06-02</oef:ProspectusDate>
+    <oef:RiskReturnHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000015">Summary
+Information &#x2014; NEOS Gold High Income ETF</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000016">Investment
+Objective</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000017">&lt;p id="xdx_A81_eoef--ObjectivePrimaryTextBlock_zPrFtNmqsHnk" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+NEOS Gold High Income ETF (the &#x201c;Fund&#x201d;) seeks to generate high monthly income with the potential for appreciation based
+on exposure to exchange-traded products (&#x201c;ETPs&#x201d;) that have direct exposure to gold.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000018">Fund
+Fees and Expenses</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000019">&lt;p id="xdx_A86_eoef--ExpenseNarrativeTextBlock_zCiW61UPPZr7" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;This
+table describes the fees and expenses that you may pay if you buy, hold, and sell shares of the Fund (&#x201c;Shares&#x201d;). &lt;b&gt;You
+may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the tables
+and examples below.&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ExpenseNarrativeTextBlock>
+    <oef:ShareholderFeesCaption
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000020">
+
+    Shareholder
+    Fees (fees paid directly from your investment)
+    None
+</oef:ShareholderFeesCaption>
+    <oef:AnnualFundOperatingExpensesTableTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000021">&lt;div id="xdx_A89_eoef--AnnualFundOperatingExpensesTableTextBlock_zJtLGadjOMkf" style="-sec-ix-redline: true"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A5F_dU_zC8KjqPv7oR" style="font: 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; width: 100%; border-collapse: collapse" summary="xdx: Disclosure - Annual Fund Operating Expenses"&gt;
+&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td id="xdx_989_eoef--OperatingExpensesCaption_dU_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_z08wbzVFh9Fi" style="border-top: black 1pt solid; border-right: black 1pt solid; border-left: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; width: 87%"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;b&gt;Annual
+    Fund Operating Expenses &lt;/b&gt;(expenses that you pay each year as a percentage of the value of your investment)&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_499_oef--ClassAxis_custom--C000260363Member_zomybHjrCiU" style="border-top: black 1pt solid; border-right: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; text-align: center; width: 13%"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_40A_eoef--ManagementFeesOverAssets_dpn_zuhBTfrE31Di" style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="border-right: black 1pt solid; border-left: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Management
+    Fee&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;0.78%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_403_eoef--DistributionAndService12b1FeesOverAssets_dpn_z85gbtTkYgU8" style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="border-right: black 1pt solid; border-left: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Distribution
+    and/or Service (12b-1) Fees&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;None&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_406_eoef--OtherExpensesOverAssets_dpn_zLW8GSYjLMMl" style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="border-right: black 1pt solid; border-left: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Other
+    Expenses&lt;sup id="xdx_F41_z1DkGhqEmhmf"&gt;(1)&lt;/sup&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;0.00%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_401_eoef--ExpensesOverAssets_dpn_zg6ZrqMtBMU7" style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="border-right: black 1pt solid; border-bottom: black 1pt solid; border-left: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Total
+    Annual Fund Operating Expenses&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-right: black 1pt solid; border-bottom: black 1pt solid; font: 10pt Times New Roman, Times, Serif; padding-bottom: 6pt; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;0.78%&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; margin-top: 0; margin-bottom: 6pt; width: 100%"&gt;&lt;tr style="vertical-align: top; text-align: justify"&gt;
+&lt;td style="width: 15pt; text-align: right"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F00_zgfsF6V8iEV9" style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;sup&gt;(1)&lt;/sup&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="width: 5pt"&gt;&lt;/td&gt;&lt;td style="text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span id="xdx_F1C_zVjeN87DURBe" style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_908_eoef--OtherExpensesNewFundBasedOnEstimates_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_z877iA8n9H41"&gt;&#x201c;Other
+expenses&#x201d; are based on estimated amounts for the current fiscal year and are calculated as a percentage of the Fund&#x2019;s net
+assets.&lt;/span&gt; The expenses of the Fund&#x2019;s wholly-owned subsidiary are consolidated with those of the Fund and are not presented as a separate
+expense.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+
+</oef:AnnualFundOperatingExpensesTableTextBlock>
+    <oef:OperatingExpensesCaption
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000022">Annual
+    Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment)</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="INF"
+      id="Fact000024"
+      unitRef="Ratio">0.0078</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="INF"
+      id="Fact000026"
+      unitRef="Ratio">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="INF"
+      id="Fact000028"
+      unitRef="Ratio">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="INF"
+      id="Fact000030"
+      unitRef="Ratio">0.0078</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000032">&#x201c;Other
+expenses&#x201d; are based on estimated amounts for the current fiscal year and are calculated as a percentage of the Fund&#x2019;s net
+assets.</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000033">Example</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000034">&lt;p id="xdx_A87_eoef--ExpenseExampleNarrativeTextBlock_z6V5SMoGqRV7" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;This
+example is intended to help you compare the cost of investing in the Fund with the cost of investing in other funds. This example
+does not take into account brokerage commissions that you pay when purchasing or selling Shares.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+example assumes that you invest $10,000 in the Fund for the time periods indicated and then redeem all of your Shares at the end
+of those periods. The example also assumes that your investment has a 5% annual return and that the Fund&#x2019;s operating expenses
+remain the same. Although your actual costs may be higher or lower, based on these assumptions, your costs would be:&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleWithRedemptionTableTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000035">&lt;div id="xdx_A8C_eoef--ExpenseExampleWithRedemptionTableTextBlock_z0SmUjjPi9Xc"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" id="xdx_A57_dU_zVthkwaATdL5" style="font: 10pt Times New Roman, Times, Serif; width: 100%; border-collapse: collapse" summary="xdx: Disclosure - Expense Example"&gt;
+&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="font: bold 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; width: 37%; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: bold 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; width: 63%; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Expenses&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;1&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_986_eoef--ExpenseExampleYear01_c20250530__20250530__oef--ClassAxis__custom--C000260363Member_zt1SgL7CRRG9" style="font: 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;$80&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;3&lt;/span&gt;&lt;/td&gt;
+    &lt;td id="xdx_98F_eoef--ExpenseExampleYear03_c20250530__20250530__oef--ClassAxis__custom--C000260363Member_zyepa81oqTS8" style="font: 10pt Times New Roman, Times, Serif; -sec-ix-redline: true; text-align: center"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;$249&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p style="font: bold 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+</oef:ExpenseExampleWithRedemptionTableTextBlock>
+    <oef:ExpenseExampleYear01
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="0"
+      id="Fact000036"
+      unitRef="USD">80</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03
+      contextRef="From2025-05-302025-05-30_custom_C000260363Member"
+      decimals="0"
+      id="Fact000037"
+      unitRef="USD">249</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000038">Portfolio
+Turnover</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000039">&lt;p id="xdx_A8D_eoef--PortfolioTurnoverTextBlock_zjow8gdI7Tib" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund pays transaction costs, such as commissions, when it purchases and sells securities (or &#x201c;turns over&#x201d; its portfolio).
+A higher portfolio turnover rate may result in higher transaction costs and higher taxes when Shares are held in a taxable account.
+These costs, which are not reflected in Annual Fund Operating Expenses table or in the Example above, may affect the Fund&#x2019;s
+performance. The Fund&#x2019;s portfolio turnover rate is only shown once the Fund has completed its first fiscal period of operations.&lt;/span&gt;&lt;/p&gt;
+
+</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000040">Principal
+Investment Strategies of the Fund</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000041">&lt;p id="xdx_A84_eoef--StrategyNarrativeTextBlock_zq1w6x2x7lJ9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund is an actively managed exchange-traded fund (&#x201c;ETF&#x201d;) that seeks to achieve its investment objective through the
+combination of the following:&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0pt"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 18pt"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;(i)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;seeking
+                                         to track the price of gold by investing up to 25% of the Fund&#x2019;s assets in exchange-traded
+                                         Gold ETPs (the &#x201c;Gold ETPs&#x201d;) primarily through a controlled foreign corporation
+                                         and directly investing in Gold ETPs,&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0pt; text-align: justify"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 18pt; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;(ii)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;seeking
+                                         to track the price of gold through a synthetic options strategy through the combination
+                                         of purchasing call options and selling put options on Gold ETPs with a notional value
+                                         up to 75% of the Fund&#x2019;s net assets; and&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0pt; text-align: justify"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 18pt; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;(iii)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;providing
+                                         high monthly income by utilizing a call options strategy, which primarily consists of
+                                         selling (writing) call options on one or more Gold ETPs with a notional value between
+                                         50% to 100% of the Fund&#x2019;s net assets.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund also earns income from collateral, in the form of U.S. Government securities, such as bills, notes and bonds issued by the
+U.S. Treasury, it maintains in connection with the synthetic options strategy and synthetic covered call options strategy.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund is deemed to be concentrated because it holds more than 25% of its net assets in investments that provide exposure to the
+gold bullion industry.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span style="text-decoration: underline"&gt;Gold
+ETPs&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Gold
+ETPs are funds that track the price of gold by directly holding actual gold bars as their underlying asset. Gold ETPs seek to
+provide the performance of the price of gold bullion before the payment of fees and expenses. The price of a Gold ETP fluctuates
+with the price of gold bullion. The shares of the Gold ETPs are listed, traded and cleared on regulated U.S. exchanges. Gold ETPs
+are not registered as investment companies under the Investment Company Act of 1940, as amended (the &#x201c;1940 Act&#x201d;) and
+are passively managed investment vehicles.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund seeks to track the price of gold by holding shares of the Gold ETPs in a wholly owned and controlled foreign subsidiary of
+the Fund organized under the laws of the Cayman Islands, called the NEOS Gold High Income Portfolio CFC (the &#x201c;Cayman Subsidiary&#x201d;).
+The Fund may also hold shares of the Gold ETPs directly, consistent with the limits of the U.S. federal tax law requirements applicable
+to registered investment companies.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Subsidiary&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund may invest up to 25% of its total assets (measured at the time of investment) in the Cayman Subsidiary, consistent with the
+limits of the U.S. federal tax law requirements applicable to registered investment companies. The Cayman Subsidiary is advised
+by NEOS Investments LLC (the &#x201c;Adviser&#x201d;), which is also the investment adviser for the Fund. Unlike the Fund, the Cayman
+Subsidiary may directly invest without limitation in Gold ETPs; however, the Cayman Subsidiary will comply with the same derivatives
+rule requirements under the Investment Company Act of 1940, as amended (&#x201c;1940 Act&#x201d;), when viewed on a consolidated
+basis with the Fund, with respect to its investments in derivatives and leverage; and also complies with the provisions of Section
+15 of the 1940 Act (regarding investment advisory contract approvals).&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span style="text-decoration: underline"&gt;Options
+on Gold ETPs&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;There
+are two parts to the Gold ETP options strategy: (1) utilizing a &#x201c;synthetic strategy&#x201d; to gain exposure to gold, and
+(2) writing (selling) call options on the Gold ETPs to generate high monthly income for the Fund.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;To
+implement the synthetic options strategy and synthetic covered call strategy discussed above, the Fund invests in traditional
+exchange-traded options and/or FLexible EXchange&#xae; options (&#x201c;FLEX Options&#x201d;) that utilize a Gold ETP as the reference
+asset. The Fund will only invest in options contracts including FLEX Options that are listed, traded and cleared on regulated
+U.S. exchanges. Traditional exchange-traded options have standardized terms, such as the type (call or put), the reference asset,
+the strike price and expiration date. Exchange-listed options contracts are guaranteed for settlement by the Options Clearing
+Corporation (&#x201c;OCC&#x201d;). FLEX Options are a type of exchange-listed options contract with uniquely customizable terms
+that allow investors to customize key terms like type, strike price and expiration date that are standardized in a typical options
+contract. FLEX Options are also guaranteed for settlement by the OCC. It is anticipated that the Fund will invest primarily in
+FLEX Options.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;When
+the Fund sells (writes) a call option, it creates a contract between the option writer (the Fund) and the option buyer (counterparty).
+The writer of the call option receives an amount (premium) for writing the option. The contract provides the counterparty with
+the right to buy the reference asset (here, the Gold ETPs) for a pre-specified price (strike price) by a pre-specified date (expiration
+date). However, no obligation is created for the counterparty, who is not forced to buy the reference asset (exercising the option)
+by the expiration date. If the price of the reference asset is greater than the strike price at the expiration date, the counterparty
+will exercise their option. This obligates the writer to sell the reference asset to the counterparty (buyer) at the pre-specified
+price, which will be at a price below the market price, resulting in a loss for the writer and an equivalent profit for the holder.
+If the price of the reference asset is lower than or equal to the strike price at the expiration date, the counterparty (buyer)
+will not exercise its option. It will expire as worthless, which results in a profit for the writer and an equivalent loss for
+the holder.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Synthetic
+Options Strategy&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund seeks to track the price of gold by creating synthetic exposure to Gold ETPs through the combination of purchasing call options
+and selling put options generally at the same strike price with the same expiration. This combination &#x201c;synthetically&#x201d;
+creates the upside and downside participation in the price returns of the Gold ETPs. The Fund will primarily gain exposure to
+increases in value experienced by the Gold ETPs through the purchase of call options. As a buyer of these options, the Fund pays
+a premium to the seller of the options. The Fund will primarily gain exposure to decreases in value experienced by the Gold ETPs
+through the sale of put options. As the seller of these options, the Fund receives a premium from the buyer of the options. In
+combination, the purchased call and sold put options generally provide exposure to price returns of the Gold ETPs both on the
+upside and downside.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Synthetic
+Covered Call Strategy&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund seeks to provide high monthly income by selling (writing) call options on Gold ETPs. In a traditional covered call strategy,
+an investor (such as the Fund) writes a call option on a security it owns. The Fund uses options contracts that use a Gold ETP
+as the reference asset. This distinction causes the Fund&#x2019;s strategy to be commonly referred to as a &#x201c;synthetic covered
+call strategy&#x201d; as opposed to a traditional covered call strategy, because the Fund primarily has synthetic exposure to the
+Gold ETPs. The Fund&#x2019;s writing (selling) of call options on the Gold ETPs when executing the synthetic covered call strategy
+will limit the Fund&#x2019;s ability to participate in increases in value of gold beyond a certain point. If the share price of
+the reference Gold ETP increases, the synthetic long exposure and Gold ETPs would allow the Fund to experience similar percentage
+gains. However, if the Gold ETP&#x2019;s share price appreciates in value beyond the strike price of one or more of the call option
+contracts that the Fund has written to generate income, the Fund will lose money on those written call positions, and the losses
+will, in turn, limit the upside return of the synthetic long exposure and Gold ETPs. As a result, the Fund&#x2019;s overall strategy
+(i.e., the combination of the synthetic long exposure, Gold ETPs and the call options written on the Gold ETPs) will limit the
+Fund&#x2019;s participation in gains of gold beyond a certain point. This strategy effectively converts a portion of the potential
+upside of the price return growth of a Gold ETPs into current income. It is expected that the call options written by the Fund
+will generally have expirations of approximately one month and will be held to or close to expiration. The options that are not
+held to expiration will be replaced by similar options that have a later expiration.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Adviser utilizes a proprietary, rules-based, systematic model to manage the Fund&#x2019;s options positions. The Adviser may actively
+manage the written and purchased call options prior to expiration to potentially capture gains and minimize losses due to the
+movement of the Gold ETPs.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span style="text-decoration: underline"&gt;Collateral&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;When
+writing options, the Fund is required to post collateral to assure its performance to the option buyer. The Fund will hold U.S.
+Government securities, such as bills, notes and bonds issued by the U.S. Treasury, as collateral. To the extent that the Fund
+directly invests in Gold ETPs (i.e., not through the Subsidiary), the Gold ETPs may also be eligible to be used as collateral.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: bold 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;In
+addition, the Fund may seek to take advantage of tax loss harvesting opportunities by taking investment losses from the Gold ETPs
+positions to offset realized taxable gains of the Gold ETPs.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: bold 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: bold 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund does not invest in Gold directly.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: bold 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+Fund is non-diversified.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_90D_eoef--StrategyPortfolioConcentration_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_z9tQs3GNJGj8"&gt;Under
+normal circumstances, the Fund will invest at least 80% of its net assets in Gold ETPs and/or options on the Gold ETPs. For purposes
+of the fund&#x2019;s name policy, the value of such derivative instruments shall be valued at their notional value.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000042">Under
+normal circumstances, the Fund will invest at least 80% of its net assets in Gold ETPs and/or options on the Gold ETPs. For purposes
+of the fund&#x2019;s name policy, the value of such derivative instruments shall be valued at their notional value.</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskLoseMoneyMember"
+      id="Fact000043">You may lose part or all of your investment
+in the Fund or your investment may not perform as well as other similar investments.</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskNotInsuredMember"
+      id="Fact000044">An investment in the Fund is not a bank deposit and is not insured or guaranteed
+by the FDIC or any government agency.</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_GoldRiskMember"
+      id="Fact000045">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--GoldRiskMember_zK4zRr2ZdEel" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Gold
+Risk. &lt;/i&gt;The price of gold may be volatile and derivative contracts linked to gold may be highly sensitive to the price of gold.
+The price of gold can be significantly affected by international monetary and political developments such as currency devaluation
+or revaluation, central bank movements, economic and social conditions within a country, transactional or trade imbalances, or
+trade or currency restrictions between countries. Gold prices may be influenced by the fact that physical gold has sales commission,
+storage, insurance, and auditing expenses, which may tend to reduce trading and liquidity.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_913_exdx--NextElement_zMaCpQajHbC8"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_GoldTaxRiskMember"
+      id="Fact000047">&lt;p id="xdx_A86_eoef--RiskTextBlock_hoef--RiskAxis__custom--GoldTaxRiskMember_ziVaP0cIe2Fb" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;&lt;span style="text-decoration: underline"&gt;Gold
+Tax Risk&lt;/span&gt;. &lt;/i&gt;By investing in Gold ETPs indirectly through the Subsidiary, the Fund will obtain exposure to gold within the
+federal tax requirements that apply to the Fund. However, because the Subsidiary is a controlled foreign corporation organized
+under the laws of the Cayman Islands, any income received by the Fund from its investments in the Subsidiary will be passed through
+to the Fund as ordinary income, which may be taxed at less favorable rates than capital gains.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;A
+direct investment by the Fund in a Gold ETP will generally be treated as a direct investment in gold for U.S. federal income tax
+purposes. In order to qualify for the special tax treatment accorded a regulated investment company (&#x201c;RIC&#x201d;) and its
+shareholders, Subchapter M of the Internal Revenue Code of 1986, as amended (the &#x201c;Code&#x201d;) requires, among other things,
+that at least 90% of the Fund&#x2019;s income be &#x201c;qualifying income.&#x201d; Although the income from a direct investment
+in Gold ETPs is not treated as qualifying income, the income generated from the Fund&#x2019;s options on the Gold ETPs is considered
+qualifying income because the option itself is the relevant security for purposes of Section 851(b)(2)) of the Code&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;To
+the extent the IRS disagrees with this view regarding the option itself being the relevant security for recognition of qualifying
+income, then the Fund may fail to qualify as a RIC under the Code. If, in any year, the Fund fails to qualify as a RIC and was
+ineligible to or was not able to cure such failure, the Fund would be taxed in the same manner as an ordinary corporation and
+subject to U.S. federal income tax on all its income at the fund level. The resulting taxes could substantially reduce the Fund&#x2019;s
+net assets and the amount of income available for distribution. In addition, in order to requalify for taxation as a RIC, the
+Fund could be required to recognize unrealized gains, pay substantial taxes and interest, and make certain distributions. See
+&#x201c;Options Risk&#x201d; and &#x201c;Derivatives Risk&#x201d; below for additional risks regarding the Fund&#x2019;s options strategy.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91D_exdx--NextElement_zPKi4sfDCZYe"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_ExchangeTradedProductETPRiskMember"
+      id="Fact000049">&lt;p id="xdx_A84_eoef--RiskTextBlock_hoef--RiskAxis__custom--ExchangeTradedProductETPRiskMember_zXbfOj1zeU11" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Exchange
+Traded Product (ETP) Risk.&lt;/i&gt; The Fund invests in Gold ETPs. Through its positions in Gold ETPs, the Fund generally will be subject
+to the risks associated with such vehicle&#x2019;s investments, including the possibility that the value of the securities or instruments
+held by or linked to a Gold ETP could decrease. The Gold ETPs in which the Fund invests are not registered, nor are they required
+to be registered, as investment companies subject to the 1940 Act and, therefore, are not subject to the regulatory scheme of
+the 1940 Act. Additionally, the Gold ETPs are not commodity pools for purposes of the Commodities Exchange Act (&#x201c;CEA&#x201d;)
+and the service providers are not subject to regulation by the Commodities Futures Exchange Commission as a Commodity Pool Operator
+(&#x201c;CPO&#x201d;) or Commodity Trading Adviser in connection with the shares of the Gold ETPs and, therefore, shareholders do
+not have the protections provided to investors in CEA regulated instruments or CPOs. When the Fund invests in a Gold ETP, in addition
+to directly bearing the expenses associated with its own operations, it also will bear a pro rata portion of the Gold ETP&#x2019;s
+expenses (including operating costs and management fees).&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;There
+is also a risk that a Gold ETP&#x2019;s gold bars held by its custodian could be lost, damaged, or stolen. A Gold ETP&#x2019;s access
+to its gold bars could be restricted by natural events (such as earthquakes) or human actions (such as a terrorist attack). This
+would adversely impact the operations of the Gold ETPs and thus, the Fund&#x2019;s investments in the Gold ETPs.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_916_exdx--NextElement_zWnT7lOCUKV4"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_OptionsRiskMember"
+      id="Fact000051">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--OptionsRiskMember_zOft8CaK7Qhe" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Options
+Risk.&lt;/i&gt; There are risks associated with the sale and purchase of options on Gold ETPs. Options enable the Fund to purchase exposure
+that is significantly greater than the premium paid. Consequently, the value of such options can be volatile, and a small investment
+in options can have a large impact on the performance of the Fund. The Fund risks losing all or part of the cash paid (premiums)
+for purchasing options. Even a small decline in the value of a reference asset underlying call options or a small increase in
+the value of a reference asset underlying put options can result in the entire investment in such options being lost. The Fund&#x2019;s
+options also may fail to track the performance of their underlying reference asset, which may limit the effectiveness of the Fund&#x2019;s
+strategy. The potential loss from written options can exceed the Fund&#x2019;s initial investment in such options and could be
+unlimited.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_zGA3wb7szxtl"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_DerivativesRiskMember"
+      id="Fact000053">&lt;p id="xdx_A83_eoef--RiskTextBlock_hoef--RiskAxis__custom--DerivativesRiskMember_zkd2tQqTNdl8" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Derivatives
+Risk. &lt;/i&gt;Options are derivative investments. The use of derivative instruments involves risks different from, or possibly greater
+than, the risks associated with investing directly in securities and other traditional investments. These risks include (i) the
+risk that the counterparty to a derivative transaction may not fulfil its contractual obligations; (ii) risk of mispricing or
+improper valuation; and (iii) the risk that changes in the value of the derivative may not correlate perfectly with the underlying
+asset, rate or index. Derivative prices are highly volatile and may fluctuate substantially during a short period of time. Such
+prices are influenced by numerous factors that affect the markets, including, but not limited to: changing supply and demand relationships;
+government programs and policies; national and international political and economic events, changes in interest rates, inflation
+and deflation and changes in supply and demand relationships. Trading derivative instruments involves risks different from, or
+possibly greater than, the risks associated with investing directly in securities.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91D_exdx--NextElement_zDrF3nHs85v1"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_ActiveManagementRiskMember"
+      id="Fact000055">&lt;p id="xdx_A82_eoef--RiskTextBlock_hoef--RiskAxis__custom--ActiveManagementRiskMember_ztMWc2eyht3f" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Active
+Management Risk. &lt;/i&gt;The Fund is actively managed, which means that investment decisions are made based on investment views. There
+is no guarantee that the investment views will produce the desired results or expected returns, which may cause the Fund to fail
+to meet its investment objective or to underperform its benchmark index or funds with similar investment objectives and strategies.
+Furthermore, active trading that can accompany active management may result in high portfolio turnover, which may have a negative
+impact on performance. Active trading may result in higher brokerage costs or mark-up charges, which are ultimately passed on
+to shareholders of the Fund. Active trading may also result in adverse tax consequences.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_zc3AqWdkIGck"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_ConcentrationRiskMember"
+      id="Fact000057">&lt;p id="xdx_A85_eoef--RiskTextBlock_hoef--RiskAxis__custom--ConcentrationRiskMember_zvCmSQH5fY19" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Concentration
+Risk&lt;/i&gt;&lt;b&gt;. &lt;/b&gt;Because the Fund invests more than 25% of its assets in the gold bullion industry, the Fund&#x2019;s net asset
+value may fluctuate more than that of a fund that does not concentrate in the gold bullion industry.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91F_exdx--NextElement_zFCkKHpqPMT7"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_CounterpartyRiskMember"
+      id="Fact000059">&lt;p id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--CounterpartyRiskMember_zpWgl2NJlg1" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Counterparty
+Risk. &lt;/i&gt;Counterparty risk is the risk that a counterparty to a financial instrument held by the Fund may become insolvent or
+otherwise fail to perform its obligations, and the Fund may obtain no or limited recovery of its investment, and any recovery
+may be significantly delayed.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91D_exdx--NextElement_z6h0qgNXrtNa"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_ExchangeTradedFundsETFsRiskMember"
+      id="Fact000061">&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--ExchangeTradedFundsETFsRiskMember_zcIt3t2ePqFe" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Exchange
+Traded Funds (&#x201c;ETFs&#x201d;) Risk.&lt;/i&gt; The Fund is structured as an ETF. As a result, the Fund is subject to special risks,
+including:&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91F_exdx--NextElement_zR5XFFGKh79f"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_NotIndividuallyRedeemableMember"
+      id="Fact000063">&lt;div id="xdx_A80_eoef--RiskTextBlock_hoef--RiskAxis__custom--NotIndividuallyRedeemableMember_z9nWmlvKq3ra"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Not
+                                         Individually Redeemable. &lt;/i&gt;The Fund&#x2019;s shares (&#x201c;Shares&#x201d;) are not redeemable
+                                         by retail investors and may be redeemed only by Authorized Participants at net asset
+                                         value (&#x201c;NAV&#x201d;) and only in Creation Units. A retail investor generally incurs
+                                         brokerage costs when selling shares.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_zomzumIGA5Ka"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_TradingIssuesMember"
+      id="Fact000065">&lt;div id="xdx_A85_eoef--RiskTextBlock_hoef--RiskAxis__custom--TradingIssuesMember_zfKULla5WvQ4"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Trading
+                                         Issues.&lt;/i&gt; Trading in Shares on Cboe BZX Exchange, Inc. (the &#x201c;Exchange&#x201d;)
+                                         may be halted due to market conditions or for reasons that, in the view of the Exchange,
+                                         make trading in Shares inadvisable, such as extraordinary market volatility. There can
+                                         be no assurance that Shares will continue to meet the listing requirements of the Exchange
+                                         which may result in the Shares being delisted. An active trading market for the Shares
+                                         may not be developed or maintained. If the Shares are traded outside a collateralized
+                                         settlement system, the number of financial institutions that can act as Authorized Participants
+                                         that can post collateral on an agency basis is limited, which may limit the market for
+                                         the Shares.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91A_exdx--NextElement_zuRwiKyGco1"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_MarketPriceVarianceRiskMember"
+      id="Fact000067">&lt;div id="xdx_A81_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketPriceVarianceRiskMember_z6VevpuvaxG9"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify; font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Market
+                                         Price Variance Risk. &lt;/i&gt;The market prices of Shares will fluctuate in response to changes
+                                         in NAV and supply and demand for Shares and will include a &#x201c;bid-ask spread&#x201d;
+                                         charged by the exchange specialists, market makers or other participants that trade the
+                                         Shares. There may be times when the market price and the NAV vary significantly. This
+                                         means that Shares may trade at a discount to NAV.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.75in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cb;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify; font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;In
+                                         times of market stress, market makers may step away from their role market making in
+                                         the Shares and in executing trades, which can lead to differences between the market
+                                         value of the Shares and the Fund&#x2019;s NAV.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.75in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cb;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify; font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;The
+                                         market price of the Shares may deviate from the Fund&#x2019;s NAV, particularly during
+                                         times of market stress, with the result that investors may pay significantly more or
+                                         significantly less for the Shares than the Fund&#x2019;s NAV, which is reflected in the
+                                         bid and ask price for the Shares or in the closing price.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.75in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cb;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify; font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;In
+                                         stressed market conditions, the market for the Shares may become less liquid in response
+                                         to the deteriorating liquidity of the Fund&#x2019;s portfolio. This adverse effect on
+                                         the liquidity of the Shares may, in turn, lead to differences between the market value
+                                         of the Shares and the Fund&#x2019;s NAV.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_zQtFJPISt6ld"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_AuthorizedParticipantRiskMember"
+      id="Fact000069">&lt;div id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--AuthorizedParticipantRiskMember_zDMzjC9M7fq2"&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 10pt Times New Roman, Times, Serif; width: 100%; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;tr style="font: 10pt Times New Roman, Times, Serif; vertical-align: top"&gt;
+&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.5in"&gt;&lt;/td&gt;&lt;td style="font: 10pt Times New Roman, Times, Serif; width: 0.25in"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#x25cf;&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align: justify; font: 10pt Times New Roman, Times, Serif"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Authorized
+                                         Participant Risk. &lt;/i&gt;Only an Authorized Participant may engage in creation or redemption
+                                         transactions directly with the Fund. The Fund has a limited number of institutions that
+                                         may act as an Authorized Participant on an agency basis (i.e., on behalf of other market
+                                         participants). To the extent that Authorized Participants exit the business or are unable
+                                         to proceed with creation or redemption orders with respect to the Fund and no other Authorized
+                                         Participant is able to step forward to create or redeem Creation Units, Fund shares may
+                                         be more likely to trade at a premium or discount to net asset value and possibly face
+                                         trading halts or delisting. Authorized Participant concentration risk may be heightened
+                                         for securities or instruments that have lower trading volumes.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin-top: 0pt; margin-bottom: 0pt"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.75in; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Additionally,
+purchases and redemptions of creation units primarily with cash rather than through in-kind delivery of portfolio securities may
+cause the Fund to incur certain costs, including brokerage costs or taxable gains or losses that it might not have incurred if
+it made a redemption in-kind, and therefore decrease the Fund&#x2019;s NAV to the extent not offset by a transaction fee payable
+by an AP.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 49.5pt; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91D_exdx--NextElement_zJJGro6f0vZ6"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_FixedIncomeRiskMember"
+      id="Fact000071">&lt;p id="xdx_A85_eoef--RiskTextBlock_hoef--RiskAxis__custom--FixedIncomeRiskMember_zKlYEFEb9m99" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Fixed
+Income Risk&lt;/i&gt;. The value of the Fund&#x2019;s investments in fixed income securities that serve as collateral to transactions
+involving options will fluctuate with changes in interest rates. Typically, a rise in interest rates causes a decline in the value
+of fixed income securities owned by the Fund. In general, the market price of fixed income securities with longer maturities will
+increase or decrease more in response to changes in interest rates than shorter- term securities. Other risk factors include credit
+risk (the debtor may default), extension risk (an issuer may exercise its right to repay principal on a fixed rate obligation
+held by the Fund later than expected), and prepayment risk (the debtor may pay its obligation early, reducing the amount of interest
+payments). These risks could affect the value of a particular investment by the Fund, possibly causing the Fund&#x2019;s share
+price and total return to be reduced and fluctuate more than other types of investments.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_zYZVusZZElM6"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_FLEXOptionsRiskMember"
+      id="Fact000073">&lt;p id="xdx_A8F_eoef--RiskTextBlock_hoef--RiskAxis__custom--FLEXOptionsRiskMember_z3iGzikm6woe" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;FLEX
+&lt;i&gt;Options Risk.&lt;/i&gt; Trading FLEX Options involves risks different from, or possibly greater than, the risks associated with investing
+directly in securities. The Fund may experience losses from specific FLEX Option positions and certain FLEX Option positions may
+expire worthless. The FLEX Options are listed and trade on an exchange; however, no one can guarantee that a liquid secondary
+trading market will exist for the FLEX Options. In the event that trading in the FLEX Options is limited or absent, the value
+of the Fund&#x2019;s FLEX Options may decrease. In a less liquid market for the FLEX Options, liquidating the FLEX Options may
+require the payment of a premium (for written FLEX Options) or acceptance of a discounted price (for purchased FLEX Options) and
+may take longer to complete. A less liquid trading market may adversely impact the value of the FLEX Options and Fund shares and
+result in the Fund being unable to achieve its investment objective. Less liquidity in the trading of the Fund&#x2019;s FLEX Options
+could have an impact on the prices paid or received by the Fund for the FLEX Options in connection with creations and redemptions
+of the Fund&#x2019;s shares. Depending on the nature of this impact to pricing, the Fund may be forced to pay more for redemptions
+(or receive less for creations) than the price at which it currently values the FLEX Options. Such overpayment or under collection
+could reduce the Fund&#x2019;s ability to achieve its investment objective. Additionally, in a less liquid market for the FLEX
+Options, the liquidation of a large number of options may more significantly impact the price. A less liquid trading market may
+adversely impact the value of the FLEX Options and the value of your investment. The trading in FLEX Options may be less deep
+and liquid than the market for certain other exchange-traded options, non-customized options or other securities.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_915_exdx--NextElement_zEHDPtJKa42b"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_LeverageRiskMember"
+      id="Fact000075">&lt;p id="xdx_A87_eoef--RiskTextBlock_hoef--RiskAxis__custom--LeverageRiskMember_zaYAzbDwwoi2" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Leverage
+Risk. &lt;/i&gt;When the Fund purchases or sells an instrument or enters into a transaction without investing an amount equal to the
+full economic exposure of the instrument or transaction, it creates leverage, which can result in the Fund losing more than it
+originally invested. As a result, these investments may magnify losses to the Fund, and even a small market movement may result
+in significant losses to the Fund. Leverage may also cause the Fund to be more volatile because it may exaggerate the effect of
+any increase or decrease in the value of the Fund&#x2019;s portfolio securities. Options trading involves a degree of leverage
+and as a result, a relatively small price movement in instruments may result in immediate and substantial losses to the Fund.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_913_exdx--NextElement_zNaSq0TH5YT4"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_LiquidityRiskMember"
+      id="Fact000077">&lt;p id="xdx_A87_eoef--RiskTextBlock_hoef--RiskAxis__custom--LiquidityRiskMember_zTN45SejmMt4" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Liquidity
+Risk. &lt;/i&gt;Liquidity risk exists when particular investments of the Fund would be difficult to purchase or sell, possibly preventing
+the Fund from selling such illiquid securities at an advantageous time or price, or possibly requiring the Fund to dispose of
+other investments at unfavorable times or prices in order to satisfy its obligations.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91D_exdx--NextElement_zPWX4Z4nIMq6"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_MarketAndGeopoliticalRiskMember"
+      id="Fact000079">&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--MarketAndGeopoliticalRiskMember_zuyarIj83jL" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Market
+and Geopolitical Risk. &lt;/i&gt;The increasing interconnectivity between global economies and financial markets increases the likelihood
+that events or conditions in one region or financial market may adversely impact issuers in a different country, region or financial
+market. Securities in the Fund&#x2019;s portfolio may underperform due to inflation (or expectations for inflation), interest rates,
+global demand for particular products or resources, natural disasters, climate change and climate-related events, pandemics, epidemics,
+terrorism, international conflicts, regulatory events and governmental or quasi-governmental actions. The occurrence of global
+events similar to those in recent years may result in market volatility and may have long term effects on financial markets worldwide.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91B_exdx--NextElement_zhDSDkKakwI1"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_NewFundRiskMember"
+      id="Fact000081">&lt;p id="xdx_A80_eoef--RiskTextBlock_hoef--RiskAxis__custom--NewFundRiskMember_zNjDtZcBThe" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;New
+Fund Risk. &lt;/i&gt;The Fund is new and does not have shares outstanding as of the date of this Prospectus. If the Fund does not grow
+large in size once it commences trading, it will be at greater risk than larger funds of wider bid-ask spreads for its shares,
+trading at a greater premium or discount to NAV, liquidation and/or a stop to trading. Any resulting liquidation of the Fund could
+cause the Fund to incur elevated transaction costs for the Fund and negative tax consequences for its shareholders.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_914_exdx--NextElement_z2NFQhgQjvl8"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_oef_RiskNondiversifiedStatusMember"
+      id="Fact000083">&lt;p id="xdx_A8B_eoef--RiskTextBlock_hoef--RiskAxis__oef--RiskNondiversifiedStatusMember_zaaTCopYw8ri" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Non-Diversification
+Risk. &lt;/i&gt;The Fund&#x2019;s portfolio may focus on a limited number of investments and will be subject to potential for volatility
+than a diversified fund.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91B_exdx--NextElement_zZlyb2fLp8x3"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_RollingOptionsContractRiskMember"
+      id="Fact000085">&lt;p id="xdx_A88_eoef--RiskTextBlock_hoef--RiskAxis__custom--RollingOptionsContractRiskMember_zIFBYfGshDd6" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Rolling
+Options Contract Risk&lt;/i&gt;. The Fund&#x2019;s investments in options are subject to risks related to rolling. Rolling occurs when
+the Fund closes out of an options contract as it nears its expiration and replaces it with a contract that has a later expiration.
+The Fund does not intend to hold options through expiration, but instead intends to &#x201c;roll&#x201d; its positions. When the
+market for these options is such that the prices are higher in the more distant delivery months than in the nearer delivery months,
+the sale during the course of the &#x201c;rolling process&#x201d; of the more nearby contract would take place at a price that is
+lower than the price of the more distant contract. This pattern of higher option prices for longer expiration contracts is often
+referred to as &#x201c;contango.&#x201d; Alternatively, when the market for options contracts is such that the prices are higher
+in the nearer months than in the more distant months, the sale during the course of the &#x201c;rolling process&#x201d; of the more
+nearby contract would take place at a price that is higher than the price of the more distant contract. This pattern of higher
+options prices for shorter expiration options contracts is referred to as &#x201c;backwardation.&#x201d; Extended periods of contango
+or backwardation have occurred in the past and can in the future cause significant losses for the Fund.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_912_exdx--NextElement_zvCdc8vl11C5"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_TaxRiskMember"
+      id="Fact000087">&lt;p id="xdx_A82_eoef--RiskTextBlock_hoef--RiskAxis__custom--TaxRiskMember_zNDfhogOrKA" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Tax
+Risk&lt;/i&gt;. The Fund invests in derivatives. The federal income tax treatment of a derivative may not be as favorable as a direct
+investment in an underlying asset. Derivatives may produce taxable income and taxable realized gain. Derivatives may adversely
+affect the timing, character and amount of income the Fund realizes from its investments. As a result, a larger portion of the
+Fund&#x2019;s distributions may be treated as ordinary income rather than as capital gains. In addition, certain derivatives are
+subject to mark-to-market or straddle provisions of the Internal Revenue Code. If such provisions are applicable, there could
+be an increase (or decrease) in the amount of taxable dividends paid by the Fund. The use of derivatives, such as call options,
+may cause the Fund to realize higher amounts of short-term capital gains or otherwise affect the Fund&#x2019;s ability to pay out
+dividends subject to preferential rates or the dividend deduction, thereby increasing the amount of taxes payable by some shareholders.
+The writing of call options by the Fund may significantly reduce or eliminate the ability to make distributions eligible to be
+treated as qualified dividend income or as eligible for the dividends received deduction for corporate shareholders.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;To
+qualify as a regulated investment company (&#x201c;RIC&#x201d;), the Fund must meet certain requirements concerning the source of
+its income. The Fund&#x2019;s investment in the Subsidiary is intended to provide exposure to gold in a manner that is consistent
+with the &#x201c;qualifying income&#x201d; requirement applicable to RICs. The Internal Revenue Service (&#x201c;IRS&#x201d;) has
+ceased issuing private letter rulings regarding whether the use of subsidiaries by investment companies to invest in certain instruments
+constitutes qualifying income. If the IRS determines that this source of income is not &#x201c;qualifying income,&#x201d; the Fund
+may cease to qualify as a RIC because the Fund has not received a private letter ruling and is not able to rely on private letter
+rulings issued to other taxpayers. Failure to qualify as a RIC could subject the Fund to adverse tax consequences, including a
+federal income tax on its net income at regular corporate rates, as well as a tax to shareholders on such income when distributed
+as an ordinary dividend.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;Based
+on the principles underlying private letter rulings previously issued to other taxpayers, the Fund intends to treat its income
+from the Subsidiary as qualifying income without any such ruling from the IRS. The tax treatment of the Fund&#x2019;s investment
+in the Subsidiary may be adversely affected by future legislation, court decisions, Treasury Regulations and/or guidance issued
+by the IRS that could affect whether income derived from such investments is &#x201c;qualifying income&#x201d; under Subchapter
+M of the Internal Revenue Code, or otherwise affect the character, timing and/or amount of the Fund&#x2019;s taxable income or
+any gains or distributions made by the Fund.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91F_exdx--NextElement_zOgvGSMHVPk1"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_USGovernmentSecuritiesRiskMember"
+      id="Fact000089">&lt;p id="xdx_A87_eoef--RiskTextBlock_hoef--RiskAxis__custom--USGovernmentSecuritiesRiskMember_zuA7at2Uydt7" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;U.S.
+Government Securities Risk&lt;/i&gt;. U.S. Treasury obligations are backed by the &#x201c;full faith and credit&#x201d; of the U.S. government
+and generally have negligible credit risk. Securities issued or guaranteed by federal agencies or authorities and U.S. government-sponsored
+instrumentalities or enterprises may or may not be backed by the full faith and credit of the U.S. government.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91A_exdx--NextElement_zzofK9DDpV82"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_ValuationRiskMember"
+      id="Fact000091">&lt;p id="xdx_A80_eoef--RiskTextBlock_hoef--RiskAxis__custom--ValuationRiskMember_z5SYHJnqphC5" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Valuation
+Risk.&lt;/i&gt; The price the Fund could receive upon the sale of a security or other asset may differ from the Fund&#x2019;s valuation
+of the security or other asset, particularly for securities or other assets that trade in low volume or volatile markets or that
+are valued using a fair value methodology. In addition, the value of the securities or other assets in the Fund&#x2019;s portfolio
+may change on days or during time periods when shareholders will not be able to purchase or sell the Fund&#x2019;s shares. Authorized
+Participants who purchase or redeem Fund shares on days when the Fund is holding fair-valued securities may receive fewer or more
+shares, or lower or higher redemption proceeds, than they would have received had the Fund not fair-valued securities or used
+a different valuation methodology. The Fund&#x2019;s ability to value investments may be impacted by technological issues or errors
+by pricing services or other third- party service providers.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_91B_exdx--NextElement_zo6v3kpb39hf"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_WhollyOwnedSubsidiaryRiskMember"
+      id="Fact000093">&lt;p id="xdx_A8C_eoef--RiskTextBlock_hoef--RiskAxis__custom--WhollyOwnedSubsidiaryRiskMember_zkqKatGfILn9" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="-sec-ix-redline: true"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Wholly-Owned
+Subsidiary Risk. &lt;/i&gt;Changes in the laws of the United States and/or the Cayman Islands, under which the Fund and the Subsidiary,
+respectively, are organized, could result in the inability of the Fund and/or Subsidiary to operate as described in this Prospectus
+and could negatively affect the Fund and its shareholders. Unlike the Fund, the Cayman Subsidiary is not an investment company
+registered under the Investment Company Act of 1940, as amended (the &#x201c;1940 Act&#x201d;) and is not subject to all of the
+investor protections of the 1940 Act. The Fund&#x2019;s investment in the Cayman Subsidiary is intended to provide the Fund with
+exposure to Gold ETPs in accordance with applicable rules and regulations. The Fund, by investing in the Cayman Subsidiary when
+viewed together with the Fund, will operate as though it is subject to the protections offered to investors in registered investment
+companies with respect to Sections 8 and 18 of the 1940 Act (regarding investment policies, capital structure and leverage), Section
+15 of the 1940 Act (regarding investment advisory contract approvals) and Section 17 of the 1940 Act (regarding affiliated transactions
+and custody). The Fund wholly owns and controls the Cayman Subsidiary, and the Fund and Cayman Subsidiary are both managed by
+the Adviser. The Board has oversight responsibility for the investment activities of the Fund, including its investment in the
+Cayman Subsidiary, and the Fund&#x2019;s role as the sole shareholder of the Cayman Subsidiary. Also, the Adviser in managing the
+Cayman Subsidiary&#x2019;s investment portfolio, is subject to the same investment restrictions and operational guidelines that
+apply to the management of the Fund, when viewed on a consolidated basis.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font: 10pt Times New Roman, Times, Serif"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div style="display: none"&gt;&lt;span id="xdx_916_exdx--NextElement_zVk4DMEudF44"&gt;&lt;/span&gt;&lt;/div&gt;
+</oef:RiskTextBlock>
+    <oef:RiskTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member_custom_TaxationRiskMember"
+      id="Fact000095">&lt;p id="xdx_A8E_eoef--RiskTextBlock_hoef--RiskAxis__custom--TaxationRiskMember_zSNIYh7BzU1a" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;i&gt;Taxation
+Risk.&lt;/i&gt; By investing in Gold ETPs indirectly through the Subsidiary, the Fund will obtain exposure to these securities within
+the federal tax requirements that apply to the Fund. However, because the Subsidiary is a controlled foreign corporation, any
+income received from its investments will be passed through to the Fund as ordinary income, which may be taxed at less favorable
+rates than capital gains. Exceeding this amount may have tax consequences. In order to qualify for the special tax treatment accorded
+a RIC and its shareholders, the Fund must derive at least 90% of its gross income for each taxable year from &#x201c;qualifying
+income,&#x201d; meet certain asset diversification tests at the end of each taxable quarter, and meet annual distribution requirements.
+The Fund&#x2019;s pursuit of its investment strategy will potentially be limited by the Fund&#x2019;s intention to qualify for such
+treatment and could adversely affect the Fund&#x2019;s ability to so qualify. The Fund expects to gain exposure to gold and generate
+qualifying income by investing a portion of its assets in a wholly-owned subsidiary of the Fund organized under the laws of the
+Cayman Islands. To comply with the asset diversification test applicable to a RIC, the Fund will limit its investments in such
+subsidiary to 25% of the Fund&#x2019;s total assets at the end of each tax quarter. The Fund may, however, exceed this amount from
+time to time inadvertently or if the Adviser believes doing so is in the best interests of the Fund, provided, however, that the
+Fund intends to continue to comply with the asset diversification test applicable to RICs. If the Fund&#x2019;s investments in
+the subsidiary were to exceed 25% of the Fund&#x2019;s total assets at the end of a tax quarter, the Fund may no longer be eligible
+to be treated as a RIC. The Adviser will carefully monitor the Fund&#x2019;s investments in the subsidiary to ensure that no more
+than 25% of the Fund&#x2019;s assets are invested in the subsidiary at the end of each tax quarter. There are no assurances that
+the IRS will agree with the Fund&#x2019;s calculation under the asset diversification test which could cause the Fund to fail to
+qualify as a RIC. If, in any year, the Fund were to fail to qualify for the special tax treatment accorded a RIC and its shareholders,
+and were ineligible to or were not to cure such failure, the Fund would be taxed in the same manner as an ordinary corporation
+subject to U.S. federal income tax on all its income at the fund level. The resulting taxes could substantially reduce the Fund&#x2019;s
+net assets and the amount of income available for distribution. In addition, in order to requalify for taxation as a RIC, the
+Fund could be required to recognize unrealized gains, pay substantial taxes and interest, and make certain distributions.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0 0pt 0.5in; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000096">Performance</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000097">&lt;p id="xdx_A8E_eoef--PerformanceNarrativeTextBlock_zIwrmfqkNAu2" style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&lt;span id="xdx_907_eoef--PerformanceOneYearOrLess_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_zjXw5jDyywI2"&gt;The
+Fund is new, and therefore, no performance information is presented for the Fund at this time.&lt;/span&gt; In the future, performance information
+will be presented in this section of this Prospectus. Also, shareholder reports containing financial and performance information
+will be mailed to shareholders semi-annually. Updated performance information will be available at no cost by visiting the Fund&#x2019;s
+website at &lt;span id="xdx_909_eoef--PerformanceAvailabilityWebSiteAddress_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_zhzaXZK6NnH8"&gt;www.Neosfunds.com&lt;/span&gt;.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Times New Roman, Times, Serif; margin: 0pt 0; text-align: justify"&gt;&lt;span style="font-family: Times New Roman, Times, Serif; font-size: 10pt"&gt;&#160;&lt;/span&gt;&lt;/p&gt;
+
+</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000098">The
+Fund is new, and therefore, no performance information is presented for the Fund at this time.</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress
+      contextRef="From2025-05-302025-05-30_custom_S000092389Member"
+      id="Fact000099">www.Neosfunds.com</oef:PerformanceAvailabilityWebSiteAddress>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc
+          xlink:href="#Fact000028"
+          xlink:label="Fact000028"
+          xlink:type="locator"/>
+        <link:footnote id="Footnote000031" xlink:label="Footnote000031" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US"><xhtml:span id="xdx_908_eoef--OtherExpensesNewFundBasedOnEstimates_c20250530__20250530__dei--LegalEntityAxis__custom--S000092389Member_z877iA8n9H41">&#x201c;Other
+expenses&#x201d; are based on estimated amounts for the current fiscal year and are calculated as a percentage of the Fund&#x2019;s net
+assets.</xhtml:span> The expenses of the Fund&#x2019;s wholly-owned subsidiary are consolidated with those of the Fund and are not presented as a separate
+expense.</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="Fact000028"
+          xlink:to="Footnote000031"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>

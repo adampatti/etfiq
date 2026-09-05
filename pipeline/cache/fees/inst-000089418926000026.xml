@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xml:lang="en-US"
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:ck0001616668="http://usbank.com/20260102"
+  xmlns:dei="http://xbrl.sec.gov/dei/2025"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:oef="http://xbrl.sec.gov/oef/2025"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="ck0001616668-20260102.xsd" xlink:type="simple"/>
+    <context id="c-1">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-2">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-3">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-4">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ck0001616668:C000269910Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-5">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-6">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:CalculationMethodologyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-7">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-8">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:EquityMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-9">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-10">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksAuthorizedParticipantsAPsMarketMakersAndLiquidityProvidersConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-11">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksCostsOfBuyingOrSellingSharesOfTheFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-12">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksSharesOfTheFundMayTradeAtPricesOtherThanNAVRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-13">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksTradingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-14">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:IndexProviderRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-15">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:LargeCapitalizationInvestingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-16">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-17">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-18">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:PassiveInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-19">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:SectorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-20">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:SectorRiskInformationTechnologySectorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-21">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:SectorRiskHealthCareSectorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-22">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ThematicInvestingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-23">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100100Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:TrackingErrorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-24">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:ClassAxis">ck0001616668:C000269911Member</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-25">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskLoseMoneyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-26">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:CalculationMethodologyRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-27">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-28">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:EquityMarketRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-29">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-30">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksAuthorizedParticipantsAPsMarketMakersAndLiquidityProvidersConcentrationRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-31">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksCostsOfBuyingOrSellingSharesOfTheFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-32">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksSharesOfTheFundMayTradeAtPricesOtherThanNAVRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-33">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:ETFRisksTradingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-34">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:IndexProviderRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-35">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:LargeCapitalizationInvestingRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-36">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:NewFundRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-37">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">oef:RiskNondiversifiedStatusMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-38">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:PassiveInvestmentRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-39">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:StyleRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <context id="c-40">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0001616668</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="dei:LegalEntityAxis">ck0001616668:S000100101Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="oef:RiskAxis">ck0001616668:TrackingErrorRiskMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-03</startDate>
+            <endDate>2026-01-03</endDate>
+        </period>
+    </context>
+    <unit id="number">
+        <measure>pure</measure>
+    </unit>
+    <unit id="usd">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:DocumentType contextRef="c-1" id="f-7">485BPOS</dei:DocumentType>
+    <dei:EntityCentralIndexKey contextRef="c-1" id="f-8">0001616668</dei:EntityCentralIndexKey>
+    <dei:AmendmentFlag contextRef="c-1" id="f-9">false</dei:AmendmentFlag>
+    <dei:DocumentPeriodEndDate contextRef="c-1" id="f-1">2026-01-02</dei:DocumentPeriodEndDate>
+    <dei:EntityInvCompanyType contextRef="c-1" id="f-2">N-1A</dei:EntityInvCompanyType>
+    <dei:EntityRegistrantName contextRef="c-1" id="f-3">PACER FUNDS TRUST</dei:EntityRegistrantName>
+    <oef:ProspectusDate contextRef="c-1" id="f-4">2026-01-03</oef:ProspectusDate>
+    <oef:RiskReturnHeading contextRef="c-2" id="f-5">Pacer S&amp;P 500 Quality FCF R&amp;D Leaders ETF</oef:RiskReturnHeading>
+    <oef:RiskReturnHeading contextRef="c-3" id="f-6">Pacer S&amp;P 500 Quality FCF High Dividend ETF</oef:RiskReturnHeading>
+    <oef:ObjectiveHeading contextRef="c-2" id="f-10">Investment Objective</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock contextRef="c-2" id="f-11">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Pacer S&amp;amp;P 500 Quality FCF R&amp;amp;D Leaders ETF (the &#x201c;Fund&#x201d;) is an exchange traded fund (&#x201c;ETF&#x201d;) that seeks to track the total return performance, before fees and expenses, of the S&amp;amp;P 500 Quality FCF R&amp;amp;D Leaders Index (the &#x201c;Index&#x201d;).&lt;/span&gt;&lt;/div&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading contextRef="c-2" id="f-12">Fees and Expenses of the Fund</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock contextRef="c-2" id="f-13">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The following table describes the fees and expenses you may pay if you buy, hold, and sell shares of the Fund (&#x201c;Shares&#x201d;). &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and Example below.&lt;/span&gt;&lt;/div&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption contextRef="c-2" id="f-14">Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment)</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets contextRef="c-4" decimals="4" id="f-15" unitRef="number">0.0049</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets contextRef="c-4" decimals="4" id="f-16" unitRef="number">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets contextRef="c-4" decimals="4" id="f-17" unitRef="number">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets contextRef="c-4" decimals="4" id="f-18" unitRef="number">0.0049</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates contextRef="c-2" id="f-19">Estimated for the current fiscal year</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading contextRef="c-2" id="f-20">Example</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock contextRef="c-2" id="f-21">The following example is intended to help retail investors compare the cost of investing in the Fund with the cost of investing in other funds. It illustrates the hypothetical expenses that such investors would incur over various periods if they were to invest $10,000 in the Fund for the time periods indicated and then redeem all of the Shares at the end of those periods. This example assumes that the Fund provides a return of 5% a year and that operating expenses remain the same.</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleByYearCaption contextRef="c-2" id="f-22">Although your actual costs may be higher or lower, based on these assumptions, your costs would be:</oef:ExpenseExampleByYearCaption>
+    <oef:ExpenseExampleYear01 contextRef="c-4" decimals="0" id="f-23" unitRef="usd">50</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03 contextRef="c-4" decimals="0" id="f-24" unitRef="usd">157</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading contextRef="c-2" id="f-25">Portfolio Turnover</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock contextRef="c-2" id="f-26">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund Shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s performance. Because the Fund is newly organized, portfolio turnover information is not yet available.&lt;/span&gt;&lt;/div&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading contextRef="c-2" id="f-27">Principal Investment Strategies of the Fund</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock contextRef="c-2" id="f-28">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund employs a &#x201c;passive management&#x201d; (or indexing) investment approach designed to track the total return performance, before fees and expenses, of the Index. &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;The Index&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;table style="border-collapse:collapse;display:inline-table;margin-bottom:5pt;vertical-align:text-bottom;width:100.000%"&gt;&lt;tr&gt;&lt;td style="width:1.0%"&gt;&lt;/td&gt;&lt;td style="width:64.594%"&gt;&lt;/td&gt;&lt;td style="width:0.1%"&gt;&lt;/td&gt;&lt;td style="width:1.0%"&gt;&lt;/td&gt;&lt;td style="width:33.206%"&gt;&lt;/td&gt;&lt;td style="width:0.1%"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3" style="padding:2px 1pt;text-align:left;vertical-align:top"&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index uses an objective, rules-based methodology to provide exposure to 50 stocks within the S&amp;amp;P 500 Index&#xae; (the &#x201c;S&amp;amp;P 500&#x201d;) that exhibit high research and development (R&amp;amp;D) Intensity while maintaining higher than median free cash flow (FCF) margin and FCF return on invested capital (ROIC). S&amp;amp;P Dow Jones Indices LLC (the &#x201c;Index Provider&#x201d;) compiles, maintains and calculates the Index.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index&#x2019;s initial universe is derived from the component companies of the S&amp;amp;P 500. The S&amp;amp;P 500 is comprised of common stocks of approximately 500 large-capitalization companies that generally represent the large-cap segment of the U.S. equity market. &lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;td colspan="3" style="background-color:#e5e5e5;border-bottom:1pt solid #000;border-left:1pt solid #000;border-right:1pt solid #000;border-top:1pt solid #000;padding:2px 1pt;text-align:left;vertical-align:top"&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;Free Cash Flow (FCF): &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;net cash flow from operating activities minus capital expenditures&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;FCF Margin: &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;FCF / revenue&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;FCF ROIC: &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;FCF / (total debt plus total equity)&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;R&amp;amp;D Intensity:&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; R&amp;amp;D expense / sales&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index&#x2019;s initial universe of companies is screened based on a company&#x2019;s FCF margin and FCF ROIC. To be considered for inclusion in the Index, a company must be in the top 50% of securities by FCF Score, which is calculated using the five-year average of company&#x2019;s FCF Margin and the five-year average of the company&#x2019;s FCF ROIC. Companies classified as being in the real estate sector and companies classified as being in certain industries within the financials sector (banks, asset management &amp;amp; custody banks, investment banking &amp;amp; brokerage, specialized finance, insurance) are excluded from the Index universe.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The remaining companies are then ranked by their R&amp;amp;D Intensity Score, which is calculated using the five-year average of R&amp;amp;D expense divided by sales (i.e., R&amp;amp;D Intensity). The 50 companies with the highest R&amp;amp;D Intensity Scores are included in the Index. The constituents are weighted in descending order by their R&amp;amp;D Intensity Score, with the maximum weight of each constituent capped at 4.5%.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Weight above the individual security cap are typically redistributed among the other Index constituents in proportion to their weights. As of October 31, 2025, the companies included in the Index had a market capitalization range of $11.5 billion and $4.9 trillion. As of October 31, 2025, the Index had significant exposure to the information technology and health care sectors.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index is typically reconstituted and rebalanced semi-annually as of the close of business on the third Friday of April and October based on data as of the last business days of March and September, respectively. The Index is also reviewed semi-annually in January and July based on each constituent&#x2019;s weight; recapping is performed if the aggregate weight of constituents with an individual weight greater than 4.8% exceeds 24% of the Index&#x2019;s total weight. If that threshold is breached, the current constituent weights are recapped, with the weights of individual constituents capped at 10% and the aggregate weight of constituents with an individual weight greater than 4.5% capped at 22.5% of the Index&#x2019;s total weight.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;The Fund&#x2019;s Investment Strategy&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Under normal circumstances, at least 80% of the Fund&#x2019;s net assets (plus any borrowings for investment purposes) will be invested in equity securities that are the component securities of the Index. The Fund defines &#x201c;equity securities&#x201d; to mean common stocks, and may include preferred stocks, rights, warrants, and depositary receipts. The Adviser expects that, over time, the correlation between the Fund&#x2019;s performance and that of the Index, before fees and expenses, will be 95% or better.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund will generally use a &#x201c;replication&#x201d; strategy to achieve its investment objective, meaning it will invest in all of the component securities of the Index in the same approximate proportion as in the Index.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund is non-diversified and therefore may invest a larger percentage of its assets in the securities of a single company than diversified funds.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;To the extent the Index concentrates (&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;, holds more than 25% of its total assets) in the securities of a particular industry or group of related industries, the Fund will concentrate its investments to approximately the same extent as the Index. As of October 31, 2025, the Index was not concentrated in any industry or group of industries.&lt;/span&gt;&lt;/div&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration contextRef="c-2" id="f-29">To the extent the Index concentrates (i.e., holds more than 25% of its total assets) in the securities of a particular industry or group of related industries, the Fund will concentrate its investments to approximately the same extent as the Index. As of October 31, 2025, the Index was not concentrated in any industry or group of industries.</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock contextRef="c-5" id="f-30">You can lose money on your investment in the Fund.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-6" id="f-31">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.61pt"&gt;Calculation Methodology Risk.&lt;/span&gt;&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index relies directly or indirectly on various sources of information to assess the criteria of issuers included in the Index, including information that may be based on assumptions and estimates. Neither the Fund, the Index Provider, or the Adviser can offer assurances that the Index&#x2019;s calculation methodology or sources of information will provide an accurate assessment of included components or a correct valuation of securities, nor can they guarantee the availability or timeliness of the production of the Index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-7" id="f-32">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Concentration Risk. &lt;/span&gt;If the Index concentrates in an industry or group of industries, the Fund&#x2019;s investments may be concentrated accordingly. In such event, the value of the Fund&#x2019;s shares may rise and fall more than the value of shares of a fund that invests in securities of companies in a broader range of industries. In addition, at times, an industry or group of industries in which the Fund is concentrated may be out of favor and underperform other industries or groups of industries.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-8" id="f-33">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Equity Market Risk. &lt;/span&gt;The equity securities held in the Fund&#x2019;s portfolio may experience sudden, unpredictable drops in value or long periods of decline in value. This may occur because of factors that affect securities markets generally or factors affecting specific industries, sectors or companies in which the Fund invests. Common stocks are susceptible to general stock market fluctuations and to volatile increases and decreases in value as market confidence in and perceptions of their issuers change. The Fund&#x2019;s NAV and market price may fluctuate significantly in response to these and other factors. As a result, an investor could lose money over short or long periods of time.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-9" id="f-34">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;ETF Risks.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; The Fund is an ETF and, as a result of an ETF&#x2019;s structure, is exposed to the following risks:  &lt;/span&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Authorized Participants (&#x201c;APs&#x201d;), Market Makers, and Liquidity Providers Concentration Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund has a limited number of financial institutions that may act as APs. In addition, there may be a limited number of market makers and/or liquidity providers in the marketplace. To the extent either of the following events occur, shares of the Fund may trade at a material discount to NAV and possibly face delisting: (i)&#160;APs exit the business or otherwise become unable to process &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;creation and/or redemption orders and no other APs step forward to perform these services, or (ii)&#160;market makers and/or liquidity providers exit the business or significantly reduce their business activities and no other entities step forward to perform their functions.  &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Costs of Buying or Selling Shares of the Fund.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; Due to the costs of buying or selling shares of the Fund, including brokerage commissions imposed by brokers and bid/ask spreads, frequent trading of shares of the Fund may significantly reduce investment results and an investment in shares of the Fund may not be advisable for investors who anticipate regularly making small investments.   &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Shares of the Fund May Trade at Prices Other Than NAV.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; As with all ETFs, shares of the Fund may be bought and sold in the secondary market at market prices. The price of shares of the Fund, like the price of all traded securities, will be subject to factors such as supply and demand, as well as the current value of the Fund&#x2019;s portfolio holdings. Although it is expected that the market price of the shares of the Fund will approximate the Fund&#x2019;s NAV, there may be times when the market price of the shares is more than the NAV intra-day (premium) or less than the NAV intra-day (discount). This risk is heightened in times of market volatility, periods of steep market declines, and periods when there is limited trading activity for shares in the secondary market, in which case such premiums or discounts may be significant. Shares of the Fund will be bought and sold in the secondary market at market prices. &lt;/span&gt;&lt;/div&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Trading.&lt;/span&gt; Although shares of the Fund are listed for trading on a national securities exchange, such as Cboe BZX Exchange, Inc. (the &#x201c;Exchange&#x201d;), and may be traded on U.S. exchanges other than the Exchange, there can be no assurance that shares of the Fund will trade with any volume, or at all, on any stock exchange. In stressed market conditions, the liquidity of shares of the Fund may begin to mirror the liquidity of the Fund&#x2019;s underlying portfolio holdings, which can be significantly less liquid than shares of the Fund, and this could lead to differences between the market price of the shares of the Fund and the underlying value of those shares.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-10" id="f-35">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Authorized Participants (&#x201c;APs&#x201d;), Market Makers, and Liquidity Providers Concentration Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund has a limited number of financial institutions that may act as APs. In addition, there may be a limited number of market makers and/or liquidity providers in the marketplace. To the extent either of the following events occur, shares of the Fund may trade at a material discount to NAV and possibly face delisting: (i)&#160;APs exit the business or otherwise become unable to process &lt;/span&gt;creation and/or redemption orders and no other APs step forward to perform these services, or (ii)&#160;market makers and/or liquidity providers exit the business or significantly reduce their business activities and no other entities step forward to perform their functions.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-11" id="f-36">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Costs of Buying or Selling Shares of the Fund.&lt;/span&gt; Due to the costs of buying or selling shares of the Fund, including brokerage commissions imposed by brokers and bid/ask spreads, frequent trading of shares of the Fund may significantly reduce investment results and an investment in shares of the Fund may not be advisable for investors who anticipate regularly making small investments.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-12" id="f-37">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Shares of the Fund May Trade at Prices Other Than NAV.&lt;/span&gt; As with all ETFs, shares of the Fund may be bought and sold in the secondary market at market prices. The price of shares of the Fund, like the price of all traded securities, will be subject to factors such as supply and demand, as well as the current value of the Fund&#x2019;s portfolio holdings. Although it is expected that the market price of the shares of the Fund will approximate the Fund&#x2019;s NAV, there may be times when the market price of the shares is more than the NAV intra-day (premium) or less than the NAV intra-day (discount). This risk is heightened in times of market volatility, periods of steep market declines, and periods when there is limited trading activity for shares in the secondary market, in which case such premiums or discounts may be significant. Shares of the Fund will be bought and sold in the secondary market at market prices.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-13" id="f-38">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Trading.&lt;/span&gt; Although shares of the Fund are listed for trading on a national securities exchange, such as Cboe BZX Exchange, Inc. (the &#x201c;Exchange&#x201d;), and may be traded on U.S. exchanges other than the Exchange, there can be no assurance that shares of the Fund will trade with any volume, or at all, on any stock exchange. In stressed market conditions, the liquidity of shares of the Fund may begin to mirror the liquidity of the Fund&#x2019;s underlying portfolio holdings, which can be significantly less liquid than shares of the Fund, and this could lead to differences between the market price of the shares of the Fund and the underlying value of those shares.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-14" id="f-39">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Index Provider Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; There is no assurance that an Index provider or any agents that act on its behalf, will compile the Index accurately, or that the Index will be determined, maintained, constructed, rebalanced, calculated or disseminated accurately. The Fund relies upon the Index provider and its agents to compile, determine, maintain, construct, rebalance, calculate (or arrange for an agent to calculate), and disseminate the Index accurately. Any losses or costs associated with errors made by the Index Provider or its agents generally will be borne by the Fund and its shareholders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-15" id="f-40">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Large-Capitalization Investing Risk. &lt;/span&gt;The Fund may invest in the securities of large-capitalization companies. As a result, the Fund&#x2019;s performance may be adversely affected if securities of large-capitalization companies underperform securities of smaller-capitalization companies or the market as a whole. The securities of large-capitalization companies may be relatively mature compared to smaller companies and therefore subject to slower growth during times of economic expansion.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-16" id="f-41">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;New Fund Risk. &lt;/span&gt;The Fund is new with no operating history. As a result, there can be no assurance that the Fund will grow to or maintain an economically viable size, in which case it may experience greater tracking error to its Index than it otherwise would at higher asset levels, or it could ultimately liquidate. The Fund&#x2019;s distributor does not maintain a secondary market in Fund shares.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-17" id="f-42">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Non-Diversification Risk. &lt;/span&gt;Although the Fund intends to invest in a variety of securities and instruments, the Fund is considered to be non-diversified, which means that it may invest more of its assets in the securities of a single issuer or a smaller number of issuers than if it were a diversified fund. As a result, the Fund may be more exposed to the risks associated with and developments affecting an individual issuer or a smaller number of issuers than a fund that invests more widely. This may increase the Fund&#x2019;s volatility and cause the performance of a relatively smaller number of issuers to have a greater impact on the Fund&#x2019;s performance.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-18" id="f-43">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Passive Investment Risk.&#160;&lt;/span&gt;The Fund is not actively managed and the Adviser would not sell a security due to current or projected underperformance of a security, industry or sector, unless that security is removed from the Index or the selling of shares of that security is otherwise required upon a reconstitution of the Index in accordance with the Index methodology. The Fund invests in securities included in the Index, regardless of their investment merits. The Fund does not take defensive positions under any market conditions, including conditions that are adverse to the performance of the Fund.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-19" id="f-44">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Sector Risk. &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;To the extent the Fund invests more heavily in particular sectors of the economy, its performance will be especially sensitive to developments that significantly affect those sectors.&lt;/span&gt;&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;  &lt;/span&gt;&lt;div style="margin-bottom:6pt;padding-left:49.5pt;text-align:justify;text-indent:-13.5pt"&gt;&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;&#x2022;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:10pt"&gt;Information Technology Sector Risk. &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Market or economic factors impacting information technology companies and companies that rely heavily on technological advances could have a significant effect on the value of the Fund&#x2019;s investments. The value of stocks of information technology companies and companies that rely heavily on technology is particularly vulnerable to rapid changes in technology product cycles, rapid product obsolescence, government regulation and competition, both domestically and internationally, including competition from foreign competitors with lower production costs. Stocks of information technology companies and companies that rely heavily on technology, especially those of smaller, less-seasoned companies, tend to be more volatile than the overall market. Information technology &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:49.5pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;companies are heavily dependent on patent and intellectual property rights, the loss or impairment of which may adversely affect profitability. &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:49.5pt;text-align:justify;text-indent:-13.5pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x2022;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:10pt"&gt;Health Care Sector Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; The Fund may invest in companies in the health care sector, and therefore the performance of the Fund could be negatively impacted by events affecting this sector. Companies in the health care sector are subject to extensive government regulation and their profitability can be significantly affected by restrictions on government reimbursement for medical expenses, rising costs of medical products and services, pricing pressure (including price discounting), limited product lines and an increased emphasis on the delivery of healthcare through outpatient services.&lt;/span&gt;&lt;/div&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-20" id="f-45">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:10pt"&gt;Information Technology Sector Risk. &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Market or economic factors impacting information technology companies and companies that rely heavily on technological advances could have a significant effect on the value of the Fund&#x2019;s investments. The value of stocks of information technology companies and companies that rely heavily on technology is particularly vulnerable to rapid changes in technology product cycles, rapid product obsolescence, government regulation and competition, both domestically and internationally, including competition from foreign competitors with lower production costs. Stocks of information technology companies and companies that rely heavily on technology, especially those of smaller, less-seasoned companies, tend to be more volatile than the overall market. Information technology &lt;/span&gt;companies are heavily dependent on patent and intellectual property rights, the loss or impairment of which may adversely affect profitability.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-21" id="f-46">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:10pt"&gt;Health Care Sector Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; The Fund may invest in companies in the health care sector, and therefore the performance of the Fund could be negatively impacted by events affecting this sector. Companies in the health care sector are subject to extensive government regulation and their profitability can be significantly affected by restrictions on government reimbursement for medical expenses, rising costs of medical products and services, pricing pressure (including price discounting), limited product lines and an increased emphasis on the delivery of healthcare through outpatient services.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-22" id="f-47">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Thematic Investing Risk.&lt;/span&gt; The Fund relies on the Index Provider for the identification of securities for inclusion in the Index that reflect a theme (i.e., R&amp;amp;D Intensity), and its performance may suffer if such securities are not correctly identified or if a theme develops in an unexpected manner. Performance may also suffer if the stocks included in the Index do not benefit from the development of such theme. Performance may also be impacted by the inclusion of non-theme relevant exposures in the Fund. There is no guarantee that the Index will reflect the theme exposures intended.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-23" id="f-48">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.61pt"&gt;Tracking Error Risk.&lt;/span&gt; As with all index funds, the performance of the Fund and its Index may differ from each other for a variety of reasons. For example, the Fund incurs operating expenses and portfolio transaction costs not incurred by the Index. In addition, the Fund may not be fully invested in the securities of the Index at all times or may hold securities not included in the Index.</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading contextRef="c-2" id="f-49">Fund Performance</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock contextRef="c-2" id="f-51">Performance information for the Fund is not included because the Fund did not commence operations prior to the date of this Prospectus. In the future, performance for the Fund will be presented in this section. Updated performance information will be available on the Fund&#x2019;s website at www.PacerETFs.com or by calling the Fund toll-free at 1-877-337-0500.</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess contextRef="c-2" id="f-50">Performance information for the Fund is not included because the Fund did not commence operations prior to the date of this Prospectus.</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress contextRef="c-2" id="f-52">www.PacerETFs.com</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformanceAvailabilityPhone contextRef="c-2" id="f-53">1-877-337-0500</oef:PerformanceAvailabilityPhone>
+    <oef:ObjectiveHeading contextRef="c-3" id="f-54">Investment Objective</oef:ObjectiveHeading>
+    <oef:ObjectivePrimaryTextBlock contextRef="c-3" id="f-55">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Pacer S&amp;amp;P 500 Quality FCF High Dividend ETF (the &#x201c;Fund&#x201d;) is an exchange traded fund (&#x201c;ETF&#x201d;) that seeks to track the total return performance, before fees and expenses, of the S&amp;amp;P 500 Quality FCF High Dividend Index (the &#x201c;Index&#x201d;).&lt;/span&gt;&lt;/div&gt;</oef:ObjectivePrimaryTextBlock>
+    <oef:ExpenseHeading contextRef="c-3" id="f-56">Fees and Expenses of the Fund</oef:ExpenseHeading>
+    <oef:ExpenseNarrativeTextBlock contextRef="c-3" id="f-57">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The following table describes the fees and expenses you may pay if you buy, hold, and sell shares of the Fund (&#x201c;Shares&#x201d;). &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;You may pay other fees, such as brokerage commissions and other fees to financial intermediaries, which are not reflected in the table and Example below.&lt;/span&gt;&lt;/div&gt;</oef:ExpenseNarrativeTextBlock>
+    <oef:OperatingExpensesCaption contextRef="c-3" id="f-58">Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment)</oef:OperatingExpensesCaption>
+    <oef:ManagementFeesOverAssets contextRef="c-24" decimals="4" id="f-59" unitRef="number">0.0049</oef:ManagementFeesOverAssets>
+    <oef:DistributionAndService12b1FeesOverAssets contextRef="c-24" decimals="4" id="f-60" unitRef="number">0</oef:DistributionAndService12b1FeesOverAssets>
+    <oef:OtherExpensesOverAssets contextRef="c-24" decimals="4" id="f-61" unitRef="number">0.0000</oef:OtherExpensesOverAssets>
+    <oef:ExpensesOverAssets contextRef="c-24" decimals="4" id="f-62" unitRef="number">0.0049</oef:ExpensesOverAssets>
+    <oef:OtherExpensesNewFundBasedOnEstimates contextRef="c-3" id="f-63">Estimated for the current fiscal year</oef:OtherExpensesNewFundBasedOnEstimates>
+    <oef:ExpenseExampleHeading contextRef="c-3" id="f-64">Example</oef:ExpenseExampleHeading>
+    <oef:ExpenseExampleNarrativeTextBlock contextRef="c-3" id="f-65">The following example is intended to help retail investors compare the cost of investing in the Fund with the cost of investing in other funds. It illustrates the hypothetical expenses that such investors would incur over various periods if they were to invest $10,000 in the Fund for the time periods indicated and then redeem all of the Shares at the end of those periods. This example assumes that the Fund provides a return of 5% a year and that operating expenses remain the same.</oef:ExpenseExampleNarrativeTextBlock>
+    <oef:ExpenseExampleByYearCaption contextRef="c-3" id="f-66">Although your actual costs may be higher or lower, based on these assumptions, your costs would be:</oef:ExpenseExampleByYearCaption>
+    <oef:ExpenseExampleYear01 contextRef="c-24" decimals="0" id="f-67" unitRef="usd">50</oef:ExpenseExampleYear01>
+    <oef:ExpenseExampleYear03 contextRef="c-24" decimals="0" id="f-68" unitRef="usd">157</oef:ExpenseExampleYear03>
+    <oef:PortfolioTurnoverHeading contextRef="c-3" id="f-69">Portfolio Turnover</oef:PortfolioTurnoverHeading>
+    <oef:PortfolioTurnoverTextBlock contextRef="c-3" id="f-70">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund pays transaction costs, such as commissions, when it buys and sells securities (or &#x201c;turns over&#x201d; its portfolio). A higher portfolio turnover rate may indicate higher transaction costs and may result in higher taxes when Fund Shares are held in a taxable account. These costs, which are not reflected in annual fund operating expenses or in the example, affect the Fund&#x2019;s performance. Because the Fund is newly organized, portfolio turnover information is not yet available.&lt;/span&gt;&lt;/div&gt;</oef:PortfolioTurnoverTextBlock>
+    <oef:StrategyHeading contextRef="c-3" id="f-71">Principal Investment Strategies of the Fund</oef:StrategyHeading>
+    <oef:StrategyNarrativeTextBlock contextRef="c-3" id="f-72">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund employs a &#x201c;passive management&#x201d; (or indexing) investment approach designed to track the total return performance, before fees and expenses, of the Index. &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;The Index&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;table style="border-collapse:collapse;display:inline-table;margin-bottom:5pt;vertical-align:text-bottom;width:100.000%"&gt;&lt;tr&gt;&lt;td style="width:1.0%"&gt;&lt;/td&gt;&lt;td style="width:69.038%"&gt;&lt;/td&gt;&lt;td style="width:0.1%"&gt;&lt;/td&gt;&lt;td style="width:1.0%"&gt;&lt;/td&gt;&lt;td style="width:28.762%"&gt;&lt;/td&gt;&lt;td style="width:0.1%"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3" style="padding:2px 1pt;text-align:left;vertical-align:top"&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index uses an objective, rules-based methodology to provide exposure to high dividend yielding companies within the S&amp;amp;P 500 Index&#xae; (the &#x201c;S&amp;amp;P 500&#x201d;) that have paid dividends for the past five consecutive years while maintaining high free cash flow (FCF) margins and high FCF return on invested capital (ROIC). S&amp;amp;P Dow Jones Indices LLC (the &#x201c;Index Provider&#x201d;) compiles, maintains and calculates the Index.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index&#x2019;s universe is derived from the component companies of the S&amp;amp;P 500. The S&amp;amp;P 500 is comprised of common stocks of approximately 500 large-capitalization companies that generally represent the large-cap segment of the U.S. equity market.&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;td colspan="3" style="background-color:#e5e5e5;border-bottom:1pt solid #000;border-left:1pt solid #000;border-right:1pt solid #000;border-top:1pt solid #000;padding:2px 1pt;text-align:left;vertical-align:top"&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;Free Cash Flow (FCF): &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;net cash flow from operating activities minus capital expenditures&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;FCF Margin: &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;FCF / revenue&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:3pt;padding-left:9pt;padding-right:9pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt;FCF ROIC: &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;FCF / (total debt plus total equity)&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index&#x2019;s initial universe of companies is screened based on a company&#x2019;s dividend history. To be included in the Index, a company must have paid dividends for the past five consecutive years. Companies classified as being in the real estate sector and mortgage REITs are excluded from the Index universe. For companies in the Financials sector classified as banks, insurance, investment banking &amp;amp; brokerage, specialized finance, and asset management &amp;amp; custody banks, FCF is calculated as follows: Net Cash Flow from Operating Activities &#x2014; (minus) Changes in Net Working Capital &#x2014; (minus) Capital Expenditures.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The remaining companies are ranked in descending order by their FCF Score, which is calculated using the five-year average of the company&#x2019;s FCF Margin and the five-year average of the company&#x2019;s FCF ROIC. The top 50% of companies, based on their FCF &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Score, within each Global Industry Classification Standard (&#x201c;GICS&#xae;&#x201d;) sectors are eligible for inclusion. Companies are then ranked in descending order by the last 12 months dividend yield (LTM Dividend Yield), and the top 100 companies are selected for the Index.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Index components are weighted based on LTM dividend yield. However, the Index Provider applies a weighting methodology that limits the LTM dividend yield values used to calculate constituent weights to 10%, subject to security and sector constraints. The maximum weight of each constituent is capped at 4.5% and each constituent&#x2019;s weight is floored at 0.05%. The aggregate weight of constituents within each GICS&#xae; sector is capped at the lesser of i) 30% or ii) the weight of such sector in the S&amp;amp;P 500 plus 10%. Weight above individual security and sector limitations are typically redistributed among the other Index constituents in proportion to their weights. &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;As of October 31, 2025, the companies included in the Index had a market capitalization range of $7.5 billion and $855.5 billion.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index is typically reconstituted and rebalanced semi-annually as of the close of business on the third Friday of April and October based on data as of the last business days of March and September, respectively. The Index is also reviewed semi-annually in January and July based on each constituent&#x2019;s weight; recapping is performed if the aggregate weight of constituents with an individual weight greater than 4.8% exceeds 24% of the Index&#x2019;s total weight. If that threshold is breached, the current constituent weights are recapped, with the weights of individual constituents capped at 10% and the aggregate weight of constituents with an individual weight greater than 4.5% capped at 22.5% of the Index&#x2019;s total weight.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;The Fund&#x2019;s Investment Strategy&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Under normal circumstances, at least 80% of the Fund&#x2019;s net assets (plus any borrowings for investment purposes) will be invested in dividend-paying equity securities that are the component securities of the Index. The Fund defines &#x201c;equity securities&#x201d; to mean common stocks, and may include preferred stocks, rights, warrants, and depositary receipts. The Adviser expects that, over time, the correlation between the Fund&#x2019;s performance and that of the Index, before fees and expenses, will be 95% or better.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund will generally use a &#x201c;replication&#x201d; strategy to achieve its investment objective, meaning it will invest in all of the component securities of the Index in the same approximate proportion as in the Index.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund is non-diversified and therefore may invest a larger percentage of its assets in the securities of a single company than diversified funds. &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;To the extent the Index concentrates (&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt;i.e.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;, holds more than 25% of its total assets) in the securities of a particular industry or group of related industries, the Fund will concentrate its investments to approximately the same extent as the Index. As of October 31, 2025, the Index was not concentrated in any industry or group of industries.&lt;/span&gt;&lt;/div&gt;</oef:StrategyNarrativeTextBlock>
+    <oef:StrategyPortfolioConcentration contextRef="c-3" id="f-73">To the extent the Index concentrates (i.e., holds more than 25% of its total assets) in the securities of a particular industry or group of related industries, the Fund will concentrate its investments to approximately the same extent as the Index. As of October 31, 2025, the Index was not concentrated in any industry or group of industries.</oef:StrategyPortfolioConcentration>
+    <oef:RiskTextBlock contextRef="c-25" id="f-74">You can lose money on your investment in the Fund.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-26" id="f-75">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.61pt"&gt;Calculation Methodology Risk.&lt;/span&gt;&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Index relies directly or indirectly on various sources of information to assess the criteria of issuers included in the Index, including information that may be based on assumptions and estimates. Neither the Fund, the Index Provider, or the Adviser can offer assurances that the Index&#x2019;s calculation methodology or sources of information will provide an accurate assessment of included components or a correct valuation of securities, nor can they guarantee the availability or timeliness of the production of the Index.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-27" id="f-76">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Concentration Risk. &lt;/span&gt;If the Index concentrates in an industry or group of industries, the Fund&#x2019;s investments may be concentrated accordingly. In such event, the value of the Fund&#x2019;s shares may rise and fall more than the value of shares of a fund that invests in securities of companies in a broader range of industries. In addition, at times, an industry or group of industries in which the Fund is concentrated may be out of favor and underperform other industries or groups of industries.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-28" id="f-77">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Equity Market Risk. &lt;/span&gt;The equity securities held in the Fund&#x2019;s portfolio may experience sudden, unpredictable drops in value or long periods of decline in value. This may occur because of factors that affect securities markets generally or factors affecting specific industries, sectors or companies in which the Fund invests. Common stocks are susceptible to general stock market fluctuations and to volatile increases and decreases in value as market confidence in and perceptions of their issuers change. The Fund&#x2019;s NAV and market price may fluctuate significantly in response to these and other factors. As a result, an investor could lose money over short or long periods of time.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-29" id="f-78">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;ETF Risks.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; The Fund is an ETF and, as a result of an ETF&#x2019;s structure, is exposed to the following risks:  &lt;/span&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Authorized Participants (&#x201c;APs&#x201d;), Market Makers, and Liquidity Providers Concentration Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund has a limited number of financial institutions that may act as APs. In addition, there may be a limited number of market makers and/or &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;liquidity providers in the marketplace. To the extent either of the following events occur, shares of the Fund may trade at a material discount to NAV and possibly face delisting: (i)&#160;APs exit the business or otherwise become unable to process creation and/or redemption orders and no other APs step forward to perform these services, or (ii)&#160;market makers and/or liquidity providers exit the business or significantly reduce their business activities and no other entities step forward to perform their functions.  &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Costs of Buying or Selling Shares of the Fund.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; Due to the costs of buying or selling shares of the Fund, including brokerage commissions imposed by brokers and bid/ask spreads, frequent trading of shares of the Fund may significantly reduce investment results and an investment in shares of the Fund may not be advisable for investors who anticipate regularly making small investments.   &lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Shares of the Fund May Trade at Prices Other Than NAV.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; As with all ETFs, shares of the Fund may be bought and sold in the secondary market at market prices. The price of shares of the Fund, like the price of all traded securities, will be subject to factors such as supply and demand, as well as the current value of the Fund&#x2019;s portfolio holdings. Although it is expected that the market price of the shares of the Fund will approximate the Fund&#x2019;s NAV, there may be times when the market price of the shares is more than the NAV intra-day (premium) or less than the NAV intra-day (discount). This risk is heightened in times of market volatility, periods of steep market declines, and periods when there is limited trading activity for shares in the secondary market, in which case such premiums or discounts may be significant.&lt;/span&gt;&lt;/div&gt;&lt;div style="margin-bottom:6pt;padding-left:36pt;text-align:justify;text-indent:-18pt"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;&#x25e6;&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Trading.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; Although shares of the Fund are listed for trading on a national securities exchange, such as&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Cboe BZX Exchange, Inc. (the &#x201c;Exchange&#x201d;), and may be traded on U.S. exchanges other than the Exchange, there can be no assurance that shares of the Fund will trade with any volume, or at all, on any stock exchange. In stressed market conditions, the liquidity of shares of the Fund may begin to mirror the liquidity of the Fund&#x2019;s underlying portfolio holdings, which can be significantly less liquid than shares of the Fund, and this could lead to differences between the market price of the shares of the Fund and the underlying value of those shares.&lt;/span&gt;&lt;/div&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-30" id="f-79">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Authorized Participants (&#x201c;APs&#x201d;), Market Makers, and Liquidity Providers Concentration Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;The Fund has a limited number of financial institutions that may act as APs. In addition, there may be a limited number of market makers and/or &lt;/span&gt;liquidity providers in the marketplace. To the extent either of the following events occur, shares of the Fund may trade at a material discount to NAV and possibly face delisting: (i)&#160;APs exit the business or otherwise become unable to process creation and/or redemption orders and no other APs step forward to perform these services, or (ii)&#160;market makers and/or liquidity providers exit the business or significantly reduce their business activities and no other entities step forward to perform their functions.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-31" id="f-80">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Costs of Buying or Selling Shares of the Fund.&lt;/span&gt; Due to the costs of buying or selling shares of the Fund, including brokerage commissions imposed by brokers and bid/ask spreads, frequent trading of shares of the Fund may significantly reduce investment results and an investment in shares of the Fund may not be advisable for investors who anticipate regularly making small investments.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-32" id="f-81">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Shares of the Fund May Trade at Prices Other Than NAV.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; As with all ETFs, shares of the Fund may be bought and sold in the secondary market at market prices. The price of shares of the Fund, like the price of all traded securities, will be subject to factors such as supply and demand, as well as the current value of the Fund&#x2019;s portfolio holdings. Although it is expected that the market price of the shares of the Fund will approximate the Fund&#x2019;s NAV, there may be times when the market price of the shares is more than the NAV intra-day (premium) or less than the NAV intra-day (discount). This risk is heightened in times of market volatility, periods of steep market declines, and periods when there is limited trading activity for shares in the secondary market, in which case such premiums or discounts may be significant.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-33" id="f-82">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%;padding-left:14.46pt"&gt;Trading.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; Although shares of the Fund are listed for trading on a national securities exchange, such as&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-style:italic;font-weight:400;line-height:120%"&gt; &lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Cboe BZX Exchange, Inc. (the &#x201c;Exchange&#x201d;), and may be traded on U.S. exchanges other than the Exchange, there can be no assurance that shares of the Fund will trade with any volume, or at all, on any stock exchange. In stressed market conditions, the liquidity of shares of the Fund may begin to mirror the liquidity of the Fund&#x2019;s underlying portfolio holdings, which can be significantly less liquid than shares of the Fund, and this could lead to differences between the market price of the shares of the Fund and the underlying value of those shares.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-34" id="f-83">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Index Provider Risk.&lt;/span&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt; There is no assurance that an Index provider or any agents that act on its behalf, will compile the Index accurately, or that the Index will be determined, maintained, constructed, rebalanced, calculated or disseminated accurately. The Fund relies upon the Index provider and its agents to compile, determine, maintain, construct, rebalance, calculate (or arrange for an agent to calculate), and disseminate the Index accurately. Any losses or costs associated with errors made by the Index Provider or its agents generally will be borne by the Fund and its shareholders.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-35" id="f-84">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Large-Capitalization Investing Risk. &lt;/span&gt;The Fund may invest in the securities of large-capitalization companies. As a result, the Fund&#x2019;s performance may be adversely affected if securities of large-capitalization companies underperform securities of smaller-capitalization companies or the market as a whole. The securities of large-capitalization companies may be relatively mature compared to smaller companies and therefore subject to slower growth during times of economic expansion.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-36" id="f-85">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;New Fund Risk. &lt;/span&gt;The Fund is new with no operating history. As a result, there can be no assurance that the Fund will grow to or maintain an economically viable size, in which case it may experience greater tracking error to its Index than it otherwise would at higher asset levels, or it could ultimately liquidate. The Fund&#x2019;s distributor does not maintain a secondary market in Fund shares.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-37" id="f-86">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Non-Diversification Risk. &lt;/span&gt;Although the Fund intends to invest in a variety of securities and instruments, the Fund is considered to be non-diversified, which means that it may invest more of its assets in the securities of a single issuer or a smaller number of issuers than if it were a diversified fund. As a result, the Fund may be more exposed to the risks associated with and developments affecting an individual issuer or a smaller number of issuers than a fund that invests more widely. This may increase the Fund&#x2019;s volatility and cause the performance of a relatively smaller number of issuers to have a greater impact on the Fund&#x2019;s performance.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-38" id="f-87">&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Passive Investment Risk.&#160;&lt;/span&gt;The Fund is not actively managed and the Adviser would not sell a security due to current or projected underperformance of a security, industry or sector, unless that security is removed from the Index or the selling of shares of that security is otherwise required upon a reconstitution of the Index in accordance with the Index methodology. The Fund invests in securities included in the Index, regardless of their investment merits. The Fund does not take defensive positions under any market conditions, including conditions that are adverse to the performance of the Fund.</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-39" id="f-88">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.96pt"&gt;Style Risk&lt;/span&gt;&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;. The Fund&#x2019;s emphasis on dividend-paying stocks involves the risk that such stocks may fall out of favor with investors and underperform the market. Also, a company may reduce or eliminate its dividend, which may have a negative impact on the Fund&#x2019;s performance.&lt;/span&gt;</oef:RiskTextBlock>
+    <oef:RiskTextBlock contextRef="c-40" id="f-89">&lt;span style="background-color:#ffffff;color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:700;line-height:120%;padding-left:9.61pt"&gt;Tracking Error Risk.&lt;/span&gt; As with all index funds, the performance of the Fund and its Index may differ from each other for a variety of reasons. For example, the Fund incurs operating expenses and portfolio transaction costs not incurred by the Index. In addition, the Fund may not be fully invested in the securities of the Index at all times or may hold securities not included in the Index.</oef:RiskTextBlock>
+    <oef:BarChartAndPerformanceTableHeading contextRef="c-3" id="f-90">Fund Performance</oef:BarChartAndPerformanceTableHeading>
+    <oef:PerformanceNarrativeTextBlock contextRef="c-3" id="f-92">&lt;div style="margin-bottom:6pt;text-align:justify"&gt;&lt;span style="color:#000000;font-family:'Times New Roman',serif;font-size:10pt;font-weight:400;line-height:120%"&gt;Performance information for the Fund is not included because the Fund did not commence operations prior to the date of this Prospectus. In the future, performance for the Fund will be presented in this section. Updated performance information will be available on the Fund&#x2019;s website at www.PacerETFs.com or by calling the Fund toll-free at 1-877-337-0500.&lt;/span&gt;&lt;/div&gt;</oef:PerformanceNarrativeTextBlock>
+    <oef:PerformanceOneYearOrLess contextRef="c-3" id="f-91">Performance information for the Fund is not included because the Fund did not commence operations prior to the date of this Prospectus.</oef:PerformanceOneYearOrLess>
+    <oef:PerformanceAvailabilityWebSiteAddress contextRef="c-3" id="f-93">www.PacerETFs.com</oef:PerformanceAvailabilityWebSiteAddress>
+    <oef:PerformanceAvailabilityPhone contextRef="c-3" id="f-94">1-877-337-0500</oef:PerformanceAvailabilityPhone>
+    <link:footnoteLink
+      xlink:role="http://www.xbrl.org/2003/role/link"
+      xlink:type="extended">
+        <link:loc xlink:href="#f-17" xlink:label="f-17" xlink:type="locator"/>
+        <link:footnote id="fn-1" xlink:label="fn-1" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Estimated for the current fiscal year</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="f-17"
+          xlink:to="fn-1"
+          xlink:type="arc"/>
+        <link:loc xlink:href="#f-61" xlink:label="f-61" xlink:type="locator"/>
+        <link:footnote id="fn-2" xlink:label="fn-2" xlink:role="http://www.xbrl.org/2003/role/footnote" xlink:type="resource" xml:lang="en-US">Estimated for the current fiscal year</link:footnote>
+        <link:footnoteArc
+          xlink:arcrole="http://www.xbrl.org/2003/arcrole/fact-footnote"
+          xlink:from="f-61"
+          xlink:to="fn-2"
+          xlink:type="arc"/>
+    </link:footnoteLink>
+</xbrl>
