@@ -58,8 +58,8 @@ def wordmark(cap, ink, blue):
     r = run('Archivo', {'wght': 800}, 'ETFIQ', cap, tracking_em=0.2)
     return r, (lambda x0, base: paths(r, x0, base, lambda ch, i: blue if i >= 3 else ink))
 
-def tagline(cap, color):
-    r = run('Geist', {'wght': 500}, 'INDEPENDENT ETF DATA, IN PLAIN WORDS', cap, tracking_em=0.09)
+def tagline(cap, color, text='INDEPENDENT ETF DATA, IN PLAIN WORDS'):
+    r = run('Geist', {'wght': 500}, text, cap, tracking_em=0.09)
     return r, (lambda x0, base: paths(r, x0, base, lambda ch, i: color))
 
 def svg(vb_w, vb_h, body, w=None, h=None):
@@ -84,4 +84,5 @@ for name, body in out.items():
 wm, draw_wm = wordmark(686, 'currentColor', 'var(--iq, #5A87E5)')
 wb = draw_wm(0, 686); (SP / 'wordmark-inline.svg').write_text(svg(wm['width'], 686, wb))
 tg, draw_tg = tagline(710, 'currentColor'); (SP / 'tagline-inline.svg').write_text(svg(tg['width'], 710, draw_tg(0, 710)))
+tg2, draw_tg2 = tagline(710, 'currentColor', 'ETF DATA, IN PLAIN WORDS'); (SP / 'tagline-short-inline.svg').write_text(svg(tg2['width'], 710, draw_tg2(0, 710)))  # the header carries the short line
 print(json.dumps({'lockupWidth': round(W, 1), 'wordmarkAspect': round(wm['width'] / 686, 4), 'taglineAspect': round(tg['width'] / 710, 4), 'sizes': {k: len(v) for k, v in out.items()}}, indent=1))
