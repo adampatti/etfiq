@@ -1152,7 +1152,7 @@ function viewIncomeAhead(){
   if (!S.income.length) return `<div class="vhead"><h1>Am I ahead?</h1></div>${feedNotice()}`;
   const rows = S.income.filter(imatches).filter(r => iw(r) && iw(r).gap != null).sort((a, b) => iw(b).gap - iw(a).gap);
   const ahead = rows.filter(r => iw(r).gap > 0.5).length;
-  const ctl = incomeControls().replace(/<div class="seg"[\s\S]*?<\/div>/, '');
+  const ctl = incomeControls().replace(/<div class="seg" role="group" aria-label="Layout">[\s\S]*?<\/div>/, '');
   return `<div class="intro income data"><div class="txt"><h1>Am I ahead?</h1><p class="head"><b>${ahead} of ${rows.length}</b> were ahead of their benchmark over ${WIN_LABEL[S.window]}.</p></div>${incomeRug()}</div>
     <div class="callout" style="border-left-color:var(--protected)"><b>Ahead means you ended with more than the index would have given you</b>, every cash payment reinvested. Behind means the payout came out of your own principal faster than the index grew. Largest gap first; arithmetic, not a recommendation.</div>
     ${ctl}<div class="deskwrap${S.compact ? ' compact' : ''}"><div class="desk-scroll"><table class="desk income"><thead>${iheadRow()}</thead><tbody>${rows.map(irowHtml).join('') || '<tr><td colspan="15"><div class="empty">No funds match these filters over this window.</div></td></tr>'}</tbody></table></div>${legendIncome()}</div>
