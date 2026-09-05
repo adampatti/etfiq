@@ -31,6 +31,8 @@ funds = load('site/data/funds.json', [])
 income = load('site/data/income.json', [])
 universe = [u for u in load('data/income_universe.json', []) if u.get('include')]
 payouts = load('site/data/payouts.json', [])
+for p in payouts:
+    p.pop('history', None)
 fill('etfiq-data', funds)
 fill('etfiq-payouts', payouts)
 fill('etfiq-income', income)

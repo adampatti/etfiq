@@ -10,7 +10,7 @@ Why this and not a hosting account: it is free, HTTPS on a custom domain is auto
 
 ## Status on 2026-09-04, evening
 
-Done: repository https://github.com/adampatti/etfiq (public), GitHub Pages enabled from the Actions workflow, custom domain `etfiq.com` attached. Remaining: the DNS records at GoDaddy in step 3 below, and HTTPS enforcement once the certificate issues (step 4). `etfiq.ai` forwarding is step 5.
+Done: repository https://github.com/adampatti/etfiq (public), GitHub Pages enabled from the Actions workflow, custom domain `etfiq.com` attached. Update 2026-09-05: DNS done. The four A records and the `www` CNAME are in place at GoDaddy and propagated; GitHub serves the site for etfiq.com over HTTP. HTTPS enforcement (step 4) switches on automatically once GitHub issues the certificate. A leftover `_acme-challenge` CNAME from an old Cloudflare setup can be deleted. The old GoDaddy WordPress site that used to answer at etfiq.com is now unreachable and its hosting can be cancelled. `etfiq.ai` forwarding is step 5.
 
 ## One-time setup
 
