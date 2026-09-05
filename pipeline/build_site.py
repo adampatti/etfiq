@@ -62,12 +62,20 @@ html, k = re.subn(r'<p id="dirLede">.*?</p>',
 if k != 1:
     sys.exit('site directory lede not found')
 meta = load('site/data/meta.json', {})
+imeta = load('site/data/income_meta.json', {})
+tmeta = load('site/data/thematic_meta.json', {})
 _as = meta.get('asOf')
 banner_default = (f'<b>Live data</b> as published by issuers on {_as}, and filed with the SEC. Every figure carries its date.'
                   if _as else '<b>Sample data.</b> Values below are illustrative and are not live fund figures.')
 html, k = re.subn(r'(<span id="bannerText">).*?(</span>)', lambda m: m.group(1) + banner_default + m.group(2), html, count=1, flags=re.S)
 if k != 1:
     sys.exit('banner default not found')
+foot_default = ' · '.join(x for x in [f'Buffer data {_as}' if _as else 'Buffer desk on sample data',
+                                      f"income prices {imeta.get('asOf')}" if imeta.get('asOf') else 'income feed not connected',
+                                      f"themes prices {tmeta.get('asOf')}" if tmeta.get('asOf') else None] if x)
+html, k = re.subn(r'(<span id="footAsOf">).*?(</span>)', lambda m: m.group(1) + foot_default + m.group(2), html, count=1, flags=re.S)
+if k != 1:
+    sys.exit('footer date default not found')
 imeta = load('site/data/income_meta.json', {})
 tmeta = load('site/data/thematic_meta.json', {})
 for key, val in (('asOf', meta.get('asOf')), ('incomeAsOf', imeta.get('asOf')), ('thematicAsOf', tmeta.get('asOf'))):
