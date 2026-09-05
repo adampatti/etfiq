@@ -65,6 +65,11 @@ jobs:
         run: python pipeline/draft.py && python pipeline/research.py
       - name: Build the page
         run: python pipeline/build_site.py
+      - name: Static pages for crawlers
+        run: python pipeline/prerender.py
+      - name: No em dashes anywhere on the site
+        run: |
+          if grep -rl $'\xe2\x80\x94' site --include='*.html' --include='*.txt' --include='*.json' --include='*.xml'; then echo "em dash found"; exit 1; fi
       - name: Commit the snapshot
         run: |
           git config user.name "etfiq-snapshot"
