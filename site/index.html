@@ -285,6 +285,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .rp:hover{border-color:var(--accent);text-decoration:none}
 .rp .lvl{font:600 10.5px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .rp.themes .lvl{color:var(--themes-ink)}
+.rp .asf{font:500 11px/1.2 var(--font-mono);color:var(--muted);margin:-3px 0 9px;letter-spacing:.01em}
 .rp b{display:block;font-size:16px;line-height:1.3;letter-spacing:-.01em;margin-bottom:6px}
 .rp span{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.45}
 .rp em{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--muted)}
@@ -2069,7 +2070,7 @@ function viewCheck(){
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}<span class="lbl" style="margin-left:8px">Two or more tickers, separated by commas, open the comparison</span></div></div>
     ${result}${doors}<a class="pdoor" href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds head to head</b><span>${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN: every field in one table, the bands on one scale.' : desk === 'income' ? 'OMAH vs JEPI: cash, price, total return and the gap to the benchmark, side by side, with the payout bars on one scale.' : 'AIS vs AIQ: what each really holds, how much is already the index, and how much the two overlap.'}</span></a><div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
 }
-function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)} · data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
+function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)}</div><div class="asf">Data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
 function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research, one piece per desk'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }
 function deskLines(desk){
   const ls = ((S.insights && S.insights.lines) || []).filter(l => l.desk === desk);
