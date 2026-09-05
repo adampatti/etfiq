@@ -15,6 +15,7 @@ Writes site/data/thematic.json and site/data/thematic_meta.json. Set TIINGO_TOKE
 """
 import datetime
 import json
+import os
 import pathlib
 import sys
 
@@ -41,9 +42,17 @@ def build():
     if not tok:
         sys.exit('No TIINGO_TOKEN.')
     universe = [r for r in json.loads((ROOT / 'data' / 'thematic_universe.json').read_text()) if r.get('include')]
-    spy = H.index_holdings('SPY')
-    qqq = H.index_holdings('QQQ')
-    print(f"  index holdings: S&P 500 {len(spy['holdings'])} as of {spy['asOf']}, Nasdaq-100 {len(qqq['holdings'])} as of {qqq['asOf']}", file=sys.stderr)
+    # holdings change quarterly: refresh them on Saturdays or on demand, otherwise carry the last good book forward
+    prev_path = ROOT / 'site' / 'data' / 'thematic.json'
+    prev = json.loads(prev_path.read_text()) if prev_path.exists() else {'funds': [], 'matrix': None}
+    prev_by = {r['ticker']: r for r in prev.get('funds', [])}
+    refresh = os.environ.get('HOLDINGS_REFRESH') == '1' or TODAY.weekday() == 5 or not prev_by
+    print(f"  holdings: {'refreshing from EDGAR' if refresh else 'carried forward from the last run'}", file=sys.stderr)
+    HOLD_KEYS = ('holdingsAsOf', 'holdingsFiled', 'holdingsSource', 'holdingsCount', 'top10Weight', 'assets', 'top', 'vsSPY', 'vsQQQ', 'peers')
+    spy = H.index_holdings('SPY') if refresh else None
+    qqq = H.index_holdings('QQQ') if refresh else None
+    if refresh:
+        print(f"  index holdings: S&P 500 {len(spy['holdings'])} as of {spy['asOf']}, Nasdaq-100 {len(qqq['holdings'])} as of {qqq['asOf']}", file=sys.stderr)
     bench = {b: income.split_adjust(income.trim_history(income.prices(b, tok))) for b in ('SPY', 'QQQ')}
     out, missing, no_holdings, held, closed = [], [], [], {}, []
     for i, u in enumerate(universe):
@@ -76,7 +85,11 @@ def build():
         dd, hi_date = drawdown(rows)
         rec.update({'asOf': end['date'], 'price': end['close'], 'inception': s['date'], 'daysSinceInception': itd['days'], 'windows': wins, 'drawdown': dd, 'highDate': hi_date})
         # holdings and overlap
-        info, h = H.fund_holdings(u.get('seriesId') or '', u['name'])
+        info, h = H.fund_holdings(u.get('seriesId') or '', u['name']) if refresh else (None, [])
+        if not h and u['ticker'] in prev_by and prev_by[u['ticker']].get('vsSPY'):
+            rec.update({k: prev_by[u['ticker']].get(k) for k in HOLD_KEYS})
+            out.append(rec)
+            continue
         if h:
             tot = sum(x['weight'] for x in h) or 1.0
             top = h[:10]
@@ -92,17 +105,21 @@ def build():
         if (i + 1) % 25 == 0:
             print(f'  {i + 1} of {len(universe)}', file=sys.stderr)
     # every fund against every other: percent weight overlap, upper triangle in ticker order
-    tickers = [r['ticker'] for r in out if r['ticker'] in held]
-    pairs = []
-    for a in range(len(tickers)):
-        row = []
-        for b in range(a + 1, len(tickers)):
-            row.append(int(round(H.overlap(held[tickers[a]], held[tickers[b]])['overlap'])))
-        pairs.append(row)
+    if refresh and held:
+        tickers = [r['ticker'] for r in out if r['ticker'] in held]
+        pairs = []
+        for a in range(len(tickers)):
+            row = []
+            for b in range(a + 1, len(tickers)):
+                row.append(int(round(H.overlap(held[tickers[a]], held[tickers[b]])['overlap'])))
+            pairs.append(row)
+    else:
+        tickers, pairs = ((prev.get('matrix') or {}).get('tickers') or []), ((prev.get('matrix') or {}).get('rows') or [])
     # the closest peers per fund, from the matrix
     for r in out:
         if r['ticker'] not in held:
-            r['peers'] = []
+            if 'peers' not in r:
+                r['peers'] = []
             continue
         a = tickers.index(r['ticker'])
         cands = []
@@ -115,8 +132,9 @@ def build():
         r['peers'] = [{'t': t, 'o': v} for v, t in cands[:5] if v >= 10]
     out.sort(key=lambda r: (r['themeName'], r['ticker']))
     meta = {'asOf': max((r['asOf'] for r in out), default=TODAY.isoformat()), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
-            'universe': len(universe), 'shown': len(out), 'withHoldings': len(held), 'missingPrices': missing, 'missingHoldings': no_holdings, 'closed': closed,
-            'indexHoldingsAsOf': {'SPY': spy['asOf'], 'QQQ': qqq['asOf']}, 'feed': 'Tiingo end-of-day; SEC N-PORT holdings'}
+            'universe': len(universe), 'shown': len(out), 'withHoldings': sum(1 for r in out if r.get('vsSPY')), 'missingPrices': missing, 'missingHoldings': no_holdings, 'closed': closed,
+            'holdingsRefreshed': refresh, 'indexHoldingsAsOf': ({'SPY': spy['asOf'], 'QQQ': qqq['asOf']} if refresh else (json.loads((ROOT / 'site' / 'data' / 'thematic_meta.json').read_text()).get('indexHoldingsAsOf') if (ROOT / 'site' / 'data' / 'thematic_meta.json').exists() else None)),
+            'feed': 'Tiingo end-of-day; SEC N-PORT holdings'}
     (ROOT / 'site' / 'data').mkdir(parents=True, exist_ok=True)
     (ROOT / 'site' / 'data' / 'thematic.json').write_text(json.dumps({'funds': out, 'matrix': {'tickers': tickers, 'rows': pairs}}, separators=(',', ':')))
     (ROOT / 'site' / 'data' / 'thematic_meta.json').write_text(json.dumps(meta, indent=1))
