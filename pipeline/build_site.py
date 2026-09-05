@@ -7,6 +7,7 @@ Blocks filled (each a <script type="application/json"> with an id):
   etfiq-income-universe  data/income_universe.json     the income universe, included funds only
   etfiq-thematic         site/data/thematic.json       themes desk records and the fund-to-fund overlap matrix
   etfiq-sources          site/data/sources.json        issuers' 19a-1 estimates of distribution sources by ticker
+  etfiq-insights         site/data/insights.json       what changed: computed lines for the home page
 
 CONFIG.asOf comes from site/data/meta.json, CONFIG.incomeAsOf from site/data/income_meta.json.
 Idempotent; run after every snapshot. The page also works from data/*.json when the blocks are absent.
@@ -45,6 +46,7 @@ for r in thematic.get('funds', []):
         r.pop(k, None)
 fill('etfiq-thematic', thematic)
 fill('etfiq-sources', load('site/data/sources.json', {}))
+fill('etfiq-insights', load('site/data/insights.json', {'lines': [], 'stats': {}}))
 meta = load('site/data/meta.json', {})
 imeta = load('site/data/income_meta.json', {})
 tmeta = load('site/data/thematic_meta.json', {})

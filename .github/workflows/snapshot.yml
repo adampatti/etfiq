@@ -51,6 +51,9 @@ jobs:
         if: ${{ env.TIINGO_TOKEN != '' }}
         continue-on-error: true
         run: python pipeline/thematic.py
+      - name: What changed (computed lines)
+        continue-on-error: true
+        run: python pipeline/insights.py
       - name: Build the page
         run: python pipeline/build_site.py
       - name: Commit the snapshot
