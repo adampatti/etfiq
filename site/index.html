@@ -590,6 +590,7 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
   <a href="#/buffer/learn">Learn: buffers</a>
   <a href="#/income/learn">Learn: income</a>
   <a href="#/themes/learn">Learn: themes</a>
+  <a href="/research/">Research</a>
   <a href="/buffer/">Fund pages: buffer</a>
   <a href="/income/">Fund pages: income</a>
   <a href="/themes/">Fund pages: themes</a>
@@ -1692,7 +1693,7 @@ function viewHome(){
       ${tile('themes', 'What did I actually buy?', vis.themes, medIn != null ? `The typical thematic ETF is <b>${medIn.toFixed(0)}% S&P 500</b> names` : '', ft ? `${esc(ft.ticker)} on the difference bar` : '', 'Check a thematic ETF')}
     </div>
     ${lines.length ? `<div class="sec tight"><span class="eyebrow">What changed, as of ${esc(S.insights.asOf || '')}</span></div><ul class="changed">${lines.map(l => `<li class="${esc(l.desk)}"><a href="${esc(l.href)}">${esc(l.text)}</a></li>`).join('')}</ul>` : ''}
-    <p class="ind">ETFIQ is an independent publisher, not an issuer, broker or adviser. It makes no recommendations; every list is stated arithmetic on published data. <a href="#/standards">Standards and ownership</a> · <a href="#/alerts">Alerts and the weekly note</a></p></div>`;
+    <p class="ind">ETFIQ is an independent publisher, not an issuer, broker or adviser. It makes no recommendations; every list is stated arithmetic on published data. <a href="/research/">ETFIQ Research</a> · <a href="#/standards">Standards and ownership</a> · <a href="#/alerts">Alerts and the weekly note</a></p></div>`;
 }
 
 /* ====================== check a fund: the easy layer ====================== */

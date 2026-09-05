@@ -139,3 +139,7 @@ VistaShares (2026-09-05): the fund pages give the ten largest holdings, net asse
 ## Home page and what changed (2026-09-05)
 
 The bare domain now lands on a global home: one search box that routes any ticker to the right desk, three desk tiles with a live signature visual and one live number, and "What changed": dated lines computed by `pipeline/insights.py` from the desks' files (counts, medians, day-over-day movement against the previous buffer snapshot), each linking to the grid that proves it. No model writes these lines; they are also the raw material for the weekly note. Inlined as `etfiq-insights`, refreshed nightly before the page is built.
+
+## ETFIQ Research (2026-09-05)
+
+`pipeline/research.py` computes one piece per desk from the desks' files (tables, a computed summary, the method and the data file) and writes static pages under `site/research/`, rebuilt nightly and listed in the sitemap and llms.txt. `pipeline/draft.py` asks Claude for a narrative from those tables when `ANTHROPIC_API_KEY` is set, then checks the draft mechanically: every number must appear in the tables or the summary, the site's banned words are refused, no recommendation language, no em dashes, 150 to 700 words. Only a draft that passes is published, labelled as drafted by Claude and checked against the tables; it is redrafted when the tables change. Without the key the pages carry the computed summary alone.
