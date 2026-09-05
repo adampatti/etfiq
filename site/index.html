@@ -289,6 +289,9 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .rp span{display:block;color:var(--ink-2);font-size:13.5px;line-height:1.45}
 .rp em{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--muted)}
 @media (max-width:560px){nav.desks .long{display:none}nav.desks{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}nav.desks::-webkit-scrollbar{display:none}}
+.cmpt th{vertical-align:top}.cmpt thead th{text-align:left;padding:12px 14px;min-width:170px}.cmpt thead th:first-child{min-width:0}.cmpt thead th .fn{font:400 12px/1.35 var(--font);color:var(--muted);margin-top:6px;max-width:220px;text-transform:none;letter-spacing:0;white-space:normal}.cmpt tbody th{text-align:left;font:500 13px/1.3 var(--font);text-transform:none;letter-spacing:0;color:var(--ink-2);white-space:nowrap;padding:10px 14px}
+.cmpt td.num{text-align:left;font-variant-numeric:tabular-nums;padding:10px 14px}.cmpt tr.key th{font-weight:600;color:var(--ink)}.cmpt td.key{background:var(--accent-soft);font-weight:600}.cmpt tr.words td{font-size:13px;line-height:1.45;color:var(--ink-2);max-width:280px}.cmpt tr.gr td{padding:12px 14px}
+.cmp-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:6px}.cmp-pairs .pair{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:6px}.cmp-pairs .v{font:600 28px/1 var(--font-display);letter-spacing:-.02em;color:var(--themes-ink)}.cmp-pairs .muted{font-size:12.5px;line-height:1.4}
 .doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:12px;max-width:980px;margin:22px auto 0}
 .doors a{display:block;padding:18px 20px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(18,22,28,.05),0 8px 20px rgba(18,22,28,.05)}
 .doors a:hover{border-color:var(--accent);text-decoration:none}
@@ -600,10 +603,10 @@ footer .wm{font:700 13px/1 var(--font-narrow);letter-spacing:.08em;color:var(--i
       <span class="wm">ETF<b>IQ</b></span>
     </a>
     <nav class="desks" id="desks">
-      <a href="#/buffer/check" data-d="buffer">Buffer<span class="long"> desk</span></a>
-      <a href="#/income/check" data-d="income">Income<span class="long"> desk</span></a>
-      <a href="#/themes/check" data-d="themes">Themes<span class="long"> desk</span></a>
-      <a href="#/portfolio" data-d="portfolio">Portfolio<span class="long"> desk</span></a>
+      <a href="#/buffer/check" data-d="buffer">Buffer<span class="long">&nbsp;desk</span></a>
+      <a href="#/income/check" data-d="income">Income<span class="long">&nbsp;desk</span></a>
+      <a href="#/themes/check" data-d="themes">Themes<span class="long">&nbsp;desk</span></a>
+      <a href="#/portfolio" data-d="portfolio">Portfolio<span class="long">&nbsp;desk</span></a>
       <a href="/research/" data-d="research">Research</a>
     </nav>
     <div class="right">
@@ -1357,7 +1360,7 @@ function bufferPanel(f){
     ${kv(f.isUncapped ? 'Participation' : 'Starting cap', f.isUncapped ? (f.participation != null ? f.participation + '%' : 'uncapped, rate not published') : fmtPct(f.startCap))}${kv('Buffer', f.isFloor ? `${fmtPct(f.bufferStart, {sign:false})} to floor` : `${fmtPct(f.bufferStart, {sign:false})} to ${fmtPct(f.bufferEnd, {sign:false})}`)}${kv('Period start', esc(fmtDate(f.periodStart)))}${kv('Period end', esc(fmtDate(f.periodEnd)))}${kv('Expense ratio', fmtPct(f.expenseRatio, {sign:false, d:2}))}${kv('Index ETF', esc(f.refAsset))}
   </div><div class="timeline"><div class="bar"><i style="width:${elapsedPct}%"></i></div><div class="lbl"><span>${esc(fmtDate(f.periodStart))}</span><span>${elapsedPct}% elapsed · ${f.daysRemaining} days left</span><span>${esc(fmtDate(f.periodEnd))}</span></div></div></section>
   <section><h3>Completed outcome periods <span class="tag">coming</span></h3><div class="slot"><b>Every completed period since inception</b> will sit here once the terms table is built from filed prospectus supplements: starting cap, buffer, index return, fund return, whether the cap bound and whether the buffer engaged.</div></section>
-  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="buffer:${esc(f.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn" type="button" data-ladtoggle="${esc(f.ticker)}">${inLadder ? 'Remove from ladder' : 'Add to ladder'}</button>${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Issuer page</a>` : ''}<button class="btn ghost" type="button" data-copy="buffer/fund/${esc(f.ticker)}">Copy link</button></div>`;
+  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="buffer:${esc(f.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn" type="button" data-ladtoggle="${esc(f.ticker)}">${inLadder ? 'Remove from ladder' : 'Add to ladder'}</button>${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Issuer page</a>` : ''}<a class="btn" href="#/buffer/compare/${esc(f.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="buffer/fund/${esc(f.ticker)}">Copy link</button></div>`;
 }
 function incomePanel(r){
   const kv = (l, v, cls) => `<div><div class="l">${l}</div><div class="v ${cls || ''}">${v}</div></div>`;
@@ -1378,7 +1381,7 @@ function incomePanel(r){
   </div>${r.distributions && r.distributions.length ? `<table class="mini"><thead><tr><th>Ex-date</th><th class="num">Cash per share</th></tr></thead><tbody>${r.distributions.slice().reverse().map(d => `<tr><td>${esc(fmtDate(d.date))}</td><td class="num">$${(+d.amount).toFixed(4)}</td></tr>`).join('')}</tbody></table>` : ''}</section>
   ${cashSources(r)}
   <section><h3>Benchmark <span class="tag etfiq">ETFIQ</span></h3><p class="plain" style="font-size:14px">${esc(r.benchmarkName || r.benchmark)}${r.benchmarkKind === 'proxy' ? '. This is a proxy: the closest listed ETF to what the fund actually writes options on.' : r.benchmarkKind === 'stock' ? '. Single-stock fund: the comparison is with simply owning the stock.' : '.'} Total return, dividends reinvested, over the same days.</p></section>
-  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="income:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn ghost" type="button" data-copy="income/fund/${esc(r.ticker)}">Copy link</button></div>`;
+  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="income:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/income/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="income/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 function cashSources(r){
   const kv = (l, v, cls) => `<div><div class="l">${l}</div><div class="v ${cls || ''}">${v}</div></div>`;
@@ -1676,7 +1679,7 @@ function themePanel(r){
   <section><h3>Facts <span class="tag">filed</span></h3><div class="kv">
     ${kv('Launched', esc(fmtDate(r.inception)))}${kv('Price', r.price == null ? '·' : '$' + (+r.price).toFixed(2))}${kv('Net assets', fmtAssets(r.assets))}${kv('Holdings filed for', r.holdingsAsOf ? esc(fmtDate(r.holdingsAsOf)) : 'no public filing yet')}${r.holdingsSource ? kv('Source', `<a href="${esc(r.holdingsSource)}" target="_blank" rel="noopener">SEC N-PORT</a>`) : ''}
   </div></section>
-  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="themes:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/themes/own/${esc(r.ticker)}">Compare with others</a><button class="btn ghost" type="button" data-copy="themes/fund/${esc(r.ticker)}">Copy link</button></div>`;
+  <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="themes:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/themes/own/${esc(r.ticker)}">Compare with others</a><a class="btn" href="#/themes/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="themes/fund/${esc(r.ticker)}">Copy link</button></div>`;
 }
 
 /* ====================== pulse tiles: the desk in three numbers, each one a filter ====================== */
@@ -1927,6 +1930,76 @@ function tabCompare(rows){
   return `<p class="hint">The first four positions, side by side, as their desk cards. Change the order in the box above to compare others.</p><div class="cmpgrid">${picks.map(card).join('')}</div>`;
 }
 
+/* ====================== compare: two to four funds head to head, one desk ====================== */
+const CMP_TRY = { buffer: [['PJAN,BJAN,FJAN,UJAN', 'Four January buffers'], ['BJUL,PJUL,UJUL', 'July: buffer, power, ultra'], ['PJAN,DJAN', 'Power vs deep']],
+                  income: [['OMAH,JEPI', 'OMAH vs JEPI'], ['JEPQ,QYLD,QQQI', 'Nasdaq-100 income'], ['SPYI,XYLD,DIVO,JEPI', 'Four S&P 500 income funds']],
+                  themes: [['AIS,AIQ', 'AIS vs AIQ'], ['ARKK,BOTZ,SMH', 'ARKK vs BOTZ vs SMH'], ['ICLN,TAN,URA', 'Clean energy, solar, uranium']] };
+function cmpRows(desk, recs){
+  const w = k => (r => { const x = desk === 'income' ? iw(r) : tw(r); return x ? x[k] : null; });
+  const since = r => { const x = desk === 'income' ? iw(r) : tw(r); return x && x !== r.win(S.window) && x.from ? `<span class="since">since ${esc(fmtDate(x.from))}</span>` : ''; };
+  if (desk === 'buffer') return [
+    ['Issuer', f => esc(f.issuer)], ['Reference index', f => esc(f.refAsset)], ['Buffer', f => esc(f.bufferLabel)],
+    ['Outcome period', f => `${esc(fmtDate(f.periodStart))} to ${esc(fmtDate(f.periodEnd))}`], ['Days left', f => String(f.daysRemaining)],
+    ['Starting cap', f => f.isUncapped ? 'uncapped' : fmtPct(f.startCap, {sign:false})],
+    ['Can still gain', f => f.isUncapped ? 'uncapped' : fmtPct(f.remainingCapFund, {sign:false}), 'key'],
+    ['Fall before buffer', f => fmtPct(f.downsideBeforeBuffer, {sign:false}), 'key'],
+    ['Protection left, index points', f => f.isFloor ? 'floor' : `${fmtPct(f.protectionLeft, {sign:false})} of ${fmtPct(f.startBuffer, {sign:false})}`, 'key'],
+    [`${'Index'} return this period`, f => signed(f.refReturn)], ['Fund return this period', f => signed(f.fundReturn)],
+    ['State', f => `<span class="state ${f.state}">${STATE_LABEL[f.state]}</span>`], ['Expense ratio', f => fmtPct(f.expenseRatio, {sign:false, d:2})]];
+  if (desk === 'income') return [
+    ['Issuer', r => esc(r.issuer)], ['Strategy', r => esc(r.strategy)], ['Benchmark', r => esc(r.benchmark)], ['Pays', r => esc(r.payoutFrequency || '·')],
+    ['Payout rate, annualised', r => fmtPct(r.distributionRate, {sign:false})], ['Expense ratio', r => fmtPct(r.expenseRatio, {sign:false, d:2})],
+    [`Paid, ${WIN_LABEL[S.window]}`, r => fmtPct(w('cash')(r), {sign:false}) + since(r), 'key'], [`Price, ${WIN_LABEL[S.window]}`, r => signed(w('price')(r))],
+    [`Total return, ${WIN_LABEL[S.window]}`, r => signed(w('total')(r)) + since(r), 'key'], [`Benchmark return, ${WIN_LABEL[S.window]}`, r => signed(w('bench')(r))],
+    ['Ahead or behind', r => { const g = w('gap')(r); return g == null ? '·' : `<span class="state ${istate(r)}">${fmtPts(g)}</span>`; }, 'key'],
+    ['Return of capital, latest estimate', r => r.src && r.src.latest && r.src.latest.roc != null ? fmtPct(r.src.latest.roc, {sign:false, d:0}) : '·'],
+    ['Age', r => `${r.daysSinceInception} days`]];
+  return [
+    ['Issuer', r => esc(r.issuer)], ['Theme', r => esc(r.themeName)],
+    ['In the S&P 500', r => fmtPct(r.inSPY, {sign:false}), 'key'], ['Active share vs S&P 500', r => fmtPct(r.asSPY, {sign:false}), 'key'], ['In the Nasdaq-100', r => fmtPct(r.inQQQ, {sign:false})],
+    ['Holdings', r => r.holdingsCount != null ? String(r.holdingsCount) : '·'], ['Top ten, share of the fund', r => fmtPct(r.top10Weight, {sign:false})],
+    ['Expense ratio', r => fmtPct(r.expenseRatio, {sign:false, d:2})], ['Fee for the difference', r => fmtPct(r.activeFee, {sign:false, d:2})],
+    [`Total return, ${WIN_LABEL[S.window]}`, r => signed(w('total')(r)) + since(r), 'key'], ['vs S&P 500', r => { const g = w('gap')(r); return g == null ? '·' : fmtPts(g); }], ['vs Nasdaq-100', r => { const g = w('gapQ')(r); return g == null ? '·' : fmtPts(g); }],
+    ['Below its high', r => fmtPct(r.drawdown)]];
+}
+function viewCompare(){
+  const desk = S.desk, maps = { buffer: S.byT, income: S.byI, themes: S.byTh }, here = maps[desk];
+  const want = S.cmpT || [];
+  const recs = want.map(t => here.get(t)).filter(Boolean);
+  const missing = want.filter(t => !here.has(t));
+  const spec = want.join(',');
+  const list = desk === 'buffer' ? S.funds : desk === 'income' ? S.income : S.themes;
+  const form = `<form class="cq" id="cmpForm" autocomplete="off"><input id="cmpQ" list="tickers" placeholder="${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN' : desk === 'income' ? 'OMAH vs JEPI' : 'AIS vs AIQ'}" value="${esc(want.join(' vs '))}" aria-label="Tickers to compare" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Compare</button></form>
+    <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
+    <div class="chips"><span class="lbl">Try</span>${CMP_TRY[desk].map(([sp, l]) => `<a href="#/${desk}/compare/${sp}" class="chip">${l}</a>`).join('')}</div>`;
+  const h1 = desk === 'buffer' ? 'Which buffer ETF stands where?' : desk === 'income' ? 'Which income ETF paid, and which one earned it?' : 'Which thematic ETF is really different?';
+  const sub = 'Two to four funds from this desk, head to head: the same fields the desk shows, in one table, with the ' + (desk === 'buffer' ? 'bands on one scale.' : desk === 'income' ? 'payout bars on one scale.' : 'difference bars side by side and the overlap between the funds.') + ' Arithmetic on published data, not a recommendation.';
+  let body = '';
+  if (missing.length) body += `<div class="miss">${missing.map(esc).join(', ')} ${missing.length > 1 ? 'are' : 'is'} not on the ${DESK_NAME[desk].toLowerCase()}. ${missing.map(t => { const d = Object.keys(maps).find(k => k !== desk && maps[k].has(t)); return d ? `<a href="#/${d}/compare/${esc(t)}">${esc(t)} is on the ${DESK_NAME[d].toLowerCase()}</a>` : ''; }).filter(Boolean).join(' · ')}</div>`;
+  if (recs.length === 1) body += `<div class="miss">Add a second ticker to compare with <b>${esc(recs[0].ticker)}</b>, for example ${esc(CMP_TRY[desk][0][0].split(',').find(t => t !== recs[0].ticker) || '')}.</div>`;
+  if (recs.length >= 2) {
+    let graphic;
+    if (desk === 'buffer') { const sc = [Math.floor(Math.min(...recs.map(f => f.isFloor ? f.bufferStart - 40 : f.bufferEnd), ...recs.map(f => f.refReturn)) - 3), Math.ceil(Math.max(...recs.map(f => f.isUncapped ? Math.max(f.refReturn, 0) + 12 : f.startCap), ...recs.map(f => f.refReturn)) + 3)]; graphic = f => band(f, { w:260, h:22, scale:sc }); }
+    else if (desk === 'income') { const vals = []; recs.forEach(r => { const x = iw(r); if (x) vals.push(x.cash, x.price, x.total, x.bench == null ? 0 : x.bench, 0); }); const sc = [Math.floor(Math.min(...vals) - 4), Math.ceil(Math.max(...vals) + 6)]; graphic = r => paybar(r, { w:260, h:34, scale:sc }); }
+    else graphic = r => diffbar(r, { w:260, h:30 });
+    const rows = cmpRows(desk, recs);
+    const words = desk === 'buffer' ? statusLine : desk === 'income' ? incomeStatus : themeStatus;
+    body += `<div class="deskwrap"><div class="desk-scroll"><table class="tm cmpt"><thead><tr><th></th>${recs.map(r => `<th><a href="#/${desk}/check/${esc(r.ticker)}"><span class="tk">${esc(r.ticker)}</span></a><div class="fn">${esc(r.name)}</div></th>`).join('')}</tr></thead><tbody>
+      <tr class="gr"><th>${desk === 'buffer' ? 'Outcome band, one scale' : desk === 'income' ? 'Payout bar, one scale' : 'Difference bar'}</th>${recs.map(r => `<td>${graphic(r)}</td>`).join('')}</tr>
+      ${rows.map(([l, fn, k]) => `<tr${k ? ' class="key"' : ''}><th>${l}</th>${recs.map(r => `<td class="num${k ? ' key' : ''}">${fn(r)}</td>`).join('')}</tr>`).join('')}
+      <tr class="words"><th>In plain words</th>${recs.map(r => `<td>${words(r)}</td>`).join('')}</tr>
+    </tbody></table></div></div>`;
+    if (desk === 'themes') {
+      const pairs = [];
+      for (let i = 0; i < recs.length; i++) for (let j = i + 1; j < recs.length; j++) { const v = pairOverlap(recs[i].ticker, recs[j].ticker); pairs.push([recs[i].ticker, recs[j].ticker, v]); }
+      body += `<div class="sec tight"><span class="eyebrow">How much the funds overlap</span></div><div class="cmp-pairs">${pairs.map(([a, b, v]) => `<div class="pair"><b>${esc(a)} and ${esc(b)}</b><span class="v">${v == null ? '·' : v + '%'}</span><span class="muted">${v == null ? 'no full filing for one of them yet' : v >= 50 ? 'of their books in the same names at the same weight: close to holding one twice' : v >= 20 ? 'of their books in common' : 'in common: mostly different names'}</span></div>`).join('')}</div>`;
+    }
+    if (desk !== 'buffer') body += `<div class="wins" role="group" aria-label="Window" style="margin-top:14px">${WINDOWS.map(k => `<button type="button" data-win="${k}" class="${S.window === k ? 'on' : ''}">${k}</button>`).join('')}</div>`;
+  }
+  return `<div class="check"><div class="chero"><span class="eyebrow">${DESK_NAME[desk]} · compare</span><h1>${h1}</h1><p>${sub}</p>${form}</div>${body}
+    <p class="ind">Every figure is the desk's own, stated arithmetic on published data. ETFIQ makes no recommendations. <a href="#/standards">Standards</a></p></div>`;
+}
+
 /* ====================== home: one search, three desks, what changed ====================== */
 function viewHome(){
   const nb = S.funds.length, ni = S.income.length, nt = S.themes.length;
@@ -1996,7 +2069,7 @@ function viewCheck(){
     <form class="cq" id="checkForm" autocomplete="off"><input id="checkQ" list="tickers" placeholder="${desk === 'buffer' ? 'Ticker, for example PJAN' : desk === 'income' ? 'Ticker, for example JEPI' : 'Ticker, for example ARKK'}" value="${esc(t || '')}" aria-label="Ticker" spellcheck="false" autocapitalize="characters"><button class="btn primary" type="submit">Check</button></form>
     <datalist id="tickers">${list.map(x => `<option value="${esc(x.ticker)}">${esc(x.name)}</option>`).join('')}</datalist>
     <div class="chips"><span class="lbl">Try</span>${pop.map(x => `<a href="#/${desk}/check/${x}">${x}</a>`).join('')}</div></div>
-    ${result}${doors}<div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
+    ${result}${doors}<a class="pdoor" href="#/${desk}/compare"><div class="lvl">Compare</div><b>Two to four funds head to head</b><span>${desk === 'buffer' ? 'PJAN vs BJAN vs FJAN: every field in one table, the bands on one scale.' : desk === 'income' ? 'OMAH vs JEPI: cash, price, total return and the gap to the benchmark, side by side, with the payout bars on one scale.' : 'AIS vs AIQ: what each really holds, how much is already the index, and how much the two overlap.'}</span></a><div class="sec tight"><span class="eyebrow">${pulseLabel}</span></div>${pulse}${deskLines(desk)}${researchStrip(desk)}</div>`;
 }
 function researchCard(p){ return `<a class="rp ${esc(p.desk)}" href="/research/${esc(p.slug)}.html"><div class="lvl">ETFIQ Research · ${esc(DESK_NAME[p.desk] || p.desk)} · data as of ${esc(fmtDate(p.asOf))}</div><b>${esc(p.title)}</b><span>${esc(p.summary)}</span>${p.narrative ? '<em>ETFIQ Narrative and computed tables, rebuilt every trading night.</em>' : '<em>Computed tables, rebuilt every trading night.</em>'}</a>`; }
 function researchStrip(desk){ const ps = (S.research || []).filter(p => !desk || p.desk === desk); if (!ps.length) return ''; return `<div class="sec tight"><span class="eyebrow">${desk ? 'Research on this desk' : 'ETFIQ Research, one piece per desk'}</span></div><div class="rgrid">${ps.map(researchCard).join('')}</div>`; }
@@ -2068,7 +2141,7 @@ function viewAlerts(){
 }
 
 /* ====================== render and routing ====================== */
-const SUBNAV = { buffer: [['check', 'Check a fund', 'q'], ['entry', 'Buying today', 'q'], ['desk', 'All funds', 'f'], ['ladder', 'Ladder builder', 'f'], ['learn', 'Learn', '']], income: [['check', 'Check a fund', 'q'], ['calendar', 'Payout calendar', 'q'], ['desk', 'All funds', 'f'], ['ahead', 'Am I ahead?', 'f'], ['learn', 'Learn', '']], themes: [['check', 'Check a fund', 'q'], ['own', 'What do I really own?', 'q'], ['desk', 'All funds', 'f'], ['themes', 'Theme map', 'f'], ['learn', 'Learn', '']] };
+const SUBNAV = { buffer: [['check', 'Check a fund', 'q'], ['entry', 'Buying today', 'q'], ['desk', 'All funds', 'f'], ['ladder', 'Ladder builder', 'f'], ['compare', 'Compare', 'f'], ['learn', 'Learn', '']], income: [['check', 'Check a fund', 'q'], ['calendar', 'Payout calendar', 'q'], ['desk', 'All funds', 'f'], ['ahead', 'Am I ahead?', 'f'], ['compare', 'Compare', 'f'], ['learn', 'Learn', '']], themes: [['check', 'Check a fund', 'q'], ['own', 'What do I really own?', 'q'], ['desk', 'All funds', 'f'], ['themes', 'Theme map', 'f'], ['compare', 'Compare', 'f'], ['learn', 'Learn', '']] };
 const DESK_NAME = { buffer: 'Buffer desk', income: 'Income desk', themes: 'Themes desk', portfolio: 'Portfolio desk' };
 const NLVL = { q:'Quick', f:'Full data' };
 function staleDays(d){ if (!d) return 0; const a = new Date(d + 'T00:00:00'), b = new Date(); let n = 0; for (let x = new Date(a); x < b; x.setDate(x.getDate() + 1)) { const w = x.getDay(); if (w !== 0 && w !== 6) n++; } return Math.max(0, n - 1); }
@@ -2107,13 +2180,14 @@ function render(){
   else if (S.view === 'home') html = viewHome();
   else if (S.view === 'portfolio') html = viewPortfolio();
   else if (S.view === 'check') html = viewCheck();
+  else if (S.view === 'compare') html = viewCompare();
   else if (S.desk === 'themes') html = S.view === 'own' ? viewOwn() : S.view === 'themes' ? viewThemeMap() : S.view === 'learn' ? viewThemesLearn() : viewThemesDesk();
   else if (S.desk === 'buffer') html = S.view === 'entry' ? viewBufferEntry() : S.view === 'ladder' ? viewLadder() : S.view === 'learn' ? viewBufferLearn() : viewBufferDesk();
   else html = S.view === 'ahead' ? viewIncomeAhead() : S.view === 'calendar' ? viewIncomeCalendar() : S.view === 'learn' ? viewIncomeLearn() : viewIncomeDesk();
   v.innerHTML = html;
   const c = $('#count'), t = $('#countText'); if (c && t) c.innerHTML = t.innerHTML;
   if (S.view === 'check' && !S.checkT) { const q = $('#checkQ'); if (q && window.innerWidth > 700) q.focus({preventScroll:true}); }
-  const names = { check:'Check a fund', own:'What do I really own?', themes:'Theme map', desk:'All funds', entry:'Buying today', ladder:'Ladder builder', learn:'Learn', ahead:'Am I ahead?', calendar:'Payout calendar', standards:'Standards', alerts:'Alerts' };
+  const names = { check:'Check a fund', compare:'Compare funds', own:'What do I really own?', themes:'Theme map', desk:'All funds', entry:'Buying today', ladder:'Ladder builder', learn:'Learn', ahead:'Am I ahead?', calendar:'Payout calendar', standards:'Standards', alerts:'Alerts' };
   document.title = S.view === 'portfolio' ? 'ETFIQ · Portfolio desk' : S.view === 'home' ? 'ETFIQ · Buffer, income and thematic ETFs in plain words, and the whole portfolio looked through' : 'ETFIQ · ' + (S.view === 'standards' || S.view === 'alerts' ? names[S.view] : DESK_NAME[S.desk] + ' · ' + names[S.view]);
   window.scrollTo(0, 0);
 }
@@ -2129,8 +2203,9 @@ function route(){
   const desk = parts[0] === 'income' ? 'income' : parts[0] === 'themes' ? 'themes' : 'buffer';
   if (desk !== S.desk) { S.desk = desk; S.collapsed = new Set(); }
   if (parts[1] === 'check') { S.view = 'check'; S.checkT = parts[2] ? decodeURIComponent(parts[2]).toUpperCase() : null; if (S.panel) closePanel(false); render(); return; }
+  if (parts[1] === 'compare') { S.view = 'compare'; S.cmpT = parts[2] ? decodeURIComponent(parts[2]).toUpperCase().split(/[,+]/).map(x => x.trim()).filter(Boolean).slice(0, 4) : []; if (S.panel) closePanel(false); render(); return; }
   if (parts[1] === 'own') { S.view = 'own'; if (parts[2]) S.ownT = decodeURIComponent(parts[2]).toUpperCase().split(',').filter(Boolean); if (S.panel) closePanel(false); render(); return; }
-  if (parts[1] === 'fund' && parts[2]) { if (!['desk', 'entry', 'ladder', 'ahead', 'calendar', 'own', 'themes'].includes(S.view)) S.view = 'desk'; render(); openPanel(desk, parts[2].toUpperCase()); return; }
+  if (parts[1] === 'fund' && parts[2]) { if (!['desk', 'entry', 'ladder', 'ahead', 'calendar', 'own', 'themes', 'compare'].includes(S.view)) S.view = 'desk'; render(); openPanel(desk, parts[2].toUpperCase()); return; }
   const allowed = desk === 'buffer' ? ['desk', 'entry', 'ladder', 'learn'] : desk === 'income' ? ['desk', 'ahead', 'calendar', 'learn'] : ['desk', 'themes', 'learn'];
   S.view = allowed.includes(parts[1]) ? parts[1] : 'check'; if (S.view === 'check') S.checkT = null;
   if (S.panel) closePanel(false);
@@ -2208,6 +2283,7 @@ function wire(){
     if (e.target.id === 'pfForm') { e.preventDefault(); const spec = $('#pfQ').value.trim().toUpperCase().replace(/\s+/g, '').replace(/,+/g, ','); location.hash = `#/portfolio/${S.ptab}/${spec}`; return; }
     if (e.target.id === 'homeForm') { e.preventDefault(); const t = $('#homeQ').value.trim().toUpperCase().replace(/[^A-Z0-9.]/g, ''); if (!t) return; const desk = S.byT.has(t) ? 'buffer' : S.byI.has(t) ? 'income' : S.byTh.has(t) ? 'themes' : null; location.hash = desk ? `#/${desk}/check/${t}` : `#/home/${t}`; return; }
     if (e.target.id === 'ownForm') { e.preventDefault(); const list = Array.from(new Set($('#ownQ').value.toUpperCase().split(/[\s,]+/).filter(x => /^[A-Z]{1,5}$/.test(x)))).slice(0, 6); const want = list.length ? `#/themes/own/${list.join(',')}` : '#/themes/own'; if (location.hash === want) render(); else location.hash = want; return; }
+    if (e.target.id === 'cmpForm') { e.preventDefault(); const ts = Array.from(new Set($('#cmpQ').value.toUpperCase().split(/\s+VS\.?\s+|[\s,;+]+/).map(x => x.replace(/[^A-Z0-9.]/g, '')).filter(Boolean))).slice(0, 4); const want = ts.length ? `#/${S.desk}/compare/${ts.join(',')}` : `#/${S.desk}/compare`; if (location.hash === want) render(); else location.hash = want; return; }
     if (e.target.id === 'checkForm') { e.preventDefault(); const t = $('#checkQ').value.trim().toUpperCase().replace(/[^A-Z0-9.]/g, ''); const want = t ? `#/${S.desk}/check/${t}` : `#/${S.desk}/check`; if (location.hash === want) render(); else location.hash = want; return; }
     if (e.target.id !== 'signup') return; e.preventDefault();
     const fd = new FormData(e.target); const email = (fd.get('email') || '').trim(); const out = $('#signupOut');
