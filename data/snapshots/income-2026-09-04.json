@@ -1,9 +1,9 @@
 {
  "meta": {
   "asOf": "2026-09-04",
-  "generated": "2026-09-05T03:45:53+00:00",
-  "universe": 283,
-  "shown": 216,
+  "generated": "2026-09-05T03:56:44+00:00",
+  "universe": 286,
+  "shown": 219,
   "missing": [
    "GRY",
    "NUKY",
@@ -114,6 +114,7 @@
    "NFLX",
    "NOBL",
    "NVDA",
+   "OEF",
    "PLTR",
    "PYPL",
    "QBTS",
@@ -17248,79 +17249,219 @@
    "benchAsOf": "2026-09-04"
   },
   {
-   "ticker": "GATE",
-   "name": "VistaShares Target 15 GATE Endowment Distribution ETF",
+   "ticker": "ACKY",
+   "name": "VistaShares Target 15 ACKtivist Distribution ETF",
    "issuer": "VistaShares",
    "entity": "Tidal Trust III",
-   "cik": "1722388",
-   "strategy": "covered call",
+   "cik": "0001722388",
+   "strategy": "Target 15 distribution, options overlay",
    "benchmark": "SPY",
-   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+   "benchmarkName": "S&P 500 (SPY), used as the proxy",
    "benchmarkKind": "proxy",
    "include": true,
-   "why": "option-income keyword in the name",
+   "why": "forced: listed and trading, SEC series file carries no ticker yet",
    "asOf": "2026-09-04",
-   "price": 36.05,
-   "inception": "2021-11-22",
-   "daysSinceInception": 1747,
-   "payoutFrequency": null,
-   "lastDistribution": null,
-   "distributionRate": null,
-   "trailing12mCash": 0.0,
-   "priceSinceInception": 268.23,
+   "price": 17.92,
+   "inception": "2025-09-09",
+   "daysSinceInception": 360,
+   "payoutFrequency": "monthly",
+   "lastDistribution": {
+    "date": "2026-08-24",
+    "amount": 0.22638
+   },
+   "distributionRate": 15.16,
+   "trailing12mCash": 15.79,
+   "priceSinceInception": -11.16,
    "windows": {
     "3M": {
      "from": "2026-06-05",
      "to": "2026-09-04",
      "days": 91,
-     "cash": 0.0,
-     "price": 0.0,
-     "total": 0.0,
+     "cash": 3.65,
+     "price": 0.06,
+     "total": 3.86,
      "bench": 4.69,
-     "gap": -4.69
+     "gap": -0.83
     },
     "6M": {
      "from": "2026-03-06",
      "to": "2026-09-04",
      "days": 182,
-     "cash": 0.0,
-     "price": 0.0,
-     "total": 0.0,
+     "cash": 7.36,
+     "price": -2.13,
+     "total": 5.52,
      "bench": 15.16,
-     "gap": -15.16
+     "gap": -9.64
     },
-    "1Y": {
-     "from": "2025-09-04",
-     "to": "2026-09-04",
-     "days": 365,
-     "cash": 0.0,
-     "price": 0.0,
-     "total": 0.0,
-     "bench": 19.96,
-     "gap": -19.96
-    },
-    "3Y": {
-     "from": "2023-09-05",
-     "to": "2026-09-04",
-     "days": 1095,
-     "cash": 0.0,
-     "price": 249.66,
-     "total": 249.66,
-     "bench": 77.96,
-     "gap": 171.7
-    },
+    "1Y": null,
+    "3Y": null,
     "ITD": {
-     "from": "2021-11-22",
+     "from": "2025-09-09",
      "to": "2026-09-04",
-     "days": 1747,
-     "cash": 0.0,
-     "price": 268.23,
-     "total": 268.23,
-     "bench": 75.71,
-     "gap": 192.52
+     "days": 360,
+     "cash": 14.03,
+     "price": -11.16,
+     "total": 3.24,
+     "bench": 19.74,
+     "gap": -16.5
     }
    },
-   "distributions": [],
+   "distributions": [
+    {
+     "date": "2025-09-29",
+     "amount": 0.2515
+    },
+    {
+     "date": "2025-10-27",
+     "amount": 0.2508
+    },
+    {
+     "date": "2025-11-24",
+     "amount": 0.241
+    },
+    {
+     "date": "2025-12-29",
+     "amount": 0.24963
+    },
+    {
+     "date": "2026-01-26",
+     "amount": 0.25225
+    },
+    {
+     "date": "2026-02-23",
+     "amount": 0.23688
+    },
+    {
+     "date": "2026-03-30",
+     "amount": 0.21738
+    },
+    {
+     "date": "2026-04-27",
+     "amount": 0.2385
+    },
+    {
+     "date": "2026-05-26",
+     "amount": 0.2375
+    },
+    {
+     "date": "2026-06-29",
+     "amount": 0.21525
+    },
+    {
+     "date": "2026-07-27",
+     "amount": 0.21275
+    },
+    {
+     "date": "2026-08-24",
+     "amount": 0.22638
+    }
+   ],
+   "benchAsOf": "2026-09-04"
+  },
+  {
+   "ticker": "DRKY",
+   "name": "VistaShares Target 15 DRUKMacro Distribution ETF",
+   "issuer": "VistaShares",
+   "entity": "Tidal Trust III",
+   "cik": "0001722388",
+   "strategy": "Target 15 distribution, options overlay",
+   "benchmark": "SPY",
+   "benchmarkName": "S&P 500 (SPY), used as the proxy",
+   "benchmarkKind": "proxy",
+   "include": true,
+   "why": "forced: listed and trading, SEC series file carries no ticker yet",
+   "asOf": "2026-09-04",
+   "price": 21.5866,
+   "inception": "2025-10-08",
+   "daysSinceInception": 331,
+   "payoutFrequency": "monthly",
+   "lastDistribution": {
+    "date": "2026-08-24",
+    "amount": 0.269
+   },
+   "distributionRate": 14.95,
+   "trailing12mCash": 13.18,
+   "priceSinceInception": 7.16,
+   "windows": {
+    "3M": {
+     "from": "2026-06-05",
+     "to": "2026-09-04",
+     "days": 91,
+     "cash": 3.99,
+     "price": 10.99,
+     "total": 15.25,
+     "bench": 4.69,
+     "gap": 10.56
+    },
+    "6M": {
+     "from": "2026-03-06",
+     "to": "2026-09-04",
+     "days": 182,
+     "cash": 7.92,
+     "price": 12.61,
+     "total": 21.45,
+     "bench": 15.16,
+     "gap": 6.29
+    },
+    "1Y": null,
+    "3Y": null,
+    "ITD": {
+     "from": "2025-10-08",
+     "to": "2026-09-04",
+     "days": 331,
+     "cash": 14.13,
+     "price": 7.16,
+     "total": 23.03,
+     "bench": 15.37,
+     "gap": 7.66
+    }
+   },
+   "distributions": [
+    {
+     "date": "2025-10-27",
+     "amount": 0.2544
+    },
+    {
+     "date": "2025-11-24",
+     "amount": 0.26113
+    },
+    {
+     "date": "2025-12-29",
+     "amount": 0.27725
+    },
+    {
+     "date": "2026-01-26",
+     "amount": 0.27563
+    },
+    {
+     "date": "2026-02-23",
+     "amount": 0.25925
+    },
+    {
+     "date": "2026-03-30",
+     "amount": 0.23775
+    },
+    {
+     "date": "2026-04-27",
+     "amount": 0.25438
+    },
+    {
+     "date": "2026-05-26",
+     "amount": 0.2505
+    },
+    {
+     "date": "2026-06-29",
+     "amount": 0.2565
+    },
+    {
+     "date": "2026-07-27",
+     "amount": 0.24988
+    },
+    {
+     "date": "2026-08-24",
+     "amount": 0.269
+    }
+   ],
    "benchAsOf": "2026-09-04"
   },
   {
@@ -17329,10 +17470,10 @@
    "issuer": "VistaShares",
    "entity": "Tidal Trust III",
    "cik": "1722388",
-   "strategy": "covered call",
+   "strategy": "Target 15 distribution, options overlay",
    "benchmark": "BRK-B",
-   "benchmarkName": "Berkshire Hathaway (BRK.B)",
-   "benchmarkKind": "stock",
+   "benchmarkName": "Berkshire Hathaway B (BRK-B), used as the proxy",
+   "benchmarkKind": "proxy",
    "include": true,
    "why": "option-income keyword in the name",
    "asOf": "2026-09-04",
@@ -17565,6 +17706,190 @@
     {
      "date": "2026-08-24",
      "amount": 0.22588
+    }
+   ],
+   "benchAsOf": "2026-09-04"
+  },
+  {
+   "ticker": "SIOO",
+   "name": "VistaShares Target 15 S&P 100 Distribution ETF",
+   "issuer": "VistaShares",
+   "entity": "VistaShares",
+   "cik": "",
+   "strategy": "Target 15 distribution, options overlay",
+   "benchmark": "OEF",
+   "benchmarkName": "S&P 100 (OEF)",
+   "benchmarkKind": "index",
+   "include": true,
+   "why": "forced: listed and trading, SEC series file carries no ticker yet",
+   "asOf": "2026-09-04",
+   "price": 19.7791,
+   "inception": "2025-12-11",
+   "daysSinceInception": 267,
+   "payoutFrequency": "monthly",
+   "lastDistribution": {
+    "date": "2026-08-24",
+    "amount": 0.24863
+   },
+   "distributionRate": 15.08,
+   "trailing12mCash": 11.22,
+   "priceSinceInception": -1.25,
+   "windows": {
+    "3M": {
+     "from": "2026-06-05",
+     "to": "2026-09-04",
+     "days": 91,
+     "cash": 3.78,
+     "price": 1.07,
+     "total": 4.96,
+     "bench": 4.95,
+     "gap": 0.01
+    },
+    "6M": {
+     "from": "2026-03-06",
+     "to": "2026-09-04",
+     "days": 182,
+     "cash": 7.69,
+     "price": 3.43,
+     "total": 11.57,
+     "bench": 16.07,
+     "gap": -4.5
+    },
+    "1Y": null,
+    "3Y": null,
+    "ITD": {
+     "from": "2025-12-11",
+     "to": "2026-09-04",
+     "days": 267,
+     "cash": 11.08,
+     "price": -1.25,
+     "total": 10.64,
+     "bench": 11.45,
+     "gap": -0.81
+    }
+   },
+   "distributions": [
+    {
+     "date": "2025-12-29",
+     "amount": 0.25375
+    },
+    {
+     "date": "2026-01-26",
+     "amount": 0.24975
+    },
+    {
+     "date": "2026-02-23",
+     "amount": 0.24425
+    },
+    {
+     "date": "2026-03-30",
+     "amount": 0.236
+    },
+    {
+     "date": "2026-04-27",
+     "amount": 0.2465
+    },
+    {
+     "date": "2026-05-26",
+     "amount": 0.2485
+    },
+    {
+     "date": "2026-06-29",
+     "amount": 0.24375
+    },
+    {
+     "date": "2026-07-27",
+     "amount": 0.24775
+    },
+    {
+     "date": "2026-08-24",
+     "amount": 0.24863
+    }
+   ],
+   "benchAsOf": "2026-09-04"
+  },
+  {
+   "ticker": "TPRY",
+   "name": "VistaShares Target 15 TEPRTantrum Contrarian Distribution ETF",
+   "issuer": "VistaShares",
+   "entity": "Tidal Trust III",
+   "cik": "0001722388",
+   "strategy": "Target 15 distribution, options overlay",
+   "benchmark": "SPY",
+   "benchmarkName": "S&P 500 (SPY), used as the proxy",
+   "benchmarkKind": "proxy",
+   "include": true,
+   "why": "forced: listed and trading, SEC series file carries no ticker yet",
+   "asOf": "2026-09-04",
+   "price": 18.9738,
+   "inception": "2026-02-26",
+   "daysSinceInception": 190,
+   "payoutFrequency": "weekly",
+   "lastDistribution": {
+    "date": "2026-08-24",
+    "amount": 0.23838
+   },
+   "distributionRate": 65.33,
+   "trailing12mCash": 7.68,
+   "priceSinceInception": -3.81,
+   "windows": {
+    "3M": {
+     "from": "2026-06-05",
+     "to": "2026-09-04",
+     "days": 91,
+     "cash": 3.77,
+     "price": -2.25,
+     "total": 1.58,
+     "bench": 4.69,
+     "gap": -3.11
+    },
+    "6M": {
+     "from": "2026-03-06",
+     "to": "2026-09-04",
+     "days": 182,
+     "cash": 7.9,
+     "price": 2.87,
+     "total": 10.97,
+     "bench": 15.16,
+     "gap": -4.19
+    },
+    "1Y": null,
+    "3Y": null,
+    "ITD": {
+     "from": "2026-02-26",
+     "to": "2026-09-04",
+     "days": 190,
+     "cash": 7.39,
+     "price": -3.81,
+     "total": 3.76,
+     "bench": 12.33,
+     "gap": -8.57
+    }
+   },
+   "distributions": [
+    {
+     "date": "2026-03-30",
+     "amount": 0.22563
+    },
+    {
+     "date": "2026-04-27",
+     "amount": 0.24538
+    },
+    {
+     "date": "2026-05-26",
+     "amount": 0.2545
+    },
+    {
+     "date": "2026-06-29",
+     "amount": 0.25475
+    },
+    {
+     "date": "2026-07-27",
+     "amount": 0.2385
+    },
+    {
+     "date": "2026-08-24",
+     "amount": 0.23838
     }
    ],
    "benchAsOf": "2026-09-04"
@@ -24193,9 +24518,9 @@
    "entity": "Tidal Trust II",
    "cik": "1924868",
    "strategy": "synthetic covered call",
-   "benchmark": "SPY",
-   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-   "benchmarkKind": "proxy",
+   "benchmark": "MSTR",
+   "benchmarkName": "MicroStrategy (MSTR)",
+   "benchmarkKind": "stock",
    "include": true,
    "why": "option-income keyword in the name",
    "asOf": "2026-09-04",
@@ -24218,8 +24543,8 @@
      "cash": 21.92,
      "price": -34.62,
      "total": -18.03,
-     "bench": 4.69,
-     "gap": -22.72
+     "bench": 18.57,
+     "gap": -36.6
     },
     "6M": {
      "from": "2026-03-06",
@@ -24228,8 +24553,8 @@
      "cash": 31.98,
      "price": -48.95,
      "total": -23.26,
-     "bench": 15.16,
-     "gap": -38.42
+     "bench": 6.94,
+     "gap": -30.2
     },
     "1Y": {
      "from": "2025-09-04",
@@ -24238,8 +24563,8 @@
      "cash": 85.07,
      "price": -47.45,
      "total": 29.46,
-     "bench": 19.96,
-     "gap": 9.5
+     "bench": -56.41,
+     "gap": 85.87
     },
     "3Y": null,
     "ITD": {
@@ -24249,8 +24574,8 @@
      "cash": 79.6,
      "price": -65.02,
      "total": 19.11,
-     "bench": 37.72,
-     "gap": -18.61
+     "bench": -56.01,
+     "gap": 75.12
     }
    },
    "distributions": [

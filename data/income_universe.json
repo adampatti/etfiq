@@ -3880,9 +3880,9 @@
   "entity": "ETF Opportunities Trust",
   "cik": "1771146",
   "strategy": "0DTE covered call",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
   "include": true,
   "why": "option-income keyword in the name"
  },
@@ -3978,6 +3978,19 @@
   "why": "income keyword only; review by hand"
  },
  {
+  "ticker": "ACKY",
+  "name": "VistaShares Target 15 ACKtivist Distribution ETF",
+  "issuer": "VistaShares",
+  "entity": "Tidal Trust III",
+  "cik": "0001722388",
+  "strategy": "Target 15 distribution, options overlay",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "forced: listed and trading, SEC series file carries no ticker yet"
+ },
+ {
   "ticker": "ARAB",
   "name": "VistaShares Target 15 Gulf Sovereign Distribution ETF",
   "issuer": "VistaShares",
@@ -3991,6 +4004,19 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "DRKY",
+  "name": "VistaShares Target 15 DRUKMacro Distribution ETF",
+  "issuer": "VistaShares",
+  "entity": "Tidal Trust III",
+  "cik": "0001722388",
+  "strategy": "Target 15 distribution, options overlay",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "forced: listed and trading, SEC series file carries no ticker yet"
+ },
+ {
   "ticker": "GATE",
   "name": "VistaShares Target 15 GATE Endowment Distribution ETF",
   "issuer": "VistaShares",
@@ -4000,8 +4026,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": true,
-  "why": "option-income keyword in the name"
+  "include": false,
+  "why": "excluded: fund not launched; the price history under this ticker belongs to a prior security (issuer confirmed 2026-09-05)"
  },
  {
   "ticker": "HRVD",
@@ -4048,10 +4074,10 @@
   "issuer": "VistaShares",
   "entity": "Tidal Trust III",
   "cik": "1722388",
-  "strategy": "covered call",
+  "strategy": "Target 15 distribution, options overlay",
   "benchmark": "BRK-B",
-  "benchmarkName": "Berkshire Hathaway (BRK.B)",
-  "benchmarkKind": "stock",
+  "benchmarkName": "Berkshire Hathaway B (BRK-B), used as the proxy",
+  "benchmarkKind": "proxy",
   "include": true,
   "why": "option-income keyword in the name"
  },
@@ -4067,6 +4093,32 @@
   "benchmarkKind": "proxy",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "SIOO",
+  "name": "VistaShares Target 15 S&P 100 Distribution ETF",
+  "issuer": "VistaShares",
+  "entity": "VistaShares",
+  "cik": "",
+  "strategy": "Target 15 distribution, options overlay",
+  "benchmark": "OEF",
+  "benchmarkName": "S&P 100 (OEF)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "forced: listed and trading, SEC series file carries no ticker yet"
+ },
+ {
+  "ticker": "TPRY",
+  "name": "VistaShares Target 15 TEPRTantrum Contrarian Distribution ETF",
+  "issuer": "VistaShares",
+  "entity": "Tidal Trust III",
+  "cik": "0001722388",
+  "strategy": "Target 15 distribution, options overlay",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "forced: listed and trading, SEC series file carries no ticker yet"
  },
  {
   "ticker": "UUSA",
@@ -5011,9 +5063,9 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "synthetic covered call",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
+  "benchmark": "AAPL",
+  "benchmarkName": "Apple (AAPL)",
+  "benchmarkKind": "stock",
   "include": true,
   "why": "option-income keyword in the name"
  },
@@ -5167,9 +5219,9 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "synthetic covered call",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
+  "benchmark": "MSTR",
+  "benchmarkName": "MicroStrategy (MSTR)",
+  "benchmarkKind": "stock",
   "include": true,
   "why": "option-income keyword in the name"
  },

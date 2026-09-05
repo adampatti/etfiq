@@ -88,3 +88,12 @@ Three states, never blended:
 The page shows the per-share amount and the payout per $10,000 invested at today's price, marks each event with its state, and totals the next 30 days for the funds a reader has pinned.
 
 **Index income versus single-stock income.** Funds that write options on one company (YieldMax, GraniteShares YieldBOOST, Kurv, Defiance and the rest) are a different product from index funds like JEPI and SPYI: weekly payouts, extreme swings, principal that can halve in a year. Every income view carries a switch, index income by default, single stock or all on request, and the headline figures follow the switch.
+
+## Ticker collisions and unlaunched funds (2026-09-05)
+
+The SEC series and class file lists funds before they launch, sometimes with a ticker reserved and sometimes with none. Two failure modes showed up with VistaShares:
+
+- A reserved ticker that a prior security used. Tiingo carried a price series under GATE from 2021 (a SPAC), relabelled with the fund's name, so an unlaunched fund appeared on the site with someone else's history. GATE is excluded in OVERRIDES until it trades. Rule for the future: when a fund's first Tiingo date predates the issuer's first launch by more than a few months, treat it as a collision and check by hand.
+- Launched funds with no ticker in the SEC file (SIOO, DRKY, ACKY, TPRY). These are carried in FORCE with names from Tiingo's security metadata.
+
+Funds the SEC file lists with a ticker but Tiingo has no prices for (ARAB, HRVD, LUSA, NRWY, UUSA, VUSA and the DIVBoost and BitBonds lineups) are simply not trading yet and drop out of income.json on their own.

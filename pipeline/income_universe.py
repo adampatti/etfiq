@@ -103,6 +103,10 @@ STOCK_NAMES = {  # words that name a single stock in fund names
     'UNH': 'UnitedHealth', 'ADBE': 'Adobe', 'NOW': None, 'BRKB': 'Berkshire', 'MSTX': None, 'ELI': 'Eli Lilly', 'NVO': 'Novo Nordisk',
 }
 FORCE = [  # funds whose names do not carry a strategy keyword in the SEC file
+    {'ticker': 'SIOO', 'name': 'VistaShares Target 15 S&P 100 Distribution ETF', 'issuer': 'VistaShares', 'entity': 'VistaShares', 'cik': '', 'strategy': 'Target 15 distribution, options overlay', 'benchmark': 'OEF', 'benchmarkName': 'S&P 100 (OEF)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: listed and trading, SEC series file carries no ticker yet'},
+    {'ticker': 'ACKY', 'name': 'VistaShares Target 15 ACKtivist Distribution ETF', 'issuer': 'VistaShares', 'entity': 'Tidal Trust III', 'cik': '0001722388', 'strategy': 'Target 15 distribution, options overlay', 'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy', 'include': True, 'why': 'forced: listed and trading, SEC series file carries no ticker yet'},
+    {'ticker': 'DRKY', 'name': 'VistaShares Target 15 DRUKMacro Distribution ETF', 'issuer': 'VistaShares', 'entity': 'Tidal Trust III', 'cik': '0001722388', 'strategy': 'Target 15 distribution, options overlay', 'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy', 'include': True, 'why': 'forced: listed and trading, SEC series file carries no ticker yet'},
+    {'ticker': 'TPRY', 'name': 'VistaShares Target 15 TEPRTantrum Contrarian Distribution ETF', 'issuer': 'VistaShares', 'entity': 'Tidal Trust III', 'cik': '0001722388', 'strategy': 'Target 15 distribution, options overlay', 'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy', 'include': True, 'why': 'forced: listed and trading, SEC series file carries no ticker yet'},
     {'ticker': 'BALI', 'name': 'iShares Advantage Large Cap Income ETF', 'issuer': 'iShares', 'entity': 'iShares Trust', 'cik': '1100663', 'strategy': 'covered call', 'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
     {'ticker': 'NUSI', 'name': 'Nationwide Nasdaq-100 Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'QQQ', 'benchmarkName': 'Nasdaq-100 (QQQ)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
     {'ticker': 'NSPI', 'name': 'Nationwide S&P 500 Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
@@ -110,6 +114,8 @@ FORCE = [  # funds whose names do not carry a strategy keyword in the SEC file
     {'ticker': 'NTKI', 'name': 'Nationwide Russell 2000 Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'IWM', 'benchmarkName': 'Russell 2000 (IWM)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
 ]
 OVERRIDES = {  # ticker: dict of fields to force
+    'OMAH': {'benchmark': 'BRK-B', 'benchmarkName': 'Berkshire Hathaway B (BRK-B), used as the proxy', 'benchmarkKind': 'proxy', 'strategy': 'Target 15 distribution, options overlay'},
+    'GATE': {'include': False, 'why': 'excluded: fund not launched; the price history under this ticker belongs to a prior security (issuer confirmed 2026-09-05)'},
     # single-stock funds the name rules miss: class-share tickers, short products, Tuttle 0DTE names
     'BRKC': {'benchmark': 'BRK-B', 'benchmarkName': 'Berkshire Hathaway B (BRK-B)', 'benchmarkKind': 'stock', 'strategy': 'single-stock option income'},
     'CRSH': {'benchmark': 'TSLA', 'benchmarkName': 'Tesla (TSLA)', 'benchmarkKind': 'stock', 'strategy': 'short single-stock option income'},
@@ -131,7 +137,6 @@ OVERRIDES = {  # ticker: dict of fields to force
     'RDTE': {'benchmark': 'IWM', 'benchmarkName': 'Russell 2000 (IWM)', 'benchmarkKind': 'index', 'strategy': '0DTE covered call'},
     'BALI': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY)', 'benchmarkKind': 'index', 'include': True},
     'KNG': {'benchmark': 'NOBL', 'benchmarkName': 'S&P 500 Dividend Aristocrats (NOBL)', 'benchmarkKind': 'index', 'include': True},
-    'OMAH': {'benchmark': 'BRK-B', 'benchmarkName': 'Berkshire Hathaway (BRK.B)', 'benchmarkKind': 'stock'},
 }
 
 
@@ -167,7 +172,7 @@ def benchmark_of(name):
 
 
 SINGLE_PATTERNS = [
-    r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Option', r'YieldBOOST\s+([A-Z]{1,5})\b', r'Kurv[^()]*\(([A-Z]{1,5})\)',
+    r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Option', r'YieldMax(?:\(R\)|™)?\s+Short\s+([A-Z]{1,5})\s+Option', r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Short\s+Option', r'YieldMax(?:\(R\)|™)?\s+(BRK)\.B\s+Option', r'Tuttle Capital\s+([A-Z]{1,5})\s+0DTE', r'YieldBOOST\s+([A-Z]{1,5})\b', r'Kurv[^()]*\(([A-Z]{1,5})\)',
     r'Defiance\s+([A-Z]{1,5})\s+(?:Option|Daily|Weekly)', r'Bitwise\s+([A-Z]{1,5})\s+Option', r'Roundhill\s+([A-Z]{1,5})\s+WeeklyPay',
     r'REX\s+([A-Z]{1,5})\s+(?:Growth|Income|Premium)', r'Tuttle[^()]*\(([A-Z]{1,5})\)', r'\(([A-Z]{2,5})\)\s*(?:ETF)?$',
 ]
