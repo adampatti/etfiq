@@ -840,7 +840,13 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
 - [Head to head comparisons]({BASE}/compare/): every pair of the most widely held funds on each desk, in one table with the desk's own fields
 - [Portfolio desk]({BASE}/portfolio/): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
-- [Standards and ownership]({BASE}/#/standards)
+- [Standards, ownership and sources]({BASE}/standards/): who publishes this, what it never does, and where every figure comes from
+- [Learn the vocabulary]({BASE}/learn/): three plain-words glossaries, one per desk, defining every term used here
+- [What changed today]({BASE}/changed/): counted from the published data each trading night
+- [Every issuer]({BASE}/issuers/): one page per issuer listing all of its funds across the desks
+- Theme pages: https://etfiq.com/themes/THEME.html, for example https://etfiq.com/themes/ai.html
+- Buffer reset months: https://etfiq.com/buffer/MONTH.html, for example https://etfiq.com/buffer/january.html
+- Embeddable graphics, free to use with a credit link: https://etfiq.com/embed/DESK/TICKER.svg, for example https://etfiq.com/embed/buffer/PJAN.svg
 - [Live application]({BASE}/)
 
 ## Data files
