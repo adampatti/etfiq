@@ -223,6 +223,7 @@ svg.band text.k,svg.pay text.k{fill:var(--ink);font-weight:500}
 .kv .l{font-size:11px;color:var(--muted);line-height:1.3}
 .kv .v{font:500 16px/1.3 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
 .kv .v.big{font-size:22px}
+.kv .v.wrap{white-space:normal;font-size:14px;line-height:1.35}
 .kv .v.cap{color:var(--ceiling)}
 .timeline{margin-top:6px}
 .timeline .bar{height:6px;background:var(--surface-3);border-radius:3px;overflow:hidden;position:relative}
@@ -966,9 +967,9 @@ function viewIncomeDesk(){
     for (const r of rows) { if (!groups.has(r.groupKey)) groups.set(r.groupKey, []); groups.get(r.groupKey).push(r); }
     const ordered = Array.from(groups.entries()).sort((a, b) => (b[1].length - a[1].length) || a[0].localeCompare(b[0]));
     for (const [k, g] of ordered) {
-      const closed = S.collapsed.has('i:' + k), lead = g[0];
-      const ahead = g.filter(r => istate(r) === 'ahead').length;
-      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="i:${esc(k)}"><td colspan="${ICOLS.length + 1}"><span class="car"></span><span class="gname">${esc(lead.benchmarkName || k)}</span><span class="gmeta">${g.length} funds · <b>${ahead}</b> ahead over ${WIN_LABEL[S.window]}</span></td></tr>`;
+      const closed = S.collapsed.has('i:' + k), lead = g.find(r => r.benchmarkKind !== 'proxy') || g[0];
+      const ahead = g.filter(r => istate(r) === 'ahead').length, proxies = g.filter(r => r.benchmarkKind === 'proxy').length;
+      body += `<tr class="grp${closed ? ' closed' : ''}" data-s="i:${esc(k)}"><td colspan="${ICOLS.length + 1}"><span class="car"></span><span class="gname">${esc((lead.benchmarkName || k).replace(/, used as .*$/, ''))}</span><span class="gmeta">${g.length} funds · <b>${ahead}</b> ahead over ${WIN_LABEL[S.window]}${proxies ? ` · ${proxies} measured against it as a proxy` : ''}</span></td></tr>`;
       if (!closed) body += g.map(irowHtml).join('');
     }
   } else body += rows.map(irowHtml).join('');
@@ -1042,7 +1043,7 @@ function incomePanel(r){
     ${kv((r.benchmark) + ' total return', w.bench == null ? '·' : fmtPct(w.bench), w.bench < 0 ? 'neg' : 'pos')}${kv('Ahead or behind', w.gap == null ? '·' : fmtPts(w.gap), w.gap > 0 ? 'pos' : w.gap < 0 ? 'neg' : '')}
   </div></section>` : ''}
   <section><h3>Payouts <span class="tag etfiq">ETFIQ</span><span class="sub">from exchange data</span></h3><div class="kv">
-    ${kv('Payout rate, annualised', fmtPct(r.distributionRate, {sign:false}), 'big')}${kv('Latest distribution', r.lastDistribution ? '$' + (+r.lastDistribution.amount).toFixed(4) + ' on ' + fmtDate(r.lastDistribution.date) : '·')}${kv('Cash paid, trailing 12 months', fmtPct(r.trailing12mCash, {sign:false}))}
+    ${kv('Payout rate, annualised', fmtPct(r.distributionRate, {sign:false}), 'big')}${kv('Latest distribution', r.lastDistribution ? '$' + (+r.lastDistribution.amount).toFixed(4) + ' on ' + fmtDate(r.lastDistribution.date) : '·', 'wrap')}${kv('Cash paid, trailing 12 months', fmtPct(r.trailing12mCash, {sign:false}))}
     ${kv('Price since launch', fmtPct(r.priceSinceInception), r.priceSinceInception < 0 ? 'neg' : 'pos')}${kv('Launched', r.inception ? esc(fmtDate(r.inception)) : '·')}${kv('Price', r.price == null ? '·' : '$' + (+r.price).toFixed(2))}
   </div>${r.distributions && r.distributions.length ? `<table class="mini"><thead><tr><th>Ex-date</th><th class="num">Cash per share</th></tr></thead><tbody>${r.distributions.slice().reverse().map(d => `<tr><td>${esc(fmtDate(d.date))}</td><td class="num">$${(+d.amount).toFixed(4)}</td></tr>`).join('')}</tbody></table>` : ''}</section>
   <section><h3>Benchmark <span class="tag etfiq">ETFIQ</span></h3><p class="plain" style="font-size:14px">${esc(r.benchmarkName || r.benchmark)}${r.benchmarkKind === 'proxy' ? '. This is a proxy: the closest listed ETF to what the fund actually writes options on.' : r.benchmarkKind === 'stock' ? '. Single-stock fund: the comparison is with simply owning the stock.' : '.'} Total return, dividends reinvested, over the same days.</p></section>
