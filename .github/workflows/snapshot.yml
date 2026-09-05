@@ -24,7 +24,7 @@ jobs:
           ETFIQ_CONTACT: ${{ secrets.ETFIQ_CONTACT }}
       - name: Income desk (runs when the Tiingo token is set)
         if: ${{ env.TIINGO_TOKEN != '' }}
-        run: python pipeline/income.py
+        run: python pipeline/income.py && python pipeline/payouts.py
         env:
           TIINGO_TOKEN: ${{ secrets.TIINGO_TOKEN }}
       - run: python pipeline/build_site.py

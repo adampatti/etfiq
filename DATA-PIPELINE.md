@@ -74,3 +74,17 @@ The FT Vest Max Buffer line turned out not to be a 100 point buffer: the issuer 
 **Feed:** Tiingo end-of-day, Power plan, about $30 a month. `pipeline/income.py` pulls one request per ticker (fund and benchmark) with per-day caching, split-adjusts closes and cash so reverse splits do not distort the price and paid columns, and uses Tiingo's adjusted close for total return. First run: 216 of 283 funds returned prices; the 67 missing are mostly funds the feed does not carry yet or tickers that are not live. Over the trailing year, 37 of 159 funds with a full year of history were ahead of their benchmark.
 
 **Not yet captured:** return of capital from 19a-1 notices (the cash column is total cash regardless of tax character), expense ratios and assets for income funds, and the 67 missing tickers. The nightly job runs `income.py` whenever the `TIINGO_TOKEN` secret is set.
+
+## Payout calendar, added 2026-09-05
+
+**Question:** what is paying, when, and how much, for the next 45 days. `pipeline/payouts.py` writes `site/data/payouts.json` after `income.py` runs.
+
+Three states, never blended:
+
+- **Declared.** Nasdaq's dividend API carries declaration, ex, record and pay dates with amounts, but only for funds listed on Nasdaq (JEPQ, QYLD, GPIX, FEPI and the like). An upcoming ex-date there is the issuer's declaration.
+- **Scheduled.** YieldMax publishes declaration, ex and pay dates for the whole year per payer group on its distribution schedule page; the amount is the last payment until the issuer declares. Other issuers' schedule pages can be added the same way.
+- **Estimated.** Projected from the fund's own cadence (the median gap between its recent ex-dates, from the Tiingo history) and its last amount, with the pay date set by the fund's usual ex-to-pay lag where Nasdaq history gives one, otherwise two days. Weekend dates roll to Monday; exchange holidays are not yet handled.
+
+The page shows the per-share amount and the payout per $10,000 invested at today's price, marks each event with its state, and totals the next 30 days for the funds a reader has pinned.
+
+**Index income versus single-stock income.** Funds that write options on one company (YieldMax, GraniteShares YieldBOOST, Kurv, Defiance and the rest) are a different product from index funds like JEPI and SPYI: weekly payouts, extreme swings, principal that can halve in a year. Every income view carries a switch, index income by default, single stock or all on request, and the headline figures follow the switch.
