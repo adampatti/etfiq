@@ -113,7 +113,105 @@ FORCE = [  # funds whose names do not carry a strategy keyword in the SEC file
     {'ticker': 'NDJI', 'name': 'Nationwide Dow Jones Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'DIA', 'benchmarkName': 'Dow Jones Industrial Average (DIA)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
     {'ticker': 'NTKI', 'name': 'Nationwide Russell 2000 Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'IWM', 'benchmarkName': 'Russell 2000 (IWM)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
 ]
+# option-income funds the name rules leave in the review bucket, confirmed by hand 2026-09-05
+HAND_INCLUDE = {
+    'AALS', 'AMLS', 'BLLS', 'BXLS', 'COLS', 'CRLS', 'ETLS', 'GLS', 'GMLS', 'IJRY', 'MELS', 'MSLS', 'NVLS', 'ORLS', 'PLLS', 'QLDY', 'SLLS', 'SSOY', 'SVLS', 'TLLS', 'XRLS',  # Defiance LightningSpread
+    'IWMY', 'QQQY', 'WDTE',  # Defiance weekly distribution (0DTE put write)
+    'BYYY', 'CYYY', 'MYYY', 'NYYY', 'PYYY', 'RHYY', 'TYYY',  # xETFs daily income
+    'COII', 'CWII', 'HOII', 'LLII', 'MSII', 'NVII', 'PLTI', 'TSII', 'WMTI', 'ATCL',  # REX growth and income, autocallable
+    'CAIE', 'QRMI', 'XRMI', 'TDAQ', 'TSPY', 'NLSI', 'JUCY', 'DUBS', 'IDUB', 'SCLZ', 'SDEE', 'GRNI', 'THTA', 'OEI', 'PRMN', 'EGGY', 'NPEI', 'YLDE', 'JUDO',
+    'BLOX', 'GLDN', 'NUKX', 'SLVX', 'WEPN', 'GIAX',  # Nicholas income funds
+}
+# listed and trading per Tiingo's ticker list but absent from the SEC series file (swept 2026-09-05, confirmed by hand)
+TIINGO_EXTRA = [
+    ('HCOW', 'Amplify Cash Flow High Income ETF'),
+    ('ETTY', 'Amplify Ethereum 3 Monthly Option Income ETF'),
+    ('EHY', 'Amplify Ethereum Max Income Covered Call ETF'),
+    ('HAKY', 'Amplify HACK Cybersecurity Covered Call ETF'),
+    ('SLJY', 'Amplify SILJ Covered Call ETF'),
+    ('SOLM', 'Amplify Solana 3 Monthly Option Income ETF'),
+    ('XRPM', 'Amplify XRP 3 Monthly Premium Income ETF'),
+    ('QDVO', 'CWP Growth & Income ETF'),
+    ('CAIQ', 'Calamos Nasdaq Autocallable Income ETF'),
+    ('GOIB', 'Direxion GOOGL Defined Income Boost ETF'),
+    ('MEIB', 'Direxion META Defined Income Boost ETF'),
+    ('MUIB', 'Direxion MU Defined Income Boost ETF'),
+    ('NVIB', 'Direxion NVDA Defined Income Boost ETF'),
+    ('PLIB', 'Direxion PLTR Defined Income Boost ETF'),
+    ('TSIB', 'Direxion TSLA Defined Income Boost ETF'),
+    ('XVAP', 'FT Vest AAPL & Target Income ETF'),
+    ('XVNV', 'FT Vest NVDA & Target Income ETF'),
+    ('XVSP', 'FT Vest SPCX & Target Income ETF'),
+    ('XVTS', 'FT Vest TSLA & Target Income ETF'),
+    ('QYLE', 'Global X Nasdaq 100 ESG Covered Call ETF'),
+    ('IACL', 'GraniteShares US 100 Autocallable Income ETF'),
+    ('CWY', 'GraniteShares YieldBOOST CRWV ETF'),
+    ('YBST', 'GraniteShares YieldBoost Single Stock Universe ETF'),
+    ('YBTY', 'GraniteShares YieldBoost TopYielders ETF'),
+    ('GEEQ', 'Guggenheim Enhanced Equity Income ETF'),
+    ('SPUT', 'Innovator Equity Premium Income Daily PutWrite ETF'),
+    ('APRD', 'Innovator Premium Income 10 Barrier ETF - April'),
+    ('JAND', 'Innovator Premium Income 10 Barrier ETF - January'),
+    ('JULD', 'Innovator Premium Income 10 Barrier ETF - July'),
+    ('OCTD', 'Innovator Premium Income 10 Barrier ETF - October'),
+    ('LAPR', 'Innovator Premium Income 15 Buffer ETF - April'),
+    ('LJAN', 'Innovator Premium Income 15 Buffer ETF - January'),
+    ('LJUL', 'Innovator Premium Income 15 Buffer ETF - July'),
+    ('LOCT', 'Innovator Premium Income 15 Buffer ETF - October'),
+    ('APRH', 'Innovator Premium Income 20 Barrier ETF - April'),
+    ('JANH', 'Innovator Premium Income 20 Barrier ETF - January'),
+    ('JULH', 'Innovator Premium Income 20 Barrier ETF - July'),
+    ('OCTH', 'Innovator Premium Income 20 Barrier ETF - October'),
+    ('APRJ', 'Innovator Premium Income 30 Barrier ETF - April'),
+    ('JANJ', 'Innovator Premium Income 30 Barrier ETF - January'),
+    ('JULJ', 'Innovator Premium Income 30 Barrier ETF - July'),
+    ('OCTJ', 'Innovator Premium Income 30 Barrier ETF - October'),
+    ('APRQ', 'Innovator Premium Income 40 Barrier ETF - April'),
+    ('JULQ', 'Innovator Premium Income 40 Barrier ETF - July'),
+    ('OCTQ', 'Innovator Premium Income 40 Barrier ETF - October'),
+    ('HAPR', 'Innovator Premium Income 9 Buffer ETF - April'),
+    ('HJUL', 'Innovator Premium Income 9 Buffer ETF - July'),
+    ('HOCT', 'Innovator Premium Income 9 Buffer ETF - October'),
+    ('EFAA', 'Invesco MSCI EAFE Income Advantage ETF'),
+    ('QQA', 'Invesco QQQ Income Advantage ETF'),
+    ('RSPA', 'Invesco S&P 500 Equal Weight Income Advantage ETF'),
+    ('KEO', 'Kurv Equity Option Income ETF'),
+    ('KGLD', 'Kurv Gold Enhanced Income ETF'),
+    ('KYLD', 'Kurv High Income ETF'),
+    ('KSLV', 'Kurv Silver Enhanced Income ETF'),
+    ('XSHP', 'Kurv SpaceX Enhanced Income ETF'),
+    ('AMZP', 'Kurv Yield Premium Strategy Amazon (AMZN) ETF'),
+    ('AAPY', 'Kurv Yield Premium Strategy Apple (AAPL) ETF'),
+    ('GOOP', 'Kurv Yield Premium Strategy Google (GOOGL) ETF'),
+    ('MSFY', 'Kurv Yield Premium Strategy Microsoft (MSFT) ETF'),
+    ('NFLP', 'Kurv Yield Premium Strategy Netflix (NFLX) ETF'),
+    ('TSLP', 'Kurv Yield Premium Strategy Tesla (TSLA) ETF'),
+    ('GQI', 'Natixis Gateway Quality Income ETF'),
+    ('PCOV', 'Principal Equity Premium Income ETF'),
+    ('ACQQ', 'ProShares Nasdaq-100 Autocallable Income ETF'),
+    ('ACRT', 'ProShares Russell 2000 Autocallable Income ETF'),
+    ('ACSP', 'ProShares S&P 500 Autocallable Income ETF'),
+    ('TMGN', 'TappAlpha Cboe Magnificent 10 Growth & Daily Income ETF'),
+    ('PAYM', 'TrueShares S&P Autocallable Defensive Income ETF'),
+    ('PAYH', 'TrueShares S&P Autocallable High Income ETF'),
+    ('ODTE', 'VegaShares SPX NDX RTY Premium Income ETF'),
+    ('YLDW', 'Westwood Enhanced Income Opportunity ETF'),
+    ('WEEI', 'Westwood Salient Enhanced Energy Income ETF'),
+    ('MDST', 'Westwood Salient Enhanced Midstream Income ETF'),
+    ('VOOY', 'XFUNDS Large Cap Income ETF'),
+    ('DRMY', 'XFUNDS Memory Income ETF'),
+    ('MSST', 'YieldMax MSTR Performance & Distribution Target 25 ETF'),
+    ('YRAM', 'YieldMax Memory and Storage Portfolio Option Income ETF'),
+    ('YSPC', 'YieldMax SPCX Option Income Strategy ETF'),
+    ('BITA', 'iShares Bitcoin Premium Income ETF'),
+    ('BALQ', 'iShares Nasdaq Premium Income Active ETF'),
+]
 OVERRIDES = {  # ticker: dict of fields to force
+    'SLJY': {'benchmark': 'SILJ', 'benchmarkName': 'Junior silver miners (SILJ)', 'benchmarkKind': 'index'},
+    'HAKY': {'benchmark': 'HACK', 'benchmarkName': 'Cybersecurity (HACK)', 'benchmarkKind': 'index'},
+    'XSHP': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy'},
+    'XVSP': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy'},
+    'YSPC': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY), used as the proxy', 'benchmarkKind': 'proxy'},
     'OMAH': {'benchmark': 'BRK-B', 'benchmarkName': 'Berkshire Hathaway B (BRK-B), used as the proxy', 'benchmarkKind': 'proxy', 'strategy': 'Target 15 distribution, options overlay'},
     'GATE': {'include': False, 'why': 'excluded: fund not launched; the price history under this ticker belongs to a prior security (issuer confirmed 2026-09-05)'},
     # single-stock funds the name rules miss: class-share tickers, short products, Tuttle 0DTE names
@@ -173,7 +271,7 @@ def benchmark_of(name):
 
 SINGLE_PATTERNS = [
     r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Option', r'YieldMax(?:\(R\)|™)?\s+Short\s+([A-Z]{1,5})\s+Option', r'YieldMax(?:\(R\)|™)?\s+([A-Z]{1,5})\s+Short\s+Option', r'YieldMax(?:\(R\)|™)?\s+(BRK)\.B\s+Option', r'Tuttle Capital\s+([A-Z]{1,5})\s+0DTE', r'YieldBOOST\s+([A-Z]{1,5})\b', r'Kurv[^()]*\(([A-Z]{1,5})\)',
-    r'Defiance\s+([A-Z]{1,5})\s+(?:Option|Daily|Weekly)', r'Bitwise\s+([A-Z]{1,5})\s+Option', r'Roundhill\s+([A-Z]{1,5})\s+WeeklyPay',
+    r'Defiance\s+([A-Z]{1,5})\s+(?:Option|Daily|Weekly|LightningSpread)', r'xETFs\s+([A-Z]{1,5})\s+Daily Income', r'Direxion\s+([A-Z]{1,5})\s+Defined Income', r'FT Vest\s+([A-Z]{1,5})\s+&\s+Target Income', r'Amplify\s+([A-Z]{2,5})\s+Covered Call', r'Bitwise\s+([A-Z]{1,5})\s+Option', r'Roundhill\s+([A-Z]{1,5})\s+WeeklyPay',
     r'REX\s+([A-Z]{1,5})\s+(?:Growth|Income|Premium)', r'Tuttle[^()]*\(([A-Z]{1,5})\)', r'\(([A-Z]{2,5})\)\s*(?:ETF)?$',
 ]
 TOKEN_SKIP = {'ETF', 'US', 'USA', 'SP', 'SPX', 'NDX', 'DJIA', 'BTC', 'ETH', 'SOL', 'XRP'}
@@ -249,6 +347,8 @@ def build(year=None):
             rec['include'], rec['why'] = True, 'option-income keyword in the name'
         elif strong and rec['issuer'] in KNOWN_OPTION_ISSUERS:
             rec['include'], rec['why'] = True, 'income keyword from a known option-income issuer'
+        elif tk in HAND_INCLUDE:
+            rec['include'], rec['why'] = True, 'option-income fund confirmed by hand'
         else:
             rec['why'] = 'income keyword only; review by hand'
         rec.update(OVERRIDES.get(tk, {}))
@@ -257,6 +357,15 @@ def build(year=None):
         if f['ticker'] not in seen:
             out.append(dict(f))
             seen.add(f['ticker'])
+    for tk, name in TIINGO_EXTRA:
+        if tk in seen:
+            continue
+        bt, bn, bk = benchmark_of(name)
+        rec = {'ticker': tk, 'name': name, 'issuer': issuer_of(name, ''), 'entity': '', 'cik': '', 'strategy': strategy_of(name), 'benchmark': bt, 'benchmarkName': bn, 'benchmarkKind': bk,
+               'include': True, 'why': 'listed per Tiingo, absent from the SEC series file, confirmed by hand'}
+        rec.update(OVERRIDES.get(tk, {}))
+        out.append(rec)
+        seen.add(tk)
     out.sort(key=lambda r: (r['issuer'], r['ticker']))
     (ROOT / 'data').mkdir(exist_ok=True)
     (ROOT / 'data' / 'income_universe.json').write_text(json.dumps(out, indent=1))

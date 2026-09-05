@@ -78,6 +78,58 @@
   "why": "income keyword only; review by hand"
  },
  {
+  "ticker": "EHY",
+  "name": "Amplify Ethereum Max Income Covered Call ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "ETHA",
+  "benchmarkName": "Ether (ETHA)",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "ETTY",
+  "name": "Amplify Ethereum 3 Monthly Option Income ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "ETHA",
+  "benchmarkName": "Ether (ETHA)",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "HAKY",
+  "name": "Amplify HACK Cybersecurity Covered Call ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "HACK",
+  "benchmarkName": "Cybersecurity (HACK)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "HCOW",
+  "name": "Amplify Cash Flow High Income ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "IDVO",
   "name": "Amplify CWP International Enhanced Dividend Income ETF",
   "issuer": "Amplify",
@@ -89,6 +141,45 @@
   "benchmarkKind": "proxy",
   "include": true,
   "why": "income keyword only; review by hand"
+ },
+ {
+  "ticker": "SLJY",
+  "name": "Amplify SILJ Covered Call ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SILJ",
+  "benchmarkName": "Junior silver miners (SILJ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "SOLM",
+  "name": "Amplify Solana 3 Monthly Option Income ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "BITQ",
+  "benchmarkName": "Crypto industry (BITQ), used as the crypto proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "XRPM",
+  "name": "Amplify XRP 3 Monthly Premium Income ETF",
+  "issuer": "Amplify",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "BITQ",
+  "benchmarkName": "Crypto industry (BITQ), used as the crypto proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "YYY",
@@ -126,8 +217,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "IDUB",
@@ -139,8 +230,8 @@
   "benchmark": "EFA",
   "benchmarkName": "Developed Markets ex US (EFA)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "JUCY",
@@ -152,8 +243,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "BEDY",
@@ -286,6 +377,19 @@
   "why": "income keyword only; review by hand"
  },
  {
+  "ticker": "QDVO",
+  "name": "CWP Growth & Income ETF",
+  "issuer": "CWP",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "CAIE",
   "name": "Calamos Autocallable Income ETF",
   "issuer": "Calamos",
@@ -295,8 +399,21 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
+ },
+ {
+  "ticker": "CAIQ",
+  "name": "Calamos Nasdaq Autocallable Income ETF",
+  "issuer": "Calamos",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "QQQ",
+  "benchmarkName": "Nasdaq-100 (QQQ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "CTIF",
@@ -396,11 +513,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "AAPL",
+  "benchmarkName": "Apple (AAPL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "AMLS",
@@ -412,8 +529,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "BLLS",
@@ -425,8 +542,8 @@
   "benchmark": "IBIT",
   "benchmarkName": "Bitcoin (IBIT)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "BXLS",
@@ -438,8 +555,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "COLS",
@@ -448,11 +565,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "COIN",
+  "benchmarkName": "Coinbase (COIN)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "CRLS",
@@ -461,11 +578,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "CRCL",
+  "benchmarkName": "(CRCL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "ETLS",
@@ -477,8 +594,8 @@
   "benchmark": "ETHA",
   "benchmarkName": "Ether (ETHA)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GLDY",
@@ -503,8 +620,8 @@
   "benchmark": "GLD",
   "benchmarkName": "Gold (GLD)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GMLS",
@@ -516,8 +633,8 @@
   "benchmark": "GDX",
   "benchmarkName": "Gold miners (GDX)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GRY",
@@ -542,8 +659,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "IWMY",
@@ -555,8 +672,8 @@
   "benchmark": "IWM",
   "benchmarkName": "Russell 2000 (IWM)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "MELS",
@@ -568,8 +685,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "MSLS",
@@ -578,11 +695,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "MSTR",
+  "benchmarkName": "MicroStrategy (MSTR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NUKY",
@@ -604,11 +721,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "NVDA",
+  "benchmarkName": "NVIDIA (NVDA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "ORLS",
@@ -617,11 +734,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "ORCL",
+  "benchmarkName": "Oracle (ORCL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "PLLS",
@@ -630,11 +747,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "PLTR",
+  "benchmarkName": "Palantir (PLTR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "QLDY",
@@ -646,8 +763,8 @@
   "benchmark": "QQQ",
   "benchmarkName": "Nasdaq-100 (QQQ)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "QQQY",
@@ -659,8 +776,8 @@
   "benchmark": "QQQ",
   "benchmarkName": "Nasdaq-100 (QQQ)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "SLLS",
@@ -672,8 +789,8 @@
   "benchmark": "BITQ",
   "benchmarkName": "Crypto industry (BITQ), used as the crypto proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "SLVY",
@@ -698,8 +815,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "SVLS",
@@ -711,8 +828,8 @@
   "benchmark": "SLV",
   "benchmarkName": "Silver (SLV)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "TLLS",
@@ -721,11 +838,11 @@
   "entity": "Tidal Trust II",
   "cik": "1924868",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "USOY",
@@ -750,8 +867,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "XRLS",
@@ -763,8 +880,8 @@
   "benchmark": "BITQ",
   "benchmarkName": "Crypto industry (BITQ), used as the crypto proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "YBMN",
@@ -778,6 +895,84 @@
   "benchmarkKind": "stock",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "GOIB",
+  "name": "Direxion GOOGL Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "GOOGL",
+  "benchmarkName": "Alphabet (GOOGL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "MEIB",
+  "name": "Direxion META Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "META",
+  "benchmarkName": "(META)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "MUIB",
+  "name": "Direxion MU Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "MU",
+  "benchmarkName": "Micron (MU)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "NVIB",
+  "name": "Direxion NVDA Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "NVDA",
+  "benchmarkName": "NVIDIA (NVDA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "PLIB",
+  "name": "Direxion PLTR Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "PLTR",
+  "benchmarkName": "Palantir (PLTR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "TSIB",
+  "name": "Direxion TSLA Defined Income Boost ETF",
+  "issuer": "Direxion",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "DLUX",
@@ -825,11 +1020,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "BMNR",
+  "benchmarkName": "Bitmine (BMNR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "CYYY",
@@ -838,11 +1033,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "COIN",
+  "benchmarkName": "Coinbase (COIN)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "MYYY",
@@ -851,11 +1046,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "MSTR",
+  "benchmarkName": "MicroStrategy (MSTR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NYYY",
@@ -864,11 +1059,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "NVDA",
+  "benchmarkName": "NVIDIA (NVDA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "PYYY",
@@ -877,11 +1072,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "PLTR",
+  "benchmarkName": "Palantir (PLTR)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "RHYY",
@@ -890,11 +1085,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "HOOD",
+  "benchmarkName": "Robinhood (HOOD)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "TYYY",
@@ -903,11 +1098,11 @@
   "entity": "Exchange Listed Funds Trust",
   "cik": "1547950",
   "strategy": "option income",
-  "benchmark": "SPY",
-  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
-  "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "PAYR",
@@ -1222,6 +1417,58 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "XVAP",
+  "name": "FT Vest AAPL & Target Income ETF",
+  "issuer": "First Trust",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "AAPL",
+  "benchmarkName": "Apple (AAPL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "XVNV",
+  "name": "FT Vest NVDA & Target Income ETF",
+  "issuer": "First Trust",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "NVDA",
+  "benchmarkName": "NVIDIA (NVDA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "XVSP",
+  "name": "FT Vest SPCX & Target Income ETF",
+  "issuer": "First Trust",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "XVTS",
+  "name": "FT Vest TSLA & Target Income ETF",
+  "issuer": "First Trust",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "FODI",
   "name": "Formidable Dividend and Income ETF",
   "issuer": "Formidable",
@@ -1257,8 +1504,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GRNI",
@@ -1270,8 +1517,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GMOC",
@@ -1387,8 +1634,8 @@
   "benchmark": "QQQ",
   "benchmarkName": "Nasdaq-100 (QQQ)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "QYLD",
@@ -1402,6 +1649,19 @@
   "benchmarkKind": "index",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "QYLE",
+  "name": "Global X Nasdaq 100 ESG Covered Call ETF",
+  "issuer": "Global X",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "QQQ",
+  "benchmarkName": "Nasdaq-100 (QQQ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "QYLG",
@@ -1465,8 +1725,8 @@
   "benchmark": "ACWI",
   "benchmarkName": "All-country world (ACWI)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "XYLD",
@@ -1690,6 +1950,19 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "CWY",
+  "name": "GraniteShares YieldBOOST CRWV ETF",
+  "issuer": "GraniteShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "CRWV",
+  "benchmarkName": "(CRWV)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "FBYY",
   "name": "GraniteShares YieldBOOST META ETF",
   "issuer": "GraniteShares",
@@ -1753,6 +2026,19 @@
   "benchmarkKind": "stock",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "IACL",
+  "name": "GraniteShares US 100 Autocallable Income ETF",
+  "issuer": "GraniteShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "IOYY",
@@ -2106,6 +2392,32 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "YBST",
+  "name": "GraniteShares YieldBoost Single Stock Universe ETF",
+  "issuer": "GraniteShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "YBTY",
+  "name": "GraniteShares YieldBoost TopYielders ETF",
+  "issuer": "GraniteShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "YSPY",
   "name": "GraniteShares YieldBOOST SPY ETF",
   "issuer": "GraniteShares",
@@ -2171,6 +2483,19 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "GEEQ",
+  "name": "Guggenheim Enhanced Equity Income ETF",
+  "issuer": "Guggenheim",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "HEMI",
   "name": "Hartford Equity Premium Income ETF",
   "issuer": "Hartford",
@@ -2210,6 +2535,305 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "APRD",
+  "name": "Innovator Premium Income 10 Barrier ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "APRH",
+  "name": "Innovator Premium Income 20 Barrier ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "APRJ",
+  "name": "Innovator Premium Income 30 Barrier ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "APRQ",
+  "name": "Innovator Premium Income 40 Barrier ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "HAPR",
+  "name": "Innovator Premium Income 9 Buffer ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "HJUL",
+  "name": "Innovator Premium Income 9 Buffer ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "HOCT",
+  "name": "Innovator Premium Income 9 Buffer ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JAND",
+  "name": "Innovator Premium Income 10 Barrier ETF - January",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JANH",
+  "name": "Innovator Premium Income 20 Barrier ETF - January",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JANJ",
+  "name": "Innovator Premium Income 30 Barrier ETF - January",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JULD",
+  "name": "Innovator Premium Income 10 Barrier ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JULH",
+  "name": "Innovator Premium Income 20 Barrier ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JULJ",
+  "name": "Innovator Premium Income 30 Barrier ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "JULQ",
+  "name": "Innovator Premium Income 40 Barrier ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "LAPR",
+  "name": "Innovator Premium Income 15 Buffer ETF - April",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "LJAN",
+  "name": "Innovator Premium Income 15 Buffer ETF - January",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "LJUL",
+  "name": "Innovator Premium Income 15 Buffer ETF - July",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "LOCT",
+  "name": "Innovator Premium Income 15 Buffer ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "buffer with income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "OCTD",
+  "name": "Innovator Premium Income 10 Barrier ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "OCTH",
+  "name": "Innovator Premium Income 20 Barrier ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "OCTJ",
+  "name": "Innovator Premium Income 30 Barrier ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "OCTQ",
+  "name": "Innovator Premium Income 40 Barrier ETF - October",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "defined income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "SPUT",
+  "name": "Innovator Equity Premium Income Daily PutWrite ETF",
+  "issuer": "Innovator",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "CVY",
   "name": "Invesco Zacks Multi-Asset Income ETF",
   "issuer": "Invesco",
@@ -2223,6 +2847,19 @@
   "why": "income keyword only; review by hand"
  },
  {
+  "ticker": "EFAA",
+  "name": "Invesco MSCI EAFE Income Advantage ETF",
+  "issuer": "Invesco",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "EFA",
+  "benchmarkName": "Developed Markets ex US (EFA)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "PBP",
   "name": "Invesco S&P 500 BuyWrite ETF",
   "issuer": "Invesco",
@@ -2234,6 +2871,32 @@
   "benchmarkKind": "index",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "QQA",
+  "name": "Invesco QQQ Income Advantage ETF",
+  "issuer": "Invesco",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "QQQ",
+  "benchmarkName": "Nasdaq-100 (QQQ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "RSPA",
+  "name": "Invesco S&P 500 Equal Weight Income Advantage ETF",
+  "issuer": "Invesco",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "RSP",
+  "benchmarkName": "S&P 500 Equal Weight (RSP)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "JEPI",
@@ -2362,8 +3025,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "KHPI",
@@ -2405,6 +3068,45 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "AAPY",
+  "name": "Kurv Yield Premium Strategy Apple (AAPL) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "AAPL",
+  "benchmarkName": "Apple (AAPL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "AMZP",
+  "name": "Kurv Yield Premium Strategy Amazon (AMZN) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "AMZN",
+  "benchmarkName": "Amazon (AMZN)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "GOOP",
+  "name": "Kurv Yield Premium Strategy Google (GOOGL) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "GOOGL",
+  "benchmarkName": "Alphabet (GOOGL)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "KBIT",
   "name": "Kurv Bitcoin Enhanced Income ETF",
   "issuer": "Kurv",
@@ -2416,6 +3118,110 @@
   "benchmarkKind": "proxy",
   "include": true,
   "why": "income keyword from a known option-income issuer"
+ },
+ {
+  "ticker": "KEO",
+  "name": "Kurv Equity Option Income ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "KGLD",
+  "name": "Kurv Gold Enhanced Income ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "GLD",
+  "benchmarkName": "Gold (GLD)",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "KSLV",
+  "name": "Kurv Silver Enhanced Income ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SLV",
+  "benchmarkName": "Silver (SLV)",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "KYLD",
+  "name": "Kurv High Income ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "MSFY",
+  "name": "Kurv Yield Premium Strategy Microsoft (MSFT) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "MSFT",
+  "benchmarkName": "Microsoft (MSFT)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "NFLP",
+  "name": "Kurv Yield Premium Strategy Netflix (NFLX) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "NFLX",
+  "benchmarkName": "Netflix (NFLX)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "TSLP",
+  "name": "Kurv Yield Premium Strategy Tesla (TSLA) ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "TSLA",
+  "benchmarkName": "Tesla (TSLA)",
+  "benchmarkKind": "stock",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "XSHP",
+  "name": "Kurv SpaceX Enhanced Income ETF",
+  "issuer": "Kurv",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "TGLR",
@@ -2570,8 +3376,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "QQQI",
@@ -2717,6 +3523,19 @@
   "why": "forced: known option-income fund"
  },
  {
+  "ticker": "GQI",
+  "name": "Natixis Gateway Quality Income ETF",
+  "issuer": "Natixis",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "QUAL",
+  "benchmarkName": "USA Quality (QUAL), used as the quality proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "EGGY",
   "name": "NestYield Dynamic Income ETF",
   "issuer": "NestYield",
@@ -2726,8 +3545,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NBOS",
@@ -2752,8 +3571,8 @@
   "benchmark": "BITQ",
   "benchmarkName": "Crypto industry (BITQ), used as the crypto proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GIAX",
@@ -2765,8 +3584,8 @@
   "benchmark": "ACWI",
   "benchmarkName": "All-country world (ACWI)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "GLDN",
@@ -2778,8 +3597,8 @@
   "benchmark": "GLD",
   "benchmarkName": "Gold (GLD)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NUKX",
@@ -2791,8 +3610,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "SLVX",
@@ -2804,8 +3623,8 @@
   "benchmark": "SLV",
   "benchmarkName": "Silver (SLV)",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "WEPN",
@@ -2817,8 +3636,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NPEI",
@@ -2830,8 +3649,8 @@
   "benchmark": "XLE",
   "benchmarkName": "Energy sector (XLE), used as the energy proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NSCI",
@@ -2856,8 +3675,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "PINC",
@@ -2921,8 +3740,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "IDVZ",
@@ -2938,6 +3757,19 @@
   "why": "income keyword only; review by hand"
  },
  {
+  "ticker": "PCOV",
+  "name": "Principal Equity Premium Income ETF",
+  "issuer": "Principal",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "YLD",
   "name": "Principal Active High Yield ETF (formerly Principal Active Income ETF)",
   "issuer": "Principal",
@@ -2949,6 +3781,45 @@
   "benchmarkKind": "proxy",
   "include": false,
   "why": "income keyword only; review by hand"
+ },
+ {
+  "ticker": "ACQQ",
+  "name": "ProShares Nasdaq-100 Autocallable Income ETF",
+  "issuer": "ProShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "QQQ",
+  "benchmarkName": "Nasdaq-100 (QQQ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "ACRT",
+  "name": "ProShares Russell 2000 Autocallable Income ETF",
+  "issuer": "ProShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "IWM",
+  "benchmarkName": "Russell 2000 (IWM)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "ACSP",
+  "name": "ProShares S&P 500 Autocallable Income ETF",
+  "issuer": "ProShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "IQQQ",
@@ -3077,8 +3948,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "CEPI",
@@ -3103,8 +3974,8 @@
   "benchmark": "COIN",
   "benchmarkName": "Coinbase (COIN)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "CWII",
@@ -3116,8 +3987,8 @@
   "benchmark": "CRWV",
   "benchmarkName": "(CRWV)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "DFPI",
@@ -3168,8 +4039,8 @@
   "benchmark": "HOOD",
   "benchmarkName": "Robinhood (HOOD)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "LLII",
@@ -3181,8 +4052,8 @@
   "benchmark": "LLY",
   "benchmarkName": "Eli Lilly (LLY)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "MSII",
@@ -3194,8 +4065,8 @@
   "benchmark": "MSTR",
   "benchmarkName": "MicroStrategy (MSTR)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "NVII",
@@ -3207,8 +4078,8 @@
   "benchmark": "NVDA",
   "benchmarkName": "NVIDIA (NVDA)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "PLTI",
@@ -3220,8 +4091,8 @@
   "benchmark": "PLTR",
   "benchmarkName": "Palantir (PLTR)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "QQQQ",
@@ -3246,8 +4117,8 @@
   "benchmark": "TSLA",
   "benchmarkName": "Tesla (TSLA)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "ULTI",
@@ -3272,8 +4143,8 @@
   "benchmark": "WMT",
   "benchmarkName": "Walmart (WMT)",
   "benchmarkKind": "stock",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "RJDI",
@@ -3493,8 +4364,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "DIVY",
@@ -3519,8 +4390,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY), used as a default proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "HYBL",
@@ -3701,8 +4572,8 @@
   "benchmark": "SCHD",
   "benchmarkName": "US dividend stocks (SCHD), used as the dividend proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "TCAL",
@@ -3740,8 +4611,21 @@
   "benchmark": "QQQ",
   "benchmarkName": "Nasdaq-100 (QQQ), used as the innovation proxy",
   "benchmarkKind": "proxy",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
+ },
+ {
+  "ticker": "TMGN",
+  "name": "TappAlpha Cboe Magnificent 10 Growth & Daily Income ETF",
+  "issuer": "TappAlpha",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "MAGS",
+  "benchmarkName": "Magnificent Seven (MAGS)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "TSPY",
@@ -3753,8 +4637,8 @@
   "benchmark": "SPY",
   "benchmarkName": "S&P 500 (SPY)",
   "benchmarkKind": "index",
-  "include": false,
-  "why": "income keyword only; review by hand"
+  "include": true,
+  "why": "option-income fund confirmed by hand"
  },
  {
   "ticker": "DIVZ",
@@ -3820,6 +4704,32 @@
   "benchmarkKind": "proxy",
   "include": false,
   "why": "income keyword only; review by hand"
+ },
+ {
+  "ticker": "PAYH",
+  "name": "TrueShares S&P Autocallable High Income ETF",
+  "issuer": "TrueShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "PAYM",
+  "name": "TrueShares S&P Autocallable Defensive Income ETF",
+  "issuer": "TrueShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "RNWZ",
@@ -3950,6 +4860,19 @@
   "benchmarkKind": "proxy",
   "include": false,
   "why": "income keyword only; review by hand"
+ },
+ {
+  "ticker": "ODTE",
+  "name": "VegaShares SPX NDX RTY Premium Income ETF",
+  "issuer": "VegaShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "VABS",
@@ -4147,6 +5070,45 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "MDST",
+  "name": "Westwood Salient Enhanced Midstream Income ETF",
+  "issuer": "Westwood",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "XLE",
+  "benchmarkName": "Energy sector (XLE), used as the energy proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "WEEI",
+  "name": "Westwood Salient Enhanced Energy Income ETF",
+  "issuer": "Westwood",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "XLE",
+  "benchmarkName": "Energy sector (XLE), used as the energy proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "YLDW",
+  "name": "Westwood Enhanced Income Opportunity ETF",
+  "issuer": "Westwood",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "WTPI",
   "name": "WisdomTree Equity Premium Income Fund",
   "issuer": "WisdomTree",
@@ -4158,6 +5120,32 @@
   "benchmarkKind": "proxy",
   "include": true,
   "why": "option-income keyword in the name"
+ },
+ {
+  "ticker": "DRMY",
+  "name": "XFUNDS Memory Income ETF",
+  "issuer": "XFUNDS",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "VOOY",
+  "name": "XFUNDS Large Cap Income ETF",
+  "issuer": "XFUNDS",
+  "entity": "",
+  "cik": "",
+  "strategy": "option income",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "ABNY",
@@ -4771,6 +5759,19 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "MSST",
+  "name": "YieldMax MSTR Performance & Distribution Target 25 ETF",
+  "issuer": "YieldMax",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "MSTT",
   "name": "YieldMax(R) MSTR Performance & Distribution Target 25(TM) ETF",
   "issuer": "YieldMax",
@@ -5330,6 +6331,32 @@
   "why": "option-income keyword in the name"
  },
  {
+  "ticker": "YRAM",
+  "name": "YieldMax Memory and Storage Portfolio Option Income ETF",
+  "issuer": "YieldMax",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as a default proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "YSPC",
+  "name": "YieldMax SPCX Option Income Strategy ETF",
+  "issuer": "YieldMax",
+  "entity": "",
+  "cik": "",
+  "strategy": "synthetic covered call",
+  "benchmark": "SPY",
+  "benchmarkName": "S&P 500 (SPY), used as the proxy",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
   "ticker": "YTLT",
   "name": "YieldMax(R) TLT Option Income Strategy ETF",
   "issuer": "YieldMax",
@@ -5393,6 +6420,32 @@
   "benchmarkKind": "index",
   "include": true,
   "why": "forced: known option-income fund"
+ },
+ {
+  "ticker": "BALQ",
+  "name": "iShares Nasdaq Premium Income Active ETF",
+  "issuer": "iShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "QQQ",
+  "benchmarkName": "Nasdaq-100 (QQQ)",
+  "benchmarkKind": "index",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
+ },
+ {
+  "ticker": "BITA",
+  "name": "iShares Bitcoin Premium Income ETF",
+  "issuer": "iShares",
+  "entity": "",
+  "cik": "",
+  "strategy": "covered call",
+  "benchmark": "IBIT",
+  "benchmarkName": "Bitcoin (IBIT)",
+  "benchmarkKind": "proxy",
+  "include": true,
+  "why": "listed per Tiingo, absent from the SEC series file, confirmed by hand"
  },
  {
   "ticker": "IVVW",
