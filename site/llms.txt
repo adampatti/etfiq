@@ -1,0 +1,24 @@
+# ETFIQ
+
+> Independent data on exchange-traded funds, in plain words, for retail investors and advisers. Three desks: buffer (defined outcome) ETFs on one comparable band; option-income ETFs against the index or stock they write options on; thematic ETFs measured by how much of them is already in the S&P 500. ETFIQ is not an issuer, broker or adviser and makes no recommendations. Sort orders are stated arithmetic on published data.
+
+Data as of: buffer desk 2026-09-04, income desk 2026-09-04, themes desk 2026-09-04. Refreshed every trading night.
+
+## Definitions
+
+- Buffer desk: "Can still gain" and "Fall before buffer" are the issuer's own figures in fund-price terms (remaining cap net of fees; downside before buffer). "Protection left" is ETFIQ's calculation in index points: the part of the buffer still below today's index level. The outcome band places every fund on one axis from buffer floor to cap in reference-return space.
+- Income desk: cash paid, price change and total return with distributions reinvested over 3M, 6M, 1Y, 3Y and since launch, from Tiingo end-of-day prices; "ahead or behind" is total return minus the benchmark's total return in points. Return of capital figures are issuers' Rule 19a-1 estimates.
+- Themes desk: holdings from each fund's latest public SEC N-PORT filing; "in the S&P 500" is the fund's weight in securities the index holds; active share is one minus the summed minimum weights against the IVV (S&P 500) or QQQM (Nasdaq-100) book; themes are ETFIQ's editorial taxonomy.
+
+## Pages
+
+- [Buffer desk, every fund](https://etfiq.com/buffer/): 245 funds
+- [Income desk, every fund](https://etfiq.com/income/): 338 funds
+- [Themes desk, every fund](https://etfiq.com/themes/): 242 funds
+- Fund pages: https://etfiq.com/funds/TICKER.html, for example https://etfiq.com/funds/PJAN.html, https://etfiq.com/funds/JEPI.html, https://etfiq.com/funds/ARKK.html
+- [Standards and ownership](https://etfiq.com/#/standards)
+- [Live application](https://etfiq.com/)
+
+## Data files
+
+- https://etfiq.com/data/funds.json (buffer desk records), https://etfiq.com/data/income.json (income desk records), https://etfiq.com/data/thematic.json (themes desk records and the fund-to-fund overlap matrix), https://etfiq.com/data/payouts.json (payout calendar), https://etfiq.com/data/sources.json (19a-1 estimates). Free to read; cite ETFIQ and the as-of date.
