@@ -370,6 +370,9 @@ table.mini td.num{text-align:right}
 tr.cohort td{background:var(--surface-3);height:34px;font:600 12px var(--font-narrow);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--line-2);position:sticky;left:0;padding-left:14px;box-shadow:inset 4px 0 0 var(--ceiling)}
 tr.cohort td .n{font-family:var(--font-mono);font-weight:500;color:var(--muted);margin-left:8px;text-transform:none;letter-spacing:0}
 .lad{display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start}
+.lad > .card{min-width:0;overflow:hidden}
+.lad .tiles{overflow-x:auto}
+.lad .ch{flex-wrap:wrap}
 @media (max-width:1000px){.lad{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 2px rgba(18,22,28,.05),0 8px 20px rgba(18,22,28,.05)}
 .card .ch{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
