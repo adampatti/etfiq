@@ -1401,7 +1401,9 @@ function themeStatus(r){
 function feeWords(r){
   if (r.expenseRatio == null) return '';
   if (r.activeFee == null) return `The fund charges ${fmtPct(r.expenseRatio, {sign:false, d:2})} a year, from its prospectus.`;
-  return `The fund charges ${fmtPct(r.expenseRatio, {sign:false, d:2})} a year. Only ${r.asSPY.toFixed(0)}% of it is placed differently from the S&P 500, so the fee for the part that is actually different works out to ${fmtPct(r.activeFee, {sign:false, d:2})} a year. That is the active expense ratio, an ETFIQ calculation; the rest of the portfolio could be owned through an S&P 500 fund for a few hundredths of a percent.`;
+  const share = r.asSPY.toFixed(0) + '%';
+  if (r.asSPY >= 90) return `The fund charges ${fmtPct(r.expenseRatio, {sign:false, d:2})} a year, and ${share} of it is placed differently from the S&P 500, so almost the whole fee buys exposure the index does not give you. The active expense ratio, an ETFIQ calculation, is ${fmtPct(r.activeFee, {sign:false, d:2})}.`;
+  return `The fund charges ${fmtPct(r.expenseRatio, {sign:false, d:2})} a year. ${r.asSPY < 60 ? 'Only ' + share : share} of it is placed differently from the S&P 500, so the fee for the part that is actually different works out to ${fmtPct(r.activeFee, {sign:false, d:2})} a year. That is the active expense ratio, an ETFIQ calculation; the rest of the portfolio could be owned through an S&P 500 fund for a few hundredths of a percent.`;
 }
 function themePlain(r){
   const w = tw(r), s = [];
