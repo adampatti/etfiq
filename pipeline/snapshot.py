@@ -43,8 +43,9 @@ UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML
 
 MONTHS = {m.lower(): m[:3] for m in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
                                      'September', 'October', 'November', 'December']}
-REF_KEYS = [('s&p 500', 'SPY'), ('spdr', 'SPY'), ('nasdaq-100', 'QQQ'), ('qqq', 'QQQ'), ('russell 2000', 'IWM'),
-            ('msci eafe', 'EFA'), ('emerging', 'EEM'), ('20+ year treasury', 'TLT'), ('gold', 'GLD'), ('bitcoin', 'BTC')]
+# specific names first: "SPDR Gold Trust" is gold, "Invesco S&P 500 Equal Weight" is RSP, and only then the S&P 500 itself
+REF_KEYS = [('gold', 'GLD'), ('equal weight', 'RSP'), ('nasdaq-100', 'QQQ'), ('qqq', 'QQQ'), ('russell 2000', 'IWM'), ('msci eafe', 'EFA'),
+            ('emerging', 'EEM'), ('20+ year treasury', 'TLT'), ('bitcoin', 'BTC'), ('s&p 500', 'SPY'), ('spdr', 'SPY')]
 
 
 # ------------------------------------------------------------------ helpers
