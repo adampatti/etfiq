@@ -110,6 +110,13 @@ FORCE = [  # funds whose names do not carry a strategy keyword in the SEC file
     {'ticker': 'NTKI', 'name': 'Nationwide Russell 2000 Risk-Managed Income ETF', 'issuer': 'Nationwide', 'entity': 'Nationwide Mutual Funds', 'cik': '1048702', 'strategy': 'covered call', 'benchmark': 'IWM', 'benchmarkName': 'Russell 2000 (IWM)', 'benchmarkKind': 'index', 'include': True, 'why': 'forced: known option-income fund'},
 ]
 OVERRIDES = {  # ticker: dict of fields to force
+    # single-stock funds the name rules miss: class-share tickers, short products, Tuttle 0DTE names
+    'BRKC': {'benchmark': 'BRK-B', 'benchmarkName': 'Berkshire Hathaway B (BRK-B)', 'benchmarkKind': 'stock', 'strategy': 'single-stock option income'},
+    'CRSH': {'benchmark': 'TSLA', 'benchmarkName': 'Tesla (TSLA)', 'benchmarkKind': 'stock', 'strategy': 'short single-stock option income'},
+    'DIPS': {'benchmark': 'NVDA', 'benchmarkName': 'NVIDIA (NVDA)', 'benchmarkKind': 'stock', 'strategy': 'short single-stock option income'},
+    'FIAT': {'benchmark': 'COIN', 'benchmarkName': 'Coinbase (COIN)', 'benchmarkKind': 'stock', 'strategy': 'short single-stock option income'},
+    'MSTK': {'benchmark': 'MSTR', 'benchmarkName': 'Strategy (MSTR)', 'benchmarkKind': 'stock', 'strategy': '0DTE single-stock covered call'},
+    'NVDL': {'benchmark': 'NVDA', 'benchmarkName': 'NVIDIA (NVDA)', 'benchmarkKind': 'stock', 'strategy': '0DTE single-stock covered call'},
     'JEPI': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY)', 'benchmarkKind': 'index', 'strategy': 'covered call'},
     'JEPQ': {'benchmark': 'QQQ', 'benchmarkName': 'Nasdaq-100 (QQQ)', 'benchmarkKind': 'index', 'strategy': 'covered call'},
     'DIVO': {'benchmark': 'SPY', 'benchmarkName': 'S&P 500 (SPY)', 'benchmarkKind': 'proxy', 'strategy': 'dividend stocks with call overlay', 'include': True},
