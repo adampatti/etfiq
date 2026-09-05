@@ -15,6 +15,8 @@ import json
 import pathlib
 import re
 
+import sys
+
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import rail as R  # noqa: E402
 

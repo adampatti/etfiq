@@ -22,6 +22,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from prerender import buffer_state, STATE_LABEL  # noqa: E402
 
+import sys
+
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import rail as R  # noqa: E402
 
