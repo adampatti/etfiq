@@ -405,7 +405,8 @@ def x_cmp_page(a, b, ka, kb, as_of, matrix, words_a, words_b, related_pairs):
              + (f'<h2>Other comparisons</h2><nav class="rel">{rel}</nav>' if rel else '')
              + '<p class="note">A comparison is not a recommendation. ETFIQ publishes the same fields for every fund and suggests no allocation. '
                '<a href="/standards/">Standards and sources</a></p>')
-    return doc_page(f'compare/any/{pair_slug(ta, tb)}.html', title, desc, inner, ld, wide=True, short=f'{ta} vs {tb}')
+    return doc_page(f'compare/any/{pair_slug(ta, tb)}.html', title, desc, inner, ld, wide=True, short=f'{ta} vs {tb}',
+                    crumb=[('Head to head', f'{BASE}/compare/')])
 
 
 def compare_index(pairs_by_desk, as_of):
@@ -914,7 +915,7 @@ def any_rows(a, b, ka, kb, extra):
                 'themes': lambda: r.get('themeName', 'thematic'),
                 'core': lambda: r.get('note', 'index fund')}[kind]()
         v = r.get('vsSPY') or {}
-        cash = (r.get('windows') or {}).get('1Y', {}).get('cash') if kind == 'income' else None
+        cash = ((r.get('windows') or {}).get('1Y') or {}).get('cash') if kind == 'income' else None
         return [{'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk', 'core': 'Core fund'}[kind],
                 r.get('issuer', 'n/a'), what,
                 pct(w.get('total')), pct(w.get('bench')), pts(w.get('gap')),
@@ -924,7 +925,11 @@ def any_rows(a, b, ka, kb, extra):
                 str(r.get('holdingsCount') or 'n/a')]
     labels = ['Where it sits', 'Issuer', 'What it is', 'Total return, 1 year', 'S&P 500 over the same days', 'Gap to the S&P 500',
               'Cash paid, 1 year', 'Expense ratio', 'Already in the S&P 500', 'Holdings']
-    return labels, one(a, ka), one(b, kb)
+    ra, rb = one(a, ka), one(b, kb)
+    # a field only appears when both funds publish it, so no cell has to say the figure is missing
+    keep = [i for i in range(len(labels)) if not (ra[i] in ('not an income fund', 'no filed book', 'n/a') and rb[i] in ('not an income fund', 'no filed book', 'n/a'))]
+    keep = [i for i in keep if not (ra[i] in ('no filed book',) or rb[i] in ('no filed book',))]
+    return [labels[i] for i in keep], [ra[i] for i in keep], [rb[i] for i in keep]
 
 
 def cmp_rows(desk, a, b, extra):

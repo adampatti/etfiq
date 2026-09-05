@@ -44,6 +44,18 @@ HAND_NAMES = {'SPY': 'SPDR S&P 500 ETF Trust', 'GLD': 'SPDR Gold Shares', 'IAU':
               'MDY': 'SPDR S&P MidCap 400 ETF Trust'}
 
 
+ISSUER_WORDS = ['Vanguard', 'iShares', 'SPDR', 'Invesco', 'Schwab', 'Fidelity', 'State Street', 'BlackRock', 'Grayscale', 'VanEck', 'Global X', 'First Trust', 'WisdomTree', 'JPMorgan', 'Dimensional']
+ISSUER_FIX = {'SPDR': 'State Street', 'BlackRock': 'iShares'}
+
+
+def issuer_of(name):
+    """The house behind a core fund, from its registered name."""
+    for w in ISSUER_WORDS:
+        if w.lower() in (name or '').lower():
+            return ISSUER_FIX.get(w, w)
+    return (name or '').split()[0] if name else 'n/a'
+
+
 def build():
     tok = I.token()
     if not tok:
@@ -62,7 +74,8 @@ def build():
             missing.append(t)
             continue
         end = rows[0 - 1]
-        rec = {'ticker': t, 'name': HAND_NAMES.get(t) or names.get(t) or note, 'kind': kind, 'kindLabel': KIND_LABEL.get(kind, kind),
+        nm = HAND_NAMES.get(t) or names.get(t) or note
+        rec = {'ticker': t, 'name': nm, 'issuer': issuer_of(nm), 'kind': kind, 'kindLabel': KIND_LABEL.get(kind, kind),
                'note': note, 'asOf': end['date'], 'price': end['close'], 'inception': rows[0]['date'],
                'daysSinceInception': (datetime.date.fromisoformat(end['date']) - datetime.date.fromisoformat(rows[0]['date'])).days,
                'expenseRatio': (fees.get(t) or {}).get('expenseRatio'),
