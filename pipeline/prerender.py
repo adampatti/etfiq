@@ -107,7 +107,8 @@ def buffer_page(f, as_of):
         ('Protection left in index points (ETFIQ)', 'full floor' if left is None else f"{pct(left, sign=False)} of {pct(f.get('startBuffer') or (f['bufferStart'] - f['bufferEnd']), sign=False)}"), ('Days left in period', str(f.get('daysRemaining', ''))), ('Expense ratio', pct(f.get('expenseRatio'), sign=False, d=2)),
     ]
     return page(title, desc, f['ticker'], f['name'], f['issuer'], 'buffer', as_of, words, rows, f"{BASE}/#/buffer/check/{f['ticker']}",
-                'Issuer-published figures as of the date shown; ETFIQ calculations marked. Definitions on the learn page.')
+                'Issuer-published figures as of the date shown; ETFIQ calculations marked. Definitions on the learn page.',
+                faqs=buffer_faqs(f, state, left, fall_ref), related=related_links('buffer', f['ticker']))
 
 
 def ref_line(f):
@@ -144,7 +145,8 @@ def income_page(r, as_of, src):
     if src and src.get('latest') and src['latest'].get('roc') is not None:
         rows.append((f"Return of capital, latest distribution ({src['issuer']} 19a-1 estimate)", pct(src['latest']['roc'], sign=False)))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'income', as_of, words, rows, f"{BASE}/#/income/check/{r['ticker']}",
-                'Every figure is an ETFIQ calculation from exchange prices and cash distributions (Tiingo end-of-day), total return with distributions reinvested. Return of capital is the issuer’s estimate.')
+                'Every figure is an ETFIQ calculation from exchange prices and cash distributions (Tiingo end-of-day), total return with distributions reinvested. Return of capital is the issuer’s estimate.',
+                faqs=income_faqs(r, w, src), related=related_links('income', r['ticker']))
 
 
 # ---------------------------------------------------------------- themes desk
@@ -187,17 +189,269 @@ def theme_page(r, as_of):
     if r.get('peers'):
         rows.append(('Closest funds by holdings overlap', ', '.join(f"{p['t']} {p['o']}%" for p in r['peers'])))
     return page(title, desc, r['ticker'], r['name'], r['issuer'], 'themes', as_of, words, rows, f"{BASE}/#/themes/check/{r['ticker']}",
-                'Holdings from the fund’s latest public SEC N-PORT filing; overlap and active share computed by ETFIQ against the IVV and QQQM books; returns from Tiingo end-of-day prices with distributions reinvested.')
+                'Holdings from the fund’s latest public SEC N-PORT filing; overlap and active share computed by ETFIQ against the IVV and QQQM books; returns from Tiingo end-of-day prices with distributions reinvested.',
+                faqs=theme_faqs(r, w), related=related_links('themes', r['ticker']))
+
+
+def buffer_faqs(f, state, left, fall_ref):
+    t, ref = f['ticker'], f['refAsset']
+    out = []
+    if f.get('isUncapped'):
+        out.append((f'Does {t} have a cap?', f'No. {t} takes a share of any further rise in {ref}, so there is no ceiling on the upside this period.'))
+    elif state == 'capped':
+        out.append((f'How much can {t} still gain?', f'Nothing more in index terms. {ref} has already passed the cap of {pct(f["startCap"])} for this period, which runs from {fdate(f["periodStart"])} to {fdate(f["periodEnd"])}.'))
+    elif f.get('remainingCapFund') is not None:
+        out.append((f'How much can {t} still gain?', f'About {pct(f["remainingCapFund"], sign=False)} from today\'s price before it reaches its cap, by the issuer\'s published figure. The cap for the period was set at {pct(f.get("startCap"))}.'))
+    dbb = f.get('downsideBeforeBuffer') or 0
+    out.append((f'How far can {t} fall before the buffer helps?',
+                f'{pct(dbb, sign=False)} in fund-price terms, by the issuer\'s figure. In index terms {ref} can fall {pct(fall_ref, sign=False)} from today\'s level before the buffer begins. Losses until that point are the holder\'s.'))
+    sb = f.get('startBuffer') or (f['bufferStart'] - f['bufferEnd'])
+    if left is not None:
+        out.append((f'How much of the {t} buffer is left?', f'{pct(left, sign=False)} of the {pct(sb, sign=False)} buffer still sits below today\'s {ref} level. That is an ETFIQ calculation in index points, on one definition for every issuer.'))
+    out.append((f'When does {t} reset?', f'The outcome period ends on {fdate(f["periodEnd"])}, {f.get("daysRemaining")} days from this data. A new cap is set the next day and the buffer starts again.'))
+    if f.get('expenseRatio') is not None:
+        out.append((f'What does {t} cost?', f'The prospectus expense ratio is {pct(f["expenseRatio"], sign=False, d=2)} a year.'))
+    return out
+
+
+def income_faqs(r, w, src):
+    t = r['ticker']
+    out = []
+    if w:
+        label = 'the last year' if w is (r.get('windows') or {}).get('1Y') else f'since it launched on {fdate(r.get("inception"))}'
+        out.append((f'How much has {t} paid over the last year?',
+                    f'Over {label}, {t} paid {pct(w["cash"], sign=False)} of its starting price in cash distributions, while the price {"fell " + pct(-w["price"], sign=False) if w["price"] < 0 else "rose " + pct(w["price"], sign=False)}.'))
+        if w.get('gap') is not None:
+            side = 'ahead of' if w['gap'] > 0.5 else 'behind' if w['gap'] < -0.5 else 'about even with'
+            out.append((f'Is {t} ahead of {r["benchmark"]}?',
+                        f'With every distribution reinvested, {t} returned {pct(w["total"])} against {pct(w["bench"])} for {r.get("benchmarkName") or r["benchmark"]}, so a holder was {side} it by {abs(w["gap"]):.1f} points.'))
+    if r.get('distributionRate') is not None:
+        out.append((f'How often does {t} pay, and how much?',
+                    f'{t} pays {r.get("payoutFrequency") or "on no established schedule"}. The latest distribution annualises to {pct(r["distributionRate"], sign=False)} at today\'s price, which is not a promise; the next one can differ.'))
+    if src and src.get('latest') and src['latest'].get('roc') is not None:
+        out.append((f'Is the {t} distribution return of capital?',
+                    f'{src["issuer"]} estimates {src["latest"]["roc"]:.0f}% of the distribution paid {fdate(src["latest"].get("date") or src.get("asOf"))} was return of capital. That is a tax characterisation from the fund\'s own 19a-1 notice, not a measure of erosion.'))
+    if r.get('expenseRatio') is not None:
+        out.append((f'What does {t} cost?', f'The prospectus expense ratio is {pct(r["expenseRatio"], sign=False, d=2)} a year.'))
+    return out
+
+
+def theme_faqs(r, w):
+    t, v = r['ticker'], r.get('vsSPY')
+    out = []
+    if v:
+        out.append((f'How much of {t} is already in the S&P 500?',
+                    f'{v["inIndex"]:.0f}% of {t} by weight is stocks the S&P 500 already holds. Its active share against the index is {v["activeShare"]:.0f}%, so that share is the part doing something different.'))
+        out.append((f'What does {t} hold?',
+                    f'{r["holdingsCount"]} positions as filed for {fdate(r.get("holdingsAsOf"))}, with the top ten at {r["top10Weight"]:.0f}% of the fund. The largest are ' + ', '.join(f'{h["n"]} at {h["w"]:.1f}%' for h in (r.get('top') or [])[:3]) + '.'))
+    if w and w.get('gap') is not None:
+        side = 'ahead of' if w['gap'] > 0.5 else 'behind' if w['gap'] < -0.5 else 'about even with'
+        out.append((f'Has {t} beaten the S&P 500?',
+                    f'Over the last year {t} returned {pct(w["total"])} with distributions reinvested, against {pct(w["bench"])} for the S&P 500, so it finished {side} the index by {abs(w["gap"]):.1f} points.'))
+    if r.get('expenseRatio') is not None:
+        fee = f'The prospectus expense ratio is {pct(r["expenseRatio"], sign=False, d=2)} a year.'
+        if r.get('activeFee') is not None:
+            fee += f' Because {v["activeShare"]:.0f}% of the fund differs from the S&P 500, the fee on that differing part works out at {pct(r["activeFee"], sign=False, d=2)}.'
+        out.append((f'What does {t} cost?', fee))
+    return out
+
+
+# ---------------------------------------------------------------- head to head pages
+# The funds people actually search for, one list per desk: the widely held names on the buffer and income desks,
+# and the largest thematic funds by net assets. Every pair of them gets its own page.
+BUFFER_TOP = ['PJAN', 'PAPR', 'PJUL', 'POCT', 'BJAN', 'BAPR', 'BJUL', 'BOCT', 'UJAN', 'UAPR', 'UJUL', 'UOCT', 'DJAN', 'DAPR', 'DJUL', 'DOCT', 'FJAN', 'FJUL', 'PSEP', 'PNOV']
+INCOME_TOP = ['JEPI', 'JEPQ', 'SPYI', 'QQQI', 'QYLD', 'XYLD', 'RYLD', 'DIVO', 'GPIX', 'GPIQ', 'TSLY', 'NVDY', 'MSTY', 'CONY', 'ULTY', 'YMAX', 'FEPI', 'XDTE', 'QDTE', 'AIPI']
+PAIRS_BY_TICKER = {}
+
+
+def pair_slug(a, b):
+    x, y = sorted([a, b])
+    return f'{x}-{y}'
+
+
+def cmp_url(desk, a, b):
+    return f'{BASE}/compare/{desk}/{pair_slug(a, b)}.html'
+
+
+def related_links(desk, ticker):
+    ps = PAIRS_BY_TICKER.get((desk, ticker)) or []
+    if not ps:
+        return ''
+    links = ''.join(f'<a href="/compare/{desk}/{pair_slug(ticker, o)}.html">{esc(ticker)} vs {esc(o)}</a>' for o in ps[:6])
+    return f'<h2>Compare {esc(ticker)}</h2><nav class="rel">{links}</nav>'
+
+
+def w1(r):
+    """The one-year window, or the whole record since launch for a fund younger than that."""
+    ws = r.get('windows') or {}
+    return ws.get('1Y') or ws.get('ITD'), bool(ws.get('1Y'))
+
+
+def pair_overlap(a, b, matrix):
+    """Weight overlap between two thematic funds, from the packed upper-triangle matrix on the themes desk."""
+    tk = (matrix or {}).get('tickers') or []
+    if a not in tk or b not in tk:
+        return None
+    i, j = tk.index(a), tk.index(b)
+    if i == j:
+        return 100
+    x, y = (i, j) if i < j else (j, i)
+    try:
+        return matrix['rows'][x][y - x - 1]
+    except (IndexError, KeyError):
+        return None
+
+
+def cmp_rows(desk, a, b, extra):
+    """Field rows for a head to head page: the desk's own fields, the same values its cards carry."""
+    if desk == 'buffer':
+        def one(f):
+            sb = f.get('startBuffer') or (f['bufferStart'] - f['bufferEnd'])
+            used = max(0.0, min(sb, f['bufferStart'] - f['refReturn']))
+            left = None if f.get('isFloor') else round(sb - used, 2)
+            return [f['issuer'], f['refAsset'], f.get('bufferLabel', ''), f"{fdate(f['periodStart'])} to {fdate(f['periodEnd'])}", str(f.get('daysRemaining')),
+                    'uncapped' if f.get('isUncapped') else pct(f.get('startCap')),
+                    'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False),
+                    pct(f.get('downsideBeforeBuffer'), sign=False),
+                    'full floor' if left is None else f"{pct(left, sign=False)} of {pct(sb, sign=False)}",
+                    pct(f['refReturn']), pct(f.get('fundReturn')), STATE_LABEL[buffer_state(f)], pct(f.get('expenseRatio'), sign=False, d=2)]
+        labels = ['Issuer', 'Reference index', 'Buffer', 'Outcome period', 'Days left', 'Starting cap', 'Can still gain', 'Fall before buffer', 'Protection left, index points', 'Index return this period', 'Fund return this period', 'State today', 'Expense ratio']
+    elif desk == 'income':
+        def one(r):
+            w, full = w1(r)
+            since = '' if full or not w else f" (since launch on {fdate(w['from'])})"
+            return [r['issuer'], r.get('strategy', ''), r.get('benchmarkName') or r['benchmark'], r.get('payoutFrequency') or 'not established',
+                    pct(r.get('distributionRate'), sign=False), pct(r.get('expenseRatio'), sign=False, d=2),
+                    (pct(w['cash'], sign=False) + since) if w else 'not available', pct(w['price']) if w else 'not available',
+                    (pct(w['total']) + since) if w else 'not available', pct(w.get('bench')) if w else 'not available',
+                    pts(w.get('gap')) if w else 'not available',
+                    pct((extra.get(r['ticker']) or {}).get('roc'), sign=False, d=0) if (extra.get(r['ticker']) or {}).get('roc') is not None else 'not published',
+                    f"{r.get('daysSinceInception')} days"]
+        labels = ['Issuer', 'Strategy', 'Benchmark', 'Pays', 'Payout rate, annualised', 'Expense ratio', 'Cash paid, 1 year', 'Price change, 1 year', 'Total return, 1 year', 'Benchmark return, 1 year', 'Ahead or behind', 'Return of capital, latest estimate', 'Age']
+    else:
+        def one(r):
+            v, q = r.get('vsSPY') or {}, r.get('vsQQQ') or {}
+            w, full = w1(r)
+            since = '' if full or not w else f" (since launch on {fdate(w['from'])})"
+            return [r['issuer'], r['themeName'], pct(v.get('inIndex'), sign=False), pct(v.get('activeShare'), sign=False), pct(q.get('inIndex'), sign=False),
+                    str(r.get('holdingsCount') or 'not filed yet'), pct(r.get('top10Weight'), sign=False),
+                    pct(r.get('expenseRatio'), sign=False, d=2), pct(r.get('activeFee'), sign=False, d=2),
+                    (pct(w['total']) + since) if w else 'not available', pts(w.get('gap')) if w else 'not available', pts(w.get('gapQ')) if w else 'not available', pct(r.get('drawdown'))]
+        labels = ['Issuer', 'Theme', 'In the S&P 500', 'Active share vs the S&P 500', 'In the Nasdaq-100', 'Holdings', 'Top ten, share of the fund', 'Expense ratio', 'Fee for the differing part', 'Total return, 1 year', 'vs the S&P 500', 'vs the Nasdaq-100', 'Below its high']
+    return labels, one(a), one(b)
+
+
+def cmp_faqs(desk, a, b, extra, overlap):
+    ta, tb = a['ticker'], b['ticker']
+    out = []
+    if desk == 'income':
+        wa, _ = w1(a)
+        wb, _ = w1(b)
+        if wa and wb:
+            more = ta if wa['cash'] >= wb['cash'] else tb
+            out.append((f'Which paid more, {ta} or {tb}?',
+                        f'Over the last year {ta} paid {pct(wa["cash"], sign=False)} of its starting price in cash and {tb} paid {pct(wb["cash"], sign=False)}, so {more} paid more. Cash paid is not the same as money made: the price change matters too.'))
+            best = ta if (wa.get('total') or -999) >= (wb.get('total') or -999) else tb
+            out.append((f'Which returned more once distributions are counted, {ta} or {tb}?',
+                        f'With every distribution reinvested, {ta} returned {pct(wa["total"])} and {tb} returned {pct(wb["total"])} over the last year, so {best} returned more.'))
+    if desk == 'buffer':
+        if a.get('remainingCapFund') is not None and b.get('remainingCapFund') is not None:
+            more = ta if a['remainingCapFund'] >= b['remainingCapFund'] else tb
+            out.append((f'Which has more room to gain, {ta} or {tb}?',
+                        f'From today\'s price {ta} can gain about {pct(a["remainingCapFund"], sign=False)} before its cap and {tb} about {pct(b["remainingCapFund"], sign=False)}, so {more} has more room left this period.'))
+        out.append((f'Which resets first, {ta} or {tb}?',
+                    f'{ta} ends its outcome period on {fdate(a["periodEnd"])} and {tb} on {fdate(b["periodEnd"])}. A new cap is set the day after each.'))
+    if desk == 'themes':
+        if overlap is not None:
+            word = 'close to holding one of them twice' if overlap >= 50 else 'a meaningful overlap' if overlap >= 20 else 'mostly different names'
+            out.append((f'Do {ta} and {tb} hold the same stocks?',
+                        f'{overlap}% of their books are the same securities at the same weight, which is {word}. Overlap is the sum of the smaller weight of every security they share.'))
+        va, vb = a.get('vsSPY') or {}, b.get('vsSPY') or {}
+        if va.get('inIndex') is not None and vb.get('inIndex') is not None:
+            diff = ta if va['activeShare'] >= vb['activeShare'] else tb
+            out.append((f'Which is more different from the S&P 500, {ta} or {tb}?',
+                        f'{ta} has {va["inIndex"]:.0f}% of its weight in S&P 500 names and {tb} has {vb["inIndex"]:.0f}%, so {diff} differs more from the index.'))
+    fa, fb = a.get('expenseRatio'), b.get('expenseRatio')
+    if fa is not None and fb is not None:
+        cheap = ta if fa <= fb else tb
+        out.append((f'Which is cheaper, {ta} or {tb}?',
+                    f'{ta} charges {pct(fa, sign=False, d=2)} a year and {tb} charges {pct(fb, sign=False, d=2)}, so {cheap} is cheaper. Fees come from each fund\'s prospectus.'))
+    return out
+
+
+CMP_Q = {'buffer': 'which buffer ETF stands where?', 'income': 'which one paid, and which one earned it?', 'themes': 'which one is really different?'}
+
+
+def cmp_page(desk, a, b, as_of, extra, matrix, words_a, words_b):
+    ta, tb = a['ticker'], b['ticker']
+    url = cmp_url(desk, ta, tb)
+    overlap = pair_overlap(ta, tb, matrix) if desk == 'themes' else None
+    title = f'{ta} vs {tb}: {CMP_Q[desk]}'
+    labels, ra, rb = cmp_rows(desk, a, b, extra)
+    if desk == 'income':
+        wa, _ = w1(a)
+        wb, _ = w1(b)
+        desc = (f'{ta} and {tb} side by side on {fdate(as_of)}: cash paid {pct(wa["cash"], sign=False) if wa else "n/a"} against {pct(wb["cash"], sign=False) if wb else "n/a"}, '
+                f'total return {pct(wa["total"]) if wa else "n/a"} against {pct(wb["total"]) if wb else "n/a"} over the last year.')
+    elif desk == 'buffer':
+        desc = (f'{ta} and {tb} side by side on {fdate(as_of)}: can still gain {pct(a.get("remainingCapFund"), sign=False)} against {pct(b.get("remainingCapFund"), sign=False)}, '
+                f'fall before the buffer {pct(a.get("downsideBeforeBuffer"), sign=False)} against {pct(b.get("downsideBeforeBuffer"), sign=False)}.')
+    else:
+        va, vb = a.get('vsSPY') or {}, b.get('vsSPY') or {}
+        desc = (f'{ta} and {tb} side by side on {fdate(as_of)}: {pct(va.get("inIndex"), sign=False)} against {pct(vb.get("inIndex"), sign=False)} already in the S&P 500'
+                + (f', {overlap}% of the two books in common.' if overlap is not None else '.'))
+    faqs = cmp_faqs(desk, a, b, extra, overlap)
+    faq_html, faq_ld = faq_block(faqs)
+    ld = {'@context': 'https://schema.org', '@graph': faq_ld + [
+        crumbs([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (f'{ta} vs {tb}', url)]),
+        {'@type': 'WebPage', 'name': title, 'description': desc, 'url': url, 'dateModified': as_of, 'isPartOf': {'@type': 'WebSite', 'name': 'ETFIQ', 'url': BASE}},
+        {'@type': 'Dataset', 'name': f'ETFIQ comparison of {ta} and {tb}', 'description': desc, 'dateModified': as_of, 'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'isAccessibleForFree': True, 'url': url}]}
+    head = f'<tr><th></th><th><a href="/funds/{ta}.html">{esc(ta)}</a><div class="sub">{esc(a["name"])}</div></th><th><a href="/funds/{tb}.html">{esc(tb)}</a><div class="sub">{esc(b["name"])}</div></th></tr>'
+    body = ''.join(f'<tr><th>{esc(l)}</th><td>{esc(x)}</td><td>{esc(y)}</td></tr>' for l, x, y in zip(labels, ra, rb))
+    ov = f'<p class="lede">{overlap}% of the two portfolios are the same securities at the same weight.</p>' if overlap is not None else ''
+    others = sorted(set((PAIRS_BY_TICKER.get((desk, ta)) or []) + (PAIRS_BY_TICKER.get((desk, tb)) or [])) - {ta, tb})[:8]
+    rel = ''.join(f'<a href="/compare/{desk}/{pair_slug(ta, o)}.html">{esc(ta)} vs {esc(o)}</a>' for o in others[:4]) + \
+          ''.join(f'<a href="/compare/{desk}/{pair_slug(tb, o)}.html">{esc(tb)} vs {esc(o)}</a>' for o in others[4:8])
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{esc(title)} | ETFIQ</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{url}"><link rel="icon" href="/favicon.svg">
+<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}/og.png"><meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script><style>{STYLE}</style></head>
+<body>{R.rail(desk)}<main>
+<p class="note">Data as of {fdate(as_of)}. Every figure is the {DESK_NAME[desk].lower()}'s own, on published data.</p>
+<h1>{esc(ta)} vs {esc(tb)}</h1><p class="lede">{esc(a['name'])} and {esc(b['name'])}, side by side on the {DESK_NAME[desk].lower()}.</p>
+{ov}
+<a class="cta" href="{BASE}/#/{desk}/compare/{ta},{tb}">Open the live comparison on ETFIQ</a>
+<table><thead>{head}</thead><tbody>{body}</tbody></table>
+<h2>{esc(ta)} in plain words</h2><p>{esc(words_a)}</p>
+<h2>{esc(tb)} in plain words</h2><p>{esc(words_b)}</p>
+{faq_html}
+{'<h2>Other comparisons</h2><nav class="rel">' + rel + '</nav>' if rel else ''}
+<p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; every figure here is stated arithmetic on published data. <a href="{BASE}/#/standards">Standards and sources</a></p>
+</main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/portfolio/">Portfolio desk</a><a href="/research/">Research</a></nav></footer></body></html>"""
 
 
 # ---------------------------------------------------------------- page shell
 DESK_NAME = {'buffer': 'Buffer desk', 'income': 'Income desk', 'themes': 'Themes desk'}
-STYLE = R.RAIL_CSS + """body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{width:44%;color:#3D4756;font-weight:500}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
+STYLE = R.RAIL_CSS + """dl.faq{margin:0 0 8px}dl.faq dt{font-weight:600;margin:18px 0 6px}dl.faq dd{margin:0;color:#3B434F}nav.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}nav.rel a{border:1px solid #D9DEE6;border-radius:999px;padding:6px 12px;background:#fff;font-size:13.5px;text-decoration:none;color:#0F1419}nav.rel a:hover{border-color:#2457E6}thead th .sub{font-weight:400;font-size:12px;color:#5B6572;margin-top:4px;max-width:220px}body{margin:0;background:#F5F7FA;color:#0F1419;font:15px/1.5 Geist,system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:820px;margin:0 auto;padding:28px 20px 60px}h1{font-size:28px;letter-spacing:-.02em;margin:18px 0 6px}.lede{color:#3D4756;font-size:16px}.tk{font-family:'Geist Mono',ui-monospace,monospace;font-weight:600}.cta{display:inline-block;margin:14px 0 22px;padding:10px 16px;background:#2457E6;color:#fff;border-radius:6px;text-decoration:none;font-weight:600}table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #DCE1E8;vertical-align:top}th{width:44%;color:#3D4756;font-weight:500}.note{color:#5B6675;font-size:13px}nav.desks a{margin-right:14px}footer{margin-top:40px;color:#5B6675;font-size:13px}"""
 
 
-def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method):
+def faq_block(faqs):
+    """A question and answer list in the words people search, from figures already on the page."""
+    if not faqs:
+        return '', []
+    html_ = '<h2>Questions people ask</h2><dl class="faq">' + ''.join(f'<dt>{esc(q)}</dt><dd>{esc(a)}</dd>' for q, a in faqs) + '</dl>'
+    ld = [{'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faqs]}]
+    return html_, ld
+
+
+def crumbs(items):
+    return {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': nm, 'item': u} for i, (nm, u) in enumerate(items)]}
+
+
+def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, method, faqs=None, related=''):
     url = f"{BASE}/funds/{ticker}.html"
-    ld = {'@context': 'https://schema.org', '@graph': [
+    faq_html, faq_ld = faq_block(faqs or [])
+    ld = {'@context': 'https://schema.org', '@graph': faq_ld + [crumbs([('ETFIQ', BASE + '/'), (DESK_NAME[desk], f'{BASE}/{desk}/'), (ticker, url)])] + [
         {'@type': 'FinancialProduct', 'name': name, 'alternateName': ticker, 'identifier': ticker, 'provider': {'@type': 'Organization', 'name': issuer}, 'category': f'Exchange-traded fund, {DESK_NAME[desk].lower()}', 'url': url},
         {'@type': 'Dataset', 'name': f'ETFIQ {DESK_NAME[desk].lower()} record for {ticker}', 'description': desc, 'dateModified': as_of, 'creator': {'@type': 'Organization', 'name': 'ETFIQ', 'url': BASE}, 'license': 'https://etfiq.com/#/standards', 'isAccessibleForFree': True, 'url': url},
         {'@type': 'WebPage', 'name': title, 'description': desc, 'url': url, 'dateModified': as_of, 'isPartOf': {'@type': 'WebSite', 'name': 'ETFIQ', 'url': BASE}}]}
@@ -212,6 +466,8 @@ def page(title, desc, ticker, name, issuer, desk, as_of, words, rows, app_url, m
 <a class="cta" href="{app_url}">Open the live card on ETFIQ</a>
 <p>{esc(words)}</p>
 <table><tbody>{trs}</tbody></table>
+{faq_html}
+{related}
 <p class="note">ETFIQ is an independent publisher of exchange-traded fund data. It is not a fund issuer, broker-dealer or investment adviser, and it makes no recommendations; sort orders and figures are stated arithmetic on published data. <a href="{BASE}/#/standards">Standards</a> · <a href="{BASE}/#/{desk}/learn">How to read this desk</a></p>
 </main><footer><nav class="desks"><a href="/buffer/">All buffer ETFs</a><a href="/income/">All income ETFs</a><a href="/themes/">All thematic ETFs</a><a href="/llms.txt">llms.txt</a></nav></footer></body></html>"""
 
@@ -273,6 +529,14 @@ def build():
     sources = load('site/data/sources.json', {})
     meta = load('site/data/meta.json', {}); imeta = load('site/data/income_meta.json', {}); tmeta = load('site/data/thematic_meta.json', {})
     as_b, as_i, as_t = meta.get('asOf', TODAY), imeta.get('asOf', TODAY), tmeta.get('asOf', TODAY)
+    by = {'buffer': {f['ticker']: f for f in funds}, 'income': {r['ticker']: r for r in income}, 'themes': {r['ticker']: r for r in themes}}
+    top = {'buffer': [t for t in BUFFER_TOP if t in by['buffer']],
+           'income': [t for t in INCOME_TOP if t in by['income']],
+           'themes': [r['ticker'] for r in sorted(themes, key=lambda r: -(r.get('assets') or 0)) if r.get('vsSPY')][:20]}
+    PAIRS_BY_TICKER.clear()
+    for desk, ts in top.items():
+        for t in ts:
+            PAIRS_BY_TICKER[(desk, t)] = [o for o in ts if o != t]
     out = SITE / 'funds'
     out.mkdir(exist_ok=True)
     for old in out.glob('*.html'):
@@ -287,16 +551,36 @@ def build():
             continue  # a ticker on two desks keeps its first page
         (out / f"{r['ticker']}.html").write_text(theme_page(r, as_t)); urls.append((f"{BASE}/funds/{r['ticker']}.html", as_t))
     link = lambda t: f'<a href="/funds/{t}.html" class="tk">{t}</a>'
-    w1 = lambda r: (r.get('windows') or {}).get('1Y') or {}
+    w1y = lambda r: (r.get('windows') or {}).get('1Y') or {}
     b_rows = [[link(f['ticker']), esc(f['name']), esc(f['issuer']), f['refAsset'], esc(f.get('bufferLabel', '')), fdate(f['periodEnd']), 'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False), pct(f.get('downsideBeforeBuffer'), sign=False), STATE_LABEL[buffer_state(f)]] for f in funds]
-    i_rows = [[link(r['ticker']), esc(r['name']), esc(r['issuer']), r['benchmark'], pct(w1(r).get('cash'), sign=False), pct(w1(r).get('total')), pts(w1(r).get('gap')), pct(((sources.get(r['ticker']) or {}).get('latest') or {}).get('roc'), sign=False)] for r in income]
-    t_rows = [[link(r['ticker']), esc(r['name']), esc(r['issuer']), esc(r['themeName']), pct((r.get('vsSPY') or {}).get('inIndex'), sign=False), pct((r.get('vsSPY') or {}).get('activeShare'), sign=False), pct(r.get('top10Weight'), sign=False), pct(w1(r).get('total')), pts(w1(r).get('gap'))] for r in themes]
+    i_rows = [[link(r['ticker']), esc(r['name']), esc(r['issuer']), r['benchmark'], pct(w1y(r).get('cash'), sign=False), pct(w1y(r).get('total')), pts(w1y(r).get('gap')), pct(((sources.get(r['ticker']) or {}).get('latest') or {}).get('roc'), sign=False)] for r in income]
+    t_rows = [[link(r['ticker']), esc(r['name']), esc(r['issuer']), esc(r['themeName']), pct((r.get('vsSPY') or {}).get('inIndex'), sign=False), pct((r.get('vsSPY') or {}).get('activeShare'), sign=False), pct(r.get('top10Weight'), sign=False), pct(w1y(r).get('total')), pts(w1y(r).get('gap'))] for r in themes]
     for desk, rows, as_of, intro in (('buffer', b_rows, as_b, f'{len(funds)} defined outcome (buffer) ETFs from every issuer ETFIQ covers, each placed on one comparable band from buffer to cap, with how much it can still gain, how far it can fall before the buffer, and the protection left, as of {fdate(as_b)}.'),
                                      ('income', i_rows, as_i, f'{len(income)} option-income ETFs measured against the index or stock they write options on: cash paid, price change, total return with distributions reinvested, and whether a holder came out ahead, as of {fdate(as_i)}.'),
                                      ('themes', t_rows, as_t, f'{len(themes)} thematic ETFs in 27 themes: how much of each is already in the S&P 500, active share, concentration, and returns against the plain index, from SEC holdings filings and exchange prices as of {fdate(as_t)}.')):
         d = SITE / desk
         d.mkdir(exist_ok=True)
         (d / 'index.html').write_text(index_page(desk, rows, as_of, intro)); urls.append((f'{BASE}/{desk}/', as_of))
+    words = {'buffer': lambda f: buffer_words(f)[0], 'income': lambda r: income_words(r, sources.get(r['ticker']))[0], 'themes': lambda r: theme_words(r)[0]}
+    matrix = load('site/data/thematic.json', {}).get('matrix')
+    roc = {t: {'roc': (v.get('latest') or {}).get('roc')} for t, v in sources.items()}
+    cmpdir = SITE / 'compare'
+    if cmpdir.exists():
+        for old in cmpdir.rglob('*.html'):
+            old.unlink()
+    npairs = 0
+    for desk, ts in top.items():
+        d = cmpdir / desk
+        d.mkdir(parents=True, exist_ok=True)
+        as_of = {'buffer': as_b, 'income': as_i, 'themes': as_t}[desk]
+        for i, ta in enumerate(ts):
+            for tb in ts[i + 1:]:
+                a, b = by[desk][ta], by[desk][tb]
+                x, y = (a, b) if ta < tb else (b, a)
+                html_ = cmp_page(desk, x, y, as_of, roc, matrix, words[desk](x), words[desk](y))
+                (d / f'{pair_slug(ta, tb)}.html').write_text(html_)
+                urls.append((cmp_url(desk, ta, tb), as_of))
+                npairs += 1
     bidx = load('site/data/books/index.json', {'asOf': max(as_b, as_i, as_t), 'books': {}})
     (SITE / 'portfolio').mkdir(exist_ok=True)
     (SITE / 'portfolio' / 'index.html').write_text(portfolio_page(bidx.get('asOf') or max(as_b, as_i, as_t), sum(1 for v in bidx.get('books', {}).values() if v.get('n'))))
@@ -325,6 +609,7 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 - [Themes desk, every fund]({BASE}/themes/): {len(themes)} funds
 - Fund pages: {BASE}/funds/TICKER.html, for example {BASE}/funds/PJAN.html, {BASE}/funds/JEPI.html, {BASE}/funds/ARKK.html
 - [ETFIQ Research]({BASE}/research/): one computed piece per desk, rebuilt nightly, with method and data file
+- [Head to head comparisons]({BASE}/compare/): every pair of the most widely held funds on each desk, in one table with the desk's own fields
 - [Portfolio desk]({BASE}/portfolio/): enter ETF positions with weights, shares or dollars; the look-through to filed holdings, overlap between positions, weighted fee, blended buffer protection, cash by month, and the outcome of a market move on buffer positions from published terms. Positions travel in the link; nothing to sign up for.
 - [Standards and ownership]({BASE}/#/standards)
 - [Live application]({BASE}/)
@@ -333,7 +618,7 @@ Data as of: buffer desk {as_b}, income desk {as_i}, themes desk {as_t}. Refreshe
 
 - {BASE}/data/funds.json (buffer desk records), {BASE}/data/income.json (income desk records), {BASE}/data/thematic.json (themes desk records and the fund-to-fund overlap matrix), {BASE}/data/payouts.json (payout calendar), {BASE}/data/sources.json (19a-1 estimates). Free to read; cite ETFIQ and the as-of date.
 """)
-    print(f'prerendered {len(urls)} pages: {len(funds)} buffer, {len(income)} income, {len(themes)} themes')
+    print(f'prerendered {len(urls)} pages: {len(funds)} buffer, {len(income)} income, {len(themes)} themes, {npairs} comparisons')
 
 
 if __name__ == '__main__':

@@ -699,6 +699,154 @@ def stage_pages():
     tally('pages', n)
 
 
+# ---------------------------------------------------------------- head to head pages and question blocks
+def page_text(path):
+    b = pathlib.Path(path).read_text()
+    t = re.sub(r'<style[^>]*>.*?</style>|<script[^>]*>.*?</script>', ' ', b, flags=re.S)
+    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', t))).replace('\u2212', '-')
+
+
+def shows(body, v, d=1, sign=False):
+    """Is a figure printed on the page, in the site's own format?"""
+    if v is None:
+        return True
+    forms = {f'{abs(v):.{d}f}%', f'{v:+.{d}f}%'.replace('+-', '-'), f'{abs(v):.{d}f} pts', f'{v:+.{d}f} pts'.replace('+-', '-'), f'{abs(v):.0f}%'}
+    return any(f in body for f in forms)
+
+
+def stage_compare():
+    """Every head to head page carries the desk's own figures for both funds, and every claim in its question
+    block agrees with those figures."""
+    root = ROOT / 'site' / 'compare'
+    if not root.exists():
+        note('compare', 'site/compare', 'directory', None, None, 'no comparison pages built')
+        return
+    funds = {f['ticker']: f for f in load('site/data/funds.json') or []}
+    income = {r['ticker']: r for r in load('site/data/income.json') or []}
+    th = load('site/data/thematic.json') or {'funds': [], 'matrix': None}
+    themes = {r['ticker']: r for r in th.get('funds', [])}
+    matrix = th.get('matrix') or {}
+    tk = matrix.get('tickers') or []
+    def overlap(a, b):
+        if a not in tk or b not in tk:
+            return None
+        i, j = tk.index(a), tk.index(b)
+        x, y = (i, j) if i < j else (j, i)
+        try:
+            return matrix['rows'][x][y - x - 1]
+        except (IndexError, KeyError):
+            return None
+    n = 0
+    for f in sorted(root.rglob('*.html')):
+        desk = f.parent.name
+        pair = f.stem.split('-')
+        if len(pair) != 2:
+            note('compare', f.stem, 'name', f.stem, None, 'file name is not two tickers')
+            continue
+        a, b = pair
+        by = {'buffer': funds, 'income': income, 'themes': themes}.get(desk) or {}
+        if a not in by or b not in by:
+            note('compare', f.stem, 'fund', [a, b], None, f'not on the {desk} desk')
+            continue
+        n += 1
+        body = page_text(f)
+        for t in (a, b):
+            r = by[t]
+            if desk == 'buffer':
+                checks = [('can still gain', r.get('remainingCapFund'), 1), ('fall before buffer', r.get('downsideBeforeBuffer'), 1), ('expense ratio', r.get('expenseRatio'), 2)]
+                if str(r.get('daysRemaining')) not in body:
+                    note('compare', f.stem, f'{t} daysRemaining', r.get('daysRemaining'), None, 'not printed on the page')
+            elif desk == 'income':
+                w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+                checks = [('cash', w.get('cash'), 1), ('total', w.get('total'), 1), ('gap', w.get('gap'), 1), ('payout rate', r.get('distributionRate'), 1), ('expense ratio', r.get('expenseRatio'), 2)]
+            else:
+                v = r.get('vsSPY') or {}
+                w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+                checks = [('in the S&P 500', v.get('inIndex'), 1), ('active share', v.get('activeShare'), 1), ('top ten', r.get('top10Weight'), 1), ('total', w.get('total'), 1), ('expense ratio', r.get('expenseRatio'), 2)]
+            for label, val, d in checks:
+                if not shows(body, val, d):
+                    note('compare', f.stem, f'{t} {label}', val, None, 'figure not printed on the page')
+        if desk == 'themes':
+            o = overlap(a, b)
+            if o is not None and f'{o}%' not in body:
+                note('compare', f.stem, 'overlap', o, None, 'overlap not printed on the page')
+        # the claims in the question block must agree with the figures
+        fa, fb = by[a].get('expenseRatio'), by[b].get('expenseRatio')
+        m = re.search(r'so ([A-Z0-9.]+) is cheaper', body)
+        if m and fa is not None and fb is not None:
+            want = a if fa <= fb else b
+            if m.group(1) != want:
+                note('compare', f.stem, 'cheaper claim', m.group(1), want, f'{a} {fa}, {b} {fb}')
+        m = re.search(r'so ([A-Z0-9.]+) paid more', body)
+        if m and desk == 'income':
+            wa = (by[a].get('windows') or {}).get('1Y') or (by[a].get('windows') or {}).get('ITD') or {}
+            wb = (by[b].get('windows') or {}).get('1Y') or (by[b].get('windows') or {}).get('ITD') or {}
+            if wa.get('cash') is not None and wb.get('cash') is not None:
+                want = a if wa['cash'] >= wb['cash'] else b
+                if m.group(1) != want:
+                    note('compare', f.stem, 'paid more claim', m.group(1), want, f"{a} {wa['cash']}, {b} {wb['cash']}")
+        m = re.search(r'so ([A-Z0-9.]+) returned more', body)
+        if m and desk == 'income':
+            wa = (by[a].get('windows') or {}).get('1Y') or (by[a].get('windows') or {}).get('ITD') or {}
+            wb = (by[b].get('windows') or {}).get('1Y') or (by[b].get('windows') or {}).get('ITD') or {}
+            if wa.get('total') is not None and wb.get('total') is not None:
+                want = a if wa['total'] >= wb['total'] else b
+                if m.group(1) != want:
+                    note('compare', f.stem, 'returned more claim', m.group(1), want, f"{a} {wa['total']}, {b} {wb['total']}")
+        m = re.search(r'so ([A-Z0-9.]+) differs more from the index', body)
+        if m and desk == 'themes':
+            va, vb = (by[a].get('vsSPY') or {}), (by[b].get('vsSPY') or {})
+            if va.get('activeShare') is not None and vb.get('activeShare') is not None:
+                want = a if va['activeShare'] >= vb['activeShare'] else b
+                if m.group(1) != want:
+                    note('compare', f.stem, 'differs more claim', m.group(1), want, f"{a} {va['activeShare']}, {b} {vb['activeShare']}")
+        m = re.search(r'so ([A-Z0-9.]+) has more room', body)
+        if m and desk == 'buffer':
+            ra, rb = by[a].get('remainingCapFund'), by[b].get('remainingCapFund')
+            if ra is not None and rb is not None:
+                want = a if ra >= rb else b
+                if m.group(1) != want:
+                    note('compare', f.stem, 'more room claim', m.group(1), want, f'{a} {ra}, {b} {rb}')
+    tally('compare', n)
+    # every comparison page is in the sitemap
+    sm = (ROOT / 'site' / 'sitemap.xml').read_text() if (ROOT / 'site' / 'sitemap.xml').exists() else ''
+    missing = [f'/compare/{p.parent.name}/{p.name}' for p in root.rglob('*.html') if f'/compare/{p.parent.name}/{p.name}' not in sm]
+    if missing:
+        note('compare', 'sitemap', 'listed', len(missing), 0, f'pages not in the sitemap, for example {missing[0]}')
+
+
+def stage_faqs():
+    """Every question block on a fund page answers with the fund's own figures."""
+    funds = {f['ticker']: f for f in load('site/data/funds.json') or []}
+    income = {r['ticker']: r for r in load('site/data/income.json') or []}
+    themes = {r['ticker']: r for r in (load('site/data/thematic.json') or {}).get('funds', [])}
+    random.seed(23)
+    n = 0
+    for desk, by in (('buffer', funds), ('income', income), ('themes', themes)):
+        for t in random.sample(sorted(by), min(12, len(by))):
+            p = ROOT / 'site' / 'funds' / f'{t}.html'
+            if not p.exists():
+                continue
+            body = page_text(p)
+            if 'Questions people ask' not in body:
+                note('faqs', t, 'block', None, None, f'no question block on the {desk} page')
+                continue
+            n += 1
+            r = by[t]
+            if desk == 'buffer':
+                want = [('fall before buffer', r.get('downsideBeforeBuffer'), 1), ('expense ratio', r.get('expenseRatio'), 2)]
+            elif desk == 'income':
+                w = (r.get('windows') or {}).get('1Y') or (r.get('windows') or {}).get('ITD') or {}
+                want = [('cash paid', w.get('cash'), 1), ('payout rate', r.get('distributionRate'), 1)]
+            else:
+                v = r.get('vsSPY') or {}
+                want = [('in the S&P 500', v.get('inIndex'), 0), ('active share', v.get('activeShare'), 0)]
+            for label, val, d in want:
+                if not shows(body, val, d):
+                    note('faqs', t, label, val, None, 'answer does not carry the figure')
+    tally('faqs', n)
+
+
 # ---------------------------------------------------------------- report
 def report(stages):
     out = {'asOf': TODAY.isoformat(), 'stages': stages, 'counts': COUNTS, 'findings': FINDINGS}
@@ -722,7 +870,7 @@ def report(stages):
 
 
 if __name__ == '__main__':
-    stages = sys.argv[1:] or ['income', 'buffer', 'live', 'themes', 'payouts', 'books', 'research', 'pages']
+    stages = sys.argv[1:] or ['income', 'buffer', 'live', 'themes', 'payouts', 'books', 'research', 'pages', 'compare', 'faqs']
     funds = None
     if 'income' in stages:
         stage_income()
@@ -740,5 +888,9 @@ if __name__ == '__main__':
         stage_research()
     if 'pages' in stages:
         stage_pages()
+    if 'compare' in stages:
+        stage_compare()
+    if 'faqs' in stages:
+        stage_faqs()
     report(stages)
     sys.exit(1 if FINDINGS else 0)
