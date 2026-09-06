@@ -1085,6 +1085,9 @@ def embed_block(desk, ticker, name):
 NEIGHBOURS = {}   # (desk, ticker) -> list of (label, href), the paths off every fund page
 
 
+NO_ISSUER = 'not published'
+
+
 def issuer_slug(name):
     return re.sub(r'[^a-z0-9]+', '-', (name or '').lower()).strip('-')
 
@@ -1098,8 +1101,10 @@ def build_neighbours(funds, income, themes, has_hub=None):
     by_issuer = {}
     for desk, rs in (('buffer', funds), ('income', income), ('themes', themes)):
         for r in rs:
-            by_issuer.setdefault(r['issuer'], []).append((desk, r['ticker']))
+            if r['issuer'] != NO_ISSUER:
+                by_issuer.setdefault(r['issuer'], []).append((desk, r['ticker']))
     def issuer_link(name):
+        if name == NO_ISSUER: return []
         return [(f'All {name} funds', f'/issuers/{issuer_slug(name)}.html')] if issuer_slug(name) in has_hub else []
     fam, refs, bench, theme_of = {}, {}, {}, {}
     for f in funds:
@@ -1510,6 +1515,7 @@ def build():
     _by_issuer = {}
     for _d, _rs in (('buffer', funds), ('income', income), ('themes', themes)):
         for _r in _rs:
+            if _r['issuer'] == NO_ISSUER: continue
             _by_issuer.setdefault(_r['issuer'], 0)
             _by_issuer[_r['issuer']] += 1
     HUB_SLUGS = {issuer_slug(k) for k, v in _by_issuer.items() if v >= 2}
@@ -1595,6 +1601,7 @@ def build():
     by_issuer = {}
     for desk, rs in (('buffer', funds), ('income', income), ('themes', themes)):
         for r in rs:
+            if r['issuer'] == NO_ISSUER: continue
             by_issuer.setdefault(r['issuer'], {}).setdefault(desk, []).append(r)
     (SITE / 'issuers').mkdir(exist_ok=True)
     for old in (SITE / 'issuers').glob('*.html'):

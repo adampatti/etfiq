@@ -40,6 +40,26 @@ def note(stage, ticker, field, site, mine, msg=''):
     FINDINGS.append({'stage': stage, 'ticker': ticker, 'field': field, 'site': site, 'mine': mine, 'note': msg})
 
 
+def check_issuers(stage, rows, universe=None):
+    """No published issuer may be a guess.
+
+    Every issuer must come from a curated rule or from the fund's own SEC registrant, confirmed
+    against the fund name. This stage exists because deriving the issuer from the first word of
+    the fund name published ETFs as though Anthropic, Google and Meta issued them.
+    """
+    import income_universe as iu
+    bad = 0
+    ents = {r['ticker']: (r.get('entity') or '') for r in (universe or [])}
+    for r in rows:
+        name = r.get('name') or ''
+        ent = r.get('entity') or ents.get(r.get('ticker'), '')
+        want = iu.issuer_of(name, ent)
+        if r.get('issuer') != want:
+            note(stage, r.get('ticker'), 'issuer', r.get('issuer'), want, name[:60])
+            bad += 1
+    return bad
+
+
 def tally(stage, n):
     COUNTS[stage] = COUNTS.get(stage, 0) + n
 
@@ -192,6 +212,7 @@ def stage_income():
         md = [(x['date'], x['divCash']) for x in divs[-13:]]
         if sd != md:
             note('income', t, 'distributions', len(sd), len(md), 'last thirteen payouts differ')
+    check_issuers('income', inc, load('data/income_universe.json') or [])
     tally('income', n)
 
 
@@ -500,6 +521,7 @@ def stage_themes():
             best = sorted(((cell(i, j), tk[j]) for j in range(len(tk)) if j != i and cell(i, j) >= 10), reverse=True)[:5]
             if [p['t'] for p in r['peers']] != [t for v, t in best] and sorted(p['o'] for p in r['peers']) != sorted(v for v, t in best):
                 note('themes', r['ticker'], 'peers', [(p['t'], p['o']) for p in r['peers']], [(t, v) for v, t in best])
+    check_issuers('themes', d['funds'], load('data/thematic_universe.json') or [])
     tally('themes', n)
 
 

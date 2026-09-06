@@ -47,7 +47,16 @@ STRONG = re.compile(r'covered call|premium income|option income|options income|o
                     r'0dte|buywrite|buy-write|call writ|target 15|income strategy|premium yield|call overlay|option overlay|'
                     r'super income|max income|weekly pay|enhanced income|defined income|target income|high income', re.I)
 
+NO_ISSUER = 'not published'
+# words that identify no house: a registrant confirmed only by one of these is a white-label trust
+GENERIC_HEAD = {'etf', 'etfs', 'fund', 'funds', 'series', 'trust', 'exchange', 'listed', 'managed',
+                'solutions', 'advisors', 'advisers', 'capital', 'global', 'the', 'us', 'u.s.',
+                'american', 'first', 'core', 'index', 'equity', 'income', 'strategy', 'strategies'}  # the site's word for a figure no source establishes
+
 ISSUER_RULES = [  # (name regex, issuer)
+    (r'^State Street|^SPDR', 'State Street'), (r'^VanEck', 'VanEck'), (r'^WisdomTree', 'WisdomTree'), (r'^Nicholas', 'Nicholas'), (r'^Sprott', 'Sprott'), (r'^ALPS', 'ALPS'), (r'^Aptus', 'Aptus'), (r'^Lazard', 'Lazard'), (r'^Main ', 'Main'), (r'^T\\. Rowe', 'T. Rowe Price'), (r'^AdvisorShares', 'AdvisorShares'), (r'^U\\.S\\. Global', 'U.S. Global'), (r'^Columbia', 'Columbia'), (r'^Invesco', 'Invesco'), (r'^Franklin', 'Franklin'), (r'^Calamos', 'Calamos'), (r'^Grayscale', 'Grayscale'), (r'^Tuttle', 'Tuttle'), (r'^Schwab', 'Schwab'), (r'^Vanguard', 'Vanguard'),
+    (r'^ARK ', 'ARK'), (r'^21Shares', '21Shares'), (r'Wedbush', 'Wedbush'),
+    (r'^Westwood', 'Westwood'), (r'^TrueShares', 'TrueShares'), (r'^VegaShares', 'VegaShares'), (r'^Guggenheim', 'Guggenheim'), (r'^Natixis', 'Natixis'), (r'^Principal', 'Principal'), (r'^Pictet', 'Pictet'), (r'^CWP ', 'CWP'), (r'^FINQ', 'FINQ'), (r'^SoFi', 'SoFi'), (r'^Tortoise', 'Tortoise'), (r'^ROBO Global', 'ROBO Global'), (r'^Tema', 'Tema'), (r'^Alger', 'Alger'), (r'^Harbor', 'Harbor'), (r'^StockSnips', 'StockSnips'), (r'^Janus Henderson', 'Janus Henderson'), (r'^Xtrackers', 'Xtrackers'), (r'^TCW ', 'TCW'),
     (r'^YieldMax', 'YieldMax'), (r'^Defiance', 'Defiance'), (r'^Roundhill', 'Roundhill'), (r'^REX ', 'REX'), (r'^GraniteShares', 'GraniteShares'),
     (r'^Kurv', 'Kurv'), (r'^NEOS', 'NEOS'), (r'^Global X', 'Global X'), (r'^JPMorgan', 'JPMorgan'), (r'^Goldman Sachs', 'Goldman Sachs'),
     (r'^iShares', 'iShares'), (r'^Amplify', 'Amplify'), (r'^FT Vest|^First Trust', 'First Trust'), (r'^Innovator', 'Innovator'),
@@ -254,11 +263,25 @@ OVERRIDES = {  # ticker: dict of fields to force
 
 
 def issuer_of(name, entity):
+    """The house behind a fund: a curated rule first, then the SEC registrant.
+
+    Never guess from the fund's own name. A leading capitalised word is as often the fund's
+    subject as its issuer, which is how ETFs tracking Anthropic, Google DeepMind and Meta came
+    to be published as though those companies issued them. With no registrant and no rule the
+    honest answer is that the issuer is not established, and the page says so.
+    """
     for pat, iss in ISSUER_RULES:
         if re.search(pat, name):
             return iss
-    m = re.match(r'^([A-Z][A-Za-z&\.]+)', name)
-    return m.group(1) if m else entity.title()
+    # The SEC registrant is a legal trust, not a brand. Strip the trust wording, then accept it
+    # only if the fund's own name confirms it. Many funds sit in white-label series trusts that
+    # host dozens of unrelated sponsors, and those trusts say nothing about who runs the fund.
+    cand = re.sub(r'\s+(Trust|Trusts)\b.*$', '', (entity or '').strip(), flags=re.I).strip(' ,.')
+    cand = re.sub(r'\s+(ETF|ETFs|Funds|Fund|Series|Exchange[- ]Traded (Funds|Products))$', '', cand, flags=re.I).strip()
+    head = cand.split()[0] if cand else ''
+    if head and head.lower() not in GENERIC_HEAD and re.search(r'\b' + re.escape(head) + r'\b', name, re.I):
+        return cand
+    return NO_ISSUER
 
 
 def strategy_of(name):
