@@ -40,8 +40,11 @@ FOOTER_COLS = [
 ]
 
 
+BEACON = ('<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "171036aa3f074fb89751cc28ce9fc807"}\'></script><!-- End Cloudflare Web Analytics -->')
+
+
 def footer():
     cols = ''.join('<div><h3>' + h + '</h3>' + ''.join(f'<a href="{u}">{t}</a>' for t, u in items) + '</div>' for h, items in FOOTER_COLS)
-    return ('<footer class="site"><div class="fdir">' + cols + '</div>'
+    return (BEACON + '<footer class="site"><div class="fdir">' + cols + '</div>'
             '<p class="fabout"><b>ETFIQ</b> is an independent publisher of data about exchange-traded funds. It is not a fund issuer, broker-dealer or investment adviser, '
             'and it makes no recommendations. Every figure carries its date and its source.</p></footer>')
