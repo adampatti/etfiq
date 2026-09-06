@@ -267,9 +267,13 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .demotabs{display:flex;gap:4px;margin-left:auto}
 .demotabs button{height:28px;padding:0 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);font:600 12px var(--font-body);color:var(--ink-2);cursor:pointer}
 .demotabs button.on{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
-.demowrap{position:relative;max-height:440px;overflow:hidden}
+.demowrap{position:relative;max-height:440px;overflow:hidden;cursor:pointer;border-radius:3px}
+.demowrap:hover .demomore .btn{background:var(--accent);border-color:var(--accent)}
+.demowrap:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.demomore{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:flex-end;height:120px;padding-bottom:14px;pointer-events:none}
+.demomore .btn{pointer-events:none;height:36px;padding:0 18px;font-size:14px}
 .demowrap .panel.inline{margin-top:0}
-.demowrap{-webkit-mask-image:linear-gradient(to bottom,#000 76%,transparent 100%);mask-image:linear-gradient(to bottom,#000 76%,transparent 100%)}
+.demowrap .panel.inline{-webkit-mask-image:linear-gradient(to bottom,#000 74%,transparent 100%);mask-image:linear-gradient(to bottom,#000 74%,transparent 100%)}
 .demoopen{display:inline-block;margin-top:10px;font-weight:600;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
 /* the depth, counted rather than claimed */
 .depth{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));border:1px solid var(--line-2);border-radius:3px;background:var(--surface);overflow:hidden;margin:6px auto 0}
@@ -2297,7 +2301,7 @@ function viewBrowse(){
 }
 
 /* ====================== home: show first, then depth, then the ways in ====================== */
-const DEMO = [{ t:'PJAN', desk:'buffer', lab:'Buffer' }, { t:'JEPI', desk:'income', lab:'Income' }, { t:'ARKK', desk:'themes', lab:'Thematic' }];
+const DEMO = [{ t:'JEPI', desk:'income', lab:'Income' }, { t:'PJAN', desk:'buffer', lab:'Buffer' }, { t:'ARKK', desk:'themes', lab:'Thematic' }];
 function demoCard(){
   const maps = { buffer:S.byT, income:S.byI, themes:S.byTh };
   const avail = DEMO.filter(d => maps[d.desk].has(d.t));
@@ -2308,8 +2312,8 @@ function demoCard(){
   h = h.replace(`data-copy="${d.desk}/fund/`, `data-copy="${d.desk}/check/`);
   const tabs = avail.map(x => `<button type="button" data-demo="${x.t}"${x.t === d.t ? ' class="on"' : ''}>${x.lab} &middot; ${esc(x.t)}</button>`).join('');
   return `<div class="demo"><div class="demohead"><span class="eyebrow">One answer, in full</span><div class="demotabs">${tabs}</div></div>
-    <div class="demowrap"><div class="panel inline">${h}</div></div>
-    <a class="demoopen" href="#/${d.desk}/check/${esc(d.t)}">Open ${esc(d.t)} on the ${DESK_NAME[d.desk].toLowerCase()} &rsaquo;</a></div>`;
+    <div class="demowrap" data-open="${d.desk}/${esc(d.t)}" role="link" tabindex="0" aria-label="Open ${esc(d.t)} in full"><div class="panel inline">${h}</div>
+      <div class="demomore"><span class="btn primary">See all of ${esc(d.t)} &rsaquo;</span></div></div></div>`;
 }
 function depthStrip(){
   const c = (S.insights && S.insights.stats && S.insights.stats.coverage) || null;
@@ -2616,6 +2620,7 @@ function wire(){
       return;
     }
     const dmo = t.closest('[data-demo]'); if (dmo) { S.demo = dmo.dataset.demo; render(); return; }
+    const dop = t.closest('[data-open]'); if (dop && !t.closest('a,button')) { location.hash = '#/' + dop.dataset.open.replace('/', '/check/'); return; }
     const seg = t.closest('.seg button'); if (seg) { S.grouped = seg.dataset.g === '1'; render(); return; }
     if (t.closest('#allcols')) { S.cols = S.cols === 'key' ? 'all' : 'key'; store.set('etfiq.cols', S.cols); render(); return; }
     if (t.closest('#compact')) { S.compact = !S.compact; store.set('etfiq.compact', S.compact); render(); return; }
@@ -2658,6 +2663,8 @@ function wire(){
     if (e.target.id === 'q' || e.target.id === 'iq' || e.target.id === 'tq') { const id = e.target.id, v = e.target.value; clearTimeout(qTimer); qTimer = setTimeout(() => { (id === 'iq' ? S.ifilters : id === 'tq' ? S.tfilters : S.filters).q = v; render(); const q = $('#' + id); if (q) { q.focus(); q.setSelectionRange(v.length, v.length); } }, 140); }
   });
   document.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest && e.target.closest('[data-open]')) {
+      const d = e.target.closest('[data-open]'); e.preventDefault(); location.hash = '#/' + d.dataset.open.replace('/', '/check/'); return; }
     if (e.key === 'Escape') { if ($('#modal').classList.contains('on')) { $('#modal').classList.remove('on'); return; } if (S.panel) { closePanel(); return; } $$('details.fl[open]').forEach(d => d.removeAttribute('open')); }
     if (e.key === 'Enter' && e.target.matches('tr.row')) { if (e.target.dataset.i) openPanel('income', e.target.dataset.i); else openPanel('buffer', e.target.dataset.t); }
     if (e.key === 'Enter' && e.target.id === 'mineInput') { e.preventDefault(); const b = $('[data-savemine]'); if (b) b.click(); }
