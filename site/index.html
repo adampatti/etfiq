@@ -212,6 +212,7 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .sec::after{content:"";order:2;flex:1;height:1px;background:var(--line-2)}
 .sec .secx{order:3;flex:none;font:500 12px/1 var(--font-narrow);color:var(--muted);white-space:nowrap;text-decoration:none}
 .sec a.secx:hover{color:var(--accent)}
+@media (max-width:560px){.sec .secx{display:none}}
 .callout{padding:12px 14px;border-left:4px solid var(--ceiling);background:var(--surface);border-radius:0 4px 4px 0;margin:0 0 12px;font-size:14px;color:var(--ink)}
 /* the easy layer: check one fund */
 .check{max-width:980px;margin:0 auto;padding:4px 0 28px}
@@ -252,6 +253,8 @@ svg.rug text.ax{font:11px var(--font-mono);fill:var(--muted)}
 .dcol:hover{text-decoration:none;background:var(--ground)}
 .dcol .lvl{font:600 10.5px/1 var(--font-display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .dcol h2{font-family:var(--font-serif);font-size:20px;font-weight:600;letter-spacing:-.008em;line-height:1.22;margin:0}
+.dcol .vis{margin:4px 0 0}.dcol .vis svg{display:block;width:100%;height:auto}
+.dcol .sample{font:10.5px var(--font-mono);color:var(--faint)}
 .dcol .stat{font-size:14.5px;color:var(--ink-2);line-height:1.45}.dcol .stat b{color:var(--ink);font-family:var(--font-mono);font-weight:600}
 .dcol .door{margin-top:auto;padding-top:8px;font-weight:600;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
 @media (max-width:820px){.deskblock{grid-template-columns:1fr}.dcol{border-left:0;border-top:1px solid var(--line)}.dcol:first-child{border-top:0}}
@@ -2311,7 +2314,7 @@ function demoCard(){
   let h = d.desk === 'buffer' ? bufferPanel(rec) : d.desk === 'income' ? incomePanel(rec) : themePanel(rec);
   h = h.replace(`data-copy="${d.desk}/fund/`, `data-copy="${d.desk}/check/`);
   const tabs = avail.map(x => `<button type="button" data-demo="${x.t}"${x.t === d.t ? ' class="on"' : ''}>${x.lab} &middot; ${esc(x.t)}</button>`).join('');
-  return `<div class="demo"><div class="demohead"><span class="eyebrow">One answer, in full</span><div class="demotabs">${tabs}</div></div>
+  return `<div class="demo"><div class="demohead"><span class="eyebrow">One fund, the whole card</span><div class="demotabs">${tabs}</div></div>
     <div class="demowrap" data-open="${d.desk}/${esc(d.t)}" role="link" tabindex="0" aria-label="Open ${esc(d.t)} in full"><div class="panel inline">${h}</div>
       <div class="demomore"><span class="btn primary">See all of ${esc(d.t)} &rsaquo;</span></div></div></div>`;
 }
@@ -2337,7 +2340,26 @@ function viewHome(){
   const HOME_POP = ['JEPI', 'JEPQ', 'SPYI', 'QYLD', 'PJAN', 'BJUL', 'POCT', 'ARKK', 'SMH', 'BOTZ'];
   const popIn = t => S.byT.has(t) ? 'buffer' : S.byI.has(t) ? 'income' : S.byTh.has(t) ? 'themes' : null;
   const chips = HOME_POP.map(t => { const d = popIn(t); return d ? `<a href="#/${d}/check/${t}">${t}</a>` : ''; }).join('');
-  const tile = (desk, q, num, door) => `<a class="dcol ${desk}" href="#/${desk}/check"><div class="lvl">${DESK_NAME[desk]}</div><h2>${q}</h2><div class="stat">${num}</div><div class="door">${door} &rsaquo;</div></a>`;
+  const pick = (m, list) => list.map(t => m.get(t)).find(Boolean);
+  const fb = pick(S.byT, ['PJAN', 'BJUL', 'DSEP']) || S.funds[0];
+  const fi = pick(S.byI, ['JEPI', 'SPYI', 'QYLD']) || S.income[0];
+  const ft = pick(S.byTh, ['ARKK', 'BOTZ', 'AIQ']) || S.themes.find(r => r.inSPY != null);
+  const bsc = fb ? [Math.floor(Math.min(fb.isFloor ? fb.bufferStart - 40 : fb.bufferEnd, fb.refReturn) - 3), Math.ceil(Math.max(fb.isUncapped ? Math.max(fb.refReturn, 0) + 12 : fb.startCap, fb.refReturn) + 3)] : S.scale;
+  const fw = fi ? iw(fi) : null, ivals = fw ? [fw.cash, fw.price, fw.total, fw.bench == null ? 0 : fw.bench, 0] : [0];
+  const isc = [Math.floor(Math.min(...ivals) - 4), Math.ceil(Math.max(...ivals) + 6)];
+  const vis = {
+    buffer: fb ? band(fb, { w:320, h:34, scale:bsc, cssW:'100%', cssH:'auto' }) : '',
+    income: fi && fw ? paybar(fi, { w:320, h:34, scale:isc, cssW:'100%', cssH:'auto' }) : '',
+    themes: ft ? diffbar(ft, { w:320, h:30, cssW:'100%', cssH:'auto' }) : ''
+  };
+  const ex = { buffer: fb, income: fi, themes: ft };
+  const CHART = { buffer: 'on the outcome band', income: 'on the payout bar', themes: 'on the difference bar' };
+  const tile = (desk, q, num, door) => {
+    const f = ex[desk], t = f && f.ticker;
+    return `<a class="dcol ${desk}" href="#/${desk}/check${t ? '/' + esc(t) : ''}"><div class="lvl">${DESK_NAME[desk]}</div><h2>${q}</h2>` +
+      (vis[desk] ? `<div class="vis">${vis[desk]}</div><div class="sample">${esc(t)} ${CHART[desk]}</div>` : '') +
+      `<div class="stat">${num}</div><div class="door">${door} &rsaquo;</div></a>`;
+  };
   const miss = S.homeMiss ? `<div class="miss"><b>${esc(S.homeMiss)}</b> is not on any desk yet. ETFIQ covers ${nb} buffer, ${ni} option-income and ${nt} thematic ETFs. <a href="#/buffer/desk">Browse the buffer desk</a>, <a href="#/income/desk">the income desk</a> or <a href="#/themes/desk">the themes desk</a>.</div>` : '';
   const lines = (S.insights && S.insights.lines || []);
   const chg = ['buffer', 'income', 'themes'].map(d => {
@@ -2352,7 +2374,7 @@ function viewHome(){
     ${demoCard()}
     <div class="sec tight"><span class="eyebrow">What is behind it</span><a class="secx" href="#/standards">Method and sources &rsaquo;</a></div>
     ${depthStrip()}
-    <div class="sec tight"><span class="eyebrow">Start on a desk</span><a class="secx" href="#/browse">Browse every way in &rsaquo;</a></div>
+    <div class="sec tight"><span class="eyebrow">One example from each desk</span><a class="secx" href="#/browse">Browse every way in &rsaquo;</a></div>
     <div class="deskblock">
       ${tile('buffer', 'Where does my buffer ETF stand today?', `<b>${capped} of ${nb}</b> are at their cap today`, 'Check a buffer ETF')}
       ${tile('income', 'Am I ahead of the benchmark?', idx.length ? `<b>${ahead} of ${idx.length}</b> index income ETFs beat theirs over ${WIN_LABEL[S.window]}` : '', 'Check an income ETF')}
