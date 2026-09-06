@@ -21,7 +21,7 @@ def rail(active=''):
 
 
 FOOTER_CSS = ("footer.site{background:#0A0A0A;color:#8E8E8B;margin-top:44px;padding:30px 20px 22px}"
-              "footer.site .fdir{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:20px 26px;max-width:1120px;margin:0 auto}"
+              "footer.site .fdir{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px 26px;max-width:1120px;margin:0 auto}footer.site .fcol{min-width:0}@media (max-width:900px){footer.site .fdir{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (max-width:640px){footer.site .fdir{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}@media (max-width:400px){footer.site .fdir{grid-template-columns:minmax(0,1fr)}}"
               "footer.site h3{font:600 11px/1 Geist,system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#9A9A97;margin:0 0 10px}"
               "footer.site a{display:block;font-size:13px;line-height:1.95;color:#8E8E8B;text-decoration:none}footer.site a:hover{color:#fff}"
               "footer.site .fabout{max-width:1120px;margin:22px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;line-height:1.6;color:#9A9A97}"

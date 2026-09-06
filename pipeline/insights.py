@@ -54,10 +54,10 @@ def build():
             newly = [t for t in capped if t in prev_states and prev_states[t] != 'capped']
             stats['buffer']['newlyCapped'] = len(newly)
             stats['buffer']['previousSnapshot'] = snaps[-1].stem
-        lines.append({'desk': 'buffer', 'text': f"{len(capped)} of {len(funds)} buffer ETFs sit at their cap today" + (f", {len(newly)} of them new since {snaps[-1].stem}" if newly else '') + '.', 'href': '#/buffer/desk'})
+        lines.append({'desk': 'buffer', 'text': f"{len(capped)} of {len(funds)} buffer ETFs sit at their cap today" + (f", {len(newly)} of them new since {snaps[-1].stem}" if newly else '') + '.', 'short': f'{len(capped)} of {len(funds)}', 'label': 'at their cap', 'href': '#/buffer/desk'})
         if working:
-            lines.append({'desk': 'buffer', 'text': f"{len(working)} buffer ETFs have their buffer absorbing losses right now.", 'href': '#/buffer/desk'})
-        lines.append({'desk': 'buffer', 'text': f"{len(soon)} buffer ETFs reset within 30 days" + (f"; {len(fresh)} reset in the last week and carry fresh caps." if fresh else '.'), 'href': '#/buffer/entry'})
+            lines.append({'desk': 'buffer', 'text': f"{len(working)} buffer ETFs have their buffer absorbing losses right now.", 'short': str(len(working)), 'label': 'buffers absorbing losses', 'href': '#/buffer/desk'})
+        lines.append({'desk': 'buffer', 'text': f"{len(soon)} buffer ETFs reset within 30 days" + (f"; {len(fresh)} reset in the last week and carry fresh caps." if fresh else '.'), 'short': str(len(soon)), 'label': 'reset within 30 days', 'href': '#/buffer/entry'})
 
     # ---- income desk
     if income:
@@ -68,15 +68,15 @@ def build():
         fat_fell = [r for r in with_w if w1(r)['cash'] >= 10 and w1(r)['price'] < 0]
         stats['income'] = {'funds': len(income), 'indexFunds': len(idx), 'withYear': len(with_w), 'ahead': len(ahead), 'paidTenFell': len(fat_fell)}
         if with_w:
-            lines.append({'desk': 'income', 'text': f"Over the last year, {len(ahead)} of {len(with_w)} index income ETFs finished ahead of their benchmark once cash was counted and reinvested.", 'href': '#/income/ahead'})
+            lines.append({'desk': 'income', 'text': f"Over the last year, {len(ahead)} of {len(with_w)} index income ETFs finished ahead of their benchmark once cash was counted and reinvested.", 'short': f'{len(ahead)} of {len(with_w)}', 'label': 'ahead of their benchmark over a year', 'href': '#/income/ahead'})
         if fat_fell:
-            lines.append({'desk': 'income', 'text': f"{len(fat_fell)} income ETFs paid 10% or more in cash over the year while their price fell.", 'href': '#/income/desk'})
+            lines.append({'desk': 'income', 'text': f"{len(fat_fell)} income ETFs paid 10% or more in cash over the year while their price fell.", 'short': str(len(fat_fell)), 'label': 'paid 10% or more while the price fell', 'href': '#/income/desk'})
         today = datetime.date.fromisoformat(as_i) if as_i else datetime.date.today()
         week = (today + datetime.timedelta(days=7)).isoformat()
         paying = [p for p in payouts if any(n.get('pay') and today.isoformat() < n['pay'] <= week for n in p.get('next', []))]
         if paying:
             published = sum(1 for p in paying if any(n.get('status') in ('declared', 'scheduled') for n in p.get('next', [])))
-            lines.append({'desk': 'income', 'text': f"{len(paying)} income ETFs pay out in the next seven days, {published} of them on dates the issuer has published.", 'href': '#/income/calendar'})
+            lines.append({'desk': 'income', 'text': f"{len(paying)} income ETFs pay out in the next seven days, {published} of them on dates the issuer has published.", 'short': str(len(paying)), 'label': 'pay out in the next seven days', 'href': '#/income/calendar'})
             stats['income']['payingThisWeek'] = len(paying)
         # return of capital by the largest issuer with notices
         by_issuer = {}
@@ -85,7 +85,7 @@ def build():
                 by_issuer.setdefault(s['issuer'], []).append(s['latest']['roc'])
         if by_issuer:
             iss, vals = max(by_issuer.items(), key=lambda kv: len(kv[1]))
-            lines.append({'desk': 'income', 'text': f"{iss}'s latest distributions were {pct(statistics.median(vals))} return of capital at the median fund, by its own 19a-1 estimates across {len(vals)} funds.", 'href': '#/income/desk'})
+            lines.append({'desk': 'income', 'text': f"{iss}'s latest distributions were {pct(statistics.median(vals))} return of capital at the median fund, by its own 19a-1 estimates across {len(vals)} funds.", 'short': pct(statistics.median(vals)), 'label': f'return of capital at the median {iss} fund', 'href': '#/income/desk'})
             stats['income']['rocIssuer'] = {'issuer': iss, 'medianRoc': round(statistics.median(vals), 1), 'funds': len(vals)}
 
     # ---- themes desk
@@ -105,11 +105,22 @@ def build():
             twins += sum(1 for v in row if v >= 50)
         stats['themes'] = {'funds': len(themes), 'withHoldings': len(ins), 'medianInSPY': round(statistics.median(ins), 1) if ins else None, 'beat': len(beat), 'withYear': len(with_w), 'twinPairs': twins}
         if ins:
-            lines.append({'desk': 'themes', 'text': f"The typical thematic ETF has {pct(statistics.median(ins))} of its weight in S&P 500 names, by its latest holdings filing.", 'href': '#/themes/themes'})
+            lines.append({'desk': 'themes', 'text': f"The typical thematic ETF has {pct(statistics.median(ins))} of its weight in S&P 500 names, by its latest holdings filing.", 'short': pct(statistics.median(ins)), 'label': 'of the typical thematic ETF is S&P 500 names', 'href': '#/themes/themes'})
         if lead:
-            lines.append({'desk': 'themes', 'text': f"Over the last year the median {lead[0].lower()} fund returned {lead[1]:+.0f}% and {lead[2]} of {lead[3]} beat the S&P 500; the median {lag[0].lower()} fund returned {lag[1]:+.0f}%.", 'href': '#/themes/themes'})
+            lines.append({'desk': 'themes', 'text': f"Over the last year the median {lead[0].lower()} fund returned {lead[1]:+.0f}% and {lead[2]} of {lead[3]} beat the S&P 500; the median {lag[0].lower()} fund returned {lag[1]:+.0f}%.", 'short': f'{lead[1]:+.0f}%', 'label': f'median {lead[0].lower()} fund over a year', 'href': '#/themes/themes'})
         if twins:
-            lines.append({'desk': 'themes', 'text': f"{twins} pairs of thematic ETFs hold portfolios that are more than half identical.", 'href': '#/themes/own'})
+            lines.append({'desk': 'themes', 'text': f"{twins} pairs of thematic ETFs hold portfolios that are more than half identical.", 'short': str(twins), 'label': 'pairs more than half identical', 'href': '#/themes/own'})
+    issuers = sorted({f['issuer'] for f in funds} | {r['issuer'] for r in income} | {r.get('issuer', '') for r in themes} - {''})
+    site = ROOT / 'site'
+    coverage = {
+        'funds': len(funds) + len(income) + len(themes), 'buffer': len(funds), 'income': len(income), 'themes': len(themes),
+        'issuers': len(issuers),
+        'comparisons': len(list((site / 'compare').rglob('*.html'))) if (site / 'compare').exists() else 0,
+        'books': len(list((site / 'data' / 'books').glob('*.json'))) if (site / 'data' / 'books').exists() else 0,
+        'rocIssuers': len(sources),
+        'pages': len(list(site.rglob('*.html'))),
+    }
+    stats['coverage'] = coverage
     out = {'asOf': max(x for x in (as_b, as_i, as_t) if x) if any((as_b, as_i, as_t)) else datetime.date.today().isoformat(), 'generated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'), 'lines': lines, 'stats': stats}
     for l in lines:
         l['text'] = l['text'].replace('\u2014', '-')
