@@ -4,7 +4,7 @@
 Blocks filled (each a <script type="application/json"> with an id):
   etfiq-data             site/data/funds.json          buffer desk records
   etfiq-income           site/data/income.json         income desk records (empty array until the feed runs)
-  etfiq-income-universe  data/income_universe.json     the income universe, included funds only
+  etfiq-income-universe  data/income_universe.json     the income universe, included funds only, republished to site/data/
   etfiq-thematic         site/data/thematic.json       themes desk records and the fund-to-fund overlap matrix
   etfiq-sources          site/data/sources.json        issuers' 19a-1 estimates of distribution sources by ticker
   etfiq-insights         site/data/insights.json       what changed: computed lines for the home page
@@ -34,6 +34,11 @@ def fill(block_id, data):
 funds = load('site/data/funds.json', [])
 income = load('site/data/income.json', [])
 universe = [u for u in load('data/income_universe.json', []) if u.get('include')]
+for u in universe:
+    for k in ('entity', 'cik', 'why', 'include'):
+        u.pop(k, None)
+# the income desk falls back to this list when the price feed is empty, and fetches it the way it fetches the other desk data
+(ROOT / 'site' / 'data' / 'income_universe.json').write_text(json.dumps(universe, separators=(',', ':')))
 payouts = load('site/data/payouts.json', [])
 for p in payouts:
     p.pop('history', None)
