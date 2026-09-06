@@ -314,6 +314,16 @@ footer .fbase .fnote{color:var(--muted);font-size:12px}
 .directory h3{font:600 12.5px/1 var(--font-display);letter-spacing:.04em;color:var(--ink);margin:0 0 9px}
 .directory ul{list-style:none;margin:0;padding:0}
 .directory li{font-size:13.5px;line-height:1.85;color:var(--ink-2)}
+.pcalc{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 20px;margin:2px 0 14px}
+.pcin{display:flex;flex-direction:column;gap:5px;font:500 11.5px var(--font-body);color:var(--muted)}
+.pcin input{width:130px;padding:8px 10px;border:1px solid var(--line-2);border-radius:8px;font:600 15px var(--font-mono);color:var(--ink);background:var(--surface)}
+.pcout .l{font:500 11.5px var(--font-body);color:var(--muted);margin-bottom:4px}
+.pcout .v.big{font:600 24px/1 var(--font-display);letter-spacing:-.02em;color:var(--ink)}
+.pcbars{display:flex;align-items:flex-end;gap:5px;height:64px;margin:0 0 10px}
+.pcm{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%}
+.pcb{display:block;width:100%;max-width:26px;border-radius:3px 3px 0 0;background:var(--protected)}
+.pcb.est{background:var(--protected);opacity:.42}
+.pcl{font:500 10px var(--font-mono);color:var(--muted)}
 .cmp-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:6px}.cmp-pairs .pair{border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:6px}.cmp-pairs .v{font:600 28px/1 var(--font-display);letter-spacing:-.02em;color:var(--themes-ink)}.cmp-pairs .muted{font-size:12.5px;line-height:1.4}
 footer .wm .wmk{height:14.5px;width:auto;color:var(--ink);--iq:var(--accent);display:block}
 .doc table.srcs th{text-align:left;font-weight:600;vertical-align:top;white-space:normal}.doc table.srcs tbody th{text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink)}.doc table.srcs td{vertical-align:top}.doc table.srcs{width:100%}
@@ -750,6 +760,7 @@ const S = {
   filters: { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' },
   ifilters: { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind: store.get('etfiq.kind', 'index') },
   sort: { k:'daysRemaining', dir:'asc' }, isort: { k:'gap', dir:'desc' },
+  calc: null,
   bsort: { issuer:{k:'name', dir:'asc'}, theme:{k:'name', dir:'asc'}, month:{k:'order', dir:'asc'}, bench:{k:'n', dir:'desc'} }, bq: '',
   grouped: true, collapsed: new Set(), compact: store.get('etfiq.compact', false), cols: store.get('etfiq.cols', 'key'),
   window: store.get('etfiq.window', '1Y'),
@@ -1457,6 +1468,43 @@ function bufferPanel(f){
   <section><h3>Completed outcome periods <span class="tag">coming</span></h3><div class="slot"><b>Every completed period since inception</b> will sit here once the terms table is built from filed prospectus supplements: starting cap, buffer, index return, fund return, whether the cap bound and whether the buffer engaged.</div></section>
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="buffer:${esc(f.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><button class="btn" type="button" data-ladtoggle="${esc(f.ticker)}">${inLadder ? 'Remove from ladder' : 'Add to ladder'}</button>${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Issuer page</a>` : ''}<a class="btn" href="#/buffer/compare/${esc(f.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="buffer/fund/${esc(f.ticker)}">Copy link</button></div>`;
 }
+function payoutSchedule(r){
+  // the next twelve months per share: declared and scheduled from the calendar, then the fund's own cadence beyond it
+  const today = new Date();
+  const months = Array.from({ length: 12 }, (_, k) => new Date(today.getFullYear(), today.getMonth() + k, 1));
+  const key = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  const byM = new Map(months.map(m => [key(m), { cash: 0, n: 0, est: 0 }]));
+  const pay = r.pay, next = (pay && pay.next) || [];
+  const cad = pay && pay.cadenceDays ? pay.cadenceDays : (r.payoutFrequency === 'weekly' ? 7 : r.payoutFrequency === 'quarterly' ? 91 : r.payoutFrequency === 'annual' ? 364 : 30);
+  const events = next.map(x => ({ d: x.pay, a: +x.amount, s: x.status }));
+  const last = events.length ? events[events.length - 1] : (r.lastDistribution ? { d: r.lastDistribution.date, a: +r.lastDistribution.amount, s: 'estimated' } : null);
+  if (last) { let d = new Date(last.d + 'T00:00:00'); for (let g = 0; g < 60; g++) { d = new Date(d.getTime() + cad * 86400000); if (d > months[11] && d.getMonth() !== months[11].getMonth()) break; events.push({ d: d.toISOString().slice(0, 10), a: last.a, s: 'projected' }); } }
+  let total = 0, known = 0, count = 0;
+  for (const e of events) { const m = byM.get(e.d.slice(0, 7)); if (!m) continue; m.cash += e.a; m.n++; count++; total += e.a; if (e.s === 'declared' || e.s === 'scheduled') { known += e.a; } else { m.est++; } }
+  return { months, byM, key, total, known, count, cadence: cad, hasCalendar: next.length > 0 };
+}
+function payoutCalc(r){
+  const f = payoutSchedule(r);
+  if (!f.count || r.price == null) return '';
+  const v = S.calc && S.calc.t === r.ticker ? S.calc : { t: r.ticker, mode: 'shares', v: 100 };
+  const shares = v.mode === 'shares' ? v.v : (r.price ? v.v / r.price : 0);
+  const cash = f.total * shares;
+  const known = f.known * shares;
+  const mx = Math.max(...Array.from(f.byM.values()).map(m => m.cash), 1e-9);
+  const money = x => x >= 1000 ? '$' + Math.round(x).toLocaleString() : '$' + x.toFixed(2);
+  const bars = f.months.map(m => { const c = f.byM.get(f.key(m)); const h = Math.max(2, Math.round(c.cash / mx * 46));
+    return `<div class="pcm" title="${esc(m.toLocaleDateString('en-US', {month:'long', year:'numeric'}))}: ${esc(money(c.cash * shares))}${c.n ? ', ' + c.n + ' payment' + (c.n > 1 ? 's' : '') : ', no payment scheduled'}"><span class="pcb${c.est && !(c.n - c.est) ? ' est' : ''}" style="height:${h}px"></span><span class="pcl">${esc(m.toLocaleDateString('en-US', {month:'narrow'}))}</span></div>`; }).join('');
+  return `<section><h3>What it would pay you <span class="tag etfiq">ETFIQ</span><span class="sub">next twelve months, before tax</span></h3>
+    <div class="pcalc">
+      <div class="seg" role="group" aria-label="Enter shares or dollars"><button type="button" data-calcmode="shares" class="${v.mode === 'shares' ? 'on' : ''}">Shares</button><button type="button" data-calcmode="dollars" class="${v.mode === 'dollars' ? 'on' : ''}">Dollars</button></div>
+      <label class="pcin">${v.mode === 'shares' ? 'Shares held' : 'Amount invested'}<input id="calcQty" type="number" min="0" step="${v.mode === 'shares' ? '1' : '100'}" value="${v.v}" inputmode="decimal"></label>
+      <div class="pcout"><div class="l">Cash over twelve months</div><div class="v big">${esc(money(cash))}</div></div>
+      <div class="pcout"><div class="l">Average a month</div><div class="v big">${esc(money(cash / 12))}</div></div>
+    </div>
+    <div class="pcbars">${bars}</div>
+    <p class="hint">${v.mode === 'dollars' ? `${esc(money(v.v))} buys about ${(shares).toFixed(1)} shares at ${esc(money(r.price))}. ` : ''}${known > 0 ? `${esc(money(known))} of that is declared or on the issuer's published schedule; the rest repeats the latest payment of ${esc(money(f.total / f.count))} a share every ${f.cadence} days.` : `Nothing is declared yet, so the whole figure repeats the latest payment of ${esc(money(f.total / f.count))} a share every ${f.cadence} days.`} A distribution is not a promise and the amount can change. ${r.src && r.src.latest && r.src.latest.roc != null ? `${r.issuer} estimates ${r.src.latest.roc.toFixed(0)}% of its latest distribution was return of capital, which is a tax characterisation rather than a measure of erosion.` : ''}</p>
+  </section>`;
+}
 function incomePanel(r){
   const kv = (l, v, cls) => `<div><div class="l">${l}</div><div class="v ${cls || ''}">${v}</div></div>`;
   const w = iw(r);
@@ -1474,6 +1522,7 @@ function incomePanel(r){
     ${kv('Payout rate, annualised', fmtPct(r.distributionRate, {sign:false}), 'big')}${kv('Next ex-date', r.pay && r.pay.next[0] ? fmtDate(r.pay.next[0].ex) + (r.pay.next[0].status === 'estimated' ? ', estimated' : r.pay.next[0].status === 'scheduled' ? ', issuer schedule' : ', declared') : '·', 'wrap')}${kv('Next pay date', r.pay && r.pay.next[0] ? fmtDate(r.pay.next[0].pay) + ' · $' + (+r.pay.next[0].amount).toFixed(4) + (r.pay.next[0].status === 'declared' ? ' declared' : ' est.') : '·', 'wrap')}${kv('Latest distribution', r.lastDistribution ? '$' + (+r.lastDistribution.amount).toFixed(4) + ' on ' + fmtDate(r.lastDistribution.date) : '·', 'wrap')}${kv('Cash paid, trailing 12 months', fmtPct(r.trailing12mCash, {sign:false}))}
     ${kv('Price since launch', fmtPct(r.priceSinceInception), r.priceSinceInception < 0 ? 'neg' : 'pos')}${kv('Launched', r.inception ? esc(fmtDate(r.inception)) : '·')}${kv('Price', r.price == null ? '·' : '$' + (+r.price).toFixed(2))}${r.expenseRatio != null ? kv('Expense ratio', fmtPct(r.expenseRatio, {sign:false, d:2})) : ''}
   </div>${r.distributions && r.distributions.length ? `<table class="mini"><thead><tr><th>Ex-date</th><th class="num">Cash per share</th></tr></thead><tbody>${r.distributions.slice().reverse().map(d => `<tr><td>${esc(fmtDate(d.date))}</td><td class="num">$${(+d.amount).toFixed(4)}</td></tr>`).join('')}</tbody></table>` : ''}</section>
+  ${payoutCalc(r)}
   ${cashSources(r)}
   <section><h3>Benchmark <span class="tag etfiq">ETFIQ</span></h3><p class="plain" style="font-size:14px">${esc(r.benchmarkName || r.benchmark)}${r.benchmarkKind === 'proxy' ? '. This is a proxy: the closest listed ETF to what the fund actually writes options on.' : r.benchmarkKind === 'stock' ? '. Single-stock fund: the comparison is with simply owning the stock.' : '.'} Total return, dividends reinvested, over the same days.</p></section>
   <div class="acts"><button class="btn ${inMine ? '' : 'primary'}" type="button" data-minetoggle="income:${esc(r.ticker)}">${inMine ? 'Remove from your funds' : 'Add to your funds'}</button><a class="btn" href="#/income/compare/${esc(r.ticker)}">Compare with…</a><button class="btn ghost" type="button" data-copy="income/fund/${esc(r.ticker)}">Copy link</button></div>`;
@@ -2430,6 +2479,23 @@ function applyTheme(t){ if (t === 'system') document.documentElement.removeAttri
 function tickersIn(v){ return Array.from(new Set(String(v || '').toUpperCase().split(/\s+VS\.?\s+|[\s,;+\/]+/).map(x => x.replace(/[^A-Z0-9.]/g, '')).filter(Boolean))); }
 function wire(){
   document.addEventListener('input', e => {
+    if (e.target.id === 'calcQty') {
+      const t = (S.panel && S.panel.t) || S.checkT;
+      const r = S.byI.get(t);
+      if (!r) return;
+      const mode = (S.calc && S.calc.t === t ? S.calc.mode : 'shares');
+      S.calc = { t, mode, v: Math.max(0, +e.target.value || 0) };
+      const sec = e.target.closest('section');
+      const wrap = document.createElement('div');
+      wrap.innerHTML = payoutCalc(r);
+      const fresh = wrap.querySelector('section');
+      if (fresh && sec) {
+        sec.querySelectorAll('.pcout .v').forEach((el, i) => { const nv = fresh.querySelectorAll('.pcout .v')[i]; if (nv) el.innerHTML = nv.innerHTML; });
+        const bars = sec.querySelector('.pcbars'), nb = fresh.querySelector('.pcbars'); if (bars && nb) bars.innerHTML = nb.innerHTML;
+        const hint = sec.querySelector('.hint'), nh = fresh.querySelector('.hint'); if (hint && nh) hint.innerHTML = nh.innerHTML;
+      }
+      return;
+    }
     if (e.target.id !== 'browseQ') return;
     S.bq = e.target.value;
     render();
@@ -2451,6 +2517,17 @@ function wire(){
     if (t.closest('#clear')) { S.filters = { q:'', issuer:new Set(), ref:new Set(), buffer:new Set(), period:new Set(), days:'', state:'', month:'' }; render(); return; }
     if (t.closest('#iclear')) { S.ifilters = { q:'', issuer:new Set(), bench:new Set(), strategy:new Set(), freq:new Set(), state:'', kind:S.ifilters.kind }; render(); return; }
     const kd = t.closest('[data-kind]'); if (kd) { S.ifilters.kind = kd.dataset.kind; store.set('etfiq.kind', S.ifilters.kind); computeIncomeScale(); render(); return; }
+    const calcMode = t.closest('[data-calcmode]');
+    if (calcMode) {
+      const tk = (S.panel && S.panel.t) || S.checkT;
+      const r = S.byI.get(tk);
+      const mode = calcMode.dataset.calcmode;
+      const cur = S.calc && S.calc.t === tk ? S.calc : { mode: 'shares', v: 100 };
+      S.calc = { t: tk, mode, v: mode === 'dollars' ? Math.round((cur.mode === 'shares' ? cur.v * (r && r.price ? r.price : 1) : cur.v) / 100) * 100 || 10000 : Math.max(1, Math.round(cur.mode === 'dollars' ? cur.v / (r && r.price ? r.price : 1) : cur.v)) };
+      const sec = calcMode.closest('section');
+      if (sec && r) { const w = document.createElement('div'); w.innerHTML = payoutCalc(r); const f = w.querySelector('section'); if (f) sec.replaceWith(f); }
+      return;
+    }
     const seg = t.closest('.seg button'); if (seg) { S.grouped = seg.dataset.g === '1'; render(); return; }
     if (t.closest('#allcols')) { S.cols = S.cols === 'key' ? 'all' : 'key'; store.set('etfiq.cols', S.cols); render(); return; }
     if (t.closest('#compact')) { S.compact = !S.compact; store.set('etfiq.compact', S.compact); render(); return; }
