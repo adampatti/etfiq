@@ -454,7 +454,7 @@ def rankings(funds, income, themes, core, as_b, as_i, as_t, matrix, sources):
         [[f['ticker'], tk(f['ticker']), esc(f['name']), str(f['daysRemaining']), fdate(f['periodEnd']), esc(f.get('bufferLabel', '')),
           'uncapped' if f.get('isUncapped') else pct(f.get('remainingCapFund'), sign=False)] for f in rows],
         as_b, 'A fund carries its freshest cap in the days after it resets.',
-        '<a href="/buffer/">Every buffer ETF</a><a href="/browse/">Browse by reset month</a>')
+        '<a href="/buffer/">Every buffer ETF</a><a href="/#/browse/month">Browse by reset month</a>')
 
     # ---- income
     have = [r for r in income if w1y(r).get('cash') is not None]
@@ -542,7 +542,7 @@ def rankings(funds, income, themes, core, as_b, as_i, as_t, matrix, sources):
         ['Ticker', 'Fund', 'Theme', 'Below its high', 'High set', 'Total return 1Y'],
         [[r['ticker'], tk(r['ticker']), esc(r['name']), esc(r['themeName']), pct(r['drawdown']), fdate(r.get('highDate')), pct(w1y(r).get('total'))] for r in rows],
         as_t, 'A deep drawdown says where a fund has been, not where it is going.',
-        '<a href="/themes/">Every thematic ETF</a><a href="/browse/">Browse by theme</a>')
+        '<a href="/themes/">Every thematic ETF</a><a href="/#/browse/theme">Browse by theme</a>')
     tks = (matrix or {}).get('tickers') or []
     pairs = []
     if tks and (matrix or {}).get('rows'):
@@ -740,7 +740,7 @@ def question_pages(funds, income, themes, core, as_b, as_i, as_t):
          'Because caps are set by the option market, they move with volatility. A calm market produces lower caps; a nervous one produces higher caps for the same buffer.'],
         [['Ticker', 'Fund', 'Period ends', 'Days left', 'Buffer', 'State']] +
         [[f'<a href="/funds/{f["ticker"]}.html" class="tk">{f["ticker"]}</a>', esc(f['name']), fdate(f['periodEnd']), str(f.get('daysRemaining')), esc(f.get('bufferLabel', '')), STATE_LABEL[buffer_state(f)]] for f in soon],
-        as_b, '<a href="/buffer/">Every buffer ETF</a><a href="/questions/what-is-a-buffer-etf.html">What a buffer ETF is</a><a href="/browse/">Browse by reset month</a>'))
+        as_b, '<a href="/buffer/">Every buffer ETF</a><a href="/questions/what-is-a-buffer-etf.html">What a buffer ETF is</a><a href="/#/browse/month">Browse by reset month</a>'))
 
     out.append(q_page('what-is-return-of-capital', 'What is return of capital in an ETF distribution?', 'income',
         'Return of capital is the part of a distribution that is not income or realised gains, so it comes back out of the fund\'s own assets and is not taxed as income in the year it is paid. It lowers the cost basis instead.'
@@ -784,7 +784,7 @@ def question_pages(funds, income, themes, core, as_b, as_i, as_t):
         [[f'<a href="/funds/{r["ticker"]}.html" class="tk">{r["ticker"]}</a>', esc(r['name']), esc(r['themeName']),
           pct(r['vsSPY']['inIndex'], sign=False), pct(r['vsSPY']['activeShare'], sign=False),
           pct(((r.get('windows') or {}).get('1Y') or {}).get('total')), pts(((r.get('windows') or {}).get('1Y') or {}).get('gap'))] for r in diff],
-        as_t, '<a href="/themes/">Every thematic ETF</a><a href="/questions/what-is-active-share.html">What active share means</a><a href="/browse/">Browse by theme</a>'))
+        as_t, '<a href="/themes/">Every thematic ETF</a><a href="/questions/what-is-active-share.html">What active share means</a><a href="/#/browse/theme">Browse by theme</a>'))
 
     out.append(q_page('how-much-do-etfs-cost', 'How much do these ETFs cost?', 'income',
         f'The median option-income ETF ETFIQ tracks charges {med_fee:.2f}% a year, taken from each fund\'s own prospectus.' if med_fee is not None else 'Fees come from each fund\'s prospectus.',
