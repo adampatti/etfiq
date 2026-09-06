@@ -15,7 +15,7 @@ from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
 SP = pathlib.Path(os.environ.get('FONTS', pathlib.Path(__file__).parent / 'cache' / 'fonts'))
 SITE = pathlib.Path(__file__).resolve().parents[1] / 'site'
-INK, INK_COIN, BLUE, BLUE_DARK, WHITE, MUTED_L, MUTED_D = '#0F1419', '#161C24', '#2457E6', '#5A87E5', '#F2F4F7', '#5B6572', '#8A93A0'
+INK, INK_COIN, BLUE, BLUE_DARK, WHITE, MUTED_L, MUTED_D = '#0A0A0A', '#141414', '#1D34F2', '#6274FF', '#FAFAF9', '#6A6A68', '#8E8E8B'
 
 _fonts = {}
 def font(fam, axes):
@@ -84,7 +84,7 @@ for name, body in out.items():
     (SITE / name).write_text(body)
 # header pieces for index.html and rail.py: the wordmark and tagline as standalone SVGs sized by cap height
 # the inline wordmark: a viewBox tight to the ink, so the Q tail is never clipped by the box it sits in
-wm, draw_wm = wordmark(686, 'currentColor', 'var(--iq, #5A87E5)')
+wm, draw_wm = wordmark(686, 'currentColor', 'var(--iq, #6274FF)')
 top, bottom = 686 - wm['over'], 686 + wm['under']
 wb = draw_wm(0, 686)
 (SP / 'wordmark-inline.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 {top:.2f} {wm["width"]:.2f} {bottom - top:.2f}">{wb}</svg>')

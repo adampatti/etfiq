@@ -20,9 +20,9 @@ RASTER = None
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 OUT = SITE / 'embed'
-INK, INK2, MUTED, LINE, LINE2 = '#12161C', '#2B333D', '#5A6472', '#DCE1E8', '#C3CBD6'
-PROT, UNPROT, UP, UPFILL, UPLINE, CEIL = '#0B8874', '#AE3128', '#E9EDF2', '#C9D1DB', '#AEB8C5', '#C48408'
-VIOLET, VIOLET_SOFT, ACCENT, GROUND, SURFACE = '#5B3FD6', '#ECE8FA', '#2457E6', '#F4F6F9', '#FFFFFF'
+INK, INK2, MUTED, LINE, LINE2 = '#0A0A0A', '#2B2B2B', '#6A6A68', '#E6E6E3', '#D2D2CE'
+PROT, UNPROT, UP, UPFILL, UPLINE, CEIL = '#00806B', '#D12E1F', '#F0F0EE', '#D9D9D5', '#BEBEB9', '#B37400'
+VIOLET, VIOLET_SOFT, ACCENT, GROUND, SURFACE = '#5B2BE8', '#EEEAFD', '#1D34F2', '#FAFAF9', '#FFFFFF'
 FONT = "Geist,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
 DESK_LABEL = {'buffer': 'buffer desk', 'income': 'income desk', 'themes': 'themes desk'}
 MONO = "'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace"
@@ -170,12 +170,12 @@ def social_card(ticker, name, sub, inner, as_of, desk):
     scale = 1.6
     body = f'<g transform="translate({(OG_W - W * scale) / 2:.1f} {(OG_H - H * scale) / 2 + 40:.1f}) scale({scale})">{inner}</g>'
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {OG_W} {OG_H}" width="{OG_W}" height="{OG_H}" role="img" aria-label="{esc(ticker)}: {esc(sub)}">
-<rect width="{OG_W}" height="{OG_H}" fill="#0F1419"/>
+<rect width="{OG_W}" height="{OG_H}" fill="#0A0A0A"/>
 <rect x="{(OG_W - W * scale) / 2:.1f}" y="{(OG_H - H * scale) / 2 + 40:.1f}" width="{W * scale:.1f}" height="{H * scale:.1f}" rx="16" fill="{SURFACE}"/>
 {body}
-{txt(OG_W / 2, 92, ticker, 54, "#F2F4F7", 800, anchor="middle", mono=True, ls=-1.5)}
-{txt(OG_W / 2, 122, name[:64], 19, "#8A93A0", 500, anchor="middle")}
-{txt(OG_W / 2, OG_H - 44, f"ETFIQ · {DESK_LABEL.get(desk, desk)} · data as of {fdate(as_of)} · etfiq.com", 18, "#8A93A0", 500, anchor="middle")}
+{txt(OG_W / 2, 92, ticker, 54, "#FAFAF9", 800, anchor="middle", mono=True, ls=-1.5)}
+{txt(OG_W / 2, 122, name[:64], 19, "#9A9A97", 500, anchor="middle")}
+{txt(OG_W / 2, OG_H - 44, f"ETFIQ · {DESK_LABEL.get(desk, desk)} · data as of {fdate(as_of)} · etfiq.com", 18, "#9A9A97", 500, anchor="middle")}
 </svg>'''
 
 
