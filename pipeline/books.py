@@ -56,6 +56,35 @@ def write(ticker, info, h, kind, note=None, exposure=None):
     (OUT / f'{ticker}.json').write_text(json.dumps({'t': ticker, 'asOf': (info or {}).get('period'), 'src': (info or {}).get('source'), 'daily': bool((info or {}).get('daily')), 'kind': kind, 'note': note, 'exposure': exposure, 'n': len(h), 'h': rows}, separators=(',', ':')))
 
 
+def anonymise_keys():
+    """Replace the CUSIP in every published book with an opaque ETFIQ security id.
+
+    CUSIPs are licensed by CUSIP Global Services, so they must not appear in anything published.
+    They stay the primary match key inside the pipeline. Slot 2 of a book row is only ever a join
+    key, never displayed, so an opaque id preserves look-through and overlap exactly. Ids are
+    ordered by name and ticker, both of which we publish anyway, so the id carries no CUSIP
+    content and no CUSIP ordering.
+    """
+    paths = [p for p in sorted(OUT.glob('*.json')) if p.name != 'index.json']
+    seen = {}
+    for p in paths:
+        for r in (json.loads(p.read_text()).get('h') or []):
+            if r[2]:
+                seen.setdefault(r[2], (r[0] or '', r[1] or ''))
+    order = sorted(seen, key=lambda k: (seen[k][0].lower(), seen[k][1], k))
+    ids = {k: f'e{i:06d}' for i, k in enumerate(order, 1)}
+    for p in paths:
+        d = json.loads(p.read_text())
+        rows = d.get('h') or []
+        if not rows:
+            continue
+        for r in rows:
+            if r[2]:
+                r[2] = ids[r[2]]
+        p.write_text(json.dumps(d, separators=(',', ':')))
+    return len(ids)
+
+
 def stamp_fees():
     """Write each fund's published expense ratio (data/fees.json, from its own 485BPOS) into its book and the index,
     so the desk can weight fees for core funds that sit on no desk. Runs every night; cheap."""
@@ -136,6 +165,8 @@ def build():
         if (i + 1) % 50 == 0:
             print(f'  income {i + 1} of {len(income)}', file=sys.stderr)
     index_p.write_text(json.dumps({'asOf': TODAY.isoformat(), 'books': index}, separators=(',', ':')))
+    n_ids = anonymise_keys()
+    print(f'books: {n_ids} securities keyed with opaque ids; no CUSIP published', file=sys.stderr)
     stamp_fees()
     print(json.dumps({'books': len(index), 'withHoldings': sum(1 for v in index.values() if v.get('n')), 'synthetic': sum(1 for v in index.values() if v.get('kind') == 'synthetic'), 'asOf': TODAY.isoformat()}, indent=1))
 

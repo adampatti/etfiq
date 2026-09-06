@@ -366,6 +366,52 @@ def sec_file(year=None):
     return cache
 
 
+MONTHS = {'jan': 'january', 'feb': 'february', 'mar': 'march', 'apr': 'april', 'may': 'may', 'jun': 'june',
+          'jul': 'july', 'aug': 'august', 'sep': 'september', 'oct': 'october', 'nov': 'november', 'dec': 'december'}
+
+
+def _name_keys(n):
+    """Every reasonable spelling of a fund name, normalised, for matching against the SEC file."""
+    n = (n or '').strip()
+    out = {n, re.sub(r'\s+-\s+', ' ', n)}
+    for a, full in list(MONTHS.items()):
+        out |= {re.sub(rf'\b{a}\b', full, x, flags=re.I) for x in list(out)}
+    out |= {re.sub(r'\s+\d{4}$', '', x) for x in list(out)}
+    out |= {re.sub(r'\bIntl\b', 'International', x, flags=re.I) for x in list(out)}
+    return {re.sub(r'[^a-z0-9]', '', x.lower()) for x in out if x}
+
+
+def series_index(year=None):
+    """ticker -> (seriesId, cik) and name -> (seriesId, cik), from the SEC's own series and class file."""
+    import csv
+    by_tk, by_nm = {}, {}
+    with sec_file(year).open(encoding='utf-8', errors='replace') as fh:
+        for x in csv.DictReader(fh):
+            sid = (x.get('Series ID') or '').strip()
+            if not sid:
+                continue
+            cik = (x.get('CIK Number') or '').strip()
+            tk = (x.get('Class Ticker') or '').strip().upper()
+            if tk:
+                by_tk.setdefault(tk, (sid, cik))
+            for key in ('Class Name', 'Series Name'):
+                for k in _name_keys(x.get(key)):
+                    by_nm.setdefault(k, (sid, cik))
+    return by_tk, by_nm
+
+
+def resolve_series(ticker, name, idx=None):
+    """The fund's SEC series id and CIK, by ticker then by name. Never a guess: unmatched returns (None, None)."""
+    by_tk, by_nm = idx or series_index()
+    v = by_tk.get((ticker or '').upper())
+    if not v:
+        for k in _name_keys(name):
+            if k in by_nm:
+                v = by_nm[k]
+                break
+    return v or (None, None)
+
+
 def build(year=None):
     year = year or datetime.date.today().year
     cache = ROOT / 'pipeline' / 'cache' / f'sec-series-class-{year}.csv'

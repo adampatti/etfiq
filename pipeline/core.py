@@ -107,15 +107,24 @@ def build():
         bp = ROOT / 'site' / 'data' / 'books' / f'{t}.json'
         if bp.exists():
             b = json.loads(bp.read_text())
-            h = [{'name': x[0], 'ticker': x[1], 'cusip': x[2], 'weight': x[3]} for x in (b.get('h') or [])]
+            h = [{'name': x[0], 'ticker': x[1], 'weight': x[2]} for x in (b.get('h') or [])]
             rec['holdingsSource'] = b.get('src')
             rec['holdingsAsOf'] = b.get('asOf')
             rec['holdingsCount'] = b.get('n')
             rec['top'] = [{'t': x['ticker'], 'n': x['name'][:48], 'w': round(x['weight'], 2)} for x in h[:10]]
             rec['top10Weight'] = round(sum(x['weight'] for x in h[:10]), 1) if h else None
             if h and kind == 'equity':
-                rec['vsSPY'] = H.overlap(h, spy_book['holdings'])
-                rec['vsQQQ'] = H.overlap(h, qqq_book['holdings'])
+                # Overlap matches on CUSIP first, so it reads the filing rather than the published
+                # book, which no longer carries one. Same source the book was built from.
+                mh = h
+                if sid:
+                    try:
+                        _info, fh = H.fund_holdings(sid)
+                        if fh: mh = fh
+                    except Exception:
+                        pass
+                rec['vsSPY'] = H.overlap(mh, spy_book['holdings'])
+                rec['vsQQQ'] = H.overlap(mh, qqq_book['holdings'])
         rec.setdefault('holdingsAsOf', meta.get('asOf'))
         rec.setdefault('holdingsCount', meta.get('n'))
         rec.setdefault('top', [])

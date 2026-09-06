@@ -389,6 +389,19 @@ def main():
     (ROOT / 'data' / 'snapshots').mkdir(parents=True, exist_ok=True)
     (ROOT / 'data' / 'snapshots' / f'{TODAY.isoformat()}.json').write_text(json.dumps({'meta': meta, 'funds': all_recs}, indent=1))
     (ROOT / 'site' / 'data').mkdir(parents=True, exist_ok=True)
+    # the SEC series id is the fund's permanent key; tickers get reused and reassigned
+    try:
+        import income_universe as _iu
+        _idx = _iu.series_index()
+        _n = 0
+        for _f in site:
+            _sid, _cik = _iu.resolve_series(_f['ticker'], _f.get('name'), _idx)
+            if _sid:
+                _f['seriesId'], _f['cik'] = _sid, _cik
+                _n += 1
+        print(f'buffer: {_n} of {len(site)} funds carry an SEC series id', file=sys.stderr)
+    except Exception as _e:
+        print(f'buffer: series ids unavailable ({_e}); funds keep ticker only', file=sys.stderr)
     (ROOT / 'site' / 'data' / 'funds.json').write_text(json.dumps(site, separators=(',', ':')))
     (ROOT / 'site' / 'data' / 'meta.json').write_text(json.dumps(meta, indent=1))
     print(json.dumps(meta, indent=1))

@@ -60,6 +60,57 @@ def check_issuers(stage, rows, universe=None):
     return bad
 
 
+def check_published_keys(stage):
+    """No published file may carry a CUSIP.
+
+    CUSIPs are licensed by CUSIP Global Services. Slot 2 of a book row is an opaque ETFIQ
+    security id assigned at build time; anything CUSIP-shaped there means anonymise_keys did
+    not run and a proprietary identifier is about to be deployed.
+    """
+    import re
+    books = [p for p in sorted((ROOT / 'site' / 'data' / 'books').glob('*.json')) if p.name != 'index.json']
+    bad = 0
+    for p in books:
+        for r in (json.loads(p.read_text()).get('h') or []):
+            k = r[2] if len(r) > 2 else ''
+            if k and not re.fullmatch(r'e\d{6}', str(k)):
+                note(stage, p.stem, 'published key', k, 'e######', 'CUSIP-shaped key in a published book')
+                bad += 1
+                break
+    return bad
+
+
+def check_core_overlap(stage):
+    """Overlap must be computed on the whole filing, not on the book truncated for publication.
+
+    core.py once read the published book, which stops at 300 rows, and so reported SPY as having
+    5.7% active share against itself.
+    """
+    import holdings as H, books as B
+    core = load('site/data/core.json') or []
+    rows = core['funds'] if isinstance(core, dict) and 'funds' in core else core
+    try:
+        spy = H.index_holdings('SPY')['holdings']
+    except Exception:
+        return 0
+    bad = 0
+    for r in rows:
+        meta = B.CORE.get(r['ticker'])
+        if not meta or meta[1] != 'equity' or not meta[0] or not r.get('vsSPY'):
+            continue
+        try:
+            _i, fh = H.fund_holdings(meta[0])
+        except Exception:
+            continue
+        if not fh:
+            continue
+        got = H.overlap(fh, spy)
+        if got != r['vsSPY']:
+            note(stage, r['ticker'], 'vsSPY', r['vsSPY'], got, 'overlap does not reproduce from the full filing')
+            bad += 1
+    return bad
+
+
 def tally(stage, n):
     COUNTS[stage] = COUNTS.get(stage, 0) + n
 
@@ -600,6 +651,8 @@ def stage_books():
             note('books', t, 'fee', b.get('fee'), fee)
         if b.get('kind') in ('synthetic', 'proxy') and not (b.get('exposure') or {}).get('ticker'):
             note('books', t, 'exposure', None, None, f"{b.get('kind')} book without an exposure")
+    check_published_keys('books')
+    check_core_overlap('books')
     tally('books', n)
 
 
